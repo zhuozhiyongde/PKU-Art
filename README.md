@@ -1,5 +1,5 @@
 <div align="center">
-<img src='https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/PKU Art.png'><img/>
+<img src='https://i.loli.net/2021/11/27/MUjtNG9HxIQKPbA.png'><img/>
   
 <img src="https://img.shields.io/badge/license-GPL3.0-F6D7A7"><img/>  <img src="https://img.shields.io/badge/language-CSS-F6EABE"><img/>  <img src="https://img.shields.io/badge/site-Arthals.ink-C8E3D4"><img/>  <img src="https://img.shields.io/badge/apply-PKU Site-87AAAA"><img/>
 # PKU Art
