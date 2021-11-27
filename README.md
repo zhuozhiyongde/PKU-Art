@@ -1,9 +1,10 @@
 <div align="center">
 <img src='https://i.loli.net/2021/11/27/MUjtNG9HxIQKPbA.png'><img/>
-  
+	<div style="height:20px;display:block;color:#fff">&nbsp;
+		<div/>
 <img src="https://img.shields.io/badge/license-GPL3.0-F6D7A7"><img/>  <img src="https://img.shields.io/badge/language-CSS-F6EABE"><img/>  <img src="https://img.shields.io/badge/site-Arthals.ink-C8E3D4"><img/>  <img src="https://img.shields.io/badge/apply-PKU Site-87AAAA"><img/>
-# PKU Art
-  
+	
+
   <div/>
 <div align="left">
   
@@ -19,7 +20,29 @@
 现在想想，两天的时间换未来纪念的视觉快感，也算是值辽！
   
 ## 效果展示
-待补充
+	
+### 编程网格
+![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/Programing1.png)
+
+![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/Programing2.png)
+
+![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/Programing3.png)
+
+### IAAA
+![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/IAAA.png)
+
+### 教学网
+![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/CourseLogin.png)
+
+![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/CourseHome.PNG)
+
+![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/Grade.png)
+
+	
+### 动画效果
+![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/animation.gif)
+
+![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/refresh.gif)
   
 ## 提示
 * 作者非专业前端工作人员，不保证该样式在任何设备、浏览器上的兼容性，但如果你遇到问题，可以在 Github 提请 Issue，我也会不定期更新新的 P 大相关网页（咕？
