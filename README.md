@@ -22,27 +22,27 @@
 ## 效果展示
 	
 ### 编程网格
-![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/Programing1.png)
+![编程网格1](https://i.loli.net/2021/11/27/QlT6eiVdXpk7cIZ.png)
 
-![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/Programing2.png)
+![编程网格2](https://i.loli.net/2021/11/27/j9o2zBdSx8WPGhK.png)
 
-![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/Programing3.png)
+!编程网格3](https://i.loli.net/2021/11/27/wAM3DT7xyR5OqUh.png)
 
 ### IAAA
-![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/IAAA.png)
+![IAAA](https://i.loli.net/2021/11/27/9w4BcirULTxCHtM.png)
 
 ### 教学网
-![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/CourseLogin.png)
+![课程网首页](https://i.loli.net/2021/11/27/WI8aLgEu9bzwS5Q.png)
 
-![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/CourseHome.PNG)
+![课程网主页](https://i.loli.net/2021/11/27/XjZfypcsSt4DHP1.png)
 
-![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/Grade.png)
+![成绩页面](https://i.loli.net/2021/11/27/EihLVCfPWFcS3N6.png)
 
 	
 ### 动画效果
-![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/animation.gif)
+![操作动画](https://i.loli.net/2021/11/27/b5G9EOzXv1kWpjc.gif)
 
-![img](https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/refresh.gif)
+![刷新动画](https://i.loli.net/2021/11/27/ozs1S7v4nNTMPVl.gif)
   
 ## 提示
 * 作者非专业前端工作人员，不保证该样式在任何设备、浏览器上的兼容性，但如果你遇到问题，可以在 Github 提请 Issue，我也会不定期更新新的 P 大相关网页（咕？
