@@ -1,0 +1,625 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<script src="external/codemirror/lib/codemirror.js"></script>
+		<link rel="stylesheet" href="external/codemirror/lib/codemirror.css">
+		<script src="external/codemirror/mode/css/css.js"></script>
+
+		<link rel="stylesheet" href="external/codemirror/addon/dialog/dialog.css">
+		<link rel="stylesheet" href="external/codemirror/addon/search/matchesonscrollbar.css">
+		<script src="external/codemirror/addon/scroll/annotatescrollbar.js"></script>
+		<script src="external/codemirror/addon/search/matchesonscrollbar.js"></script>
+		<script src="external/codemirror/addon/dialog/dialog.js"></script>
+		<script src="external/codemirror/addon/search/searchcursor.js"></script>
+		<script src="external/codemirror/addon/search/search.js"></script>
+		<script src="external/codemirror/addon/comment/comment.js"></script>
+		<script src="external/codemirror/addon/selection/active-line.js"></script>
+
+		<link rel="stylesheet" href="external/codemirror/addon/fold/foldgutter.css" />
+		<script src="external/codemirror/addon/fold/foldcode.js"></script>
+		<script src="external/codemirror/addon/fold/foldgutter.js"></script>
+		<script src="external/codemirror/addon/fold/brace-fold.js"></script>
+		<script src="external/codemirror/addon/fold/comment-fold.js"></script>
+
+		<script src="external/codemirror/addon/edit/matchbrackets.js"></script>
+
+		<link rel="stylesheet" href="external/codemirror/addon/lint/lint.css" />
+		<script src="external/csslint/csslint.js"></script>
+		<script src="external/codemirror/addon/lint/lint.js"></script>
+		<script src="external/codemirror/addon/lint/css-lint.js"></script>
+
+		<link rel="stylesheet" href="external/codemirror/addon/hint/show-hint.css" />
+		<script src="external/codemirror/addon/hint/show-hint.js"></script>
+		<script src="external/codemirror/addon/hint/css-hint.js"></script>
+
+		<script src="external/codemirror/keymap/sublime.js"></script>
+		<script src="external/codemirror/keymap/emacs.js"></script>
+		<script src="external/codemirror/keymap/vim.js"></script>
+
+		<style type="text/css">
+
+			body {
+				margin: 0;
+				font: 9pt arial,sans-serif;
+			}
+			/************ header ************/
+			#header {
+				height: 100%;
+				width: 15rem;
+				position: fixed;
+				top: 0;
+				padding: 0.95rem;
+				border-right: 1px dashed #AAA;
+				-webkit-box-shadow: 0 0 3rem -1.2rem black;
+			}
+			#header h1 {
+				margin-top: 0;
+			}
+			#sections {
+				padding-left: 18rem;
+			}
+			#sections h2 {
+				margin-top: 0.5rem;
+			}
+			.aligned {
+				display: table-row;
+			}
+			.aligned > *:not(img) {
+				display: table-cell;
+				margin-top: 0.1rem;
+				min-height: 1.4rem;
+			}
+			img[src="help.png"] {
+				cursor: pointer;
+				vertical-align: middle;
+				margin-left: 0.2rem;
+			}
+			input[type="checkbox"] {
+				margin-left: 0.1rem;
+			}
+			/* basic info */
+			#basic-info {
+				margin-bottom: 1rem;
+			}
+			#name {
+				width: 100%;
+			}
+			#basic-info-name {
+				display: flex;
+				align-items: center;
+			}
+			#url {
+				margin-left: 0.25rem;
+			}
+			#url:not([href^="http"]) {
+				display: none;
+			}
+			img[src*="world"] {
+				width: 16px;
+				height: 16px;
+				vertical-align: middle;
+				image-rendering: -webkit-optimize-contrast;
+			}
+			#enabled {
+				margin-left: 0;
+				vertical-align: middle;
+			}
+			#enabled-label {
+				vertical-align: middle;
+			}
+			/* actions */
+			#actions > * {
+				margin-right: 0.5rem;
+				margin-bottom: 0.5rem;
+			}
+			/* options */
+			#options [type="number"] {
+				max-width: 2.5rem;
+				text-align: right;
+			}
+			#options .option > * {
+				padding-right: 0.25rem;
+			}
+			/************ content ***********/
+			#sections > div {
+				margin: 0.7rem;
+				padding: 1rem;
+			}
+			#sections > div:not(:first-of-type) {
+				border-top: 2px solid black;
+			}
+			#sections > div:only-of-type .remove-section {
+				display: none;
+			}
+			#sections > div > button:not(:first-of-type) {
+				margin-left: 0.2rem;
+			}
+			.dirty > label::before {
+				content: "*";
+				font-weight: bold;
+			}
+			#sections {
+				counter-reset: codebox;
+			}
+			#sections > div > label::after {
+				counter-increment: codebox;
+				content: counter(codebox);
+				margin-left: 0.25rem;
+			}
+			/* code */
+			.code {
+				height: 10rem;
+				width: 40rem;
+			}
+			.CodeMirror {
+				border: solid #CCC 1px;
+			}
+			.CodeMirror-lint-mark-warning {
+				background: none;
+			}
+			.CodeMirror-vscrollbar {
+				margin-bottom: 8px; /* make space for resize-grip */
+			}
+			.CodeMirror-dialog {
+				-webkit-animation: highlight 3s ease-out;
+			}
+			.CodeMirror-focused {
+				outline: -webkit-focus-ring-color auto 5px;
+				outline-offset: -2px;
+			}
+			.CodeMirror-search-field {
+				width: 10em;
+			}
+			.CodeMirror-jump-field {
+				width: 5em;
+			}
+			.CodeMirror-search-hint {
+				color: #888;
+			}
+			@-webkit-keyframes highlight {
+				from {
+					background-color: #ff9;
+				}
+				to {
+					background-color: none;
+				}
+			}
+			.resize-grip {
+				position: absolute;
+				display: block;
+				width: 8px;
+				height: 8px;
+				content: " ";
+				right: 0;
+				bottom: 0;
+				z-index: 99;
+				cursor: n-resize;
+				background: linear-gradient(-45deg, transparent 2px, rgba(0,0,0,0.5) 2px, transparent 3px, transparent 4.5px, rgba(0,0,0,0.5) 5px, transparent 5.5px);
+			}
+			/* applies-to */
+			.applies-to {
+				display: flex;
+			}
+			.applies-to label {
+				flex: auto;
+				margin-top: 0.2rem;
+			}
+			.applies-to ul {
+				flex: auto;
+				flex-grow: 99;
+				margin: 0;
+				padding: 0;
+			}
+			.applies-to li {
+				display: flex;
+				list-style-type: none;
+				align-items: center;
+				margin-bottom: 0.35rem;
+			}
+			.applies-to li > *:not(button) {
+				flex: auto;
+				min-height: 1.4rem;
+				margin-left: 0.35rem;
+			}
+			.applies-to li .add-applies-to {
+				visibility: hidden;
+				text-align: left;
+			}
+			.applies-to li:last-child .add-applies-to {
+				visibility: visible
+			}
+			.applies-to li .add-applies-to:first-child {
+				margin-left: 1rem;
+			}
+			.applies-to li .applies-value {
+				flex-grow: 99;
+				padding-left: 0.2rem;
+			}
+			.applies-to img {
+				vertical-align: bottom;
+			}
+			/************ help popup ************/
+			#help-popup {
+				top: 3rem;
+				right: 3rem;
+				max-width: 50vw;
+				position: fixed;
+				display: none;
+				background-color: white;
+				box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.5);
+				padding: 0.5rem;
+				z-index: 99;
+			}
+			#help-popup.big {
+				max-width: 100%;
+				left: 3rem;
+			}
+			#help-popup.big .CodeMirror {
+				min-height: 2rem;
+				height: 70vh;
+			}
+			#help-popup .title {
+				font-weight: bold;
+				background-color: rgba(0,0,0,0.05);
+				margin: -0.5rem -0.5rem 0.5rem;
+				padding: 0.5rem;
+			}
+			#help-popup .contents {
+				max-height: calc(100vh - 8rem);
+				overflow-y: auto;
+			}
+			#help-popup .close-icon {
+				cursor: pointer;
+				width: 8px;
+				height: 8px;
+				border: 8px solid transparent;
+				position: absolute;
+				right: 4px;
+				top: 4px;
+				background: linear-gradient(-45deg, transparent 5px, black 5px, black 6px, transparent 6.5px) no-repeat, linear-gradient(45deg, transparent 5px, black 5px, black 6px, transparent 6.5px) no-repeat;
+			}
+
+			.keymap-list {
+				font-size: 85%;
+				line-height: 1.0;
+				border-spacing: 0;
+				word-break: break-all;
+			}
+			.keymap-list input {
+				width: 100%;
+			}
+			.keymap-list tr:nth-child(odd) {
+				background-color: rgba(0, 0, 0, 0.07);
+			}
+			.keymap-list td:first-child {
+				white-space: nowrap;
+				font-family: monospace;
+				padding-right: 0.5rem;
+			}
+
+			#help-popup button[name^="import"] {
+				line-height: 1.5rem;
+				padding: 0 0.5rem;
+				margin: 0.5rem 0 0 0.5rem;
+				pointer-events: none;
+				opacity: 0.5;
+				float: right;
+			}
+			#help-popup.ready button[name^="import"] {
+				pointer-events: all;
+				opacity: 1.0;
+			}
+
+			/************ lint ************/
+			#lint {
+				display: none;
+			}
+			#lint > div {
+				overflow-y: auto;
+			}
+			#lint table {
+				font-size: 100%;
+				border-spacing: 0;
+				margin-bottom: 1rem;
+				line-height: 1.0;
+			}
+			#lint table:last-child {
+				margin-bottom: 0;
+			}
+			#lint caption {
+				text-align: left;
+				font-weight: bold;
+			}
+			#lint tbody {
+				font-size: 85%;
+				cursor: pointer;
+			}
+			#lint tr:hover {
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+			#lint td[role="severity"] {
+				font-size: 0;
+				width: 16px;
+				padding-right: 0.25rem;
+			}
+			#lint td[role="line"], #lint td[role="sep"] {
+				text-align: right;
+				padding-right: 0;
+			}
+			#lint td[role="col"] {
+				text-align: left;
+				padding-right: 0.25rem;
+			}
+			#lint td[role="message"] {
+				text-align: left;
+			}
+
+			/************ CSS beautifier ************/
+			.beautify-options {
+				white-space: nowrap;
+				font-family: monospace;
+			}
+			.beautify-options div {
+				float: left;
+			}
+			.beautify-options div[newline="true"] + div {
+				clear: left;
+			}
+			.beautify-options div[newline="true"] + div span[indent] {
+				padding-left: 2rem;
+			}
+			.beautify-options:after {
+				clear: both;
+				display: block;
+				content: " ";
+				height: 1rem;
+			}
+			.beautify-options span {
+				font-weight: bold;
+			}
+			.beautify-options select {
+				border: none;
+				background-color: rgba(0, 0, 0, 0.05);
+			}
+
+			/************ reponsive layouts ************/
+			@media(max-width:737px) {
+				#header {
+					width: auto;
+					height: auto;
+					position: inherit;
+					border-right: none;
+					border-bottom: 1px dashed #AAA;
+				}
+				#header section:not(:last-child) {
+					margin-bottom: 0.4rem;
+				}
+				#header input[type="checkbox"] {
+					vertical-align: middle;
+				}
+				h2 {
+					display: none;
+				}
+				#basic-info {
+					display: flex;
+					align-items: baseline;
+				}
+				#basic-info > * {
+					flex: auto;
+				}
+				#basic-info > *:first-child {
+					flex-grow: 99;
+					display: flex;
+				}
+				#basic-info > *:not(:last-child) {
+					margin-right: 0.8rem;
+				}
+				#basic-info #name {
+					width: auto;
+					flex-grow: 99;
+				}
+				#actions {
+					margin-top: 1rem;
+				}
+				#actions > * {
+					display: inline-block;
+				}
+				#options {
+					-webkit-column-count: 2;
+				}
+				#options .aligned > *:not(img) {
+					margin: 1px 0 0 0; /* workaround the flowing-padding column bug in webkit */
+					padding-right: 0.4rem;
+					vertical-align: baseline;
+					min-height: 1.4rem;
+				}
+				.option {
+					-webkit-column-break-inside: avoid;
+				}
+				.option label {
+					line-height: 1.25rem;
+					margin: 0;
+				}
+				#options [type="number"] {
+					text-align: left; /* workaround the column flow bug in webkit */
+					padding-left: 0.2rem;
+				}
+				#options #tabSize-label {
+					position: relative;
+					top: 0.2rem;
+				}
+				#lint h2 {
+					display: block;
+					cursor: default;
+					margin-bottom: 0;
+				}
+				#lint > div {
+					max-height: 0;
+				}
+				#lint.collapsed > div {
+					display: none;
+				}
+				#lint:hover > div {
+					margin-top: 1em;
+					max-height: 30vh;
+				}
+				#sections {
+					padding-left: 0;
+				}
+				#sections > div {
+					padding: 0;
+				}
+				#sections > *:not(h2) {
+					padding-left: 0.4rem;
+				}
+				.applies-type {
+					width: 30%;
+				}
+			}
+			@media(max-width:500px) {
+				#options {
+					-webkit-column-count: 1;
+				}
+				#options #tabSize-label {
+					position: static;
+				}
+			}
+		</style>
+		<link id="cm-theme" rel="stylesheet">
+
+		<template data-id="appliesTo">
+			<li>
+				<select name="applies-type" class="applies-type style-contributor">
+					<option value="url" i18n-text="appliesUrlOption"></option>
+					<option value="url-prefix" i18n-text="appliesUrlPrefixOption"></option>
+					<option value="domain" i18n-text="appliesDomainOption"></option>
+					<option value="regexp" i18n-text="appliesRegexpOption"></option>
+				</select>
+				<input name="applies-value" class="applies-value style-contributor">
+				<button class="remove-applies-to" i18n-text="appliesRemove"></button>
+				<button class="add-applies-to" i18n-text="appliesAdd"></button>
+			</li>
+		</template>
+		<template data-id="appliesToEverything">
+			<li class="applies-to-everything" i18n-html="appliesToEverything">
+				<button class="add-applies-to" i18n-text="appliesSpecify"></button>
+			</li>
+		</template>
+		<template data-id="section">
+			<div>
+				<label i18n-text="sectionCode"></label>
+				<textarea class="code"></textarea>
+				<br>
+				<div class="applies-to">
+					<label i18n-text="appliesLabel">
+						<img class="applies-to-help" src="images/help.png" i18n-alt="helpAlt">
+					</label>
+					<ul class="applies-to-list"></ul>
+				</div>
+				<button class="remove-section" i18n-text="sectionRemove"></button>
+				<button class="add-section" i18n-text="sectionAdd"></button>
+				<button class="beautify-section" i18n-text="styleBeautify"></button>
+			</div>
+		</template>
+		<template data-id="find">
+			<span i18n-text="search">: <input type="text" class="CodeMirror-search-field">
+				<span class="CodeMirror-search-hint">(<span i18n-text="searchRegexp"></span>)</span>
+			</span>
+		</template>
+		<template data-id="replace">
+			<span i18n-text="replace">: <input type="text" class="CodeMirror-search-field">
+				<span class="CodeMirror-search-hint">(<span i18n-text="searchRegexp"></span>)</span>
+			</span>
+		</template>
+		<template data-id="replaceAll">
+			<span i18n-text="replaceAll">: <input type="text" class="CodeMirror-search-field">
+				<span class="CodeMirror-search-hint">(<span i18n-text="searchRegexp"></span>)</span>
+			</span>
+		</template>
+		<template data-id="replaceWith">
+			<span i18n-text="replaceWith">: <input type="text" class="CodeMirror-search-field">
+			</span>
+		</template>
+		<template data-id="replaceConfirm">
+			<span i18n-text="replace">?
+				<button i18n-text="confirmYes"></button>
+				<button i18n-text="confirmNo"></button>
+				<button i18n-text="confirmStop"></button>
+			</span>
+		</template>
+		<template data-id="jumpToLine">
+			<span i18n-text="editGotoLine">: <input class="CodeMirror-jump-field" type="text"></span>
+		</template>
+
+		<script src="src/storage.js"></script>
+		<script src="src/refilter.js"></script>
+		<script src="src/messaging.js"></script>
+		<script src="src/localization.js"></script>
+		<script src="src/inject/apply.js"></script>
+		<script src="src/analytics.js"></script>
+		<script src="src/edit.js"></script>
+	</head>
+	<body id="stylish-edit">
+		<div id="header">
+			<h1 id="heading">&nbsp;</h1> <!-- nbsp allocates the actual height which prevents page shift -->
+			<section id="basic-info">
+				<div id="basic-info-name">
+					<input id="name" class="style-contributor" i18n-placeholder="styleMissingName">
+					<a id="url" target="_blank"><img src="images/world_go.png"></a>
+				</div>
+				<div id="basic-info-enabled">
+					<input type="checkbox" id="enabled" class="style-contributor">
+					<label for="enabled" id="enabled-label" i18n-text="styleEnabledLabel"></label>
+				</div>
+			</section>
+			<section id="actions">
+				<div>
+					<button id="save-button" title="Ctrl-S" i18n-text="styleSaveLabel"></button>
+					<button id="beautify" i18n-text="styleBeautify"></button>
+					<a href="manage.html"><button id="cancel-button" i18n-text="styleCancelEditLabel"></button></a>
+				</div>
+				<div>
+					<h2 id="mozilla-format-heading" i18n-text="styleMozillaFormatHeading"><img id="to-mozilla-help" src="images/help.png"></h2>
+					<button id="from-mozilla" i18n-text="importLabel"></button>
+					<button id="to-mozilla" i18n-text="exportLabel"></button>
+				</div>
+			</section>
+			<section id="options">
+				<h2 id="options-heading" i18n-text="optionsHeading"></h2>
+				<div class="option">
+					<input data-option="lineWrapping" id="editor.lineWrapping" type="checkbox">
+					<label id="lineWrapping-label" for="editor.lineWrapping" i18n-text="cm_lineWrapping"></label>
+				</div>
+				<div class="option">
+					<input data-option="smartIndent" id="editor.smartIndent" type="checkbox">
+					<label id="smartIndent-label" for="editor.smartIndent" i18n-text="cm_smartIndent"></label>
+				</div>
+				<div class="option">
+					<input data-option="indentWithTabs" id="editor.indentWithTabs" type="checkbox">
+					<label id="indentWithTabs-label" for="editor.indentWithTabs" i18n-text="cm_indentWithTabs"></label>
+				</div>
+				<div class="option aligned">
+					<label id="tabSize-label" for="editor.tabSize" i18n-text="cm_tabSize"></label>
+					<input data-option="tabSize" id="editor.tabSize" type="number" min="0">
+				</div>
+				<div class="option aligned">
+					<label id="keyMap-label" for="editor.keyMap" i18n-text="cm_keyMap"></label>
+					<select data-option="keyMap" id="editor.keyMap"></select>
+					<img id="keyMap-help" src="images/help.png" i18n-alt="helpAlt">
+				</div>
+				<div class="option aligned">
+					<label id="theme-label" for="editor.theme" i18n-text="cm_theme"></label>
+					<select data-option="theme" id="editor.theme"></select>
+				</div>
+			</section>
+			<section id="lint"><h2 i18n-text="issues">: <span id="issue-count"></span><img id="lint-help" src="images/help.png" i18n-alt="helpAlt"></h2><div></div></section>
+		</div>
+		<section id="sections">
+			<h2><span id="sections-heading" i18n-text="styleSectionsTitle"></span><img id="sections-help" src="images/help.png" i18n-alt="helpAlt"></h2>
+		</section>
+		<div id="help-popup">
+			<div class="title"></div><div class="close-icon"></div>
+			<div class="contents"></div>
+		</div>
+	</body>
+</html>

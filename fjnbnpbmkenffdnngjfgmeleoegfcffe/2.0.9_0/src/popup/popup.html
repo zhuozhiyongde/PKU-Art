@@ -1,0 +1,264 @@
+<html>
+<head>
+
+    <link href="../../fonts/roboto.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="../../external/jquery/jquery.min.js"></script>
+    <script id="template-style-item" type="x-tmpl-mustache">
+		<div class="entry enabled" style-id="{{styleid}}">
+			<div class="main-controls">
+				<div class="thumbnail-holder thumbnail" style="background-image: url('{{thumbnail}}');">
+				</div>
+				<div class="style-name" href="{{style_url}}" scope="Library_menu">{{stylename}}</div>
+				<div class="style-author">by {{author}}</div>
+				<div class="info bottomIcons">
+					<div class="thumbnail-mask">
+						<a class="thumbnail_install" href="{{style_url}}" style-id="{{styleid}}" target="_blank">{{installButtonLabel}}</a>
+					</div>
+					<div class="num_installs">
+						<span class="installs tooltip-left" data-tooltip="{{installsTooltip}}">{{installsStr}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+    </script>
+
+    <script id="template-style-installed-item" type="x-tmpl-mustache">
+		<div id="installed-style-{{id}}" class="installed entry {{additionalClass}}" >
+			<div class="main-controls">
+				<div class="thumbnail-holder thumbnail thumbnail--{{id}}"  style="background-image: url('{{screenshot}}');">
+				</div>
+				<div class="style-name" href="{{url}}"  scope="Installed_styles_menu">{{name}}</div>
+				<div class="style-author">by {{author}}</div>
+				<div class="info bottomIcons">
+                    <div class="styleButtons">
+                        <a href="{{style_edit_url}}" target="_blank">
+                            <div class="thumbnail_edit thumb_action tooltip-top"  data-tooltip="Edit"> <img src='/images/edit.svg'> </div>
+                        </a>
+                        <a href="{{style_url}}" target="_blank">
+                            <div class="thumbnail_delete thumb_action tooltip-top" data-tooltip="Delete"> <img src='/images/delete.svg'> </div>
+                        </a>
+                        <div>
+                            <a href="{{feedback_url}}" target="_blank">
+                                <div class="thumbnail_feedback notLoggedIn thumb_action tooltip-top" data-tooltip="Send Feedback"> <img src='/images/feedback.svg'> </div>
+                            </a>
+                            <a href="{{discussion_url}}" target="_blank">
+                                <div class="thumbnail_feedback loggedIn thumb_action tooltip-top" data-tooltip="Send Feedback"> <img src='/images/feedback.svg'> </div>
+                            </a>
+                        </div>
+                    </div>
+				    <div>
+                        <div class="thumbnail_activate">
+                            <div class="thumbnail_active_inactive_text">
+                                {{activateButtonLabel}}
+                            </div>
+                            <div class="toggle_stick">
+                                <div class="toggle_ball"></div>
+                            </div>
+                        </div>
+                        <div class="thumbnail_deactivate">
+                            <div class="thumbnail_active_inactive_text">
+                                {{deactivateButtonLabel}}
+                            </div>
+                            <div class="toggle_stick">
+                                <div class="toggle_ball"></div>
+                            </div>
+                        </div>
+                    </div>
+		        </div>
+		    </div>
+		</div>
+
+
+
+
+
+
+    </script>
+
+    <link rel="stylesheet" href="animate.css"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="tooltips.css"/>
+    <link rel="stylesheet" href="../../styles/cross-browser.css"/>
+
+    <script src="../analytics.js"></script>
+    <script src="../localization.js"></script>
+    <script src="../health.js"></script>
+    <script src="../storage.js"></script>
+    <script src="../refilter.js"></script>
+    <script src="../ua-parser.js"></script>
+    <script src="../utils.js"></script>
+    <script src="../messaging.js"></script>
+    <script src="../inject/apply.js"></script>
+    <script src="mustache.min.js"></script>
+    <script src="mustache.wrap.js"></script>
+    <script src="Tabs.js"></script>
+</head>
+<body id="stylish-popup">
+<div class="popup-notification">
+    <div class="popup-notification__wrapper">
+        <div class="popup-notification__body">
+            <img class="popup-notification__img" src="../../images/update-icon.svg" />
+            <div class="popup-notification__text">
+                Stylish has a new Privacy Policy and Terms of Use, effective May 22, 2018.<br>
+                <a href="https://userstyles.org/login/policy" target="_blank">Privacy Policy</a><br>
+                <a href="https://userstyles.org/terms-of-use" target="_blank">Terms of use</a>
+            </div>
+            <div class="popup-notification__btn">Got it</div>
+        </div>
+    </div>
+</div>
+<div id="header">
+    <div id="top">
+        <div id="title" i18n-text="ThemesFor"></div>
+        <div class="top_right">
+            <div id="disable-all-container">
+                <div id="disable-all-block">
+                    <div class="swipe-button">
+                        <label class="swipe-button-label">
+                            <div id="stylish_off">
+                                <div class="stylish_off_img"></div>
+                                <div class="stylish_on_off_text" i18n-text="stylishOff"></div>
+                            </div>
+                            <div id="stylish_on">
+                                <div class="stylish_on_img"></div>
+                                <div class="stylish_on_off_text" i18n-text="stylishOn"></div>
+                            </div>
+                            <input type="checkbox" id="disable-all-checkbox"/>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="menu_button">
+                <img id="menuImg" src="../../images/burger.svg">
+                <div id="menu" class="bottom_controls">
+                    <div id="menu_inner">
+                        <div id="write-new-style-link" class="add_style menu_link" tabindex="-1"
+                             i18n-text="openCreate"></div>
+                        <div class="manage_styles menu_link" tabindex="-1" i18n-text="openManage"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sitename"></div>
+</div>
+<div class="tabs-container">
+    <header>
+        <div class="tab-header tab-header-left active">
+            <label for="tab-header-recommended" i18n-text="stylesLibLabel"></label>
+            <input id="tab-header-recommended" type="radio" name="style-type" checked>
+        </div>
+        <div class="tab-header">
+            <label for="tab-header-installed" i18n-text="manageHeading"><span id="styleCount"></span></label>
+            <input id="tab-header-installed" type="radio" name="style-type">
+        </div>
+    </header>
+    <div id="styles-off-notification" class="notification styles-off-notification">
+        <div class="popup_title" i18n-text="AllStylesOffAlert"></div>
+        <div class="popup_text" i18n-text="AllStylesOffAlert2"></div>
+    </div>
+
+    <div class="optin-overlay__container hide">
+        <div class="optin-overlay__main">
+            <div class="optin-overlay__body">
+                <div class="optin-overlay__img">
+                    <img src="/images/logo_name.svg" />
+                </div>
+                <div class="optin-overlay__title">
+                    Want to continue using Stylish?
+                </div>
+                <div class="optin-overlay__subtitle">
+                    Please click 'Agree' and allow us to show you available styles for the pages you visit by giving us access to your visited URLs.<br><a href='https://userstyles.org/login/policy' target="_blank">Read More</a>
+                </div>
+                <div class="optin-overlay__cta-container">
+                    <button class="optin-overlay__cta-button optin-overlay__cta-button--invert optin-overlay__cta-button-cancel">
+                        Cancel
+                    </button>
+                    <button class="optin-overlay__cta-button optin-overlay__cta-button-confirm">
+                        Agree
+                    </button>
+                </div>
+            </div>
+            <div class="optin-overlay__footer">
+                If you select 'Cancel' you'll still be able to use Stylish but you will only be able to download styles on <a target="_blank" href="https://userstyles.org">userstyles.org</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="tab-item-recommended" class="tab-item tab-recommended active">
+        <div id="unavailable" class="hide">
+            <div class="left-gutter"></div>
+            <div class="main-controls">
+                <span id="unavailable-message" i18n-text="stylishUnavailableForURL"></span>
+            </div>
+        </div>
+        <div id="nostyles" class="hide"
+             i18n-text="noStylesForSite"> <!--Library Tab-->
+        </div>
+        <div id="noServerConnection" class="hide">
+            <div class="please-opt-in-img">
+                <img src="/images/please-opt-in.png" />
+            </div>
+            <div class="please-opt-in-title">
+                Please opt-in so we can show you available styles
+            </div>
+            <div class="please-opt-in-subtitle">
+                Access styles while you browse the web (requires us collecting each visited URLs as described in our <a href='https://userstyles.org/login/policy' target="_blank">privacy policy</a>)
+            </div>
+            <div class="please-opt-in-cta">
+                I Agree
+            </div>
+        </div>
+        <div id="optInBack" class="hide">
+            <div class="opt-in-back-img">
+                <img src="/images/opt-in-back.png" />
+            </div>
+            <div class="opt-in-cool">
+                Cool
+            </div>
+            <div class="opt-in-back-title">
+                <b>Refresh</b> to start seeing available styles for visited web pages
+            </div>
+            <div class="opt-in-back-cta">
+                <div>
+                    <img src="/images/refresh.svg" />
+                </div>
+            </div>
+        </div>
+        <div id="recommended" class="maintab"></div>
+    </section>
+    <section id="tab-item-installed" class="tab-item tab-installed">
+        <div id="zerostyles" class=""> <!--installed tab-->
+            <div class="message" i18n-text="noStylesInstalled"></div>
+        </div>
+        <div id="installed" class="maintab hide notLoggedIn"></div>
+    </section>
+    <a class="find-styles" id="find-styles"
+       tabindex="-1"
+       href="https://userstyles.org/styles/browse/all/https%3A%2F%2Fwww.google.hu%2F%3Fgfe_rd%3Dcr%26ei%3D2u0aWK6BMrPs8wfdtrzgCA%26gws_rd%3Dssl"
+       i18n-text="findStylesForSite">
+    </a>
+    <a class="find-styles" id="find-styles-others"
+       tabindex="-1"
+       href="https://userstyles.org"
+       i18n-text="FindStylesForOthers">
+    </a>
+</div>
+
+<script src="object.assign.polyfill.js"></script>
+<script src="Requester.js"></script>
+<script src="MemCachedRequester.js"></script>
+<script src="SessionCachedRequester.js"></script>
+<script src="StyleInfoFetcher.js"></script>
+<script src="popup.js"></script>
+<script src="popup-installed.js"></script>
+<script src="popupanalytics.js"></script>
+
+
+</body>
+</html>

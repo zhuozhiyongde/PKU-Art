@@ -1,0 +1,488 @@
+{
+   "OFF": {
+      "message": "オフ"
+   },
+   "ON": {
+      "message": "オン"
+   },
+   "addStyleLabel": {
+      "description": "Label for the button to go to the add style page",
+      "message": "新しいスタイルを作成"
+   },
+   "addStyleTitle": {
+      "description": "Title of the page for adding styles",
+      "message": "スタイルを追加"
+   },
+   "analyticsEnabled": {
+      "description": "Label for the enable analytics setting",
+      "message": "Stylish開発者に匿名データを送る"
+   },
+   "appliesAdd": {
+      "description": "Label for the button to add an 'applies' entry",
+      "message": "追加"
+   },
+   "appliesDisplay": {
+      "description": "Text on the manage screen to describe what the style applies to",
+      "message": "適用先: $applies$",
+      "placeholders": {
+         "applies": {
+            "content": "$1"
+         }
+      }
+   },
+   "appliesDisplayTruncatedSuffix": {
+      "description": "Text added to appliesDisplay when there are more sites for the style than are displayed",
+      "message": "サイトを追加"
+   },
+   "appliesDomainOption": {
+      "description": "Option to make the style apply to the entered string as a domain",
+      "message": "ドメイン上の URL"
+   },
+   "appliesHelp": {
+      "description": "Help text for 'applies to' section",
+      "message": "[適用先] を使用すると、このセクションのコードが適用される URL を制限することができます。"
+   },
+   "appliesLabel": {
+      "description": "Label for 'applies to' fields on the edit/add screen",
+      "message": "適用先"
+   },
+   "appliesRegexpOption": {
+      "description": "Option to make the style apply to the entered string as a regular expression",
+      "message": "正規表現に一致する URL"
+   },
+   "appliesRemove": {
+      "description": "Label for the button to remove an 'applies' entry",
+      "message": "削除"
+   },
+   "appliesSpecify": {
+      "description": "Label for the button to make a style apply only to specific sites",
+      "message": "個別指定"
+   },
+   "appliesToEverything": {
+      "description": "Text displayed for styles that apply to all sites",
+      "message": "すべて"
+   },
+   "appliesUrlOption": {
+      "description": "Option to make the style apply to the entered string as a URL",
+      "message": "URL"
+   },
+   "appliesUrlPrefixOption": {
+      "description": "Option to make the style apply to the entered string as a URL prefix",
+      "message": "次で始まる URL"
+   },
+   "applyAllUpdates": {
+      "description": "Label for the button to apply all detected updates",
+      "message": "Apply all updates"
+   },
+   "bckpInstStyles": {
+      "message": "インストールされた全スタイルをバックアップする"
+   },
+   "checkAllUpdates": {
+      "description": "Label for the button to check all styles for updates",
+      "message": "すべてのスタイルのアップデートをチェック"
+   },
+   "checkForUpdate": {
+      "description": "Label for the button to check a single style for an update",
+      "message": "アップデートをチェック"
+   },
+   "checkingForUpdate": {
+      "description": "Text to display when checking a style for an update",
+      "message": "チェック中..."
+   },
+   "chooseStyleFromLib": {
+      "message": "スタイルライブラリからスタイルを選択する"
+   },
+   "cm_indentWithTabs": {
+      "description": "Label for the checkbox controlling tabs with smart indentation option for the style editor.",
+      "message": "Use tabs with smart indentation"
+   },
+   "cm_keyMap": {
+      "description": "Label for the drop-down list controlling the keymap for the style editor.",
+      "message": "Keymap"
+   },
+   "cm_lineWrapping": {
+      "description": "Label for the checkbox controlling word wrap option for the style editor.",
+      "message": "Word wrap"
+   },
+   "cm_smartIndent": {
+      "description": "Label for the checkbox controlling smart indentation option for the style editor.",
+      "message": "Use smart indentation"
+   },
+   "cm_tabSize": {
+      "description": "Label for the text box controlling tab size option for the style editor.",
+      "message": "Tab size"
+   },
+   "cm_theme": {
+      "description": "Label for the style editor's CSS theme.",
+      "message": "Theme"
+   },
+   "confirmNo": {
+      "description": "'No' button in a confirm dialog",
+      "message": "No"
+   },
+   "confirmStop": {
+      "description": "'Stop' button in a confirm dialog",
+      "message": "Stop"
+   },
+   "confirmYes": {
+      "description": "'Yes' button in a confirm dialog",
+      "message": "Yes"
+   },
+   "createOwnStyle": {
+      "message": "独自のスタイルを作成する"
+   },
+   "dbError": {
+      "description": "Prompt when a DB error is encountered",
+      "message": "An error has occurred using the Stylish database. Would you like to visit a web page with possible solutions?"
+   },
+   "defaultTheme": {
+      "description": "Default CodeMirror CSS theme option on the edit style page",
+      "message": "default"
+   },
+   "deleteStyleConfirm": {
+      "description": "Confirmation before deleting a style",
+      "message": "このスタイルを削除してもよろしいですか？"
+   },
+   "deleteStyleLabel": {
+      "description": "Label for the button to delete a style",
+      "message": "削除する"
+   },
+   "description": {
+      "description": "Extension description",
+      "message": "ユーザスタイルマネージャーのStylishで、ウェブをリスタイルしましょう。 Stylishでは複数サイトにテーマとスキンをインストールして、独自のものを作り出せます。"
+   },
+   "disableAllStyles": {
+      "description": "Label for the checkbox that turns all enabled styles off.",
+      "message": "Turn all styles off"
+   },
+   "disableStyleLabel": {
+      "description": "Label for the button to disable a style",
+      "message": "無効にする"
+   },
+   "editGotoLine": {
+      "description": "Go to line or line:column on Ctrl-G in style code editor",
+      "message": "Goto line (or line:col)"
+   },
+   "editStyleHeading": {
+      "description": "Title of the page for editing styles",
+      "message": "スタイルを編集する"
+   },
+   "editStyleLabel": {
+      "description": "Label for the button to go to the edit style page",
+      "message": "編集"
+   },
+   "editStyleTitle": {
+      "description": "Title of the page for editing styles",
+      "message": "スタイル「$stylename$」を編集",
+      "placeholders": {
+         "stylename": {
+            "content": "$1"
+         }
+      }
+   },
+   "enableStyleLabel": {
+      "description": "Label for the button to enable a style",
+      "message": "有効にする"
+   },
+   "exportLabel": {
+      "description": "Label for the button to export a style ('edit' page) or all styles ('manage' page)",
+      "message": "Export"
+   },
+   "extName": {
+      "message": "Stylish - ウェブサイト用カスタムテーマ"
+   },
+   "findStylesForSite": {
+      "description": "Text for a link that gets a list of styles for the current site",
+      "message": "このサイト用のスタイルをもっと探す"
+   },
+   "helpAlt": {
+      "description": "Alternate text for help buttons",
+      "message": "ヘルプ"
+   },
+   "helpKeyMapCommand": {
+      "description": "Placeholder text of inputbox in keymap help popup on the edit style page. Must be very short",
+      "message": "Type a command name"
+   },
+   "helpKeyMapHotkey": {
+      "description": "Placeholder text of inputbox in keymap help popup on the edit style page. Must be very short",
+      "message": "Press a hotkey"
+   },
+   "importAppendLabel": {
+      "description": "Label for the button to import a style and append to the existing sections",
+      "message": "Append to style"
+   },
+   "importAppendTooltip": {
+      "description": "Tooltip for the button to import a style and append to the existing sections",
+      "message": "Append the imported style to current style"
+   },
+   "importLabel": {
+      "description": "Label for the button to import a style ('edit' page) or all styles ('manage' page)",
+      "message": "Import"
+   },
+   "importReplaceLabel": {
+      "description": "Label for the button to import and overwrite current style",
+      "message": "Overwrite style"
+   },
+   "importReplaceTooltip": {
+      "description": "Label for the button to import and overwrite current style",
+      "message": "Discard contents of current style and overwrite it with the imported style"
+   },
+   "installButtonLabel": {
+      "description": "Label inside the install button",
+      "message": "インストール"
+   },
+   "installUpdate": {
+      "description": "Label for the button to install an update for a single style",
+      "message": "アップデートをインストール"
+   },
+   "issues": {
+      "description": "Label for the CSSLint issues block on the style edit page",
+      "message": "Issues"
+   },
+   "issuesHelp": {
+      "description": "Help popup message for the CSSLint issues block on the style edit page",
+      "message": "The issues found by \u003Ca href='https://github.com/CSSLint/csslint' target='_blank'>CSSLint\u003C/a> with these rules enabled:"
+   },
+   "manageFilters": {
+      "description": "Label for filters container",
+      "message": "Filters"
+   },
+   "manageHeading": {
+      "description": "Heading for the manage page",
+      "message": "インストールされたスタイル"
+   },
+   "manageOnlyEdited": {
+      "description": "Checkbox to show only locally edited styles",
+      "message": "Only edited styles"
+   },
+   "manageOnlyEnabled": {
+      "description": "Checkbox to show only enabled styles",
+      "message": "Only enabled styles"
+   },
+   "manageTextGetHelp": {
+      "description": "Help text on the manage page: get help",
+      "message": "Get help"
+   },
+   "manageTextGetStyles": {
+      "description": "Help text on the manage page: get more styles",
+      "message": "Get styles on userstyles.org"
+   },
+   "manageTextReadPP": {
+      "description": "Help text on the manage page: read privacy policy",
+      "message": "Read the privacy policy"
+   },
+   "manageTitle": {
+      "description": "Title for the manage page",
+      "message": "Stylish"
+   },
+   "menuShowBadge": {
+      "description": "Label (must be very short) for the checkbox in the toolbar button context menu controlling toolbar badge text.",
+      "message": "Show active style count"
+   },
+   "noServerConnection": {
+      "description": "Message which is shown when user deselected sending anonymous data to server AND has some styles installed.",
+      "message": "Stylish上で直接見ることのできる、このサイト用のスタイルをオプトアウトしました。 利用可能なスタイルを見るには、Userstyles.orgにアクセスするか、ここで見られるように設定を更新してください。"
+   },
+   "noServerConnectionParam1": {
+      "description": "text of link to website in noServerConnection",
+      "message": "Userstyles.org"
+   },
+   "noServerConnectionParam2": {
+      "description": "text of link to settings in noServerConnection",
+      "message": "設定"
+   },
+   "noStylesForSite": {
+      "description": "Text displayed when no styles are installed for the current site",
+      "message": "このウェブページ用にインストールされたスタイルがありません"
+   },
+   "numberOfWeeklyInstalls": {
+      "description": "Text of popup when hovering over installs icon",
+      "message": "週間インストール数"
+   },
+   "openCreate": {
+      "description": "Link to open the creation page.",
+      "message": "スタイルを作る"
+   },
+   "openManage": {
+      "description": "Link to open the manage page.",
+      "message": "スタイルを管理する"
+   },
+   "optionsHeading": {
+      "description": "Heading for options section on manage page.",
+      "message": "Options"
+   },
+   "prefShowBadge": {
+      "description": "Label for the checkbox controlling toolbar badge text.",
+      "message": "Show number of styles active for the current site on the toolbar button"
+   },
+   "replace": {
+      "description": "Label before the replace input field in the editor shown on Ctrl-H",
+      "message": "Replace"
+   },
+   "replaceAll": {
+      "description": "Label before the replace input field in the editor shown on 'replaceAll' hotkey",
+      "message": "Replace all"
+   },
+   "replaceWith": {
+      "description": "Label before the replace-with input field in the editor shown on Ctrl-H etc.",
+      "message": "Replace with"
+   },
+   "retrieveBckp": {
+      "message": "バックアップの回収"
+   },
+   "search": {
+      "description": "Label before the search input field in the editor shown on Ctrl-F",
+      "message": "Search"
+   },
+   "searchRegexp": {
+      "description": "Label after the search input field in the editor shown on Ctrl-F",
+      "message": "Use /re/ syntax for regexp search"
+   },
+   "searchStyles": {
+      "description": "Label for the search filter textbox on the Manage styles page",
+      "message": "Search contents"
+   },
+   "sectionAdd": {
+      "description": "Label for the button to add a section",
+      "message": "他のセクションを追加"
+   },
+   "sectionCode": {
+      "description": "Label for the code for a section",
+      "message": "コード"
+   },
+   "sectionHelp": {
+      "description": "Help text for sections",
+      "message": "セクションを利用すると、1 つのスタイルの中で複数のコードを定義し、それぞれ異なる URL に適用することができます。たとえば、単一のスタイルで、サイトのトップページの表示方法と他のページの表示方法を変えることができます。"
+   },
+   "sectionRemove": {
+      "description": "Label for the button to remove a section",
+      "message": "セクションを削除"
+   },
+   "sendFeedbackLabel": {
+      "message": "フィードバックを送る"
+   },
+   "statsDisabled": {
+      "description": "Alert message that is displayed when user hit on 'Send anonymous...' checkbox inside manage page",
+      "message": "オプトアウトとは、使用可能なスタイルをStylishアドオンで直接見られないことを意味します。 Userstyles.orgにアクセスするか、いつでもオプトインしてください。"
+   },
+   "styleActiveLabel": {
+      "message": "アクティブ"
+   },
+   "styleBadRegexp": {
+      "description": "Validation message for a bad regexp in a style",
+      "message": "正規表現は無効です。"
+   },
+   "styleBeautify": {
+      "description": "Label for the CSS-beautifier button on the edit style page",
+      "message": "Beautify"
+   },
+   "styleCancelEditLabel": {
+      "description": "Label for cancel button for style editing",
+      "message": "管理画面に戻る"
+   },
+   "styleChangesNotSaved": {
+      "description": "Text for the prompt when changes are made to a style and the user tries to leave without saving",
+      "message": "このスタイルは変更されていますが、保存されていません。"
+   },
+   "styleEnabledLabel": {
+      "description": "Label for the enabled state of styles",
+      "message": "有効"
+   },
+   "styleFromMozillaFormatPrompt": {
+      "description": "Prompt in the dialog displayed after clicking 'Import from Mozilla format' button",
+      "message": "Paste the Mozilla-format code"
+   },
+   "styleInactiveLabel": {
+      "message": "非アクティブ"
+   },
+   "styleInstall": {
+      "description": "Confirmation when installing a style",
+      "message": "「$stylename$」を Stylish にインストールしますか？",
+      "placeholders": {
+         "stylename": {
+            "content": "$1"
+         }
+      }
+   },
+   "styleMissingName": {
+      "description": "Error displayed when user saves without providing a name",
+      "message": "名前を入力してください。"
+   },
+   "styleMozillaFormatHeading": {
+      "description": "Heading for the section with buttons to import/export Mozilla format of the style",
+      "message": "Mozilla Format"
+   },
+   "styleSaveLabel": {
+      "description": "Label for save button for style editing",
+      "message": "保存"
+   },
+   "styleSectionsTitle": {
+      "description": "Title for the style sections section",
+      "message": "セクション"
+   },
+   "styleToMozillaFormatHelp": {
+      "description": "Help info for the Mozilla format header section that converts the code to/from Mozilla format",
+      "message": "Mozilla 形式のコードは、Stylish for Firefox で使用することができ、userstyles.org に投稿することができます。"
+   },
+   "styleToMozillaFormatTitle": {
+      "description": "Title of the popup with the style code in Mozilla format, shown after pressing the Export button on Edit style page",
+      "message": "Style in Mozilla format"
+   },
+   "styleUpdate": {
+      "description": "Confirmation when updating a style",
+      "message": "Are you sure you want to update '$stylename$'?",
+      "placeholders": {
+         "stylename": {
+            "content": "$1"
+         }
+      }
+   },
+   "stylesLibLabel": {
+      "message": "使用可能なスタイル"
+   },
+   "stylishUnavailableForURL": {
+      "description": "Note in the toolbar pop-up when on a URL Stylish can't affect",
+      "message": "(Stylish does not work on pages like this.)"
+   },
+   "undo": {
+      "description": "Button label",
+      "message": "Undo"
+   },
+   "undoGlobal": {
+      "description": "CSS-beautify global Undo button label",
+      "message": "Undo (global)"
+   },
+   "updateAllCheckSucceededNoUpdate": {
+      "description": "Text that displays when an update all check completed and no updates are available",
+      "message": "All styles are up to date."
+   },
+   "updateCheckFailBadResponseCode": {
+      "description": "Text that displays when an update check failed because the response code indicates an error",
+      "message": "更新に失敗しました - サーバーが応答コード「$code$」を返しています。",
+      "placeholders": {
+         "code": {
+            "content": "$1"
+         }
+      }
+   },
+   "updateCheckFailServerUnreachable": {
+      "description": "Text that displays when an update check failed because the update server is unreachable",
+      "message": "更新に失敗しました - サーバーに到達できません。"
+   },
+   "updateCheckSucceededNoUpdate": {
+      "description": "Text that displays when an update check completed and no update is available",
+      "message": "スタイルは最新の状態です。"
+   },
+   "updateCompleted": {
+      "description": "Text that displays when an update completed",
+      "message": "更新が完了しました"
+   },
+   "writeStyleFor": {
+      "description": "Label for toolbar pop-up that precedes the links to write a new style",
+      "message": "Write style for: "
+   },
+   "writeStyleForURL": {
+      "description": "Text for link in toolbar pop-up to write a new style for the current URL",
+      "message": "this URL"
+   }
+}

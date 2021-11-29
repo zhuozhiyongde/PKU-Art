@@ -1,0 +1,491 @@
+{
+   "OFF": {
+      "message": "Вык"
+   },
+   "ON": {
+      "message": "Вкл"
+   },
+   "addStyleLabel": {
+      "description": "Label for the button to go to the add style page",
+      "message": "Создать стиль"
+   },
+   "addStyleTitle": {
+      "description": "Title of the page for adding styles",
+      "message": "Добавление стиля"
+   },
+   "analyticsEnabled": {
+      "description": "Label for the enable analytics setting",
+      "message": "Послать анонимные данные разработчикам Stylish"
+   },
+   "appliesAdd": {
+      "description": "Label for the button to add an 'applies' entry",
+      "message": "Добавить"
+   },
+   "appliesDisplay": {
+      "description": "Text on the manage screen to describe what the style applies to",
+      "message": "Применить к: $applies$",
+      "placeholders": {
+         "applies": {
+            "content": "$1"
+         }
+      }
+   },
+   "appliesDisplayTruncatedSuffix": {
+      "description": "Text added to appliesDisplay when there are more sites for the style than are displayed",
+      "message": "и другие"
+   },
+   "appliesDomainOption": {
+      "description": "Option to make the style apply to the entered string as a domain",
+      "message": "URL в домене"
+   },
+   "appliesHelp": {
+      "description": "Help text for 'applies to' section",
+      "message": "Чтобы указать, к каким URL относится код в этом разделе, воспользуйтесь параметром \"Применить к\"."
+   },
+   "appliesLabel": {
+      "description": "Label for 'applies to' fields on the edit/add screen",
+      "message": "Применить к:"
+   },
+   "appliesRegexpOption": {
+      "description": "Option to make the style apply to the entered string as a regular expression",
+      "message": "URL, соответствующим регулярному выражению"
+   },
+   "appliesRemove": {
+      "description": "Label for the button to remove an 'applies' entry",
+      "message": "Удалить"
+   },
+   "appliesSpecify": {
+      "description": "Label for the button to make a style apply only to specific sites",
+      "message": "Указать"
+   },
+   "appliesToEverything": {
+      "description": "Text displayed for styles that apply to all sites",
+      "message": "Все"
+   },
+   "appliesUrlOption": {
+      "description": "Option to make the style apply to the entered string as a URL",
+      "message": "URL"
+   },
+   "appliesUrlPrefixOption": {
+      "description": "Option to make the style apply to the entered string as a URL prefix",
+      "message": "URL, начинающимся с"
+   },
+   "applyAllUpdates": {
+      "description": "Label for the button to apply all detected updates",
+      "message": "Применить все обновления"
+   },
+   "bckpInstStyles": {
+      "message": "Резерв. копия всех установл. стилей"
+   },
+   "checkAllUpdates": {
+      "description": "Label for the button to check all styles for updates",
+      "message": "Проверить обновления для всех стилей"
+   },
+   "checkForUpdate": {
+      "description": "Label for the button to check a single style for an update",
+      "message": "Проверить обновления"
+   },
+   "checkingForUpdate": {
+      "description": "Text to display when checking a style for an update",
+      "message": "Проверка…"
+   },
+   "chooseStyleFromLib": {
+      "message": "Выберите стиль из Библиотеки стилей"
+   },
+   "cm_indentWithTabs": {
+      "description": "Label for the checkbox controlling tabs with smart indentation option for the style editor.",
+      "message": "Умные отступы при помощи табуляции"
+   },
+   "cm_keyMap": {
+      "description": "Label for the drop-down list controlling the keymap for the style editor.",
+      "message": "Раскладка"
+   },
+   "cm_lineWrapping": {
+      "description": "Label for the checkbox controlling word wrap option for the style editor.",
+      "message": "Перенос по словам"
+   },
+   "cm_smartIndent": {
+      "description": "Label for the checkbox controlling smart indentation option for the style editor.",
+      "message": "Умные отступы"
+   },
+   "cm_tabSize": {
+      "description": "Label for the text box controlling tab size option for the style editor.",
+      "message": "Размер табуляции"
+   },
+   "cm_theme": {
+      "description": "Label for the style editor's CSS theme.",
+      "message": "Тема"
+   },
+   "confirmNo": {
+      "description": "'No' button in a confirm dialog",
+      "message": "Нет"
+   },
+   "confirmStop": {
+      "description": "'Stop' button in a confirm dialog",
+      "message": "Стоп"
+   },
+   "confirmYes": {
+      "description": "'Yes' button in a confirm dialog",
+      "message": "Да"
+   },
+   "createOwnStyle": {
+      "message": "Создайте свой стиль"
+   },
+   "dbError": {
+      "description": "Prompt when a DB error is encountered",
+      "message": "Возникла ошибка доступа к базе данных Stylish. Хотите перейти на страницу с возможными способами решения?"
+   },
+   "defaultTheme": {
+      "description": "Default CodeMirror CSS theme option on the edit style page",
+      "message": "по-умолчанию"
+   },
+   "deleteStyleConfirm": {
+      "description": "Confirmation before deleting a style",
+      "message": "Удалить этот стиль?"
+   },
+   "deleteStyleLabel": {
+      "description": "Label for the button to delete a style",
+      "message": "Удал."
+   },
+   "description": {
+      "description": "Extension description",
+      "message": "Стильный интернет со Stylish, пользовательским менеджером стилей. Устанавливайте темы и скины для многих сайтов и создавайте свои."
+   },
+   "disableAllStyles": {
+      "description": "Label for the checkbox that turns all enabled styles off.",
+      "message": "Выключить все стили"
+   },
+   "disableStyleLabel": {
+      "description": "Label for the button to disable a style",
+      "message": "Деактивир."
+   },
+   "editGotoLine": {
+      "description": "Go to line or line:column on Ctrl-G in style code editor",
+      "message": "Перейти к строке (или строке:колонке)"
+   },
+   "editStyleHeading": {
+      "description": "Title of the page for editing styles",
+      "message": "Изменить"
+   },
+   "editStyleLabel": {
+      "description": "Label for the button to go to the edit style page",
+      "message": "Изменить"
+   },
+   "editStyleTitle": {
+      "description": "Title of the page for editing styles",
+      "message": "Изменение стиля \"$stylename$\"",
+      "placeholders": {
+         "stylename": {
+            "content": "$1"
+         }
+      }
+   },
+   "enableStyleLabel": {
+      "description": "Label for the button to enable a style",
+      "message": "Активир."
+   },
+   "exportLabel": {
+      "description": "Label for the button to export a style ('edit' page) or all styles ('manage' page)",
+      "message": "Экспорт"
+   },
+   "extName": {
+      "message": "Stylish – кастомные темы для любого сайта"
+   },
+   "findStylesForSite": {
+      "description": "Text for a link that gets a list of styles for the current site",
+      "message": "Найти больше стилей для этого сайта"
+   },
+   "helpAlt": {
+      "description": "Alternate text for help buttons",
+      "message": "Справка"
+   },
+   "helpKeyMapCommand": {
+      "description": "Placeholder text of inputbox in keymap help popup on the edit style page. Must be very short",
+      "message": "Введите имя команды"
+   },
+   "helpKeyMapHotkey": {
+      "description": "Placeholder text of inputbox in keymap help popup on the edit style page. Must be very short",
+      "message": "Нажмите клавишу"
+   },
+   "importAppendLabel": {
+      "description": "Label for the button to import a style and append to the existing sections",
+      "message": "Добавить к стилю"
+   },
+   "importAppendTooltip": {
+      "description": "Tooltip for the button to import a style and append to the existing sections",
+      "message": "Добавить импортируемый стиль к редактируемому"
+   },
+   "importLabel": {
+      "description": "Label for the button to import a style ('edit' page) or all styles ('manage' page)",
+      "message": "Импорт"
+   },
+   "importReplaceLabel": {
+      "description": "Label for the button to import and overwrite current style",
+      "message": "Заменить стиль"
+   },
+   "importReplaceTooltip": {
+      "description": "Label for the button to import and overwrite current style",
+      "message": "Удалить содержимое редактируемого стиля и заменить его на импортируемый стиль"
+   },
+   "installButtonLabel": {
+      "description": "Label inside the install button",
+      "message": "Устан. стиль"
+   },
+   "installUpdate": {
+      "description": "Label for the button to install an update for a single style",
+      "message": "Установить обновление"
+   },
+   "issues": {
+      "description": "Label for the CSSLint issues block on the style edit page",
+      "message": "Проблемы"
+   },
+   "issuesHelp": {
+      "description": "Help popup message for the CSSLint issues block on the style edit page",
+      "message": "Проблемы и предупреждения по версии \u003Ca href='https://github.com/CSSLint/csslint' target='_blank'>CSSLint\u003C/a> с данными включенными правилами:"
+   },
+   "manageFilters": {
+      "description": "Label for filters container",
+      "message": "Фильтры"
+   },
+   "manageHeading": {
+      "description": "Heading for the manage page",
+      "message": "Установл. стили"
+   },
+   "manageOnlyEdited": {
+      "description": "Checkbox to show only locally edited styles",
+      "message": "Только отредактированные стили"
+   },
+   "manageOnlyEnabled": {
+      "description": "Checkbox to show only enabled styles",
+      "message": "Только включенные стили"
+   },
+   "manageTextGetHelp": {
+      "description": "Help text on the manage page: get help",
+      "message": "Справка"
+   },
+   "manageTextGetStyles": {
+      "description": "Help text on the manage page: get more styles",
+      "message": "Скачать стили с  userstyles.org"
+   },
+   "manageTextReadPP": {
+      "description": "Help text on the manage page: read privacy policy",
+      "message": "Политика конфиденциальности"
+   },
+   "manageTitle": {
+      "description": "Title for the manage page",
+      "message": "Stylish"
+   },
+   "menuShowBadge": {
+      "description": "Label (must be very short) for the checkbox in the toolbar button context menu controlling toolbar badge text.",
+      "message": "Число активных стилей"
+   },
+   "noServerConnection": {
+      "description": "Message which is shown when user deselected sending anonymous data to server AND has some styles installed.",
+      "message": "Вы отключили показ доступных стилей для этого сайта напрямую в Stylish. Зайдите на Userstyles.org, чтобы увидеть доступные стили, или измените ваши настройки, чтобы видеть их здесь."
+   },
+   "noServerConnectionParam1": {
+      "description": "text of link to website in noServerConnection",
+      "message": "Userstyles.org"
+   },
+   "noServerConnectionParam2": {
+      "description": "text of link to settings in noServerConnection",
+      "message": "Настройки"
+   },
+   "noStylesForSite": {
+      "description": "Text displayed when no styles are installed for the current site",
+      "message": "Для этой веб-страницы не установлены стили"
+   },
+   "noStylesInstalled": {
+      "message": "Для данного сайта у вас не установленно стилей."
+   },
+   "numberOfWeeklyInstalls": {
+      "description": "Text of popup when hovering over installs icon",
+      "message": "Число еженед. инсталляций"
+   },
+   "openCreate": {
+      "description": "Link to open the creation page.",
+      "message": "Создать стиль"
+   },
+   "openManage": {
+      "description": "Link to open the manage page.",
+      "message": "Упр. стилями"
+   },
+   "optionsHeading": {
+      "description": "Heading for options section on manage page.",
+      "message": "Настройки"
+   },
+   "prefShowBadge": {
+      "description": "Label for the checkbox controlling toolbar badge text.",
+      "message": "Показывать на кнопке в тулбаре количество активных стилей для открытого сайта "
+   },
+   "replace": {
+      "description": "Label before the replace input field in the editor shown on Ctrl-H",
+      "message": "Заменить"
+   },
+   "replaceAll": {
+      "description": "Label before the replace input field in the editor shown on 'replaceAll' hotkey",
+      "message": "Заменить все"
+   },
+   "replaceWith": {
+      "description": "Label before the replace-with input field in the editor shown on Ctrl-H etc.",
+      "message": "Заменить на"
+   },
+   "retrieveBckp": {
+      "message": "Восстан. рез. копии"
+   },
+   "search": {
+      "description": "Label before the search input field in the editor shown on Ctrl-F",
+      "message": "Искать"
+   },
+   "searchRegexp": {
+      "description": "Label after the search input field in the editor shown on Ctrl-F",
+      "message": "Используйте нотацию /re/ для поиска регулярными выражениями"
+   },
+   "searchStyles": {
+      "description": "Label for the search filter textbox on the Manage styles page",
+      "message": "Искать по содержимому"
+   },
+   "sectionAdd": {
+      "description": "Label for the button to add a section",
+      "message": "Добавить раздел"
+   },
+   "sectionCode": {
+      "description": "Label for the code for a section",
+      "message": "Код"
+   },
+   "sectionHelp": {
+      "description": "Help text for sections",
+      "message": "Разделы позволяют задавать разный код для различных наборов URL в пределах одного стиля. Например, стиль может применяться к главной странице не так, как к остальным частям сайта."
+   },
+   "sectionRemove": {
+      "description": "Label for the button to remove a section",
+      "message": "Удалить раздел"
+   },
+   "sendFeedbackLabel": {
+      "message": "Послать отзыв"
+   },
+   "statsDisabled": {
+      "description": "Alert message that is displayed when user hit on 'Send anonymous...' checkbox inside manage page",
+      "message": "После отключения вы не будете видеть доступные стили напрямую в надстройке Stylish. Зайдите на Userstyles.com, чтобы их найти или включите показ в любой момент."
+   },
+   "styleActiveLabel": {
+      "message": "АКТИВ."
+   },
+   "styleBadRegexp": {
+      "description": "Validation message for a bad regexp in a style",
+      "message": "Ошибка в регулярном выражении."
+   },
+   "styleBeautify": {
+      "description": "Label for the CSS-beautifier button on the edit style page",
+      "message": "Форматировать"
+   },
+   "styleCancelEditLabel": {
+      "description": "Label for cancel button for style editing",
+      "message": "Завершить"
+   },
+   "styleChangesNotSaved": {
+      "description": "Text for the prompt when changes are made to a style and the user tries to leave without saving",
+      "message": "Вы изменили этот стиль, но не сохранили его."
+   },
+   "styleEnabledLabel": {
+      "description": "Label for the enabled state of styles",
+      "message": "Включено"
+   },
+   "styleFromMozillaFormatPrompt": {
+      "description": "Prompt in the dialog displayed after clicking 'Import from Mozilla format' button",
+      "message": "Вставьте содержимое стиля в формате Mozilla"
+   },
+   "styleInactiveLabel": {
+      "message": "НЕАКТИВ."
+   },
+   "styleInstall": {
+      "description": "Confirmation when installing a style",
+      "message": "Установить \"$stylename$\" в Stylish?",
+      "placeholders": {
+         "stylename": {
+            "content": "$1"
+         }
+      }
+   },
+   "styleMissingName": {
+      "description": "Error displayed when user saves without providing a name",
+      "message": "Введите название."
+   },
+   "styleMozillaFormatHeading": {
+      "description": "Heading for the section with buttons to import/export Mozilla format of the style",
+      "message": "Формат Mozilla"
+   },
+   "styleSaveLabel": {
+      "description": "Label for save button for style editing",
+      "message": "Сохранить"
+   },
+   "styleSectionsTitle": {
+      "description": "Title for the style sections section",
+      "message": "Разделы"
+   },
+   "styleToMozillaFormatHelp": {
+      "description": "Help info for the Mozilla format header section that converts the code to/from Mozilla format",
+      "message": "Формат кода Mozilla можно использовать в сочетании с форматом Stylish для Firefox и отправлять на сайт userstyles.org."
+   },
+   "styleToMozillaFormatTitle": {
+      "description": "Title of the popup with the style code in Mozilla format, shown after pressing the Export button on Edit style page",
+      "message": "Стиль в формате Mozilla"
+   },
+   "styleUpdate": {
+      "description": "Confirmation when updating a style",
+      "message": "Подтвердите обновление стиля '$stylename$'.",
+      "placeholders": {
+         "stylename": {
+            "content": "$1"
+         }
+      }
+   },
+   "stylesLibLabel": {
+      "message": "Доступные стили"
+   },
+   "stylishUnavailableForURL": {
+      "description": "Note in the toolbar pop-up when on a URL Stylish can't affect",
+      "message": "(Stylish не работает на таких страницах)"
+   },
+   "undo": {
+      "description": "Button label",
+      "message": "Отменить"
+   },
+   "undoGlobal": {
+      "description": "CSS-beautify global Undo button label",
+      "message": "Отменить (глобально)"
+   },
+   "updateAllCheckSucceededNoUpdate": {
+      "description": "Text that displays when an update all check completed and no updates are available",
+      "message": "Все стили актуальных версий."
+   },
+   "updateCheckFailBadResponseCode": {
+      "description": "Text that displays when an update check failed because the response code indicates an error",
+      "message": "Ошибка обновления: сервер вернул код \"$code$\".",
+      "placeholders": {
+         "code": {
+            "content": "$1"
+         }
+      }
+   },
+   "updateCheckFailServerUnreachable": {
+      "description": "Text that displays when an update check failed because the update server is unreachable",
+      "message": "Ошибка обновления: сервер недоступен."
+   },
+   "updateCheckSucceededNoUpdate": {
+      "description": "Text that displays when an update check completed and no update is available",
+      "message": "Стиль обновлен."
+   },
+   "updateCompleted": {
+      "description": "Text that displays when an update completed",
+      "message": "Обновление завершено."
+   },
+   "writeStyleFor": {
+      "description": "Label for toolbar pop-up that precedes the links to write a new style",
+      "message": "Создать стиль для:"
+   },
+   "writeStyleForURL": {
+      "description": "Text for link in toolbar pop-up to write a new style for the current URL",
+      "message": "этого адреса"
+   }
+}

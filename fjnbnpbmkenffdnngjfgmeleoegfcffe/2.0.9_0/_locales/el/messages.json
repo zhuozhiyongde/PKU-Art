@@ -1,0 +1,488 @@
+{
+   "OFF": {
+      "message": "OFF"
+   },
+   "ON": {
+      "message": "ON"
+   },
+   "addStyleLabel": {
+      "description": "Label for the button to go to the add style page",
+      "message": "Γράψτε νέο στυλ"
+   },
+   "addStyleTitle": {
+      "description": "Title of the page for adding styles",
+      "message": "Προσθήκη στυλ"
+   },
+   "analyticsEnabled": {
+      "description": "Label for the enable analytics setting",
+      "message": "Send anonymous data to Stylish developers"
+   },
+   "appliesAdd": {
+      "description": "Label for the button to add an 'applies' entry",
+      "message": "Προσθήκη"
+   },
+   "appliesDisplay": {
+      "description": "Text on the manage screen to describe what the style applies to",
+      "message": "Ισχύει για: $applies$",
+      "placeholders": {
+         "applies": {
+            "content": "$1"
+         }
+      }
+   },
+   "appliesDisplayTruncatedSuffix": {
+      "description": "Text added to appliesDisplay when there are more sites for the style than are displayed",
+      "message": "και πολλά άλλα"
+   },
+   "appliesDomainOption": {
+      "description": "Option to make the style apply to the entered string as a domain",
+      "message": "URL στον τομέα"
+   },
+   "appliesHelp": {
+      "description": "Help text for 'applies to' section",
+      "message": "Χρησιμοποιήστε το \"Ισχύει για\" έλεγχοι ώστε να περιοριστουν ποιες διευθύνσεις τον κώδικα σε αυτό το τμήμα να εφαρμόζονται."
+   },
+   "appliesLabel": {
+      "description": "Label for 'applies to' fields on the edit/add screen",
+      "message": "Ισχύει για"
+   },
+   "appliesRegexpOption": {
+      "description": "Option to make the style apply to the entered string as a regular expression",
+      "message": "Διευθύνσεις URL που ταιριάζουν με την κανονική έκφραση"
+   },
+   "appliesRemove": {
+      "description": "Label for the button to remove an 'applies' entry",
+      "message": "Αφαίρεση"
+   },
+   "appliesSpecify": {
+      "description": "Label for the button to make a style apply only to specific sites",
+      "message": "Καθορισμός"
+   },
+   "appliesToEverything": {
+      "description": "Text displayed for styles that apply to all sites",
+      "message": "Τα πάντα"
+   },
+   "appliesUrlOption": {
+      "description": "Option to make the style apply to the entered string as a URL",
+      "message": "URL"
+   },
+   "appliesUrlPrefixOption": {
+      "description": "Option to make the style apply to the entered string as a URL prefix",
+      "message": "Διευθύνσεις URL που αρχίζουν με"
+   },
+   "applyAllUpdates": {
+      "description": "Label for the button to apply all detected updates",
+      "message": "Εφαρμογή όλων των ενημερώσεων"
+   },
+   "bckpInstStyles": {
+      "message": "Backup all Installed"
+   },
+   "checkAllUpdates": {
+      "description": "Label for the button to check all styles for updates",
+      "message": "Έλεγχος όλων των στυλ για ενημερώσεις"
+   },
+   "checkForUpdate": {
+      "description": "Label for the button to check a single style for an update",
+      "message": "Έλεγχος για ενημερώσεις"
+   },
+   "checkingForUpdate": {
+      "description": "Text to display when checking a style for an update",
+      "message": "Έλεγχος..."
+   },
+   "chooseStyleFromLib": {
+      "message": "Choose a style from the Library"
+   },
+   "cm_indentWithTabs": {
+      "description": "Label for the checkbox controlling tabs with smart indentation option for the style editor.",
+      "message": "Χρήση καρτελών με έξυπνη εσοχή"
+   },
+   "cm_keyMap": {
+      "description": "Label for the drop-down list controlling the keymap for the style editor.",
+      "message": "Keymap"
+   },
+   "cm_lineWrapping": {
+      "description": "Label for the checkbox controlling word wrap option for the style editor.",
+      "message": "Αναδίπλωση λέξεων"
+   },
+   "cm_smartIndent": {
+      "description": "Label for the checkbox controlling smart indentation option for the style editor.",
+      "message": "Χρήση έξυπνης εσοχής"
+   },
+   "cm_tabSize": {
+      "description": "Label for the text box controlling tab size option for the style editor.",
+      "message": "Μέγεθος καρτέλας"
+   },
+   "cm_theme": {
+      "description": "Label for the style editor's CSS theme.",
+      "message": "Theme"
+   },
+   "confirmNo": {
+      "description": "'No' button in a confirm dialog",
+      "message": "No"
+   },
+   "confirmStop": {
+      "description": "'Stop' button in a confirm dialog",
+      "message": "Stop"
+   },
+   "confirmYes": {
+      "description": "'Yes' button in a confirm dialog",
+      "message": "Yes"
+   },
+   "createOwnStyle": {
+      "message": "Create your own style"
+   },
+   "dbError": {
+      "description": "Prompt when a DB error is encountered",
+      "message": "Παρουσιάστηκε σφάλμα χρησιμοποιώντας την κομψή βάση δεδομένων. Θα θέλατε να επισκεφθείτε μια ιστοσελίδα με πιθανές λύσεις;"
+   },
+   "defaultTheme": {
+      "description": "Default CodeMirror CSS theme option on the edit style page",
+      "message": "default"
+   },
+   "deleteStyleConfirm": {
+      "description": "Confirmation before deleting a style",
+      "message": "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το στυλ;"
+   },
+   "deleteStyleLabel": {
+      "description": "Label for the button to delete a style",
+      "message": "Delete"
+   },
+   "description": {
+      "description": "Extension description",
+      "message": "Επαναπροσδιορίση του διαδίκτυου με το  Stylish, έναν διαχειριστή στυλ. Το Stylish σας επιτρέπει να εγκαταστήσετε εύκολα themes και skins για πολλές δημοφιλείς ιστοσελίδες."
+   },
+   "disableAllStyles": {
+      "description": "Label for the checkbox that turns all enabled styles off.",
+      "message": "Απενεργοποιηση ολων των στυλ"
+   },
+   "disableStyleLabel": {
+      "description": "Label for the button to disable a style",
+      "message": "Disable"
+   },
+   "editGotoLine": {
+      "description": "Go to line or line:column on Ctrl-G in style code editor",
+      "message": "Μετάβαση στη γραμμή (ή line:col)"
+   },
+   "editStyleHeading": {
+      "description": "Title of the page for editing styles",
+      "message": "Edit Style"
+   },
+   "editStyleLabel": {
+      "description": "Label for the button to go to the edit style page",
+      "message": "Επεξεργασία"
+   },
+   "editStyleTitle": {
+      "description": "Title of the page for editing styles",
+      "message": "Επεξεργασία του στυλ $stylename$",
+      "placeholders": {
+         "stylename": {
+            "content": "$1"
+         }
+      }
+   },
+   "enableStyleLabel": {
+      "description": "Label for the button to enable a style",
+      "message": "Enable"
+   },
+   "exportLabel": {
+      "description": "Label for the button to export a style ('edit' page) or all styles ('manage' page)",
+      "message": "Export"
+   },
+   "extName": {
+      "message": "Stylish - Custom themes for any website"
+   },
+   "findStylesForSite": {
+      "description": "Text for a link that gets a list of styles for the current site",
+      "message": "Find more styles for this site"
+   },
+   "helpAlt": {
+      "description": "Alternate text for help buttons",
+      "message": "Βοήθεια"
+   },
+   "helpKeyMapCommand": {
+      "description": "Placeholder text of inputbox in keymap help popup on the edit style page. Must be very short",
+      "message": "Type a command name"
+   },
+   "helpKeyMapHotkey": {
+      "description": "Placeholder text of inputbox in keymap help popup on the edit style page. Must be very short",
+      "message": "Press a hotkey"
+   },
+   "importAppendLabel": {
+      "description": "Label for the button to import a style and append to the existing sections",
+      "message": "Append to style"
+   },
+   "importAppendTooltip": {
+      "description": "Tooltip for the button to import a style and append to the existing sections",
+      "message": "Append the imported style to current style"
+   },
+   "importLabel": {
+      "description": "Label for the button to import a style ('edit' page) or all styles ('manage' page)",
+      "message": "Import"
+   },
+   "importReplaceLabel": {
+      "description": "Label for the button to import and overwrite current style",
+      "message": "Overwrite style"
+   },
+   "importReplaceTooltip": {
+      "description": "Label for the button to import and overwrite current style",
+      "message": "Discard contents of current style and overwrite it with the imported style"
+   },
+   "installButtonLabel": {
+      "description": "Label inside the install button",
+      "message": "Install Style"
+   },
+   "installUpdate": {
+      "description": "Label for the button to install an update for a single style",
+      "message": "Εγκατάσταση ενημέρωσης"
+   },
+   "issues": {
+      "description": "Label for the CSSLint issues block on the style edit page",
+      "message": "Issues"
+   },
+   "issuesHelp": {
+      "description": "Help popup message for the CSSLint issues block on the style edit page",
+      "message": "The issues found by \u003Ca href='https://github.com/CSSLint/csslint' target='_blank'>CSSLint\u003C/a> with these rules enabled:"
+   },
+   "manageFilters": {
+      "description": "Label for filters container",
+      "message": "Φίλτρα"
+   },
+   "manageHeading": {
+      "description": "Heading for the manage page",
+      "message": "Installed"
+   },
+   "manageOnlyEdited": {
+      "description": "Checkbox to show only locally edited styles",
+      "message": "Μόνο επεξεργασμενα στυλ"
+   },
+   "manageOnlyEnabled": {
+      "description": "Checkbox to show only enabled styles",
+      "message": "Μόνο ενεργοποιημένα στυλ"
+   },
+   "manageTextGetHelp": {
+      "description": "Help text on the manage page: get help",
+      "message": "Get help"
+   },
+   "manageTextGetStyles": {
+      "description": "Help text on the manage page: get more styles",
+      "message": "Get styles on userstyles.org"
+   },
+   "manageTextReadPP": {
+      "description": "Help text on the manage page: read privacy policy",
+      "message": "Read the privacy policy"
+   },
+   "manageTitle": {
+      "description": "Title for the manage page",
+      "message": "Κομψή"
+   },
+   "menuShowBadge": {
+      "description": "Label (must be very short) for the checkbox in the toolbar button context menu controlling toolbar badge text.",
+      "message": "Εμφάνιση ενεργους καταμέτρησης στυλ"
+   },
+   "noServerConnection": {
+      "description": "Message which is shown when user deselected sending anonymous data to server AND has some styles installed.",
+      "message": "You chose to opt-out from seeing available styles for this site directly on Stylish. Visit %noServerConnectionParam1% to see available styles, or update your %noServerConnectionParam2% to see them here."
+   },
+   "noServerConnectionParam1": {
+      "description": "text of link to website in noServerConnection",
+      "message": "Userstyles.org"
+   },
+   "noServerConnectionParam2": {
+      "description": "text of link to settings in noServerConnection",
+      "message": "settings"
+   },
+   "noStylesForSite": {
+      "description": "Text displayed when no styles are installed for the current site",
+      "message": "There are no styles available for this site."
+   },
+   "numberOfWeeklyInstalls": {
+      "description": "Text of popup when hovering over installs icon",
+      "message": "Number of weekly installs"
+   },
+   "openCreate": {
+      "description": "Link to open the creation page.",
+      "message": "Create New Style"
+   },
+   "openManage": {
+      "description": "Link to open the manage page.",
+      "message": "Manage All Styles"
+   },
+   "optionsHeading": {
+      "description": "Heading for options section on manage page.",
+      "message": "Επιλογές"
+   },
+   "prefShowBadge": {
+      "description": "Label for the checkbox controlling toolbar badge text.",
+      "message": "Εμφάνιση αριθμού των στυλ που δραστηριοποιούνται για την τρέχουσα τοποθεσία στην μπάρα εργαλείων"
+   },
+   "replace": {
+      "description": "Label before the replace input field in the editor shown on Ctrl-H",
+      "message": "Replace"
+   },
+   "replaceAll": {
+      "description": "Label before the replace input field in the editor shown on 'replaceAll' hotkey",
+      "message": "Replace all"
+   },
+   "replaceWith": {
+      "description": "Label before the replace-with input field in the editor shown on Ctrl-H etc.",
+      "message": "Replace with"
+   },
+   "retrieveBckp": {
+      "message": "Retrieve Backup"
+   },
+   "search": {
+      "description": "Label before the search input field in the editor shown on Ctrl-F",
+      "message": "Search"
+   },
+   "searchRegexp": {
+      "description": "Label after the search input field in the editor shown on Ctrl-F",
+      "message": "Use /re/ syntax for regexp search"
+   },
+   "searchStyles": {
+      "description": "Label for the search filter textbox on the Manage styles page",
+      "message": "Search contents"
+   },
+   "sectionAdd": {
+      "description": "Label for the button to add a section",
+      "message": "Προσθήκη ένος άλλου τμήματος"
+   },
+   "sectionCode": {
+      "description": "Label for the code for a section",
+      "message": "Κώδικας"
+   },
+   "sectionHelp": {
+      "description": "Help text for sections",
+      "message": "Ενότητες σας επιτρέπουν να ορίσετε διαφορετικά κομμάτια του κώδικα για να εφαρμόζονται σε διαφορετικά σύνολα των διευθύνσεων URL στο ίδιο στυλ. Για παράδειγμα, ένα ενιαίο ύφος θα μπορούσε να αλλάξει την αρχική σελίδα ενός ιστότοπου με έναν τρόπο, ενώ αλλάζει το υπόλοιπο μιας τοποθεσίας ένας άλλος τρόπος."
+   },
+   "sectionRemove": {
+      "description": "Label for the button to remove a section",
+      "message": "Αφαίρεση ενότητας"
+   },
+   "sendFeedbackLabel": {
+      "message": "Send Feedback"
+   },
+   "statsDisabled": {
+      "description": "Alert message that is displayed when user hit on 'Send anonymous...' checkbox inside manage page",
+      "message": "Opting out means you won't be able to see available styles directly on the Stylish add on. Visit Userstyles.org to reach them, or opt back in at any time."
+   },
+   "styleActiveLabel": {
+      "message": "ACTIVE"
+   },
+   "styleBadRegexp": {
+      "description": "Validation message for a bad regexp in a style",
+      "message": "Το Regexp δεν είναι έγκυρο."
+   },
+   "styleBeautify": {
+      "description": "Label for the CSS-beautifier button on the edit style page",
+      "message": "Beautify"
+   },
+   "styleCancelEditLabel": {
+      "description": "Label for cancel button for style editing",
+      "message": "Πίσω στη διαχείριση"
+   },
+   "styleChangesNotSaved": {
+      "description": "Text for the prompt when changes are made to a style and the user tries to leave without saving",
+      "message": "Έχετε κάνει αλλαγές σε αυτό το ύφος χωρίς αποθήκευση."
+   },
+   "styleEnabledLabel": {
+      "description": "Label for the enabled state of styles",
+      "message": "Ενεργοποιημένη"
+   },
+   "styleFromMozillaFormatPrompt": {
+      "description": "Prompt in the dialog displayed after clicking 'Import from Mozilla format' button",
+      "message": "Paste the Mozilla-format code"
+   },
+   "styleInactiveLabel": {
+      "message": "INACTIVE"
+   },
+   "styleInstall": {
+      "description": "Confirmation when installing a style",
+      "message": "Εγκατάσταση του '$stylename$' στο Stylish;",
+      "placeholders": {
+         "stylename": {
+            "content": "$1"
+         }
+      }
+   },
+   "styleMissingName": {
+      "description": "Error displayed when user saves without providing a name",
+      "message": "Εισάγετε ένα όνομα."
+   },
+   "styleMozillaFormatHeading": {
+      "description": "Heading for the section with buttons to import/export Mozilla format of the style",
+      "message": "Mozilla Format"
+   },
+   "styleSaveLabel": {
+      "description": "Label for save button for style editing",
+      "message": "Αποθήκευση"
+   },
+   "styleSectionsTitle": {
+      "description": "Title for the style sections section",
+      "message": "Ενότητες"
+   },
+   "styleToMozillaFormatHelp": {
+      "description": "Help info for the Mozilla format header section that converts the code to/from Mozilla format",
+      "message": "Η μορφή του Mozilla κώδικα μπορεί να χρησιμοποιηθεί με το Stylish για το Firefox και μπορεί να υποβληθεί στο userstyles.org."
+   },
+   "styleToMozillaFormatTitle": {
+      "description": "Title of the popup with the style code in Mozilla format, shown after pressing the Export button on Edit style page",
+      "message": "Style in Mozilla format"
+   },
+   "styleUpdate": {
+      "description": "Confirmation when updating a style",
+      "message": "Είστε σίγουροι ότι θέλετε να ενημερώσετε το '$stylename$';",
+      "placeholders": {
+         "stylename": {
+            "content": "$1"
+         }
+      }
+   },
+   "stylesLibLabel": {
+      "message": "Library"
+   },
+   "stylishUnavailableForURL": {
+      "description": "Note in the toolbar pop-up when on a URL Stylish can't affect",
+      "message": "(To Stylish δεν λειτουργεί σε σελίδες όπως αυτή.)"
+   },
+   "undo": {
+      "description": "Button label",
+      "message": "Undo"
+   },
+   "undoGlobal": {
+      "description": "CSS-beautify global Undo button label",
+      "message": "Undo (global)"
+   },
+   "updateAllCheckSucceededNoUpdate": {
+      "description": "Text that displays when an update all check completed and no updates are available",
+      "message": "Όλα τα στυλ είναι ενημερωμένα."
+   },
+   "updateCheckFailBadResponseCode": {
+      "description": "Text that displays when an update check failed because the response code indicates an error",
+      "message": "Αποτυχία ενημέρωσης - ο διακομιστής ανταποκρίθηκε με κωδικό $code$.",
+      "placeholders": {
+         "code": {
+            "content": "$1"
+         }
+      }
+   },
+   "updateCheckFailServerUnreachable": {
+      "description": "Text that displays when an update check failed because the update server is unreachable",
+      "message": "Αποτυχία ενημέρωσης - απρόσιτος διακομιστής."
+   },
+   "updateCheckSucceededNoUpdate": {
+      "description": "Text that displays when an update check completed and no update is available",
+      "message": "Το στυλ είναι ενημερωμένο."
+   },
+   "updateCompleted": {
+      "description": "Text that displays when an update completed",
+      "message": "Η ενημέρωση ολοκληρώθηκε."
+   },
+   "writeStyleFor": {
+      "description": "Label for toolbar pop-up that precedes the links to write a new style",
+      "message": "Γράψτε νέο στυλ για:"
+   },
+   "writeStyleForURL": {
+      "description": "Text for link in toolbar pop-up to write a new style for the current URL",
+      "message": "αυτή την διεύθυνση URL"
+   }
+}
