@@ -23,6 +23,68 @@
   //   document.getElementsByTagName("head")[0].appendChild(injectC8);
   "use strict";
   var htmlpath = location.href;
+  // programHomePage
+  if (
+    /https:\/\/programming.pku.edu.cn\/programming\/+(index.jsp)?$/.test(
+      htmlpath
+    )
+  ) {
+    var linkP1 = document.createElement("link");
+    linkP1.href =
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/programHomePage.css";
+    linkP1.rel = "stylesheet";
+    linkP1.id = "PKUArtlinkP1";
+    linkP1.type = "text/css";
+    document.getElementsByTagName("head")[0].appendChild(linkP1);
+  }
+
+  // programContent
+  if (
+    /https:\/\/programming.pku.edu.cn\/programming\/course\/[\S]+\/show.do[\S]*/.test(
+      htmlpath
+    ) ||
+    /https:\/\/programming.pku.edu.cn\/programming\/course\/[\S]+\/showProblemList.do?[\S]+/.test(
+      htmlpath
+    )
+  ) {
+    var linkP2 = document.createElement("link");
+    linkP2.href =
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/programContent.css";
+    linkP2.rel = "stylesheet";
+    linkP2.id = "PKUArtlinkP2";
+    linkP2.type = "text/css";
+    document.getElementsByTagName("head")[0].appendChild(linkP2);
+  }
+
+  // programProblemPage
+  if (
+    /https:\/\/programming.pku.edu.cn\/programming\/course\/[\S]+\/showProblemList.do\?[\S]+/.test(
+      htmlpath
+    )
+  ) {
+    var linkP3 = document.createElement("link");
+    linkP3.href =
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/programProblemPage.css";
+    linkP3.rel = "stylesheet";
+    linkP3.id = "PKUArtlinkP3";
+    linkP3.type = "text/css";
+    document.getElementsByTagName("head")[0].appendChild(linkP3);
+  }
+
+  // programTable
+  if (
+    /https:\/\/programming.pku.edu.cn\/programming\/course\/[\S]+\/showProblemList.do\?[\S]+&tableswitch=true/.test(
+      htmlpath
+    )
+  ) {
+    var linkP4 = document.createElement("link");
+    linkP4.href =
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/programTable.css";
+    linkP4.rel = "stylesheet";
+    linkP4.id = "PKUArtlinkP4";
+    linkP4.type = "text/css";
+    document.getElementsByTagName("head")[0].appendChild(linkP4);
+  }
 
   // courseLoginPage
   if (
