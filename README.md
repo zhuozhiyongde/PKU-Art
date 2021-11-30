@@ -3,11 +3,11 @@
 	<div style="height:20px;display:block;color:#fff">&nbsp;
 		<div/>
 <img src="https://img.shields.io/badge/license-GPL3.0-F6D7A7"><img/>  <img src="https://img.shields.io/badge/language-CSS-F6EABE"><img/>  <img src="https://img.shields.io/badge/site-Arthals.ink-C8E3D4"><img/>  <img src="https://img.shields.io/badge/apply-PKU Site-87AAAA"><img/>
-	
+​	
 
   <div/>
 <div align="left">
-  
+
 ## 前言
 作为一名 PKUer ，我从入学开始就对教学网的样式适应不来，这做的真的太丑了！这怎么会让人有学习的动力呢？！我为什么老摸鱼？不就是因为这教学网让我看了就不想学习吗！（震声
 
@@ -18,15 +18,15 @@
 这就是和我的另外一个样式 Baidu Art （打广告：这是一个我高二折腾出来并用到现在的好看样式）类似取名的 PKU Art 的诞生了。
 
 现在想想，两天的时间换未来几年的视觉快感，也算是值辽！
-  
+
 ## 效果展示
-	
+
 ### 编程网格
 ![编程网格1](https://i.loli.net/2021/11/27/QlT6eiVdXpk7cIZ.png)
 
 ![编程网格2](https://i.loli.net/2021/11/27/j9o2zBdSx8WPGhK.png)
 
-!编程网格3](https://i.loli.net/2021/11/27/wAM3DT7xyR5OqUh.png)
+![编程网格3](https://i.loli.net/2021/11/27/wAM3DT7xyR5OqUh.png)
 
 ### IAAA
 ![IAAA](https://i.loli.net/2021/11/27/9w4BcirULTxCHtM.png)
@@ -38,12 +38,12 @@
 
 ![成绩页面](https://i.loli.net/2021/11/27/EihLVCfPWFcS3N6.png)
 
-	
+
 ### 动画效果
 ![操作动画](https://i.loli.net/2021/11/27/b5G9EOzXv1kWpjc.gif)
 
 ![刷新动画](https://i.loli.net/2021/11/27/ozs1S7v4nNTMPVl.gif)
-  
+
 ## 提示
 * 作者非专业前端工作人员，不保证该样式在任何设备、浏览器上的兼容性，但如果你遇到问题，可以在 Github 提请 Issue，我也会不定期更新新的 P 大相关网页（咕？
 * 本样式主要适配网页端，请在使用前确保你的窗口分辨率足够
@@ -51,13 +51,14 @@
 * 本样式通过外部挂载 CSS 应用，请确保你先装好了相应的浏览器插件（Safari使用Cascadea，Chrome或同内核浏览器使用Stylish插件）
 * 有任何技术交流问题，可以通过 Github Issue 联系我，但我不一定会及时看，如果是想交流技术或者帮我完善的好心人，可以加我微信（和 Github 同名）
 	
-## 插件下载：
+## 插件下载
 ### Cascadea（For Safari）
 * [App Store（18r）](https://apps.apple.com/cn/app/cascadea/id1432182561)： 
 * [MacWk](https://macwk.com/soft/cascadea)
 
 ### Stylish（For Chrome）
 * [Google Web Store（需科学上网）](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe/related)
+* [在Stylish上获取PKU Art](https://userstyles.org/styles/220453/pku-art)
 
 ## 版权
 本样式部分用到的图片来源如下：
