@@ -92,6 +92,7 @@
 	
 	#globalNavPageContentArea .dropzone, li.dropzone {
 		border: 3px solid #eee;
+		/*border: 2px dashed rgba(21,20,26,.2);*/
 		margin-left: 0px;
 		padding-left: 17px;
 	}
@@ -204,4 +205,7 @@
 		border: 2px solid #eee;
 		border-radius: 5px 5px 0px 0px;
 		width: 931px !important;
+	}
+	img[alt="文件"]{
+		display: none;
 	}

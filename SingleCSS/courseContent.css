@@ -272,10 +272,17 @@
 		padding-left: 0;
 	}
 	
-	img[src="/images/ci/ng/cal_year_event.gif"] {
+	img[alt="文件"] {
+		/*content: url("https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/file.png");*/
+		/*width: 3%;*/
+		/*height:100px;*/
 		display: none;
 	}
 	
+	li[id^="contentListItem"] .details span, li[id^="contentListItem"] .details span b, li[id^="contentListItem"] .details font {
+		font-size: 13px !important;
+		font-weight: 400 !important;
+	}
 	
 	
 	

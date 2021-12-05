@@ -65,7 +65,7 @@
 	}
 	
 	.loadingOverlay img {
-		display: none !important;
+		display: none;
 	}
 	
 	.stream_list_filter>li, .stream_list_filter>li>a {

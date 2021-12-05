@@ -37,7 +37,7 @@
 	}
 	
 	#streamDetailHeaderRightClickable a:after {
-		content: "pku";
+		content: "";
 		color: rgba(0, 0, 0, 0);
 		display: block;
 		width: 80px;

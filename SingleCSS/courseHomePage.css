@@ -1,5 +1,51 @@
-	.brandingImgWrap, #global-nav-link, #appTabList>tbody>tr :not(:first-child), .hideoff, #quick_links_wrap, #module\:_735_1, #module\:_1_1>div.edit_controls, #global-nav {
+	.brandingImgWrap, #appTabList>tbody>tr :not(:first-child), .hideoff, #quick_links_wrap, #module\:_735_1, #module\:_1_1>div.edit_controls{
 		display: none;
+		/*visibility: hidden;*/
+	}
+	
+	#global-avatar,#global-toggle-img{
+		display: none;
+	}
+	#global-nav-link{
+		color: rgba(0,0,0,0);
+		width:0px!important;
+		background: rgba(0,0,0,0);
+		/*text-indent: 10000px!important;*/
+		/*padding: 0px;*/
+		/*需修改，若设置padding=0会导致页面可横拉*/
+	}
+	#badgeTotal{
+		/*visibility: visible!important;*/
+		/*↑测试开关确保没有消息的时候也能测试*/
+		/*现在换页面，Logo会移动，需修复*/
+	}
+	#badgeTotalCount{
+		/*font-size: 10px;*/
+		color:rgba(0,0,0,0);
+		width:4px!important;
+		margin:0 auto;
+		height: 4px!important;
+		padding: 3px;
+		text-align: center;
+		vertical-align: middle;
+		background-color: #9B0000;
+		border-radius: 10px;
+		transform: translate(36px,10px);
+		/*float: right;*/
+	}
+	
+	#global-nav-link:after{
+		content: "";
+		display: block;
+		height: 27px;
+		width: 27px;
+		color: rgb(0,0,0);
+		background-image: url("https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/notification.png")!important;
+		background-size: 100%;
+		background-repeat: no-repeat;
+		margin:0 auto;
+		transform: translate(60px,-6px);
+		float: right;
 	}
 	
 	.tabWrapper-right, #globalNavPageNavArea, #topTabs, #contentFrame, #schemePreview, .schemePreviewBody, body, .locationPane {
@@ -10,23 +56,25 @@
 		background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/exit.png);
 		background-size: 80%;
 		background-color: #fff;
-		transform: translate(0, 20px);
-	
-		background-position: 0% 0% !important;
-	}
-	
-	.global-nav-bar a.logout-link:hover {
-		/*background-image: url(https://i.loli.net/2021/11/26/D3s5cLfvtYxMilB.png);*/
-		background-position: 0% 0% !important;
+		margin-top:20px;
+		float: right;
+		background-position: center center !important;
 	}
 	
 	.nav-link:hover, .nav-link:focus {
 		background: rgba(0, 0, 0, 0);
 	}
-	
+	.tabWrapper-right{
+		padding: 0px;
+	}
 	#我的主页\(MyPage\) {
 		border: none;
-		transform: translate(-10px, 10px);
+		margin-top:21px;
+		float: right;
+		transform: translate(-90px);
+	}
+	#我的主页\(MyPage\) a{
+		padding: 0px;
 	}
 	
 	#globalNavPageNavArea>table {
@@ -84,7 +132,8 @@
 	}
 	
 	#column0 {
-		transform: translate(0, -80px);
+		transform: translate(0, -72px);
+		/*有修改，原为-80px*/
 		display: block;
 		background-color: #F1F0F5;
 		height: 100% !important;
@@ -95,7 +144,7 @@
 		border: none;
 	}
 	
-	#module\:_726_1 {
+	#column0>div:first-child {
 		background-color: #F1F0F5;
 	}
 	
@@ -105,12 +154,12 @@
 	
 	}
 	
-	#module\:_726_1 h2 {
+	#column0>div:first-child h2 {
 		background-color: #F1F0F5;
 		font-size: 14pt;
 	}
 	
-	#module\:_726_1 h2:after {
+	#column0>div:first-child h2:after {
 		z-index: 1;
 		content: "";
 		color: rgba(0, 0, 0, 0);
@@ -202,6 +251,68 @@
 		animation: fadeInLeft 2000ms cubic-bezier(0.23, 1, 0.32, 1);
 	}
 	
+	#column2 .collapsible div,#column2 .collapsible h3,#column2 .collapsible a{
+		font-size: 14px;
+		font-style: normal;
+		/*font-weight: 600;*/
+	}
+	#column2 .collapsible a{
+		color:#429EBD;
+	}
+	#column2 .collapsible .courseDataBlock,#column2 .collapsible li{
+		background:none;
+		padding: 0;
+	}
+	/*导航工具*/
+	#global-more-link{
+		/*display: none;*/
+	}
+	#vertical_container,#bottomButtons{
+		display: none;
+	}
+	#global-nav-flyout{
+		box-shadow: none;
+		border-radius: 5px;
+		width:40px!important;
+		height: 100px!important;
+		transform: translate(18px,30px);
+		background-color: rgba(0,0,0,0);
+		/*background-color: #000;*/
+	}
+	#global-nav-tools{
+		background-color:#FAFAFC;
+	}
+	#global-list-tools{
+		margin:0;
+		box-shadow: 0 0 15px 1px rgba(19,41,75,.2);
+		border-radius: 5px;
+		background-color: #FAFAFC;
+		/*border:1px solid #EEE;*/
+	}
+	#global-list-tools>.overview,#global-list-tools>.stream,#global-list-tools>.calendar{
+		display: none;
+	}
+	#global-list-tools>.alerts>a{
+		background: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/schedule.png);
+		background-size: 80%;
+		background-repeat: no-repeat;
+		background-position: center center;
+		margin:0 auto;
+		transition: 350ms opacity;
+	}
+	#global-list-tools>.grades>a{
+		background: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/grade.png);
+		background-size: 80%;
+		background-repeat: no-repeat;
+		background-position: center center;
+		margin:0 auto;
+		transition: 350ms opacity;
+	}
+	#global-list-tools>.alerts a:hover,
+	#global-list-tools>.grades a:hover{
+		transition: 350ms opacity;
+	}
+	
 	@keyframes fadeInUp {
 		from {
 			opacity: 0;
@@ -222,12 +333,12 @@
 		from {
 			opacity: 0;
 			color: #fff;
-			transform: translate(-100%, -80px);
+			transform: translate(-100%, -72px);
 		}
 	
 		to {
 			color: #333;
 			opacity: 1;
-			transform: translate(0, -80px);
+			transform: translate(0, -72px);
 		}
 	}
