@@ -9,77 +9,77 @@
 // ==/UserScript==
 
 (function () {
-  // dicLict = ["courseLoginPage", "iaaaOAuthPage", "courseHomePage",
-  //     "courseContent", "courseAnnouncementlnClass", "courseGrade",
-  //     "courseGradeFirstFrame", "courseGradeSecondFrame", "courseCalendar",
-  //     "courseAnnouncementlnHome", "courseAssignment", "courseClassContent",
-  //     "courseRecordListPage", "courseOnlineReplyFrame", "courseRecord",
-  //     "courseAssignmentUpload"
+  // dicLict = ["readMe", "codingHomePage", "codingContent", "codingProblemPage",
+  // "codingTable", "courseLoginPage", "iaaaOAuthPage", "courseHomePage",
+  // "courseContent", "courseAnnouncementlnClass", "courseGrade",
+  // "courseGradeFirstFrame", "courseGradeSecondFrame", "courseCalendar",
+  // "courseAnnouncementlnHome", "courseAssignment", "courseClassContent",
+  // "courseRecordListPage", "courseOnlineReplyFrame", "courseRecord",
+  // "courseAssignmentUpload", "courseGeneral", "courseAlerts",
+  // "courseAlertsFirstFrame", "codingProblem", "courseLoginRedirect"
   // ]
-  // 一种别的注入CSS方式，直接在本地，不请求CDN
+  // 一种别的注入CSS方式，直接在本地，不请求CDN，据实验，不比CDN加载快
   // var styleC8 ='';
   //   var injectC8 = document.createElement("style");
   //   injectC8.innerHTML = styleC8;
   //   document.getElementsByTagName("head")[0].appendChild(injectC8);
   "use strict";
   var htmlpath = location.href;
-  // programHomePage
+  // codingHomePage
   if (
-    /https:\/\/programming.pku.edu.cn\/programming\/+(index.jsp)?$/.test(
-      htmlpath
-    )
+    /https:\/\/coding.pku.edu.cn\/programming\/+(index.jsp)?$/.test(htmlpath)
   ) {
     var linkP1 = document.createElement("link");
     linkP1.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/programHomePage.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/codingHomePage.css";
     linkP1.rel = "stylesheet";
     linkP1.id = "PKUArtlinkP1";
     linkP1.type = "text/css";
     document.getElementsByTagName("head")[0].appendChild(linkP1);
   }
 
-  // programContent
+  // codingContent
   if (
-    /https:\/\/programming.pku.edu.cn\/programming\/course\/[\S]+\/show.do[\S]*/.test(
+    /https:\/\/coding.pku.edu.cn\/programming\/course\/[\S]+\/show.do[\S]*/.test(
       htmlpath
     ) ||
-    /https:\/\/programming.pku.edu.cn\/programming\/course\/[\S]+\/showProblemList.do?[\S]+/.test(
+    /https:\/\/coding.pku.edu.cn\/programming\/course\/[\S]+\/showProblemList.do?[\S]+/.test(
       htmlpath
     )
   ) {
     var linkP2 = document.createElement("link");
     linkP2.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/programContent.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/codingContent.css";
     linkP2.rel = "stylesheet";
     linkP2.id = "PKUArtlinkP2";
     linkP2.type = "text/css";
     document.getElementsByTagName("head")[0].appendChild(linkP2);
   }
 
-  // programProblemPage
+  // codingProblemPage
   if (
-    /https:\/\/programming.pku.edu.cn\/programming\/course\/[\S]+\/showProblemList.do\?[\S]+/.test(
+    /https:\/\/coding.pku.edu.cn\/programming\/course\/[\S]+\/showProblemList.do\?[\S]+/.test(
       htmlpath
     )
   ) {
     var linkP3 = document.createElement("link");
     linkP3.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/programProblemPage.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/codingProblemPage.css";
     linkP3.rel = "stylesheet";
     linkP3.id = "PKUArtlinkP3";
     linkP3.type = "text/css";
     document.getElementsByTagName("head")[0].appendChild(linkP3);
   }
 
-  // programTable
+  // codingTable
   if (
-    /https:\/\/programming.pku.edu.cn\/programming\/course\/[\S]+\/showProblemList.do\?[\S]+&tableswitch=true/.test(
+    /https:\/\/coding.pku.edu.cn\/programming\/course\/[\S]+\/showProblemList.do\?[\S]+&tableswitch=true/.test(
       htmlpath
     )
   ) {
     var linkP4 = document.createElement("link");
     linkP4.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/programTable.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/codingTable.css";
     linkP4.rel = "stylesheet";
     linkP4.id = "PKUArtlinkP4";
     linkP4.type = "text/css";
@@ -189,7 +189,7 @@
     linkC7.rel = "stylesheet";
     linkC7.id = "PKUArtlinkC7";
     linkC7.type = "text/css";
-    // document.getElementsByTagName("head")[0].appendChild(linkC7);
+    document.getElementsByTagName("head")[0].appendChild(linkC7);
   }
 
   // courseGradeSecondFrame
@@ -292,5 +292,87 @@
     linkC14.id = "PKUArtlinkC14";
     linkC14.type = "text/css";
     document.getElementsByTagName("head")[0].appendChild(linkC14);
+  }
+
+  // courseAssignmentUpload
+  if (
+    /https:\/\/course.pku.edu.cn\/webapps\/assignment\/uploadAssignment\?/.test(
+      htmlpath
+    )
+  ) {
+    var linkC15 = document.createElement("link");
+    linkC15.href =
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseAssignmentUpload.css";
+    linkC15.rel = "stylesheet";
+    linkC15.id = "PKUArtlinkC15";
+    linkC15.type = "text/css";
+    document.getElementsByTagName("head")[0].appendChild(linkC15);
+  }
+
+  // courseGeneral
+  if (/https:\/\/course.pku.edu.cn/.test(htmlpath)) {
+    var linkC16 = document.createElement("link");
+    linkC16.href =
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseGeneral.css";
+    linkC16.rel = "stylesheet";
+    linkC16.id = "PKUArtlinkC16";
+    linkC16.type = "text/css";
+    document.getElementsByTagName("head")[0].appendChild(linkC16);
+  }
+
+  // courseAlerts
+  if (
+    /https:\/\/course.pku.edu.cn\/webapps\/[\S]+AlertsOnMyBb[\S]*/.test(
+      htmlpath
+    )
+  ) {
+    var linkC17 = document.createElement("link");
+    linkC17.href =
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseAlerts.css";
+    linkC17.rel = "stylesheet";
+    linkC17.id = "PKUArtlinkC17";
+    linkC17.type = "text/css";
+    document.getElementsByTagName("head")[0].appendChild(linkC17);
+  }
+
+  // courseAlertsFirstFrame
+  if (
+    /https:\/\/course.pku.edu.cn\/webapps\/streamViewer\/streamViewer\?[\S]+streamName=alerts[\S]*/.test(
+      htmlpath
+    )
+  ) {
+    var linkC18 = document.createElement("link");
+    linkC18.href =
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseAlertsFirstFrame.css";
+    linkC18.rel = "stylesheet";
+    linkC18.id = "PKUArtlinkC18";
+    linkC18.type = "text/css";
+    document.getElementsByTagName("head")[0].appendChild(linkC18);
+  }
+
+  // codingProblem
+  if (/https:\/\/coding.pku.edu.cn\/programming\/problem\//.test(htmlpath)) {
+    var linkC19 = document.createElement("link");
+    linkC19.href =
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/codingProblem.css";
+    linkC19.rel = "stylesheet";
+    linkC19.id = "PKUArtlinkC19";
+    linkC19.type = "text/css";
+    document.getElementsByTagName("head")[0].appendChild(linkC19);
+  }
+
+  // courseLoginRedirect
+  if (
+    /https:\/\/course.pku.edu.cn\/webapps\/bb-sso-bb_bb60\/login.html$/.test(
+      htmlpath
+    )
+  ) {
+    var linkC20 = document.createElement("link");
+    linkC20.href =
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseLoginRedirect.css";
+    linkC20.rel = "stylesheet";
+    linkC20.id = "PKUArtlinkC20";
+    linkC20.type = "text/css";
+    document.getElementsByTagName("head")[0].appendChild(linkC20);
   }
 })();
