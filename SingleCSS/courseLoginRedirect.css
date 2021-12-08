@@ -1,0 +1,12 @@
+	body {
+		visibility: hidden;
+	}
+	
+	html {
+		background: #fff;
+		background-image: url("https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/arrow.png");
+		background-size: 100px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		height: 100% !important;
+	}

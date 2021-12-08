@@ -1,0 +1,211 @@
+	.breadcrumbs, .paneTabs {
+		background-color: #fff;
+	}
+	
+	#crumb_2 {
+		color: rgba(0, 0, 0, 0);
+	}
+	
+	#dataCollectionContainer {
+		width: 80%;
+		border: 1px solid #EEE;
+		margin-bottom: 20px;
+		padding-left: 20px;
+		padding-right: 20px;
+		border-radius: 10px;
+		box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+	}
+	
+	h3[id*="steptitle"] {
+		color: #6c6c6c;
+		font-size: 17px;
+		margin-left: 5px;
+		/*transform: translate(0,-20px);*/
+		margin-bottom: 0;
+	}
+	
+	h3[id*="steptitle"]:after {
+		/*content: "pku";*/
+		color: rgba(0, 0, 0, 0);
+		display: block;
+		background-color: #53B8BB;
+		border-radius: 10px;
+		height: 5px;
+		width: 50px;
+		margin: 0;
+	}
+	
+	div[id*="stepcontent"] {
+		border-bottom: none;
+		padding-left: 5px;
+		/*margin:0px;*/
+		/*border: 1px solid #EEE;*/
+	}
+	
+	div[id*="step"] {
+		border: none;
+		padding-bottom: 10px;
+	}
+	
+	[role="presentation"] {
+		padding-left: 10px;
+	}
+	
+	#metadata {
+		/*height: 20px!important;*/
+		transform: scale(.9, .9);
+		position: relative;
+		right: 40px;
+	}
+	
+	.metaSection {
+		border: none;
+		border-left: 6px solid #A2DBFA;
+		background-color: #E8F0F2;
+		color: #293B5F;
+	}
+	
+	#instructions p {
+		font-size: 13px;
+		font-family: Arial, sans-serif !important;
+	}
+	
+	#submissionLink, #newFile_csBrowse, #newFile_chooseLocalFile, #newFile_localBrowse {
+		background: #E1E5EA !important;
+		color: #47597E !important;
+		border-radius: 5px;
+		border: none;
+		box-shadow: none;
+	}
+	
+	div.field, div.noLabelField {
+		width: inherit;
+	}
+	
+	#textSubmissionContainer .field {
+		width: 100%;
+	}
+	
+	#stepcontent2>ol>li:nth-child(1)>div.label, #stepcontent3>ol>li>div.label.label-stack, #stepcontent3>ol>li>div.field>table>tbody>tr>td>span.vtbehelp, ol[role="presentation"] {
+		margin-left: 20px;
+	}
+	
+	#globalNavPageContentArea .dropzone, li.dropzone {
+		border: 3px solid #eee;
+		/*border: 2px dashed rgba(21,20,26,.2);*/
+		margin-left: 0px;
+		padding-left: 17px;
+	}
+	
+	#stepcontent3 {
+		margin-right: 10px;
+	}
+	
+	#stepcontent3>ol>li>div.field {
+		width: 100% !important;
+	}
+	
+	#student_commentstext_tbl {
+		margin-top: 10px;
+		border-radius: 5px;
+		/*margin-left:10px;*/
+		border: 3px solid #eee;
+		/*padding-:20px;*/
+	}
+	
+	#textSubmissionContainer>div>table {
+		padding-right: 10px;
+		border-collapse: separate;
+		margin-top: 10px;
+		border-radius: 5px;
+	}
+	
+	#studentSubmission\.text_tbl>tbody>tr.mceLast>td, #studentSubmission\.text_simplevtbe {
+		background-color: #fff;
+	}
+	
+	#studentSubmission\.text_tbl>tbody, #textSubmissionContainer>div>table>tbody>tr>td {
+		border-radius: 5px;
+		border-collapse: separate;
+	}
+	
+	#textSubmissionContainer>div>table>tbody>tr>td {
+		border-radius: 5px;
+		border: 3px solid #eee;
+		/*visibility: hidden;*/
+		/*border:3px solid #eee;*/
+	
+	}
+	
+	#student_commentstext_tbl>tbody>tr.mceLast>td, .mceFirst:hover, .mceLast:hover {
+		background: #fff;
+	}
+	
+	.defaultSkin .mceStatusbar {
+		color: #6c6c6c;
+	}
+	
+	#student_commentstext_ifr {
+		padding-left: 10px;
+		padding-right: 10px;
+		width: inherit !important;
+	}
+	
+	.defaultSkin .mceSplitButton span.mceAction {
+		background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/checkbox.png);
+		background-size: 90%;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-color: #eee;
+		border-radius: 5px;
+	}
+	
+	.defaultSkin .mceSplitButton {
+		border: none;
+		border-radius: 5px;
+		background-color: #eee;
+	
+	}
+	
+	#student_commentstext_spellchecker_open:hover {
+		background: #EEE;
+	}
+	
+	.defaultSkin .mceSplitButtonActive a.mceAction {
+		box-shadow: none;
+		background-color: rgba(0, 0, 0, 0);
+	}
+	
+	#content .vtbegenerated, #content .vtbegenerated p, #content .vtbegenerated p span {
+		font-family: Arial, Sans-Serif !important;
+	}
+	
+	#bottom_submitButtonRow input {
+		background: #E1E5EA !important;
+		color: #47597E !important;
+		border-radius: 5px;
+		border: none;
+		box-shadow: none;
+	}
+	
+	.submitStepBottom p.taskbuttonhelp, .submitStepBottom p.taskbuttonhelp b {
+		font-style: normal;
+		font-family: Arial, Sans-Serif;
+		font-weight: 400 !important;
+	}
+	
+	.submitStepBottom p.taskbuttonhelp {
+		padding-top: 10px;
+	}
+	
+	#dataCollectionContainer>div.submitStepBottom.submitStepFixed {
+		background-color: #fff;
+		border: none;
+		box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+		border: 2px solid #eee;
+		border-radius: 5px 5px 0px 0px;
+		width: 931px !important;
+	}
+	img[alt="文件"]{
+		display: none;
+	}

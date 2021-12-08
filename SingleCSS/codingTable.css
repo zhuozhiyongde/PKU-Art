@@ -1,0 +1,13 @@
+	body>table>tbody>tr>td>table.pagetable>tbody>tr>td>table>tbody>tr:nth-child(6)>td {
+		/*text-align: center;*/
+		border-left: inherit;
+		border-right: inherit;
+		background-color: inherit;
+		color: inherit;
+		font-size: inherit;
+		padding-top: inherit;
+		padding-left: inherit;
+		position: inherit;
+		left: inherit;
+		top: inherit;
+	}

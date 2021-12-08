@@ -1,0 +1,29 @@
+	.course-info__big-screen,.course-info__main{
+		border-radius: 10px!important;
+		box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+	}
+	.course-info__body{
+		box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.1);
+		background: rgba(0,0,0,0);
+		border-radius: 10px;
+	}
+	.course-info__main{
+		border: 10px solid #222;
+		padding:0px;
+	}
+	.course-info__header{
+		
+	}
+	.course-info__header span{
+		font-weight: 600;
+		margin:0 auto;
+	}
+	.course-info__header span:after{
+		content:"";
+		display: block;
+		height: 10px;
+		background-color: #A2CDCD;
+		border-radius: 100px;
+		position: relative;
+		bottom:20px;
+	}

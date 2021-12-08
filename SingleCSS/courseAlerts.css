@@ -1,0 +1,193 @@
+	.brandingImgWrap, #global-nav-link, #appTabList>tbody>tr :not(:first-child), .hideoff, #quick_links_wrap, #module\:_735_1, #module\:_1_1>div.edit_controls, #global-nav, .path .placeholder, #copyright, #courseMenuPalette>div.actionBarMicro.clearfix, #arrowContext_1 {
+		display: none;
+	}
+	
+	.tabWrapper-right, #globalNavPageNavArea, #topTabs, #contentFrame, #schemePreview, .schemePreviewBody, .locationPane, .contentPane, html html, .cloud-iframe, html, body.mybb-shell {
+		background-color: #fff !important;
+	}
+	
+	#topframe\.logout\.label {
+		background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/exit.png);
+		background-size: 80%;
+		background-color: #fff;
+		transform: translate(0, 20px)!important;
+		background-position: 0% 0% !important;
+	}
+	
+	#topframe\.logout\.label:hover {
+		/*background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/exit-2.png);*/
+	
+	}
+	
+	.global-nav-bar a.logout-link:hover {
+		background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/exit-2.png);
+		background-position: 0% 0% !important;
+	}
+	
+	.nav-link:hover, .nav-link:focus {
+		background: rgba(0, 0, 0, 0);
+	}
+	
+	#我的主页\(MyPage\) {
+		border: none;
+		transform: translate(-10px, 13px)!important;
+	}
+	
+	#我的主页\(MyPage\) a {
+		color: #333;
+		font-weight: bold;
+	}
+	
+	#我的主页\(MyPage\) a:hover span {}
+	
+	.path .root {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+	
+	}
+	
+	#side_nav {
+		width: 15%;
+		max-width: 200px;
+		background-color: #F1F0F5;
+		position: fixed;
+		animation: fadeInLeft 2000ms cubic-bezier(0.23, 1, 0.32, 1);
+	}
+	
+	#side_nav:before {
+		content: "pku";
+		display: block;
+		color: rgba(0, 0, 0, 0);
+		width: 100%;
+		text-align: center;
+		height: 80px;
+		background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/PKU_LOGO.png);
+		background-size: 120px;
+		background-position: center left;
+		background-position-x: 20px;
+		background-repeat: no-repeat;
+	}
+	
+	#side_nav ul li:not(#AlertsOnMyBb_____AlertsTool) {
+		display: none;
+	}
+	#side_nav .badge{
+		margin-top:3px!important;
+		margin-right: 3px!important;
+		font-size: 10px;
+		text-align: center;
+		margin: 0 auto;
+		line-height: 9px;
+		height: 10px;
+		width: 15px;
+		padding: 2px 2px 1px;
+		border-radius: 5px;
+	}
+	
+	.menu-icon.alerts {
+		background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/sand-clock-3.png);
+		background-size: 35%;
+		background-color: rgba(0, 0, 0, 0);
+		background-position: top center;
+		background-position-y: 8px;
+	}
+	
+	#mybbListTools {
+		width: 100px !important;
+	
+	}
+	
+	#AlertsOnMyBb_____AlertsTool>a {
+		border-radius: 5px;
+		background-color: #D6E3E4;
+		height: 70px;
+		/*box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);*/
+		box-shadow: none;
+	}
+	
+	.appTabs a:hover span, .appTabs a:focus span {
+		color: #86112E !important;
+	
+	}
+	
+	.side-nav ul li:hover, .side-nav ul li {
+		opacity: .6;
+	}
+	
+	.side-nav ul li:hover>a {
+		box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1) !important;
+	}
+	
+	.menu-icon.alerts:after {
+		content: "禁止摸鱼";
+		color: #82A3AC;
+		background: none;
+		display: block;
+		position: relative;
+		top: 35px
+	}
+	
+	#AlertsOnMyBb_____AlertsTool>a {
+		text-decoration: none;
+	}
+	
+	/*#globalNavPageContentArea,html,.side-nav{*/
+	/*	background: #F1F0F5!important;*/
+	/*}*/
+	.locationPane, #contentPanel, #side_nav, #containerdiv, #content {
+		height: 100% !important;
+	}
+	.locationPane{
+		padding-bottom: 0!important;
+	}
+	.iframe-wrap {
+		/*border: none;*/
+	}
+	
+	#iframe_wrap {
+		border: none;
+		height: 90%!important;
+		width: 70%;
+		left:6%;
+		margin: 0 auto !important;
+		box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+		border-radius: 10px;
+		animation: fadeInUp 2000ms cubic-bezier(0.23, 1, 0.32, 1);
+		overflow: hidden;
+	}
+	
+	.cloud-iframe {
+		border-radius: 10px;
+	}
+	
+	
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			color: #fff;
+			/*-webkit-transform: translate3d(0, 100%, 0);*/
+			transform: translate(0, 100%);
+		}
+	
+		to {
+			color: #333;
+			opacity: 1;
+			-webkit-transform: none;
+			transform: none;
+		}
+	}
+	
+	@keyframes fadeInLeft {
+		from {
+			opacity: 0;
+			color: #fff;
+			transform: translate(-100%, 0px);
+		}
+	
+		to {
+			color: #333;
+			opacity: 1;
+			transform: translate(0, 0px);
+		}
+	}
