@@ -31,7 +31,7 @@
   ) {
     var linkP1 = document.createElement("link");
     linkP1.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/codingHomePage.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/codingHomePage.css";
     linkP1.rel = "stylesheet";
     linkP1.id = "PKUArtlinkP1";
     linkP1.type = "text/css";
@@ -49,7 +49,7 @@
   ) {
     var linkP2 = document.createElement("link");
     linkP2.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/codingContent.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/codingContent.css";
     linkP2.rel = "stylesheet";
     linkP2.id = "PKUArtlinkP2";
     linkP2.type = "text/css";
@@ -64,7 +64,7 @@
   ) {
     var linkP3 = document.createElement("link");
     linkP3.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/codingProblemPage.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/codingProblemPage.css";
     linkP3.rel = "stylesheet";
     linkP3.id = "PKUArtlinkP3";
     linkP3.type = "text/css";
@@ -79,7 +79,7 @@
   ) {
     var linkP4 = document.createElement("link");
     linkP4.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/codingTable.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/codingTable.css";
     linkP4.rel = "stylesheet";
     linkP4.id = "PKUArtlinkP4";
     linkP4.type = "text/css";
@@ -93,7 +93,7 @@
   ) {
     var linkC1 = document.createElement("link");
     linkC1.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseLoginPage.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseLoginPage.css";
     linkC1.rel = "stylesheet";
     linkC1.id = "PKUArtlinkC1";
     linkC1.type = "text/css";
@@ -104,7 +104,7 @@
   if (/https:\/\/iaaa.pku.edu.cn\/[\S]*/.test(htmlpath)) {
     var linkC2 = document.createElement("link");
     linkC2.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/iaaaOAuthPage.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/iaaaOAuthPage.css";
     linkC2.rel = "stylesheet";
     linkC2.id = "PKUArtlinkC2";
     linkC2.type = "text/css";
@@ -118,7 +118,7 @@
   ) {
     var linkC3 = document.createElement("link");
     linkC3.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseHomePage.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseHomePage.css";
     linkC3.rel = "stylesheet";
     linkC3.id = "PKUArtlinkC3";
     linkC3.type = "text/css";
@@ -136,7 +136,7 @@
   ) {
     var linkC4 = document.createElement("link");
     linkC4.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseContent.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseContent.css";
     linkC4.rel = "stylesheet";
     linkC4.id = "PKUArtlinkC4";
     linkC4.type = "text/css";
@@ -157,7 +157,7 @@
   ) {
     var linkC5 = document.createElement("link");
     linkC5.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseAnnouncementlnClass.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseAnnouncementlnClass.css";
     linkC5.rel = "stylesheet";
     linkC5.id = "PKUArtlinkC5";
     linkC5.type = "text/css";
@@ -170,7 +170,7 @@
   ) {
     var linkC6 = document.createElement("link");
     linkC6.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseGrade.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseGrade.css";
     linkC6.rel = "stylesheet";
     linkC6.id = "PKUArtlinkC6";
     linkC6.type = "text/css";
@@ -185,7 +185,7 @@
   ) {
     var linkC7 = document.createElement("link");
     linkC7.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseGradeFirstFrame.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseGradeFirstFrame.css";
     linkC7.rel = "stylesheet";
     linkC7.id = "PKUArtlinkC7";
     linkC7.type = "text/css";
@@ -200,7 +200,7 @@
   ) {
     var linkC8 = document.createElement("link");
     linkC8.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseGradeSecondFrame.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseGradeSecondFrame.css";
     linkC8.rel = "stylesheet";
     linkC8.id = "PKUArtlinkC8";
     linkC8.type = "text/css";
@@ -224,7 +224,7 @@
   ) {
     var linkC9 = document.createElement("link");
     linkC9.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseAnnouncementlnHome.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseAnnouncementlnHome.css";
     linkC9.rel = "stylesheet";
     linkC9.id = "PKUArtlinkC9";
     linkC9.type = "text/css";
@@ -235,7 +235,7 @@
   if (/https:\/\/course.pku.edu.cn\/webapps\/assignment\//.test(htmlpath)) {
     var linkC10 = document.createElement("link");
     linkC10.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseAssignment.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseAssignment.css";
     linkC10.rel = "stylesheet";
     linkC10.id = "PKUArtlinkC10";
     linkC10.type = "text/css";
@@ -250,7 +250,7 @@
   ) {
     var linkC11 = document.createElement("link");
     linkC11.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseClassContent.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseClassContent.css";
     linkC11.rel = "stylesheet";
     linkC11.id = "PKUArtlinkC11";
     linkC11.type = "text/css";
@@ -261,7 +261,7 @@
   if (/https:\/\/course.pku.edu.cn\/webapps\/bb-streammedia/.test(htmlpath)) {
     var linkC12 = document.createElement("link");
     linkC12.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseRecordListPage.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseRecordListPage.css";
     linkC12.rel = "stylesheet";
     linkC12.id = "PKUArtlinkC12";
     linkC12.type = "text/css";
@@ -272,7 +272,7 @@
   if (/https:\/\/livingroomhqy.pku.edu.cn\/player\?/.test(htmlpath)) {
     var linkC13 = document.createElement("link");
     linkC13.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseOnlineReplyFrame.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseOnlineReplyFrame.css";
     linkC13.rel = "stylesheet";
     linkC13.id = "PKUArtlinkC13";
     linkC13.type = "text/css";
@@ -287,7 +287,7 @@
   ) {
     var linkC14 = document.createElement("link");
     linkC14.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseRecord.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseRecord.css";
     linkC14.rel = "stylesheet";
     linkC14.id = "PKUArtlinkC14";
     linkC14.type = "text/css";
@@ -302,7 +302,7 @@
   ) {
     var linkC15 = document.createElement("link");
     linkC15.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseAssignmentUpload.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseAssignmentUpload.css";
     linkC15.rel = "stylesheet";
     linkC15.id = "PKUArtlinkC15";
     linkC15.type = "text/css";
@@ -313,7 +313,7 @@
   if (/https:\/\/course.pku.edu.cn/.test(htmlpath)) {
     var linkC16 = document.createElement("link");
     linkC16.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseGeneral.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseGeneral.css";
     linkC16.rel = "stylesheet";
     linkC16.id = "PKUArtlinkC16";
     linkC16.type = "text/css";
@@ -328,7 +328,7 @@
   ) {
     var linkC17 = document.createElement("link");
     linkC17.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseAlerts.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseAlerts.css";
     linkC17.rel = "stylesheet";
     linkC17.id = "PKUArtlinkC17";
     linkC17.type = "text/css";
@@ -343,7 +343,7 @@
   ) {
     var linkC18 = document.createElement("link");
     linkC18.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseAlertsFirstFrame.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseAlertsFirstFrame.css";
     linkC18.rel = "stylesheet";
     linkC18.id = "PKUArtlinkC18";
     linkC18.type = "text/css";
@@ -354,7 +354,7 @@
   if (/https:\/\/coding.pku.edu.cn\/programming\/problem\//.test(htmlpath)) {
     var linkC19 = document.createElement("link");
     linkC19.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/codingProblem.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/codingProblem.css";
     linkC19.rel = "stylesheet";
     linkC19.id = "PKUArtlinkC19";
     linkC19.type = "text/css";
@@ -369,7 +369,7 @@
   ) {
     var linkC20 = document.createElement("link");
     linkC20.href =
-      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@master/SingleCSS/courseLoginRedirect.css";
+      "https://cdn.jsdelivr.net/gh/zhuozhiyongde/PKU-Art@main/SingleCSS/courseLoginRedirect.css";
     linkC20.rel = "stylesheet";
     linkC20.id = "PKUArtlinkC20";
     linkC20.type = "text/css";
