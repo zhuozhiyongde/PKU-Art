@@ -102,6 +102,7 @@
 		margin-top:0!important;
 	}
 	div[id*="bb-nautilus"] {
+		border-radius: 10px;
 		border:none;
 		padding:15px!important;
 		margin-top: 10px!important;
@@ -176,5 +177,8 @@
 	a.stream_settings span.open_stream_settings{
 		background: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/setting.png);
 		background-size: 100%;
+	}
+	.stream_new_entry{
+		background-color: #E0EBF7;
 	}
 	

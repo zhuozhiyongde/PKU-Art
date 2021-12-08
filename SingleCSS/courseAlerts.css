@@ -15,7 +15,7 @@
 	}
 	
 	#topframe\.logout\.label:hover {
-		background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/exit-2.png);
+		/*background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/exit-2.png);*/
 	
 	}
 	
@@ -48,7 +48,8 @@
 	}
 	
 	#side_nav {
-		width: 215px;
+		width: 15%;
+		max-width: 200px;
 		background-color: #F1F0F5;
 		position: fixed;
 		animation: fadeInLeft 2000ms cubic-bezier(0.23, 1, 0.32, 1);
@@ -62,7 +63,7 @@
 		text-align: center;
 		height: 80px;
 		background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/PKU_LOGO.png);
-		background-size: 60%;
+		background-size: 120px;
 		background-position: center left;
 		background-position-x: 20px;
 		background-repeat: no-repeat;
@@ -70,6 +71,18 @@
 	
 	#side_nav ul li:not(#AlertsOnMyBb_____AlertsTool) {
 		display: none;
+	}
+	#side_nav .badge{
+		margin-top:3px!important;
+		margin-right: 3px!important;
+		font-size: 10px;
+		text-align: center;
+		margin: 0 auto;
+		line-height: 9px;
+		height: 10px;
+		width: 15px;
+		padding: 2px 2px 1px;
+		border-radius: 5px;
 	}
 	
 	.menu-icon.alerts {
@@ -134,9 +147,9 @@
 	
 	#iframe_wrap {
 		border: none;
-		-webkit-box-shadow: none;
-		height: 90%;
+		height: 90%!important;
 		width: 70%;
+		left:6%;
 		margin: 0 auto !important;
 		box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 		border-radius: 10px;

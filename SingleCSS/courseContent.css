@@ -99,7 +99,7 @@
 		text-align: center;
 		height: 80px;
 		background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/PKU_LOGO.png);
-		background-size: 60%;
+		background-size: 120px;
 		background-position: center left;
 		background-position-x: 20px;
 		background-repeat: no-repeat;
@@ -112,6 +112,7 @@
 		background-color: #F1F0F5;
 		height: 100% !important;
 		width: 15%;
+		max-width: 200px;
 	}
 	
 	.portlet {
@@ -149,10 +150,10 @@
 		/*background-image: none;*/
 		/*background-color: #86112E;*/
 		background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/border.png);
-		background-size: 100% 80%;
-		background-position: center;
+		background-size: 3% 80%;
+		background-position: 0% 50%;
 		background-repeat: no-repeat;
-		background-position-x: -210px;
+		/*background-position-x: -20%;*/
 	
 		/*background-position-x: -10px;*/
 	
@@ -221,7 +222,7 @@
 	
 	#contentPanel {
 		animation: fadeInUp 2000ms cubic-bezier(0.23, 1, 0.32, 1);
-		margin-left: 15%;
+		margin-left: 20%;
 	}
 	
 	#column0>div:first-child {
