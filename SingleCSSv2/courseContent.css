@@ -1,0 +1,350 @@
+	.brandingImgWrap, #global-nav-link, #appTabList>tbody>tr :not(:first-child), .hideoff, #quick_links_wrap, #module\:_735_1, #module\:_1_1>div.edit_controls, #global-nav, .path .placeholder, #copyright, #courseMenuPalette>div.actionBarMicro.clearfix, #arrowContext_1 {
+		display: none;
+	}
+	
+	.tabWrapper-right, #globalNavPageNavArea, #topTabs, #contentFrame, #schemePreview, .schemePreviewBody, body, .locationPane, .contentPane {
+		background-color: #fff !important;
+	}
+	
+	#topframe\.logout\.label {
+		background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/exit.png);
+		background-size: 80%;
+		background-color: #fff;
+		transform: translate(0, 20px);
+		background-position: 0% 0% !important;
+	}
+	
+	.global-nav-bar a.logout-link:hover {
+		/*background-image: url(https://i.loli.net/2021/11/26/D3s5cLfvtYxMilB.png);*/
+		background-position: 0% 0% !important;
+	}
+	
+	.nav-link:hover, .nav-link:focus {
+		background: rgba(0, 0, 0, 0);
+	}
+	
+	#我的主页\(MyPage\) {
+		border: none;
+		transform: translate(-10px, 10px);
+	}
+	
+	#我的主页\(MyPage\) a {
+		color: #333;
+	}
+	
+	#我的主页\(MyPage\) a:hover span {
+		color: #86112E !important;
+	}
+	
+	.path .root {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+	
+	}
+	
+	#breadcrumbs>div.path.noToggle {
+		float: none;
+	}
+	
+	#breadcrumbs>div.path.noToggle>ol>li.root.coursePath a {
+		animation: fadeInUp 2000ms cubic-bezier(0.23, 1, 0.32, 1);
+		font-size: 18pt;
+	}
+	
+	#breadcrumbs>div.path.noToggle>ol>li.root.coursePath:after {
+		animation: smallBallStretch 2000ms cubic-bezier(0.23, 1, 0.32, 1);
+		display: block;
+		content: "";
+		color: rgba(0, 0, 0, 0);
+		background-color: #96CBD9;
+		border-radius: 50px;
+		width: 20%;
+		height: 16px;
+		z-index: -1;
+		margin: 0 auto;
+	}
+	
+	#breadcrumbs, table.bouncer {
+		border: none;
+	}
+	
+	.locationPane {
+		height: 100% !important;
+	}
+	
+	#content, .path .root, .simplePath .root, .theme-switch {
+		background-color: #fff;
+		border: none;
+	}
+	
+	.contentPane .shadow {
+		border: none;
+	}
+	
+	.breadcrumbs {
+		padding: 0;
+	}
+	
+	#pageTitleDiv {
+		margin-top: 0px !important;
+	}
+	
+	#navigationPane:before {
+		/*下面这行不能换！*/
+		content: "pku";
+		color: rgba(0, 0, 0, 0);
+		display: block;
+		width: 100%;
+		text-align: center;
+		height: 80px;
+		background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/PKU_LOGO.png);
+		background-size: 120px;
+		background-position: center left;
+		background-position-x: 20px;
+		background-repeat: no-repeat;
+	}
+	
+	#navigationPane {
+		/*transform: translate(0,-123px);*/
+		left: 0px !important;
+		display: block;
+		background-color: #F1F0F5;
+		height: 100% !important;
+		width: 15%;
+		max-width: 200px;
+	}
+	
+	.portlet {
+		border: none;
+	}
+	
+	.locationPane>nav[role="navigation"] {
+		position: fixed;
+	}
+	
+	#menuWrap, .menuWrap-inner, #courseMenuPalette, #courseMenuPalette ul, #courseMenuPalette ul>li>a, #courseMenuPalette>div.navPaletteContent, #courseMenuPalette_contents li {
+		background-color: #F1F0F5;
+	}
+	
+	#navigationPane {
+		/*animation: fadeInLeft 2000ms cubic-bezier(0.23, 1, 0.32, 1);*/
+	}
+	
+	#navigationPane span, #navigationPane a {
+		color: #6c6c6c !important;
+		font-size: 11pt;
+		font-weight: 400 !important;
+		/*background-image: none;*/
+		position: relative;
+	}
+	
+	html .listCmCol #courseMenu_link, html .toolsCol #myGroups_link {
+		background-image: none;
+		background-color: rgba(0, 0, 0, 0) !important;
+		color: #6c6c6c !important;
+	}
+	
+	body #courseMenu_link, body #myGroups_link {
+		color: #86112E !important;
+		/*background-image: none;*/
+		/*background-color: #86112E;*/
+		background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/border.png);
+		background-size: 3% 80%;
+		background-position: 0% 50%;
+		background-repeat: no-repeat;
+		/*background-position-x: -20%;*/
+	
+		/*background-position-x: -10px;*/
+	
+	}
+	
+	.navPaletteContent a {
+		background-image: none;
+	}
+	
+	#courseMenu_link:before, .submenuLink, .submenuLink_active {
+		display: none !important;
+	}
+	
+	.navPaletteContent a.comboLink_active, .navPaletteContent a.open {
+		background: none;
+	}
+	
+	.navPalette.tools {
+		border: none;
+	}
+	
+	a#courseMenu_link, a#myGroups_link {
+		font-weight: 600 !important;
+	}
+	
+	html #courseMenuPalette a:hover, html #controlPanelPalette_contents a:hover, html #courseMenuPalette span:hover, html #controlPanelPalette_contents span:hover, #myGroups_link:hover, #myGroups_contents:hover a {
+		color: #86112E !important;
+	}
+	
+	#navigationPane span:after {
+		/*下面这行不能换！*/
+		content: "pku" !important;
+		color: rgba(0, 0, 0, 0);
+		visibility: visible !important;
+		position: absolute;
+		border-bottom: 2px solid #E44C47;
+		/*border-radius: 2px !important;*/
+		/*bottom: -2px;*/
+		/*向左偏移隐藏*/
+		left: 100%;
+		width: 0;
+		-webkit-transition: width 350ms, left 350ms;
+		-moz-transition: width 350ms, left 350ms;
+		transition: width 350ms, left 350ms
+	}
+	
+	#navigationPane span:hover:after {
+		visibility: visible !important;
+		left: 0;
+		width: 100%;
+		-webkit-transition: width 350ms;
+		-moz-transition: width 350ms;
+		transition: width 350ms
+	}
+	
+	#menuPuller {
+		/*visibility: hidden;*/
+		height: 100%;
+		background: #fff !important;
+	}
+	
+	#puller a {
+		box-shadow: none;
+		border: none;
+	}
+	
+	#contentPanel {
+		animation: fadeInUp 2000ms cubic-bezier(0.23, 1, 0.32, 1);
+		margin-left: 20%;
+	}
+	
+	#column0>div:first-child {
+		margin-top: 10px;
+	}
+	
+	#pageTitleHeader span {
+		font-size: 14pt;
+		background-color: #fff;
+		font-weight: bold;
+	
+	}
+	
+	#containerdiv {
+		border: none;
+		padding: 0;
+	}
+	
+	.collapsible {
+		border: none;
+	}
+	
+	.portlet {
+		margin-left: 0;
+	}
+	
+	#column0 {
+		width: 80%;
+		border: 1px solid #EEE;
+		margin-bottom: 20px;
+		padding-left: 20px;
+		border-radius: 5px;
+		box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+	
+	}
+	
+	#content_listContainer>li, #announcementList li {
+		width: 80%;
+		border: 1px solid #EEE;
+		margin-bottom: 20px;
+		margin-left: 10px;
+		border-radius: 5px;
+		box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+	}
+	
+	.portlet h2 {
+		background: #fff !important;
+		padding-left: 0;
+	}
+	
+	img[alt="文件"] {
+		/*content: url("https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/file.png");*/
+		/*width: 3%;*/
+		/*height:100px;*/
+		display: none;
+	}
+	
+	li[id^="contentListItem"] .details span, li[id^="contentListItem"] .details span b, li[id^="contentListItem"] .details font {
+		font-size: 13px !important;
+		font-weight: 400 !important;
+	}
+	
+	
+	
+	
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			color: #fff;
+			transform: translate(0, 100%);
+		}
+	
+		30% {
+			opacity: 0;
+			color: #A9D0DC;
+		}
+	
+		to {
+			color: #333;
+			opacity: 1;
+			transform: none;
+		}
+	}
+	
+	@keyframes smallBallStretch {
+		from {
+			background-color: #D6E3E4;
+			width: 0px;
+		}
+	
+		to {
+			background-color: #96CBD9;
+			width: 20%;
+		}
+	}
+	
+	@keyframes fadeInLeft {
+		from {
+			opacity: 0;
+			color: #fff;
+			transform: translate(-100%, 0);
+		}
+	
+		to {
+			color: #333;
+			opacity: 1;
+			transform: translate(0, 0);
+		}
+	}
+	
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			color: #fff;
+			-webkit-transform: translate3d(0, 100%, 0);
+			transform: translate(0, 100%);
+		}
+	
+		to {
+			color: #333;
+			opacity: 1;
+			-webkit-transform: none;
+			transform: none;
+		}
+	}
