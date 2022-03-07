@@ -1,0 +1,86 @@
+	#content>div.localViewToggle.clearfix>ul, .localViewToggle {
+		background: #fff;
+		width: 222px;
+		margin: 0 auto;
+	}
+	
+	#globalNavPageContentArea {
+		background: #fff;
+	}
+	
+	#content>div.localViewToggle.clearfix>ul {
+		padding-top: 5px;
+	}
+	
+	#content>div.localViewToggle.clearfix>ul>li a {
+		border-radius: 5px !important;
+	}
+	
+	.localViewToggle a.active:before, div.localViewToggle h2:before, .localViewToggle a.active:after, div.localViewToggle h2:after {
+		border: none;
+	}
+	
+	html .localViewToggle a.active, html .localViewToggle a.active:hover, html .localViewToggle a.active:focus {
+		background-color: #A9D0DC !important;
+	}
+	
+	.localViewToggle a.active, div.localViewToggle h2 {
+		border: none;
+	}
+	
+	#breadcrumbs {
+		font-size: 18pt;
+	}
+	
+	/*#breadcrumbs>div.path.noToggle>ol>li.root :after {*/
+	/*	animation: smallBallStretch 2000ms cubic-bezier(0.23, 1, 0.32, 1);*/
+	/*	display: block;*/
+	/*	content: "pku";*/
+	/*	color: rgba(0, 0, 0, 0);*/
+	/*	background-color: #96CBD9;*/
+	/*	border-radius: 50px;*/
+	/*	width: 20%;*/
+	/*	height: 16px;*/
+	/*	z-index: -1;*/
+	/*	margin: 0 auto;*/
+	/*}*/
+	
+	.u_reverseAlign, #pageTitleDiv {
+		/*text-align: center;*/
+		display: none;
+	}
+	
+	#announcementList li:first-child {
+		margin-top: 40px;
+	}
+	
+	#contentPanel, #containerdiv {
+		margin: 0 auto !important;
+	}
+	
+	#content_listContainer>li, #announcementList li {
+		width: 70%;
+		margin: 10px auto;
+	}
+	
+	.locationPane {
+		width: 70% !important;
+		min-width: 100px !important;
+		margin: 10px auto;
+	}
+	
+	
+	
+	
+	
+	@keyframes smallBallStretch {
+		from {
+			background-color: #D6E3E4;
+			width: 0px;
+		}
+	
+		to {
+			background-color: #96CBD9;
+			width: 20%;
+		}
+	}

@@ -1,0 +1,178 @@
+	html {
+		background-color: #fff !important;
+	}
+	
+	.loadingOverlay {
+		background-color: #fff !important;
+	}
+	
+	body {
+		background-color: #fff !important;
+		/*display: none!important;*/
+	}
+	
+	/*body > div.loadingOverlay,body{*/
+	/*	background: rgba(0,0,0,0)!important;*/
+	/*}*/
+	.loadingOverlay img {
+		visibility: hidden;
+	}
+	
+	
+	body {
+		background-color: #fff !important;
+	}
+	
+	#streamDetail {
+		border: none;
+	}
+	
+	#streamDetailHeaderRight>span {
+		display: none;
+	}
+	
+	#streamDetailHeaderRightClickable a {
+		border: none;
+		color: #053F5C;
+	}
+	
+	#streamDetailHeaderRightClickable a:after {
+		content: "";
+		color: rgba(0, 0, 0, 0);
+		display: block;
+		width: 80px;
+		height: 10px;
+		background-color: #429EBD;
+		border-radius: 50px;
+		bottom: 10px;
+	}
+	
+	.detail-heading {
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+	
+	#filterby>li {
+		text-align: center;
+	}
+	
+	#streamDetailMainBodyRight>div.filterBarHorizontal {
+		background-color: #fff;
+		border-top: none;
+	}
+	
+	#filterby>li>a.active, .filterBarHorizontal ul li a:hover {
+		box-shadow: none;
+		border: none;
+		padding: 2px 12px;
+	}
+	
+	#sortby {
+		appearance: none !important;
+		-moz-appearance: none !important;
+		-webkit-appearance: none !important;
+		height: 20px !important;
+		padding-left: 7px !important;
+		padding-right: 7px !important;
+		width: inherit;
+		overflow: hidden;
+		border: 1px solid #EEE !important;
+		;
+		background: #fff;
+	}
+	
+	.mybb.gradeTableNew .grades_header {
+		padding-bottom: 10px;
+		box-shadow: none;
+	}
+	
+	.mybb.gradeTableNew .grades_header div {
+		font-size: 11pt !important;
+		font-family: Arial, Sans-Serif !important;
+		font-weight: 600 !important;
+	}
+	
+	#grades_wrapper>div {
+		margin-top: 5px;
+		border-radius: 10px;
+		border: none;
+	}
+	
+	.cell.gradable {
+		padding-top: 10px;
+		font-size: 11px !important;
+		font-family: Arial, Sans-Serif !important;
+		font-weight: 600 !important;
+	}
+	
+	.cell.gradable>a {
+		/*padding-top:15px;*/
+		margin-top: 0 !important;
+		padding-top: 3px;
+		font-size: 11px !important;
+		font-family: Arial, Sans-Serif !important;
+		font-weight: 600 !important;
+	}
+	
+	.cell.gradable div:not(:last-child) {
+		margin-top: 2px;
+		font-size: 9px;
+	}
+	
+	.eval-links.horizontal input {
+		font-size: 9px;
+		text-decoration: none;
+	}
+	
+	html .eval-links.horizontal input:hover {
+		text-decoration: none !important;
+	
+	}
+	
+	.lastActivityDate {
+		margin-top: 3px;
+		font-size: 9px;
+		text-overflow: ellipsis !important;
+		white-space: nowrap !important;
+		word-break: keep-all;
+	}
+	
+	.gradeTableNew .calculatedRow.row {
+		box-shadow: none;
+	}
+	
+	.gradeTableNew .calculatedRow.row .cell.gradable {
+		/*background-color:#C1D1D1;*/
+		border-left: 6px solid #C1D1D1;
+	}
+	
+	.icon-comment:before {
+		content: "pku";
+		color: rgba(0, 0, 0, 0);
+		background-image: url('https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/chat.png');
+		background-size: 100%;
+		width: 20px
+	}
+	
+	.tooltipContainer-left img {
+		visibility: hidden;
+	}
+	
+	.tooltipContainer-left {
+		background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/exclamation.png);
+		background-size: 100%;
+		background-repeat: no-repeat;
+	}
+	
+	.tooltip {
+		background: #fff;
+		border: 1px solid #EEE;
+		box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1) !important;
+		color: #6c6c6c;
+		text-shadow: none;
+	}
+	
+	.tooltipContainer-left .tooltip:after {
+		text-shadow: none;
+	
+	}

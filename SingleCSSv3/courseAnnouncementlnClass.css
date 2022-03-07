@@ -1,0 +1,35 @@
+	#content>div.localViewToggle.clearfix>ul, .localViewToggle {
+		background: #fff;
+		width: 110px;
+		margin: 0 auto;
+	}
+	
+	#globalNavPageContentArea {
+		background: #fff;
+	}
+	
+	.localViewToggle {
+		position: relative;
+		right: 12.5%;
+		height: 40px;
+	}
+	
+	#content>div.localViewToggle.clearfix>ul {
+		padding-top: 5px;
+	}
+	
+	#content>div.localViewToggle.clearfix>ul>li a {
+		border-radius: 5px !important;
+	}
+	
+	.localViewToggle a.active:before, div.localViewToggle h2:before, .localViewToggle a.active:after, div.localViewToggle h2:after {
+		border: none;
+	}
+	
+	html .localViewToggle a.active, html .localViewToggle a.active:hover, html .localViewToggle a.active:focus {
+		background-color: #A9D0DC !important;
+	}
+	
+	.localViewToggle a.active, div.localViewToggle h2 {
+		border: none;
+	}
