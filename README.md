@@ -16,23 +16,20 @@ PKU Art 是一款通过浏览器插件，向页面附加的 css 样式表。它�
 >
 > 为展示效果，可能对 html 节点有删改，如录播界面太多了放不下
 
-![CleanShot 2022-08-08 at 17.45.44.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e1a135a10dca0513c4216c6cb1179a586/0.png)
-![CleanShot 2022-08-08 at 17.45.49.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e014a8ca85a8dcdb2e33a07ef38e3b01f/0.png)
-![CleanShot 2022-08-08 at 17.46.05.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e2386619d3ced3b8c72aa174a8877ba50/0.png)
-![CleanShot 2022-08-08 at 17.46.08.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e003604a0f2a5472abb48808886dd4049/0.png)
-![CleanShot 2022-08-08 at 17.46.35.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e8879c1a01a3d8e5be63537b892be60d7/0.png)
-![CleanShot 2022-08-08 at 17.46.57.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e233452961808a4d099f728070abf9c19/0.png)
-
-![CleanShot 2022-08-08 at 17.47.09.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e8091fc9da369a477f90500f7bcb7182f/0.png)
-![CleanShot 2022-08-08 at 17.47.15.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e59c6754e6d01306693ac7e03e716cc2a/0.png)
-![CleanShot 2022-08-08 at 17.47.40.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e5a87e43c97ada08ad63a0c24c0c03836/0.png)
-![CleanShot 2022-08-08 at 17.49.23.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0eb49e8a6cc743c17ea305b63598234e79/0.png)
-![CleanShot 2022-08-08 at 17.49.35.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e06864aa4b06a02529dfe0bfd54c42e8c/0.png)
-![CleanShot 2022-08-08 at 17.49.44.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e082e7596f4a477ee27bbf212f40e5269/0.png)
-
-![CleanShot 2022-08-08 at 17.52.04.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e8b3895b405d7a56a1732ade54ef1cee8/0.png)
-
-![CleanShot 2022-08-08 at 17.53.02.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0eef7d7d773d81e754743434a1a0437777/0.png)
+![CleanShot 2022-08-08 at 17.45.44.png](https://dingyue.ws.126.net/2022/0809/bcab9260j00rgb7770087d001e400t3p.jpg)
+![CleanShot 2022-08-08 at 17.45.49.png](https://dingyue.ws.126.net/2022/0809/0a75929dj00rgb78m008wd001e400t3p.jpg)
+![CleanShot 2022-08-08 at 17.46.05.png](https://dingyue.ws.126.net/2022/0809/f2e5730cj00rgb78n00exd001e400t3p.jpg)
+![CleanShot 2022-08-08 at 17.46.35.png](https://dingyue.ws.126.net/2022/0809/2c19eeb2j00rgb78o00dwd001e400t3p.jpg)
+![CleanShot 2022-08-08 at 17.46.08.png](https://dingyue.ws.126.net/2022/0809/e1f0e336j00rgb78p00fzd001e400t3p.jpg)
+![CleanShot 2022-08-08 at 17.47.15.png](https://dingyue.ws.126.net/2022/0809/e9499512j00rgb78p00e2d001e400t3p.jpg)
+![CleanShot 2022-08-08 at 17.46.57.png](https://dingyue.ws.126.net/2022/0809/cfddac27j00rgb78t00l5d001e400t3p.jpg)
+![CleanShot 2022-08-08 at 17.49.23.png](https://dingyue.ws.126.net/2022/0809/b80ebc85j00rgb78u00bod001e400t3p.jpg)
+![CleanShot 2022-08-08 at 17.47.40.png](https://dingyue.ws.126.net/2022/0809/b280bf05j00rgb78u00b9d001e400t3p.jpg)
+![CleanShot 2022-08-08 at 17.49.44.png](https://dingyue.ws.126.net/2022/0809/040b1b78j00rgb78v00ebd001e400t3p.jpg)
+![CleanShot 2022-08-08 at 17.49.35.png](https://dingyue.ws.126.net/2022/0809/6e585230j00rgb78v00d4d001e400t3p.jpg)
+![CleanShot 2022-08-08 at 17.52.04.png](https://dingyue.ws.126.net/2022/0809/d6d242f2j00rgb78y00bnd001e400t3p.jpg)
+![CleanShot 2022-08-08 at 17.53.02.png](https://dingyue.ws.126.net/2022/0809/d1c35d9ej00rgb78y00e3d001e400t3p.jpg)
+![CleanShot 2022-08-08 at 17.47.09.png](https://dingyue.ws.126.net/2022/0809/22c30d79j00rgb79100ocd001e400t3p.jpg)
 
 ## 下载安装
 
