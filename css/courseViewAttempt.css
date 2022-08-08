@@ -1,0 +1,101 @@
+@import '../css/arco-palette.css';
+@import 'main.css';
+
+/* 整体卡片布局 */
+#containerdiv {
+    border-radius: 5px;
+    background: var(--c-card);
+    padding: 16px;
+    border: 1px solid var(--c-border);
+}
+
+/* 标题样式重置 */
+#containerdiv h3 {
+    padding: 0;
+    background: none;
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    top: 0;
+    color: var(--c-title);
+}
+
+/* 卡片内区域着色 */
+#containerdiv>.stepcontent {
+    /*display: none;*/
+    background: var(--gray-1);
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 16px;
+}
+
+/* 左侧装饰边框 */
+#containerdiv>.stepcontent .label {
+    color: var(--c-text);
+    border-left: 3px solid var(--c-accent);
+    padding-left: 6px;
+}
+
+/* 标题信息着色 */
+#containerdiv>.stepcontent .field {
+    color: var(--c-title);
+
+}
+
+/* 拒绝多余空间 */
+#containerdiv>.stepcontent li:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* 卡片内区域着色 */
+#containerdiv>.columnStep>div {
+    background: var(--gray-1);
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 16px;
+}
+
+/* 行首样式特判 */
+#containerdiv>.columnStep .attachments tr:first-child {
+    border: none;
+}
+
+#containerdiv>.columnStep .attachments tr:first-child * {
+    color: var(--c-title);
+    font-weight: bold;
+}
+
+/* 内容顶部划分线条 */
+#containerdiv>.columnStep .attachments tr:not(:first-child) {
+    border-top: 1px solid var(--c-border);
+}
+
+#containerdiv>.columnStep .attachments tr:not(:first-child) * {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: var(--c-text);
+}
+
+/* 图标解释按钮 */
+#containerdiv>.iconlegend a {
+    background: var(--c-label);
+    border: 1px solid var(--c-border);
+    border-radius: 5px;
+    color: var(--c-text);
+    box-shadow: none;
+}
+
+/* 返回链接 */
+#containerdiv>.backLink a {
+    border-radius: 5px 0 5px 0;
+    background: var(--c-card);
+    box-shadow: none;
+    color: var(--c-text);
+}
+
+#containerdiv>.backLink a:hover {
+    background: var(--c-hover);
+    color: var(--c-primary);
+}

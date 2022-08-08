@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="github">
+			<div class="test">test</div>
+			<div class="test">test</div>
+			<div class="test">test</div>
+			<div class="test">test</div>
+			<div class="test">test</div>
+		</div>
+		<style>
+			#github {
+				display: flex;
+				flex-wrap: wrap;
+			}
+			.test:nth-child(2) {
+				flex-basis: 100%;
+			}
+		</style>
+	</body>
+</html>

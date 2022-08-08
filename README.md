@@ -1,75 +1,132 @@
-<div align="center">
-<img src='https://i.loli.net/2021/11/27/MUjtNG9HxIQKPbA.png'><img/>
-	<div style="height:20px;display:block;color:#fff">&nbsp;
-		<div/>
-<img src="https://img.shields.io/badge/license-GPL3.0-F6D7A7"><img/>  <img src="https://img.shields.io/badge/language-CSS-F6EABE"><img/>  <img src="https://img.shields.io/badge/site-Arthals.ink-C8E3D4"><img/>  <img src="https://img.shields.io/badge/apply-PKU Site-87AAAA"><img/>
-​	
+# PKU Art
 
-  <div/>
-<div align="left">
+## 简介
 
-## 前言
-作为一名 PKUer ，我从入学开始就对教学网的样式适应不来，这做的真的太丑了！这怎么会让人有学习的动力呢？！我为什么老摸鱼？不就是因为这教学网让我看了就不想学习吗！（震声
+PKU Art 是一款通过浏览器插件，向页面附加的 css 样式表。它可以完成对于原有样式的覆盖，从而增强教学网视觉体验。第一版发布于去年 11 月，相对简陋，最近更新的第二版实现了对第一版完整的重构，完美支持了暗色模式，并且增加了更多的交互动效和设计改进。
 
-这种不满终于这个周四爆发了。我看着又土又老的编程网格，再也忍不下去了，正好周五加周末没啥事，于是开始快乐地在图书馆摸鱼（其实只有最后看到成果的时候才快乐，期间调各种样式啊选择器啊的时候让我简直要吐血，好多知识和语法还是边用边学的），爆肝出了编程网格、IAAA登录页、教学网大部分页面的CSS。
+## 项目地址
 
-我真的很想吐槽那用 Table 搭出来的编程网格、大黑框顶头上的教学网，还有那设计简直离天下之大谱、让我甚至真的想问就这还注册专利吗的成绩页面（它居然还用iframe套娃套了两层！），但最终，我还是完成了。
+- [Stylish](https://userstyles.org/styles/220453/pku-art)
+- [GreasyFork](https://greasyfork.org/zh-CN/scripts/436323-pku-art)
+- [Github](https://github.com/zhuozhiyongde/PKU-Art)
 
-这就是和我的另外一个样式 Baidu Art （打广告：这是一个我高二折腾出来并用到现在的好看样式）类似取名的 PKU Art 的诞生了。
+## 效果预览
 
-现在想想，两天的时间换未来几年的视觉快感，也算是值辽！
+> 篇幅所限，只放黑暗模式下的效果：）
+>
+> 为展示效果，可能对 html 节点有删改，如录播界面太多了放不下
 
-## 效果展示
+![CleanShot 2022-08-08 at 17.45.44.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e1a135a10dca0513c4216c6cb1179a586/0.png)
+![CleanShot 2022-08-08 at 17.45.49.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e014a8ca85a8dcdb2e33a07ef38e3b01f/0.png)
+![CleanShot 2022-08-08 at 17.46.05.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e2386619d3ced3b8c72aa174a8877ba50/0.png)
+![CleanShot 2022-08-08 at 17.46.08.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e003604a0f2a5472abb48808886dd4049/0.png)
+![CleanShot 2022-08-08 at 17.46.35.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e8879c1a01a3d8e5be63537b892be60d7/0.png)
+![CleanShot 2022-08-08 at 17.46.57.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e233452961808a4d099f728070abf9c19/0.png)
 
-### 编程网格
-![编程网格1](https://i.loli.net/2021/11/27/QlT6eiVdXpk7cIZ.png)
+![CleanShot 2022-08-08 at 17.47.09.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e8091fc9da369a477f90500f7bcb7182f/0.png)
+![CleanShot 2022-08-08 at 17.47.15.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e59c6754e6d01306693ac7e03e716cc2a/0.png)
+![CleanShot 2022-08-08 at 17.47.40.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e5a87e43c97ada08ad63a0c24c0c03836/0.png)
+![CleanShot 2022-08-08 at 17.49.23.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0eb49e8a6cc743c17ea305b63598234e79/0.png)
+![CleanShot 2022-08-08 at 17.49.35.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e06864aa4b06a02529dfe0bfd54c42e8c/0.png)
+![CleanShot 2022-08-08 at 17.49.44.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e082e7596f4a477ee27bbf212f40e5269/0.png)
 
-![编程网格2](https://i.loli.net/2021/11/27/j9o2zBdSx8WPGhK.png)
+![CleanShot 2022-08-08 at 17.52.04.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0e8b3895b405d7a56a1732ade54ef1cee8/0.png)
 
-![编程网格3](https://i.loli.net/2021/11/27/wAM3DT7xyR5OqUh.png)
+![CleanShot 2022-08-08 at 17.53.02.png](https://p.qlogo.cn/hy_personal/3e28f14aa05168424527489267b9fa0eef7d7d773d81e754743434a1a0437777/0.png)
 
-### IAAA
-![IAAA](https://i.loli.net/2021/11/27/9w4BcirULTxCHtM.png)
+## 下载安装
 
-### 教学网
-![课程网首页](https://i.loli.net/2021/11/27/WI8aLgEu9bzwS5Q.png)
+PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari 与 Chrome（Edge）两大浏览器。两种安装方式并无效果差异，也都需要借用浏览器插件。
 
-![课程网主页](https://i.loli.net/2021/11/27/XjZfypcsSt4DHP1.png)
+### CSS 安装
 
-![成绩页面](https://i.loli.net/2021/11/27/EihLVCfPWFcS3N6.png)
+#### Safari
 
+需要使用 Cascadea 插件，可以通过下列途径安装：
 
-### 动画效果
-![操作动画](https://i.loli.net/2021/11/27/b5G9EOzXv1kWpjc.gif)
+- [App Store（18r）](https://apps.apple.com/cn/app/cascadea/id1432182561?mt=12)
+- [MacWk](https://macwk.com/soft/cascadea)
 
-![刷新动画](https://i.loli.net/2021/11/27/ozs1S7v4nNTMPVl.gif)
+安装完成后，访问 [CSS 下载链接](https://userstyles.org/styles/220453/pku-art)，点击右上角的 Install with Cascadea 即可。
 
-## 提示
-* 作者非专业前端工作人员，不保证该样式在任何设备、浏览器上的兼容性，但如果你遇到问题，可以在 Github 提请 Issue，我也会不定期更新新的 P 大相关网页（咕？
-* 本样式主要适配网页端，请在使用前确保你的窗口分辨率足够
-* 出于美观和实用性考虑，本样式屏蔽了大量我认为不那么重要的网页元素，如果你偶然发现自己要用的一个功能找不到了，可以暂时关闭本样式的应用
-* 本样式通过外部挂载 CSS 应用，请确保你先装好了相应的浏览器插件（Safari 使用 Cascadea ，Chrome 或同内核浏览器使用 Stylish 插件）
-* 有任何技术交流问题，可以通过 Github Issue 联系我，但我不一定会及时看，如果是想交流技术或者帮我完善的好心人，可以加我微信（和 Github 同名）
-* 本样式可借由 Userscript 这一 App 在 iPad 上的 Safari 浏览器上使用 
-* 如果出现显示问题，请先检查是否有其他更改样式的脚本同时加载，如通过 GreasyFork 上基于 pangu.js 的空格之王。——2022.03.30
-	
-## 插件下载
-### Cascadea（For Safari）
-* [App Store（18r）](https://apps.apple.com/cn/app/cascadea/id1432182561)： 
-* [MacWk](https://macwk.com/soft/cascadea)
+#### Chrome(Edge)
 
-### Stylish（For Chrome）
-* [Google Web Store（需科学上网）](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe/related)
-* [在Stylish上获取PKU Art](https://userstyles.org/styles/220453/pku-art)
+需要使用 Stylish 插件，可以通过下列途径安装：
 
-## 版权
-本样式部分用到的图片来源如下：
-* [学校官网](https://www.pku.edu.cn)
-* [Iconfont](https://www.iconfont.cn)
-* [Flaticon](https://www.flaticon.com)
+- [Chrome web store](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe?utm_source=chrome-ntp-icon)
 
-本样式以 GPL 3.0 开源
+安装完成后，同样访问 [CSS 下载链接](https://userstyles.org/styles/220453/pku-art)，然后点击 Install Style 即可。
 
-## 结语
-祝玩的开心，绩点高高！
-  <div/>
+### JavaScript 安装
+
+#### Safari
+
+需要使用 Userscript 插件，可以通过下列途径安装：
+
+- [App store](https://apps.apple.com/cn/app/userscripts/id1463298887)
+
+安装完成后，访问 [Javascript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可，如果被您的电脑上有 adguard 可能会被抢占安装，但其实也无所谓。
+
+#### Chrome(Edge)
+
+需要使用 TamperMonkey 插件，可以通过下列途径安装：
+
+- [Chrome web store](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=chrome-ntp-icon)
+
+安装完成后，访问 [Javascript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可。
+
+## 使用须知
+
+本样式移除了一些我觉得没有用处的控件元素，如侧栏的收起框（这个太丑了），播放列表上方的导航栏（下方有一样的），这可能会导致一些特殊情况下，某些功能不可用。但你可以随时在插件内禁用本样式，以恢复到原有界面。
+
+本样式覆盖了所有我认为常用的界面，但我毕竟不是教学网的专业前端维护人员，所以我并不能做到对全部的页面加以修改。但如果你认为某个页面十分常用但却没有被修改，欢迎联系我，在 Github 提 issue，在树洞下留言，抑或是直接加我微信的方式（在文末，这个最欢迎！）都可以。
+
+如果你喜欢这个样式，请不要吝啬点击 Star（树洞和 Github 的都可以！），这是对我最大的鼓励与肯定！
+
+## Q&A
+
+### PKU Art 移除了那些控件/元素？
+
+其实并不多，我在第二版严格控制了对于页面的操纵，并没有像第一版一样滥用`display:none;`，稍后我会在本页面下更新移除列表以供查找。
+
+### 有适配手机版的打算吗？
+
+没有，做手机版自适应工程量几乎等于重构，一个人维护这个项目，我真的太累了 qwq...
+
+### 可以在 iPad 上使用吗？
+
+可以，方式等同于在 Safari 上使用 JavaScript 安装。
+
+### 我可以审阅代码、提交 PR 吗？
+
+十分欢迎！你可以随时访问我的 Github，哪里有本项目用到的所有代码。我可以保证项目内不含有任何恶意代码，仅仅是通过附加 css（通过 CDN 分发）来改变页面样式。如果你愿意提交 PR，那我会十分乐意接受的！
+
+### 下一步目标是什么？
+
+可以参看后记~
+
+## 后记
+
+平日里的我并非是个话很多的人，但这堪称疯狂的一周，实在是让我感触颇丰，总觉得还是得记下点什么。
+
+去年刚刚进入燕园的我，因为受不了编程网格的老土设计，在图书馆摸了好半天，就为了把编程网格做的好看了一点（#2908869），彼时的我甚至连 css 的容器布局都不甚了解，好多知识都是在敲代码的过程中才去第一次认真学习，可我没想到的是哪个略显粗糙的拙劣样式，却得到了很多同学的肯定。于是我再接再厉，凭借着那三脚猫的功夫，滥用各种现在看起来简直不可接受的语句完成了对于教学网的美化（也正是这烂到几乎不可维护的屎山让我下定决心重构整个项目），发布了 PKU Art v1。承蒙厚爱，发布以后我得到了很多同学的赞扬，收获了至今为止 Star 最多的一个树洞&项目。那段时间我最快乐的一件事情就是每天刷树洞看看涨了多少关注，在 Stylish 上看看涨了多少下载（好虚荣啊 hhh），真是相当感谢大家的支持！
+
+开心过后的我，却也从未忘记，那只是一个徒有其表的半成品，根本经不起哪怕一次 code review。事实上，自从发布以后，我自己也就是用着，而并没有想办法去优化。毕竟程序员们不总是有句老话嘛——代码能跑就不要动。就这么凑合着，我搁置了这个项目。
+
+时光转眼来到今年的八月一日。对前端一直很感兴趣的我，在七月份刚刚系统化学了一遍 js，vue，react 等前端常用技术，也对 css 有了一些新的了解。就如同去年的我一样，闲到不知道干什么的我，终于还是给自己找起了事情做——我要重构这一坨屎山代码！
+
+重构的过程，用到的知识其实相较第一版并没有太大的差异，但有了系统化知识的打底，我对于页面结构有了更深的理解，没有再滥用万能的 translate，也没有随意乱加伪类，而是顺着原有的结构一步步选择适合的语句去实现我想要的效果。同时，一回生二回熟的我，也对教学网的路由和套娃谙熟于心，没有再像之前一样对着一个 iframe 愣半天，也通过正则表达式对于样式生效的网址有了更精细的控制。
+
+要说这一周真的学到了什么，我想，也没有什么。抠细节带来的大概只有对于耐心的考验，每个页面，我大概都要写数个小时才能满意，每个用到颜色的地方我都使用了变量来保证在黑暗模式下的可用性，每个我觉得原先图标不行的地方我都专门去 IconPark 网站上找了替代品并加以更换。Mac 告诉我，为了完成这个项目，我的相关屏幕使用时间在上周达到了 50 个小时，然而这还不算我找参考，挑配色的时间。
+
+我向来是一个对于自己感兴趣的事物会不惜代价去投入的人，可是这次所花费的时间和最终写出的代码行数都远远超出了我最开始的预期。
+
+期间，我也不是没有心生厌倦，我曾问过自己，就算花了这么久时间去写，最后能用上的又有多少人？我付出的时间精力难道不是自娱自乐吗？万一教学网也像编程网格一样更新了样式怎么办？... 但我却总是安慰自己，已经写了这么多了（沉没价值啊啊啊啊），怎么能忍心半途而废呢？于是，就在这种一边否定自己，一边问怀疑原有代码究竟是怎么写出来的，一边机械化的敲着已经用了数百遍的那些属性和变量的过程中，我还是渐渐磨出来了最终的成果——全新的、带黑暗模式的 PKU Art v2。
+
+于是，我终于相信，这一版的 PKU Art v2，足够让我、让大家满意。
+
+至此，教学网的页面设计问题终于被我解决，我预想的下一步是，通过新学到的 js 知识，解决一些功能交互方面的问题。譬如说期末考试前大预习的晚上发现下载教学网视频多有不便（不能批量下载、有这奇怪的 source 命名难以查找等…）除了教学网之外，常年闲逛于树洞的我更是从同学们的评论中找到了各种痛点：收藏夹无法导出、无法批量取关…（我也一直很想给树洞加一个限时功能来限制自己的摸鱼 hhh
+
+我希望能够在接下来的暑假，除了学一学先修课之外，再为自己找点事情做——那就是，完成一个 PKU Tool 脚本/网站，尝试解决上述所有提出的问题！虽然能完成多少、要花多长时间完成都是一个未知数，但是我会尽力去做，就像去年年末那个成天在图书馆摸鱼 PKU Art 的我一样 hhh。
+
+如果你有任何功能提议，或者希望能帮助我一起来完成这个项目，或者愿意带带我玩和平精英，都欢迎在这条树洞下留言，或者直接联系我的微信：zhuozhiyongde（呜呜同学们快来让我这个社恐恰个 v 吧）

@@ -1,0 +1,186 @@
+@import '../css/arco-palette.css';
+@import 'main.css';
+
+
+.stream_pages {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+* {
+    background: var(--c-card);
+    box-shadow: none !important;
+    outline: none !important;
+    font-style: normal !important;
+    font-family: sans-serif !important;
+}
+
+.stream_page_left,
+.stream_right,
+html {
+    border: none !important;
+    background: var(--c-card) !important;
+}
+
+.stream_page_left {
+    width: 400px !important;
+    flex-basis: 400px;
+    box-sizing: border-box;
+}
+
+.stream_header>h1 span.current-page,
+.stream_header span.icon {
+    display: none;
+}
+
+.stream_header>h1 span.title-text {
+    color: var(--c-title);
+    font-weight: bold;
+    text-shadow: none;
+    padding-left: 12px;
+}
+
+/* 筛选栏 */
+.stream_list_filter {
+    display: flex;
+    flex-wrap: wrap;
+    height: fit-content;
+}
+
+.stream_list_filter>li {
+    background: transparent !important;
+}
+
+.stream_list_filter>li:nth-child(1),
+.stream_list_filter>li:nth-child(2) {
+    flex-basis: 50%;
+    margin-bottom: 10px;
+    padding: 10px 8px 5px 8px;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.stream_list_filter>li:nth-child(1) a,
+.stream_list_filter>li:nth-child(2) a {
+    background: transparent;
+    color: var(--c-text);
+    border-bottom: 2px solid transparent;
+}
+
+.stream_list_filter>li:nth-child(1) a:hover,
+.stream_list_filter>li:nth-child(2) a:hover {
+    border-bottom: 2px solid var(--c-accent);
+    background: var(--c-hover);
+    border-radius: 5px 5px 0 0;
+}
+
+.stream_list_filter>li.stream_filterlinks_divider {
+    border: none;
+}
+
+.stream_list_filter>li a:hover {
+    color: var(--c-accent) !important;
+}
+
+.stream_list_filter>li:nth-child(4) a,
+.stream_list_filter>li:nth-child(5) a,
+.stream_list_filter>li:nth-child(6) a {
+    color: var(--c-text);
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    border: none !important;
+}
+
+.stream_list_filter>li a.active {
+    background: var(--c-hover);
+}
+
+.stream_header {
+    border: none;
+}
+
+.stream_dynamic_filters {
+    background-color: var(--c-card) !important;
+    border: 1px solid var(--c-border);
+    padding: 10px;
+    box-shadow: var(--c-box-shadow) !important;
+}
+
+.stream_dynamic_filters h5 {
+    color: var(--c-title);
+    font-size: 15px !important;
+    font-weight: bold;
+}
+
+.stream_dynamic_filters li a {
+    color: var(--c-text);
+    border-radius: 3px;
+    margin-bottom: 2px;
+}
+
+.stream_dynamic_filters li a:hover {
+    background: var(--c-hover);
+}
+
+.stream_left>div {
+    border: none !important;
+    border-radius: 6px;
+}
+
+.stream_left>div:last-child {
+    margin-bottom: 50px;
+}
+
+.stream_left>div * {
+    background: transparent;
+}
+
+.stream_left>div.active_stream_item {
+    background: var(--c-hover);
+}
+
+.stream_left>div .grade-value {
+    color: var(--c-secondary);
+}
+
+.stream_left>div.active_stream_item .grade-value {
+    color: var(--cyan-7);
+}
+
+.stream_left>div .stream_context {
+    color: var(--c-text) !important;
+    font-size: 14px !important;
+}
+
+.stream_left>div .stream_area_name {
+    background-color: var(--c-secondary);
+    border-radius: 100px;
+    padding: 0 5px;
+    color: var(--c-card);
+}
+
+.stream_left>div.active_stream_item .stream_area_name {
+    background-color: var(--cyan-7);
+}
+
+.stream_pages>.stream_settings {
+    position: absolute;
+    display: none !important;
+}
+
+.stream_pages::after {
+    position: absolute;
+    display: none !important;
+}
+
+iframe.stream_right {
+    width: calc(100% - 420px) !important;
+    flex-basis: calc(100% - 420px);
+    padding: 5px !important;
+    box-sizing: border-box;
+}
+
+.streamError {
+    display: none;
+}

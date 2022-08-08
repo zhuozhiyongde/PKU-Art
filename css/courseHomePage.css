@@ -1,0 +1,463 @@
+@import '../css/arco-palette.css';
+@import 'main.css';
+
+/* 隐藏不需要的模块 */
+.brandingImgWrap,
+#appTabList>tbody>tr :not(:first-child),
+.hideoff,
+#quick_links_wrap,
+#global-avatar,
+#global-toggle-img {
+	display: none;
+	/* visibility: hidden; */
+}
+
+/* 个人界面面板 */
+#global-nav-link>* {
+	display: none;
+}
+
+#global-nav-link,
+#global-nav-link:hover,
+#global-nav-link:focus {
+	color: transparent;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	background: transparent;
+	background-image: var(--i-remind);
+	background-size: 80%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	border: none;
+	outline: none;
+}
+
+/* 退出按键 */
+.global-nav-bar a.logout-link,
+.global-nav-bar a.logout-link:hover,
+.global-nav-bar a.logout-link:focus {
+	color: transparent;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	background: transparent;
+	background-image: var(--i-exit);
+	background-size: 80%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+/* 替换背景 */
+/* .tabWrapper-right,
+#globalNavPageNavArea,
+#topTabs, */
+.container,
+.locationPane {
+	background-color: var(--c-background);
+}
+
+/* 重置导航栏布局 */
+.tabWrapper-right,
+#globalNavPageNavArea,
+#topTabs {
+	/* position: absolute; */
+	/* width: fit-content; */
+	background-color: var(--c-navbar);
+}
+
+#globalNavPageNavArea {
+	padding: 1em 0;
+	height: 60px;
+	box-sizing: border-box;
+	/* vertical-align: middle; */
+	display: flex;
+	text-align: right;
+	justify-content: flex-end;
+	flex-direction: row;
+	padding-right: 140px;
+	background-image: var(--i-logo);
+	background-repeat: no-repeat;
+	background-size: auto 30px;
+	background-position: 2em center;
+	border-bottom: 1px solid var(--c-border);
+}
+
+.tabWrapper-right,
+.bouncer[role="presentation"] {
+	width: fit-content;
+}
+
+
+
+.global-nav-bar-wrap {
+	position: absolute;
+	/* left: 90vw; */
+	right: 20px;
+	display: flex;
+	/* height: fit-content; */
+	justify-content: flex-end;
+	flex-direction: row-reverse;
+	background-color: var(--c-navbar);
+	width: 100px;
+	height: 60px;
+	box-sizing: border-box;
+	/* margin-right: 10px; */
+	/* transform: translateX(calc(90vw - 120px)); */
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid var(--c-border);
+}
+
+.global-nav-bar {
+	/* margin: 30px 5px; */
+	margin: 0;
+	float: none;
+	height: 60px;
+	display: flex;
+	/* display: inline-block; */
+	/* background-color: var(--c-navbar); */
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: center;
+}
+
+.global-nav-bar:not(:first-child) {
+	margin: 0 5px;
+}
+
+/* .nav-link {
+	transform: translateY(-50%);
+} */
+
+table.bouncer,
+.appTabs td.active,
+.appTabs a:hover span,
+.appTabs a:focus span {
+	border: none;
+}
+
+table.bouncer span {
+	color: var(--c-title);
+}
+
+table.bouncer span:hover {
+	color: var(--c-accent);
+}
+
+.topTabs .tabWrapper-right {
+	height: fit-content;
+	padding: 0;
+}
+
+#globalNavPageNavArea a,
+#globalNavPageNavArea td {
+	padding: 0 !important;
+}
+
+/* 内容部分调整 */
+#globalNavPageContentArea,
+.locationPane,
+.contentPaneWide,
+#content,
+#content>div,
+#content>div>div,
+#content>div>div>div,
+#content>div>div>div>div {
+	/* height: 100% !important; */
+	/* min-height: (fit-content, 100vh); */
+	height: fit-content;
+	min-height: 100vh;
+	padding: 0;
+}
+
+.container {
+	margin: 0;
+	padding: 0;
+	border: none;
+	height: fit-content;
+	/* overflow: scroll; */
+	/* overflow: hidden; */
+}
+
+.containerPortal {
+	display: flex;
+	flex-direction: row;
+	/* height: 80vh; */
+	/* overflow: scroll; */
+}
+
+/* 第一栏成导航栏 */
+#column0 {
+	/* height: 200%; */
+	/* margin-bottom: 1000px; */
+	/* padding-bottom: 1000px; */
+	margin: 0;
+	background-color: var(--c-sidebar);
+	border-right: 1px solid var(--c-border);
+	width: min(25%, 300px) !important;
+}
+
+html #global-nav-bar-wrap {
+	/* display: none !important; */
+	display: flex;
+	justify-content: flex-end;
+}
+
+/* fuck！找了两个小时，哪个**写的底部空白伪类！！ */
+.clearfix:after,
+.clearfixParent>div:after,
+.clearfixParent>li:after {
+	display: none;
+}
+
+/* 左侧侧栏样式 */
+.portlet {
+	padding: 1em;
+	background-color: var(--c-sidebar);
+}
+
+#column0>div:first-child h2 {
+	background-color: var(--c-sidebar);
+	font-size: 14pt;
+	color: var(--c-title);
+}
+
+#column0>div:first-child {
+	border: none;
+}
+
+#column0>div:first-child h2:after {
+	z-index: 1;
+	content: "";
+	color: transparent;
+	visibility: visible;
+	display: block;
+	height: 10px;
+	position: relative;
+	top: 5px;
+	width: 60px;
+	border-radius: 50px;
+	background-color: var(--c-accent);
+}
+
+#column0>div:first-child div.collapsible {
+	border: none;
+}
+
+.portlet .portletList li {
+	border-top: none;
+}
+
+
+/* 左侧工具栏项目样式、交互 */
+.portlet .portletList-img>li {
+	border: none;
+}
+
+.portlet .portletList li a {
+	position: relative;
+	color: var(--c-text);
+	font-size: 11pt;
+}
+
+.portlet .portletList li a:hover {
+	color: var(--red-5);
+}
+
+.portlet .portletList li a:after {
+	content: "";
+	color: transparent;
+	visibility: visible !important;
+	position: absolute;
+	border-bottom: 2px solid var(--red-5);
+	border-radius: 2px;
+	bottom: -2px;
+	/*向左偏移隐藏*/
+	left: 100%;
+	width: 0;
+	-webkit-transition: width 350ms, left 350ms;
+	-moz-transition: width 350ms, left 350ms;
+	transition: width 350ms, left 350ms
+}
+
+.portlet .portletList li a:hover:after {
+	visibility: visible !important;
+	left: 0;
+	width: 100%;
+	-webkit-transition: width 350ms;
+	-moz-transition: width 350ms;
+	transition: width 350ms
+}
+
+#column0>div:not(:first-child) {
+	display: none;
+}
+
+/* 浮现动画 */
+#column0 {
+	-webkit-animation: fadeInLeftStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+	animation: fadeInLeftStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+}
+
+#column1,
+#column2 {
+	-webkit-animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+	animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+}
+
+/* 右侧卡片样式 */
+
+#column1,
+#column2 {
+	margin-left: 1em;
+	height: fit-content;
+}
+
+#column1 .portlet,
+#column2 .portlet {
+	border: 1px solid var(--c-border);
+	border-radius: 5px;
+	background-color: var(--c-card);
+	margin-top: 1em;
+}
+
+/* 卡片标题 */
+.portlet h2 {
+	font-size: 14pt;
+	background-color: transparent;
+	color: var(--c-title);
+	border: none;
+}
+
+/* 课程链接样式、交互 */
+.containerPortal>div:not(:first-child) .portlet .portletList-img>li {
+	padding: 7px 10px !important;
+	border-radius: 5px;
+	margin-bottom: 0.25em;
+}
+
+.collapsible {
+	border-top: none;
+}
+
+.containerPortal>div:not(:first-child) .portlet .portletList-img>li:hover {
+	background-color: var(--c-hover);
+}
+
+.containerPortal>div:not(:first-child) .portlet .portletList-img>li>a {
+	color: var(--c-subtitle);
+	font-size: 11pt;
+}
+
+.containerPortal>div:not(:first-child) .portlet .portletList-img>li>a:hover {
+	color: var(--blue-5);
+}
+
+/* 其余卡片内容 */
+/* 空元素区居左显示 */
+.portlet .noItems {
+	text-align: left;
+}
+
+#column2 .collapsible div,
+#column2 .collapsible h3,
+#column2 .collapsible a,
+.portlet h3 {
+	font-style: normal;
+	color: var(--c-text);
+}
+
+/* 个人导航面板 */
+#vertical_container,
+#bottomButtons {
+	display: none;
+}
+
+#global-nav-tools {
+	z-index: 9999;
+}
+
+#global-nav-flyout {
+	box-shadow: none;
+	border-radius: 5px;
+	width: 40px !important;
+	height: 100px !important;
+	transform: translateY(34px);
+	background-color: transparent;
+	/*background-color: #000;*/
+}
+
+#global-nav-tools {
+	background-color: var(--c-card);
+}
+
+#global-list-tools {
+	margin: 0;
+	box-shadow: var(--c-box-shadow);
+	border: 1px solid var(--c-border);
+	padding: 5px;
+	border-radius: 5px;
+	background-color: var(--c-card);
+	/*border:1px solid #EEE;*/
+}
+
+#global-list-tools>.overview,
+#global-list-tools>.stream,
+#global-list-tools>.calendar {
+	display: none;
+}
+
+
+#global-list-tools>.alerts,
+#global-list-tools>.grade {
+	background-color: var(--c-card);
+}
+
+#global-list-tools>.alerts>a:hover,
+#global-list-tools>.grades>a:hover {
+	background-color: var(--c-hover);
+}
+
+#global-list-tools>.alerts>a {
+	border-radius: 5px;
+	background: var(--i-alarm);
+	/* background-color: var(--c-card) !important; */
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	margin: 0 auto;
+	/* transition: 350ms opacity; */
+}
+
+
+#global-list-tools>.grades>a {
+	border-radius: 5px;
+	background: var(--i-idcard);
+	/* background-color: var(--c-card) !important; */
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	margin: 0 auto;
+	/* transition: 350ms opacity; */
+}
+
+.mybb-tools li a {
+	opacity: 1;
+	background-color: var(--c-card);
+}
+
+.mybb-tools li a:focus,
+.mybb-tools li a:focus img {
+	outline: none;
+}
+
+/* 公告设置按钮 */
+
+div.edit_controls>a::before,
+div.edit_controls>a:hover::before {
+	background: var(--i-setting);
+	background-repeat: no-repeat;
+	background-size: contain;
+	color: transparent;
+}

@@ -1,0 +1,125 @@
+@import '../css/arco-palette.css';
+@import 'main.css';
+
+/*移除不必要的部分*/
+.top,
+.bottom {
+	display: none;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.mid {
+	background-image: none !important;
+	display: flex;
+	justify-content: center;
+}
+
+.single_col_panel {
+	margin-top: 20vh;
+	/* height: 400px; */
+	display: flex;
+	height: max(fit-content, 400px);
+	width: 300px !important;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: var(--c-box-shadow);
+	background-color: var(--c-card);
+	background-image: var(--i-logo);
+	border: 1px solid var(--c-border);
+	background-size: 50%;
+	background-position: top center;
+	background-position-y: 25px;
+	background-repeat: no-repeat;
+	float: none;
+	border-radius: 10px;
+	padding: 90px 20px 20px 20px;
+	text-align: center;
+}
+
+.row .row-title {
+	border-bottom: 1px solid var(--c-border);
+}
+
+.row .row-title a {
+	color: var(--c-text);
+}
+
+.row .row-title .current {
+	color: var(--c-accent);
+}
+
+input:nth-last-child(n + 2) {
+	background-color: var(--c-input-bg);
+	border: 1px solid var(--c-border);
+	color: var(--c-text);
+}
+
+input:nth-last-child(n + 2):focus {
+	background-color: transparent;
+	border: 2px solid var(--c-accent);
+}
+
+input[type='submit'] {
+	background-color: var(--c-accent);
+}
+
+#remember_text {
+	margin-top: 4px;
+	color: var(--c-text);
+}
+
+#passwd_area:before {
+	content: '密码';
+	display: block;
+	/*font-weight: 800;*/
+	/*font-size:16p;*/
+	font: bold 13pt arial, sans-serif;
+	text-align: left;
+	margin-left: 5px;
+	margin-bottom: 3px;
+	color: var(--c-title);
+}
+
+#login_panel>div:nth-child(1):before {
+	content: '账号';
+	display: block;
+	height: 25px;
+	/*font-weight: 800;*/
+	/*font-size:16p;*/
+	font: bold 13pt arial, sans-serif;
+	text-align: left;
+	margin-left: 5px;
+	margin-bottom: 3px;
+	color: var(--c-title);
+}
+
+.fa.fa-times-circle,
+.pad-tip {
+	transform: translate(0, 25px);
+	color: var(--c-title);
+	font-weight: 100;
+}
+
+input[type='password']::placeholder,
+input[type='text']::placeholder {
+	color: transparent;
+}
+
+input {
+	border-radius: 6px !important;
+	height: 40px !important;
+	box-sizing: border-box;
+}
+
+/* 提示消息居中 */
+#msg {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+}

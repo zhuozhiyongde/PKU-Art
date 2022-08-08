@@ -1,0 +1,465 @@
+@import '../css/arco-palette.css';
+@import 'main.css';
+
+.brandingImgWrap,
+#appTabList>tbody>tr :not(:first-child),
+.hideoff,
+#quick_links_wrap,
+#global-avatar,
+#global-toggle-img {
+    display: none;
+    /* visibility: hidden; */
+}
+
+
+/* 个人界面面板 */
+#global-nav-link>* {
+    display: none;
+}
+
+#global-nav-link,
+#global-nav-link:hover,
+#global-nav-link:focus {
+    color: transparent;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    background-image: var(--i-remind) !important;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: none;
+    outline: none;
+}
+
+/* 退出按键 */
+.global-nav-bar a.logout-link,
+.global-nav-bar a.logout-link:hover,
+.global-nav-bar a.logout-link:focus {
+    color: transparent;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    background-image: var(--i-exit) !important;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/* 替换背景 */
+/* .tabWrapper-right,
+#globalNavPageNavArea,
+#topTabs, */
+.container,
+.locationPane,
+.contentPane {
+    background-color: var(--c-background);
+}
+
+/* 全局Container */
+/*#containerdiv{*/
+/*	border-radius: 5px!important;*/
+/*	border:1px solid var(--c-border)!important;*/
+/*}*/
+
+/* 重置导航栏布局 */
+.tabWrapper-right,
+#globalNavPageNavArea,
+#topTabs {
+    /* position: absolute; */
+    /* width: fit-content; */
+    background-color: var(--c-navbar);
+}
+
+#globalNavPageNavArea {
+    padding: 1em 0;
+    height: 60px;
+    box-sizing: border-box;
+    /* vertical-align: middle; */
+    display: flex;
+    text-align: right;
+    justify-content: flex-end;
+    flex-direction: row;
+    padding-right: 140px;
+    background-image: var(--i-logo);
+    background-repeat: no-repeat;
+    background-size: auto 30px;
+    background-position: 2em center;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.tabWrapper-right,
+.bouncer[role="presentation"] {
+    width: fit-content;
+}
+
+
+
+.global-nav-bar-wrap {
+    position: absolute;
+    /* left: 90vw; */
+    right: 20px;
+    display: flex;
+    /* height: fit-content; */
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    background-color: var(--c-navbar);
+    width: 100px;
+    height: 60px;
+    box-sizing: border-box;
+    /* margin-right: 10px; */
+    /* transform: translateX(calc(90vw - 120px)); */
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.global-nav-bar {
+    /* margin: 30px 5px; */
+    margin: 0;
+    float: none;
+    height: 60px;
+    display: flex;
+    /* display: inline-block; */
+    /* background-color: var(--c-navbar); */
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.global-nav-bar:not(:first-child) {
+    margin: 0 5px;
+}
+
+/* .nav-link {
+	transform: translateY(-50%);
+} */
+
+table.bouncer,
+.appTabs td.active,
+.appTabs a:hover span,
+.appTabs a:focus span {
+    border: none;
+}
+
+table.bouncer span {
+    color: var(--c-title);
+}
+
+table.bouncer a:hover,
+table.bouncer span:hover {
+    color: var(--c-accent);
+    text-decoration: none !important;
+}
+
+.topTabs .tabWrapper-right {
+    height: fit-content;
+    padding: 0;
+}
+
+#globalNavPageNavArea a,
+#globalNavPageNavArea td {
+    padding: 0 !important;
+}
+
+/* 置高 */
+#globalNavPageContentArea,
+#globalNavPageContentArea .locationPane,
+#contentPanel,
+#content,
+#containerdiv,
+#containerdiv>div,
+#iframe_wrap {
+    height: fit-content !important;
+    /* min-height: calc(100vh - 60px) !important; */
+}
+
+#globalNavPageContentArea {
+    height: calc(100vh - 60px) !important;
+    top: 0px;
+}
+
+
+nav.navigationPane {
+    height: 100%;
+}
+
+/* 面板内容样式 */
+.locationPane {
+    background-color: var(--c-background);
+}
+
+.contentPane .shadow {
+    border: none;
+}
+
+#pageTitleDiv {
+    margin: 0 !important;
+}
+
+#contentPanel {
+    /* -webkit-animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+    animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards; */
+}
+
+
+/* 个人导航面板 */
+#vertical_container,
+#bottomButtons {
+    display: none;
+}
+
+#global-nav-tools {
+    z-index: 9999;
+}
+
+#global-nav-flyout {
+    box-shadow: none;
+    border-radius: 5px;
+    width: 40px !important;
+    height: 100px !important;
+    transform: translateY(34px);
+    background-color: transparent;
+    /*background-color: #000;*/
+}
+
+#global-nav-tools {
+    background-color: var(--c-card);
+}
+
+#global-list-tools {
+    margin: 0;
+    box-shadow: var(--c-box-shadow);
+    border: 1px solid var(--c-border);
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--c-card);
+    /*border:1px solid #EEE;*/
+}
+
+#global-list-tools>.overview,
+#global-list-tools>.stream,
+#global-list-tools>.calendar {
+    display: none;
+}
+
+#global-list-tools>.alerts,
+#global-list-tools>.grade {
+    background-color: var(--c-card);
+}
+
+#global-list-tools>.alerts>a:hover,
+#global-list-tools>.grades>a:hover {
+    background-color: var(--c-hover);
+}
+
+#global-list-tools>.alerts>a {
+    border-radius: 5px;
+    background: var(--i-alarm);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0 auto;
+    /* transition: 350ms opacity; */
+}
+
+
+#global-list-tools>.grades>a {
+    border-radius: 5px;
+    background: var(--i-idcard);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0 auto;
+    /* transition: 350ms opacity; */
+}
+
+.mybb-tools li a {
+    opacity: 1;
+    background-color: var(--c-card);
+}
+
+.mybb-tools li a:focus,
+.mybb-tools li a:focus img {
+    outline: none;
+}
+
+#globalNavPageNavArea .bouncer * {
+    vertical-align: middle;
+    font-weight: bold !important;
+    overflow: visible;
+    border: none;
+}
+
+#globalNavPageNavArea a {
+    margin: 0;
+}
+
+
+/* 内容框架 */
+#globalNavPageContentArea,
+#globalNavPageContentArea .locationPane,
+#contentPanel,
+#content {
+    background: var(--c-background);
+}
+
+/* 左侧边栏 */
+#side_nav {
+    background: var(--c-sidebar);
+    border-right: 1px solid var(--c-border);
+    width: min(25%, 300px) !important;
+    padding: 1em;
+}
+
+#side_nav:before {
+    content: "工具";
+    display: block;
+    width: 100%;
+    font-size: 19px;
+    text-align: left;
+    color: var(--c-title);
+    font-weight: bold;
+    padding: 7px 18px 0px 18px;
+}
+
+#side_nav #mybbListTools {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0px 18px;
+    margin-top: 0;
+}
+
+#side_nav #mybbListTools:before {
+    z-index: 1;
+    content: "";
+    color: transparent;
+    visibility: visible;
+    display: block;
+    height: 10px;
+    position: relative;
+    top: 5px;
+    width: 60px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    background-color: var(--c-accent);
+    margin-bottom: 21px;
+}
+
+/* 移除不需要的边栏选项 */
+#side_nav #mybbListTools li {
+    display: none;
+    border: none;
+    border-left: 6px solid transparent;
+}
+
+#side_nav #mybbListTools li[id*="Alerts"],
+#side_nav #mybbListTools li[id*="MyGrades"] {
+    display: block;
+}
+
+#side_nav #mybbListTools li * {
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+    text-decoration: none;
+}
+
+#side_nav #mybbListTools li.active {
+    border-left: 6px solid var(--c-accent);
+}
+
+#side_nav #mybbListTools li span.menu-icon {
+    padding-left: 50px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    justify-items: flex-start;
+    align-items: center;
+    text-decoration: none !important;
+}
+
+#side_nav #mybbListTools li.active span.menu-icon {
+    border-radius: 0 5px 5px 0;
+}
+
+#side_nav #mybbListTools li[id*="Alerts"] span.menu-icon {
+    background: var(--i-sandclock);
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: 10px;
+}
+
+#side_nav #mybbListTools li[id*="Alerts"] span.menu-icon:after {
+    content: "禁止摸鱼";
+    color: var(--c-text);
+    display: block;
+    font-size: 16px;
+    /* text-decoration: none !important; */
+}
+
+#side_nav #mybbListTools li[id*="MyGrades"] span.menu-icon {
+    background: var(--i-clover);
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: 10px;
+}
+
+#side_nav #mybbListTools li[id*="MyGrades"] span.menu-icon:after {
+    content: "绩点高高";
+    color: var(--c-text);
+    display: block;
+    font-size: 16px;
+    /* text-decoration: none !important; */
+}
+
+#side_nav #mybbListTools li span.menu-icon:hover:after {
+    color: var(--c-accent);
+}
+
+#side_nav #mybbListTools li span.menu-icon:hover {
+    background-color: var(--c-hover) !important;
+}
+
+#side_nav #mybbListTools li[id*="Alerts"] img {
+    display: none;
+}
+
+
+#iframe_wrap {
+    /* display: none; */
+    margin-left: min(25%, 300px);
+    position: relative;
+    left: 0;
+    box-shadow: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-top: calc(10vh - 30px);
+}
+
+#iframe_wrap iframe {
+    width: min(100%, 1200px);
+    /* height: 0% !important; */
+    height: 80vh !important;
+    border-radius: 5px;
+    border: 1px solid var(--c-border);
+    padding: 5px;
+    background: var(--c-card);
+}
+
+/* 动画 */
+/* #contentPanel {
+    animation-delay: 500ms;
+    animation: fadeInUpTransition 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    -webkit-animation: fadeInUpTransition 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+} */

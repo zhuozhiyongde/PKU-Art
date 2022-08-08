@@ -1,0 +1,198 @@
+@import '../css/arco-palette.css';
+@import 'main.css';
+
+
+/* 背景着色，移除box-shadow,text-shadow*/
+html,
+#outer_left_stream_alerts {
+    background: var(--c-card);
+}
+
+* {
+    box-shadow: none !important;
+}
+
+html,
+.locationPane,
+#contentPanel {
+    padding: 0;
+    height: fit-content;
+}
+
+#streamHeader_alerts,
+#streamHeader_alerts * {
+    background: var(--c-card);
+    text-shadow: none;
+}
+
+#settingsContainer_alerts,
+#outer_left_stream_alerts {
+    border: none;
+}
+
+
+#settingsContainer_alerts {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    margin: 10px;
+}
+
+#settingsContainer_alerts * {
+    color: var(--c-text);
+}
+
+#settingsContainer_alerts .streamSettingHelpLinks {
+    border-top: 1px solid var(--c-border);
+}
+
+#streamSettingButtons a {
+    color: var(--cyan-5);
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    background: var(--c-label);
+}
+
+#streamSettingButtons a:hover {
+    background: var(--cyan-2);
+    color: var(--cyan-7);
+}
+
+/* #left_stream_alerts>div span.inlineContextMenu>a {
+    color: var(--cyan-5);
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+#left_stream_alerts>div span.inlineContextMenu>a:hover {
+    background: var(--cyan-2);
+    color: var(--cyan-7);
+} */
+/* html,
+.locationPane,
+#contentPanel,
+#content,
+#containerdiv,
+#stream_alerts,
+#outer_left_stream_alerts {
+    height: 100%;
+} */
+
+#streamHeader_alerts {
+    padding-bottom: 0;
+    height: 100%;
+    /* border-right: 1px solid var(--c-border); */
+    border: none;
+}
+
+#streamHeader_alerts span.current-page,
+#streamHeader_alerts span.icon {
+    display: none;
+}
+
+#streamHeader_alerts .title-text {
+    color: var(--c-title);
+    font-weight: bold;
+    text-shadow: none;
+    padding-left: 12px;
+}
+
+
+#streamHeader_alerts li {
+    padding: 0;
+}
+
+#streamHeader_alerts a[id*="filter_type_all"] {
+    background: var(--c-label);
+    border: 1px solid var(--c-border);
+}
+
+#streamHeader_alerts h5 {
+    color: var(--c-title);
+    font-weight: bold;
+}
+
+#streamHeader_alerts a {
+    color: var(--c-text);
+    line-height: 1.6;
+    text-decoration: none;
+    border-radius: 0;
+    border: none;
+    border-left: 4px solid transparent;
+}
+
+#streamHeader_alerts a.active {
+    box-shadow: none;
+    border-left: 4px solid var(--c-accent);
+}
+
+#streamHeader_alerts a:hover {
+    color: var(--red-5);
+    background: var(--c-hover);
+}
+
+/* 右侧面板 */
+#stream_alerts #stream_currentFilterText_alerts,
+#stream_alerts .left_stream_wrapper {
+    box-shadow: none;
+    background: var(--c-card);
+    border: none;
+}
+
+#stream_currentFilterText_alerts {
+    color: var(--c-text);
+    font-weight: bold;
+    text-shadow: none;
+}
+
+#left_stream_alerts>div,
+#left_stream_alerts>div * {
+    color: var(--c-text);
+    font-style: normal;
+    /* font-family: inherit; */
+    font-family: sans-serif !important;
+    border-radius: 5px;
+    border: none;
+    /* font-weight: normal; */
+}
+
+#left_stream_alerts>div:nth-child(2n) {
+    background: var(--gray-1);
+}
+
+#left_stream_alerts>div:hover {
+    background: var(--c-hover) !important;
+}
+
+#left_stream_alerts>div span.stream_area_name {
+    color: var(--c-secondary);
+}
+
+#left_stream_alerts>div span.inlineContextMenu>a {
+    color: var(--cyan-5);
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+#left_stream_alerts>div span.inlineContextMenu>a:hover {
+    background: var(--cyan-2);
+    color: var(--cyan-7);
+}
+
+#left_stream_alerts>div div.stream_details * {
+    font-size: 14px;
+    line-height: 1em;
+}
+
+span.open_stream_settings {
+    background: var(--i-setting) !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+.streamError {
+    display: none;
+}

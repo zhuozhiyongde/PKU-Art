@@ -1,0 +1,57 @@
+@import '../css/arco-palette.css';
+@import 'main.css';
+
+.announcementFilter,
+.announcementList {
+    margin: 0;
+}
+
+#containerdiv {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.announcementFilter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border-bottom: 1px solid var(--c-border); */
+    border-bottom: none;
+    margin-bottom: 10px;
+}
+
+
+.announcementFilter select#searchSelectId {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: var(--c-card);
+    color: var(--c-text);
+    border: 1px solid var(--c-border);
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    padding: 3px 10px;
+    box-sizing: border-box;
+    height: 30px;
+    margin: 0;
+}
+
+.announcementFilter a.genericButton {
+    background: var(--c-button);
+    color: var(--c-title);
+    border: 1px solid var(--c-border);
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    outline: none;
+    padding: 3px 10px;
+    box-sizing: border-box;
+    height: 30px;
+    box-shadow: none;
+    /* margin-left: 20px; */
+}
+
+.announcementFilter a.genericButton:hover {
+    background: var(--cyan-2);
+    color: var(--cyan-6);
+}

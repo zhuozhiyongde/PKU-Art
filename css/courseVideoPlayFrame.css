@@ -1,0 +1,48 @@
+@import '../css/arco-palette.css';
+@import 'main.css';
+
+html,
+body,
+#app {
+    background: var(--c-background) !important;
+}
+
+.course-info__wrapper {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.course-info__header {
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    /* text-align: center; */
+}
+
+.course-info__header span {
+    font-weight: bold;
+    font-size: 18pt;
+    color: var(--c-title);
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+.course-info__wrapper .course-info__main {
+    background: var(--c-card);
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--c-border);
+}
+
+.course-info__wrapper .course-info__footer button {
+    background: var(--c-button);
+    border: none;
+    color: var(--c-text);
+
+}
+
+.course-info__wrapper .course-info__footer button:hover {
+    background: var(--cyan-2);
+    color: var(--cyan-6);
+    font-weight: bold;
+}

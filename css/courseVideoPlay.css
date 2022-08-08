@@ -1,0 +1,13 @@
+@import '../css/arco-palette.css';
+@import 'main.css';
+
+/* 容器 */
+#content,
+.container {
+    border: none;
+    width: auto !important;
+}
+
+iframe {
+    min-height: 80vh;
+}

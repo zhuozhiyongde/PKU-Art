@@ -1,0 +1,78 @@
+@import '../css/arco-palette.css';
+@import 'main.css';
+
+* {
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+body,
+html,
+.container {
+    border: none;
+    background: var(--c-card) !important;
+}
+
+/* 标题栏 */
+#streamDetailHeaderRight>span {
+    display: none;
+}
+
+#streamDetailHeaderRight h2.streamHeader a {
+    color: var(--cyan-8);
+    border: none
+}
+
+
+#streamDetailHeaderRight {
+    height: fit-content;
+    min-height: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+}
+
+/* 反馈页面 */
+.gb_feedback {
+    border-left: 6px solid var(--cyan-2);
+    height: fit-content;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.gb_feedback::before {
+    display: none;
+}
+
+.gb_feedback p {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: var(--c-text);
+    line-height: 1.6;
+}
+
+.gb_feedback p:last-child {
+    margin-bottom: 0;
+}
+
+/* 成绩表格 */
+.gradeTable * {
+    background: var(--c-card);
+    border: none !important;
+    color: var(--c-text) !important;
+}
+
+.gradeTable .gradeCellGrade {
+    color: var(--cyan-7) !important;
+}
+
+.gradesByDate input[type="button"] {
+    color: var(--c-text) !important;
+    padding: 3px 8px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.gradesByDate input[type="button"]:hover {
+    background: var(--cyan-2);
+}

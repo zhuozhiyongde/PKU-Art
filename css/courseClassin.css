@@ -1,0 +1,55 @@
+@import '../css/arco-palette.css';
+@import 'main.css';
+
+
+#pageTitleDiv>*:not([id="pageTitleBar"]) {
+    display: none;
+}
+
+#pageTitleDiv {
+    color: transparent;
+}
+
+#actionbar {
+    border: none;
+    border-bottom: 1px solid var(--c-border);
+}
+
+#actionbar .mainButton>a {
+    color: var(--c-text);
+    border-radius: 5px 5px 0 0;
+    border-bottom: 2px solid transparent !important;
+}
+
+#actionbar .mainButton>a:hover {
+    background: var(--c-hover);
+    border-bottom: 2px solid var(--c-accent) !important;
+}
+
+#searchForm {
+    display: none;
+}
+
+.container {
+    border: 1px solid var(--c-border);
+    background: var(--c-card);
+    border-radius: 5px;
+}
+
+.container * {
+
+    font-family: inherit !important;
+    color: var(--c-text) !important;
+    text-decoration: none !important;
+    font-style: normal !important;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.container .backLink a {
+    background: var(--c-card);
+}
+
+.container .backLink a:hover {
+    background-color: var(--c-hover);
+}

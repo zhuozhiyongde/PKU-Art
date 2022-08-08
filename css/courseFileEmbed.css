@@ -1,0 +1,44 @@
+@import '../css/arco-palette.css';
+@import 'main.css';
+
+/* 标题 */
+ul#content_listContainer {
+    background: var(--cyan-1);
+}
+
+ul#content_listContainer>li {
+    border-left: 6px solid var(--cyan-6);
+    border-top: none;
+    border-bottom: none;
+    padding: 5px 10px;
+    color: var(--c-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+ul#content_listContainer>li>* {
+    padding: 0;
+    width: 100%;
+}
+
+ul#content_listContainer>li a {
+    color: var(--cyan-6);
+}
+
+#pageTitleBar span.contextMenuContainer {
+    display: none !important;
+}
+
+/* 插入embed Tag的卡片样式 */
+embed {
+    margin-top: 50px;
+    position: relative;
+    height: min(1000px, 80vh) !important;
+    background: var(--c-card);
+    border-radius: 10px;
+    border: 1px solid var(--c-border);
+    padding: 10px;
+    box-sizing: border-box;
+}
