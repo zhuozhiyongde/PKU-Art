@@ -16,20 +16,20 @@ PKU Art 是一款通过浏览器插件，向页面附加的 css 样式表。它�
 >
 > 为展示效果，可能对 html 节点有删改，如录播界面太多了放不下
 
-![CleanShot 2022-08-08 at 17.45.44.png](https://dingyue.ws.126.net/2022/0809/bcab9260j00rgb7770087d001e400t3p.jpg)
-![CleanShot 2022-08-08 at 17.45.49.png](https://dingyue.ws.126.net/2022/0809/0a75929dj00rgb78m008wd001e400t3p.jpg)
-![CleanShot 2022-08-08 at 17.46.05.png](https://dingyue.ws.126.net/2022/0809/f2e5730cj00rgb78n00exd001e400t3p.jpg)
-![CleanShot 2022-08-08 at 17.46.35.png](https://dingyue.ws.126.net/2022/0809/2c19eeb2j00rgb78o00dwd001e400t3p.jpg)
-![CleanShot 2022-08-08 at 17.46.08.png](https://dingyue.ws.126.net/2022/0809/e1f0e336j00rgb78p00fzd001e400t3p.jpg)
-![CleanShot 2022-08-08 at 17.47.15.png](https://dingyue.ws.126.net/2022/0809/e9499512j00rgb78p00e2d001e400t3p.jpg)
-![CleanShot 2022-08-08 at 17.46.57.png](https://dingyue.ws.126.net/2022/0809/cfddac27j00rgb78t00l5d001e400t3p.jpg)
-![CleanShot 2022-08-08 at 17.49.23.png](https://dingyue.ws.126.net/2022/0809/b80ebc85j00rgb78u00bod001e400t3p.jpg)
-![CleanShot 2022-08-08 at 17.47.40.png](https://dingyue.ws.126.net/2022/0809/b280bf05j00rgb78u00b9d001e400t3p.jpg)
-![CleanShot 2022-08-08 at 17.49.44.png](https://dingyue.ws.126.net/2022/0809/040b1b78j00rgb78v00ebd001e400t3p.jpg)
-![CleanShot 2022-08-08 at 17.49.35.png](https://dingyue.ws.126.net/2022/0809/6e585230j00rgb78v00d4d001e400t3p.jpg)
-![CleanShot 2022-08-08 at 17.52.04.png](https://dingyue.ws.126.net/2022/0809/d6d242f2j00rgb78y00bnd001e400t3p.jpg)
-![CleanShot 2022-08-08 at 17.53.02.png](https://dingyue.ws.126.net/2022/0809/d1c35d9ej00rgb78y00e3d001e400t3p.jpg)
-![CleanShot 2022-08-08 at 17.47.09.png](https://dingyue.ws.126.net/2022/0809/22c30d79j00rgb79100ocd001e400t3p.jpg)
+![CleanShot 2022-08-08 at 17.45.44.png](https://s2.loli.net/2022/08/31/NWOSD8TVIu69cfJ.png)
+![CleanShot 2022-08-08 at 17.45.49.png](https://s2.loli.net/2022/08/31/IY28ijt9SuJGmb5.png)
+![CleanShot 2022-08-08 at 17.49.23.png](https://s2.loli.net/2022/08/31/UXTx7kP6lEQNp3F.png)
+![CleanShot 2022-08-08 at 17.46.05.png](https://s2.loli.net/2022/08/31/qG5om2htsXQ6Z8J.png)
+![CleanShot 2022-08-08 at 17.46.35.png](https://s2.loli.net/2022/08/31/rjdVDaZPzT7H1iU.png)
+![CleanShot 2022-08-08 at 17.47.15.png](https://s2.loli.net/2022/08/31/oKiAdce9z2FbmEP.png)
+![CleanShot 2022-08-08 at 17.46.08.png](https://s2.loli.net/2022/08/31/t5s8zngJUVkKuBi.png)
+![CleanShot 2022-08-08 at 17.47.40.png](https://s2.loli.net/2022/08/31/EDfsX1ChdakLjrx.png)
+![CleanShot 2022-08-08 at 17.47.09.png](https://s2.loli.net/2022/08/31/Ye9N5yafdWOsliK.png)
+![CleanShot 2022-08-08 at 17.46.57.png](https://s2.loli.net/2022/08/31/7pK8QN4n6yE1v3f.png)
+![CleanShot 2022-08-08 at 17.49.35.png](https://s2.loli.net/2022/08/31/6VBjQGi5mpoWvXh.png)
+![CleanShot 2022-08-08 at 17.52.04.png](https://s2.loli.net/2022/08/31/SH3e9wtAkOizDaM.png)
+![CleanShot 2022-08-08 at 17.53.02.png](https://s2.loli.net/2022/08/31/VQPlabRoeYUE9uT.png)
+![CleanShot 2022-08-08 at 17.49.44.png](https://s2.loli.net/2022/08/31/KEq38ldekCWZonG.png)
 
 ## 下载安装
 
