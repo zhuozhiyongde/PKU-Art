@@ -1,5 +1,5 @@
 # PKU Art
-
+![Alt](https://repobeats.axiom.co/api/embed/272266acd73adbfd5ec5fc97dbab3e7a9aab296c.svg "Repobeats analytics image")
 ## 简介
 
 PKU Art 是一款通过浏览器插件，向页面附加的 css 样式表。它可以完成对于原有样式的覆盖，从而增强教学网视觉体验。第一版发布于去年 11 月，相对简陋，最近更新的第二版实现了对第一版完整的重构，完美支持了暗色模式，并且增加了更多的交互动效和设计改进。
