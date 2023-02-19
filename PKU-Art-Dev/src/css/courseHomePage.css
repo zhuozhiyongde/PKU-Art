@@ -1,8 +1,9 @@
 @import '../css/arco-palette.css';
 @import 'main.css';
 
+/* 隐藏不需要的模块 */
 .brandingImgWrap,
-#appTabList>tbody>tr :not(:first-child),
+#appTabList > tbody > tr :not(:first-child),
 .hideoff,
 #quick_links_wrap,
 #global-avatar,
@@ -11,9 +12,8 @@
     /* visibility: hidden; */
 }
 
-
 /* 个人界面面板 */
-#global-nav-link>* {
+#global-nav-link > * {
     display: none;
 }
 
@@ -25,7 +25,7 @@
     height: 32px;
     padding: 0;
     background: transparent;
-    background-image: var(--i-remind) !important;
+    background-image: var(--i-remind);
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center center;
@@ -42,7 +42,7 @@
     height: 32px;
     padding: 0;
     background: transparent;
-    background-image: var(--i-exit) !important;
+    background-image: var(--i-exit);
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center center;
@@ -53,21 +53,9 @@
 #globalNavPageNavArea,
 #topTabs, */
 .container,
-.locationPane,
-.contentPane {
+.locationPane {
     background-color: var(--c-background);
 }
-
-/* 移除边框 */
-#containerdiv {
-    border: none;
-}
-
-/* 全局Container */
-/*#containerdiv{*/
-/*	border-radius: 5px!important;*/
-/*	border:1px solid var(--c-border)!important;*/
-/*}*/
 
 /* 重置导航栏布局 */
 .tabWrapper-right,
@@ -96,11 +84,9 @@
 }
 
 .tabWrapper-right,
-.bouncer[role="presentation"] {
+.bouncer[role='presentation'] {
     width: fit-content;
 }
-
-
 
 .global-nav-bar-wrap {
     position: absolute;
@@ -151,13 +137,10 @@ table.bouncer,
 
 table.bouncer span {
     color: var(--c-title);
-    font-weight: bold;
 }
 
-table.bouncer a:hover,
 table.bouncer span:hover {
     color: var(--c-accent);
-    text-decoration: none !important;
 }
 
 .topTabs .tabWrapper-right {
@@ -170,231 +153,226 @@ table.bouncer span:hover {
     padding: 0 !important;
 }
 
-/* 课程标题栏 */
-#breadcrumbs {
-    /* display: inline-block; */
-    float: right;
-    /* width: 1000px; */
-    width: calc(100% - min(25%, 300px));
-    padding: 1.2em 1em 1em 1em;
-    box-sizing: border-box;
-    height: 80px;
-    margin-bottom: 1em;
-    z-index: 500;
-    color: var(--c-title);
-    background-color: var(--c-background);
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    border: none;
-}
-
-/*跳转到其他课程的链接删除*/
-#breadcrumbs .coursePath *:not(:first-child) {
-    display: none;
-}
-
-#breadcrumbs .coursePath {
-    padding: 0;
-    margin: 0;
-}
-
-#breadcrumb_controls_id,
-#breadcrumbs li:not([class*="coursePath"]) {
-    display: none;
-}
-
-#breadcrumbs span {
-    font-size: 18pt;
-    color: var(--c-title);
-    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-}
-
-/* 置高 */
+/* 内容部分调整 */
 #globalNavPageContentArea,
-#globalNavPageContentArea .locationPane,
-#contentPanel,
-div#content,
-div.container {
-    height: fit-content !important;
+.locationPane,
+.contentPaneWide,
+#content,
+#content > div,
+#content > div > div,
+#content > div > div > div,
+#content > div > div > div > div {
+    /* height: 100% !important; */
+    /* min-height: (fit-content, 100vh); */
+    height: fit-content;
     min-height: 100vh;
+    padding: 0;
 }
 
-
-
-nav.navigationPane {
-    height: 100%;
+.container {
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: fit-content;
+    /* overflow: scroll; */
+    /* overflow: hidden; */
 }
 
-/* 侧栏样式 */
-.locationPane nav {
+.containerPortal {
+    display: flex;
+    flex-direction: row;
+    /* height: 80vh; */
+    /* overflow: scroll; */
+}
+
+/* 位置导航栏 */
+/* 这玩意只在首页有，暂时先屏蔽了 */
+/* woc还是个状态保留的 */
+/* TODO：搞清楚这玩意是干什么的 */
+.locationPane .paneTabs {
+    position: absolute;
+    display: none;
+}
+
+/* 第一栏成导航栏 */
+#column0 {
+    /* height: 200%; */
+    /* margin-bottom: 1000px; */
+    /* padding-bottom: 1000px; */
+    margin: 0;
+    background-color: var(--c-sidebar);
+    border-right: 1px solid var(--c-border);
     width: min(25%, 300px) !important;
 }
 
-#menuWrap {
-    border-right: 1px solid var(--c-border);
+html #global-nav-bar-wrap {
+    /* display: none !important; */
+    display: flex;
+    justify-content: flex-end;
 }
 
-#menuWrap>#puller {
+/* fuck！找了两个小时，哪个**写的底部空白伪类！！ */
+.clearfix:after,
+.clearfixParent > div:after,
+.clearfixParent > li:after {
     display: none;
 }
 
-#menuWrap,
-.navPaletteContent,
-#courseMenuPalette_contents li,
-#courseMenuPalette div.navPaletteContent {
+/* 左侧侧栏样式 */
+.portlet {
+    padding: 1em;
     background-color: var(--c-sidebar);
 }
 
-/* 移除装饰性元素 */
-.actionBarMicro,
-li.divider,
-#copyright {
-    display: none;
-}
-
-/* 选项着色 */
-#courseMenuPalette_contents li * {
-    color: var(--c-text) !important;
-    font-size: 11pt;
-}
-
-/* 标题着色 */
-#menuWrap a[title] {
-    background: none;
-    font-size: 12pt;
-    font-weight: bold !important;
+#column0 > div:first-child h2 {
+    background-color: var(--c-sidebar);
+    font-size: 14pt;
     color: var(--c-title);
 }
 
-#menuWrap span {
+#column0 > div:first-child {
+    border: none;
+}
+
+#column0 > div:first-child h2:after {
+    z-index: 1;
+    content: '';
+    color: transparent;
+    visibility: visible;
+    display: block;
+    height: 10px;
+    position: relative;
+    top: 5px;
+    width: 60px;
+    border-radius: 50px;
+    background-color: var(--c-accent);
+}
+
+#column0 > div:first-child div.collapsible {
+    border: none;
+}
+
+.portlet .portletList li {
+    border-top: none;
+}
+
+/* 左侧工具栏项目样式、交互 */
+.portlet .portletList-img > li {
+    border: none;
+}
+
+.portlet .portletList li a {
+    position: relative;
     color: var(--c-text);
     font-size: 11pt;
 }
 
-#menuWrap a[title]:before,
-#menuWrap .submenuLink,
-#menuWrap .submenuLink_active {
-    display: none;
+.portlet .portletList li a:hover {
+    color: var(--red-5);
 }
 
-#menuWrap h3[aria-expanded="true"]>a {
-    border-left: 4px solid var(--c-accent);
-    margin-left: 10px;
-    padding-left: 16px;
-    /* background: var(--c-accent);
-    background-size: 2px auto; */
-    /* display: none; */
-}
-
-/* 侧栏选项 下划线 Hover样式覆盖 */
-#menuWrap>.menuWrap-inner a:hover,
-#menuWrap>.menuWrap-inner span:hover {
-    color: var(--red-5) !important;
-    text-decoration: none;
-}
-
-#menuWrap h3 a:hover {
-    background-color: var(--c-hover);
-}
-
-/* 下划线动画 */
-#menuWrap span {
-    /* width: fit-content; */
-    display: inline;
-    position: relative;
-}
-
-#menuWrap span:after {
-    content: "";
+.portlet .portletList li a:after {
+    content: '';
     color: transparent;
     visibility: visible !important;
     position: absolute;
     border-bottom: 2px solid var(--red-5);
     border-radius: 2px;
     bottom: -2px;
-    /*border-radius: 2px !important;*/
-    /*bottom: -2px;*/
     /*向左偏移隐藏*/
     left: 100%;
     width: 0;
     -webkit-transition: width 350ms, left 350ms;
     -moz-transition: width 350ms, left 350ms;
-    transition: width 350ms, left 350ms
+    transition: width 350ms, left 350ms;
 }
 
-#menuWrap span:hover:after {
+.portlet .portletList li a:hover:after {
     visibility: visible !important;
     left: 0;
     width: 100%;
     -webkit-transition: width 350ms;
     -moz-transition: width 350ms;
-    transition: width 350ms
+    transition: width 350ms;
 }
 
-.navPalette.tools {
-    border: none;
-}
-
-
-
-/* 面板内容样式 */
-.locationPane {
-    background-color: var(--c-background);
-}
-
-.contentPane .shadow {
-    border: none;
-}
-
-#pageTitleDiv {
-    margin: 0 !important;
-}
-
-#contentPanel {
-    margin-left: min(25%, 300px);
-    /* -webkit-animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
-    animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards; */
-}
-
-/* 固定最大宽度 */
-#content {
-    width: min(100%, 1200px);
-    margin: 0 auto;
-}
-
-/* 动画 */
-#contentPanel {
-    -webkit-animation: fadeInUpStablePixelForContentBox 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-    animation-delay: 500ms;
-    animation: fadeInUpStablePixelForContentBox 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-}
-
-.localViewToggle {
+#column0 > div:not(:first-child) {
     display: none;
 }
 
+/* 浮现动画 */
+#column0 {
+    -webkit-animation: fadeInLeftStablePixel 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: fadeInLeftStablePixel 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
 
-#pageTitleHeader {
-    /*color: var(--c-primary);*/
-    /*background-color: var(--c-primary-light);*/
-    color: var(--blue-7) !important;
-    background-color: var(--blue-2);
-    padding: 0.3em 1em;
+#column1,
+#column2 {
+    -webkit-animation: fadeInUpStablePixel 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: fadeInUpStablePixel 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* 右侧卡片样式 */
+
+#column1,
+#column2 {
+    margin-left: 1em;
+    height: fit-content;
+}
+
+#column1 .portlet,
+#column2 .portlet {
+    border: 1px solid var(--c-border);
     border-radius: 5px;
-    font-size: 20px !important;
+    background-color: var(--c-card);
+    margin-top: 1em;
 }
 
-#pageTitleHeader * {
-    color: var(--blue-7) !important;
+/* 卡片标题 */
+.portlet h2 {
+    font-size: 14pt;
+    background-color: transparent;
+    color: var(--c-title);
+    border: none;
 }
 
-#pageTitleText {
-    font-weight: bold;
+/* 课程链接样式、交互 */
+.containerPortal > div:not(:first-child) .portlet .portletList-img > li {
+    padding: 7px 10px !important;
+    border-radius: 5px;
+    margin-bottom: 0.25em;
 }
 
+.collapsible {
+    border-top: none;
+}
 
+.containerPortal > div:not(:first-child) .portlet .portletList-img > li:hover {
+    background-color: var(--c-hover);
+}
+
+.containerPortal > div:not(:first-child) .portlet .portletList-img > li > a {
+    color: var(--c-subtitle);
+    font-size: 11pt;
+}
+
+.containerPortal > div:not(:first-child) .portlet .portletList-img > li > a:hover {
+    color: var(--blue-5);
+}
+
+/* 其余卡片内容 */
+/* 空元素区居左显示 */
+.portlet .noItems {
+    text-align: left;
+}
+
+#column2 .collapsible div,
+#column2 .collapsible h3,
+#column2 .collapsible a,
+.portlet h3 {
+    font-style: normal;
+    color: var(--c-text);
+}
 
 /* 个人导航面板 */
 #vertical_container,
@@ -430,23 +408,23 @@ li.divider,
     /*border:1px solid #EEE;*/
 }
 
-#global-list-tools>.overview,
-#global-list-tools>.stream,
-#global-list-tools>.calendar {
+#global-list-tools > .overview,
+#global-list-tools > .stream,
+#global-list-tools > .calendar {
     display: none;
 }
 
-#global-list-tools>.alerts,
-#global-list-tools>.grade {
+#global-list-tools > .alerts,
+#global-list-tools > .grade {
     background-color: var(--c-card);
 }
 
-#global-list-tools>.alerts>a:hover,
-#global-list-tools>.grades>a:hover {
+#global-list-tools > .alerts > a:hover,
+#global-list-tools > .grades > a:hover {
     background-color: var(--c-hover);
 }
 
-#global-list-tools>.alerts>a {
+#global-list-tools > .alerts > a {
     border-radius: 5px;
     background: var(--i-alarm);
     /* background-color: var(--c-card) !important; */
@@ -457,8 +435,7 @@ li.divider,
     /* transition: 350ms opacity; */
 }
 
-
-#global-list-tools>.grades>a {
+#global-list-tools > .grades > a {
     border-radius: 5px;
     background: var(--i-idcard);
     /* background-color: var(--c-card) !important; */
@@ -477,4 +454,14 @@ li.divider,
 .mybb-tools li a:focus,
 .mybb-tools li a:focus img {
     outline: none;
+}
+
+/* 公告设置按钮 */
+
+div.edit_controls > a::before,
+div.edit_controls > a:hover::before {
+    background: var(--i-setting);
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: transparent;
 }

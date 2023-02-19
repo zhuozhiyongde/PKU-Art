@@ -1,7 +1,6 @@
 @import '../css/arco-palette.css';
 @import 'main.css';
 
-
 * {
     box-shadow: none !important;
     text-shadow: none !important;
@@ -15,13 +14,13 @@ html,
 }
 
 /* 标题栏 */
-#streamDetailHeaderRight>span {
+#streamDetailHeaderRight > span {
     display: none;
 }
 
 #streamDetailHeaderRight h2.streamHeader a {
     color: var(--cyan-8);
-    border: none
+    border: none;
 }
 
 #streamDetailHeaderRight {
@@ -45,7 +44,7 @@ html,
     padding-bottom: 0;
 }
 
-#filterby>li {
+#filterby > li {
     height: 100%;
     position: relative;
 }
@@ -76,6 +75,14 @@ html,
     border-bottom: 2px solid var(--c-secondary);
 }
 
+/* 右侧列表表头 */
+/* TODO: 最后一栏状态栏是啥需要确认 */
+.gradeTableNew .grades_header {
+    background: none;
+    border-bottom: none;
+    padding: 10px 0;
+    font-family: sans-serif;
+}
 
 .filterBarHorizontal select {
     -webkit-appearance: none;
@@ -95,7 +102,7 @@ html,
 }
 
 /* 表头 */
-.gradeTableNew>.grades_header {
+.gradeTableNew > .grades_header {
     padding-top: 1em;
     border-bottom: none;
     border-radius: 5px 5px 0 0;
@@ -105,8 +112,11 @@ html,
     height: fit-content;
     box-sizing: border-box;
 }
+.gradeTableNew .grades_header .cell.grade {
+    font-size: 12px;
+}
 
-.gradeTableNew>.grades_header>div {
+.gradeTableNew > .grades_header > div {
     color: var(--c-title);
     font-weight: bold;
     font-size: 11pt !important;
@@ -119,7 +129,11 @@ html,
     height: fit-content !important;
 }
 
-#grades_wrapper>div {
+.gradeTableNew #grades_wrapper {
+    margin-top: 70px !important;
+}
+
+#grades_wrapper > div {
     border-radius: 5px;
     padding: 5px 0;
     border: none;
@@ -127,23 +141,22 @@ html,
     height: 65px;
 }
 
-#grades_wrapper>div:last-child {
+#grades_wrapper > div:last-child {
     margin-bottom: 50px;
 }
 
 /*斑马纹*/
-#grades_wrapper>div:not(.calculatedRow):nth-child(2n) {
+#grades_wrapper > div:not(.calculatedRow):nth-child(2n) {
     background: var(--gray-1);
 }
 
-#grades_wrapper>div:not(.calculatedRow):hover {
+#grades_wrapper > div:not(.calculatedRow):hover {
     background: var(--c-hover);
 }
 
-#grades_wrapper>div:first-child {
+#grades_wrapper > div:first-child {
     margin-top: 10px;
 }
-
 
 /* 计算行特殊处理 */
 #grades_wrapper .calculatedRow {
@@ -165,20 +178,19 @@ html,
     color: var(--c-text);
 }
 
-
 /* 第一列单元格样式 */
-#grades_wrapper>div>div.gradable {
+#grades_wrapper > div > div.gradable {
     height: 100%;
 }
 
-#grades_wrapper>div>div.gradable,
-#grades_wrapper>div>div.gradable>a {
+#grades_wrapper > div > div.gradable,
+#grades_wrapper > div > div.gradable > a {
     color: var(--gray-7);
     font-weight: bold;
     font-size: 14px;
 }
 
-#grades_wrapper>div>div.gradable>a {
+#grades_wrapper > div > div.gradable > a {
     /*overflow: visible;*/
     /*border-bottom:2px solid var(--c-accent);*/
     width: fit-content;
@@ -189,8 +201,7 @@ html,
     margin-bottom: 8px;
 }
 
-
-#grades_wrapper>div>div.gradable>div {
+#grades_wrapper > div > div.gradable > div {
     font-size: 12px;
     display: inline;
     /*width: fit-content;*/
@@ -198,55 +209,52 @@ html,
     /*background: var(--c-label);*/
 }
 
-
 /* 达到block-inline-block的效果 */
-#grades_wrapper>div>div.gradable>div:first-child:before {
+#grades_wrapper > div > div.gradable > div:first-child:before {
     display: block;
     margin-bottom: 8px;
-    content: "";
+    content: '';
 }
 
-
-#grades_wrapper>div>div.gradable>a+div:before {
+#grades_wrapper > div > div.gradable > a + div:before {
     display: none;
 }
 
-
 /* 其他列div */
-#grades_wrapper>div>div.gradable>div {
+#grades_wrapper > div > div.gradable > div {
     margin-right: 8px;
 }
 
-#grades_wrapper>div>div.activity span {
+#grades_wrapper > div > div.activity span {
     color: var(--c-text);
 }
 
-#grades_wrapper>div>div.grade span.grade {
+#grades_wrapper > div > div.grade span.grade {
     color: var(--cyan-7);
 }
 
-#grades_wrapper>div>div.grade span.pointsPossible {
+#grades_wrapper > div > div.grade span.pointsPossible {
     color: var(--c-text);
 }
 
 /*icon更改*/
-#grades_wrapper>div>div img.tooltip-icon {
+#grades_wrapper > div > div img.tooltip-icon {
     width: 18px;
     content: var(--i-tip);
 }
 
-#grades_wrapper>div>div i.icon-comment:before {
+#grades_wrapper > div > div i.icon-comment:before {
     width: 18px;
     background: var(--i-comment);
     background-size: contain !important;
     background-repeat: no-repeat;
     background-position: center center;
-    content: ".";
+    content: '.';
     color: transparent;
 }
 
 /*提示页面*/
-#grades_wrapper>div>div .tooltip {
+#grades_wrapper > div > div .tooltip {
     background: var(--c-card);
     border: 1px solid var(--c-border);
     box-shadow: none !important;
@@ -254,7 +262,7 @@ html,
     text-shadow: none;
 }
 
-#grades_wrapper>div>div .tooltipContainer-left .tooltip:after {
+#grades_wrapper > div > div .tooltipContainer-left .tooltip:after {
     text-shadow: none;
 }
 
