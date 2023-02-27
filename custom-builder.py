@@ -37,13 +37,14 @@ function injectPKUArt () {{
     ])
 
     file_header = '''// ==UserScript==
-// @name        PKU-Art
-// @description 给你一个足够好看的教学网
-// @version     {version}
-// @match       *://*.pku.edu.cn/*
+// @name         PKU-Art
+// @description  给你一个足够好看的教学网
+// @version      {version}
+// @match        *://*.pku.edu.cn/*
 // @author       Arthals
 // @license      GPL-3.0 license
 // @author-blog  https://arthals.ink
+// @icon         https://cdn.arthals.ink/Arthals-mcskin.png
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @date         {date}
@@ -62,10 +63,10 @@ function injectPKUArt () {{
 
 def generate_css(regex_list: list, css_list: list):
     file_header = '''/* ==UserStyle==
-// @name        PKU-Art
-// @description 给你一个足够好看的教学网
-// @version     {version}
-// @match       *://*.pku.edu.cn/*
+// @name         PKU-Art
+// @description  给你一个足够好看的教学网
+// @version      {version}
+// @match        *://*.pku.edu.cn/*
 // @author       Arthals
 // @license      GPL-3.0 license
 // @author-blog  https://arthals.ink
