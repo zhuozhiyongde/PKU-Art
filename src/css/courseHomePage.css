@@ -33,10 +33,14 @@
     outline: none;
 }
 
+#global-nav-link > * {
+    display: none !important;
+}
+
 /* 退出按键 */
-.global-nav-bar a.logout-link,
-.global-nav-bar a.logout-link:hover,
-.global-nav-bar a.logout-link:focus {
+.global-nav-bar.logout a.logout-link,
+.global-nav-bar.logout a.logout-link:hover,
+.global-nav-bar.logout a.logout-link:focus {
     color: transparent;
     width: 32px;
     height: 32px;

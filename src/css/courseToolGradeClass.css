@@ -77,12 +77,6 @@ html,
 
 /* 右侧列表表头 */
 /* TODO: 最后一栏状态栏是啥需要确认 */
-.gradeTableNew .grades_header {
-    background: none;
-    border-bottom: none;
-    padding: 10px 0;
-    font-family: sans-serif;
-}
 
 .filterBarHorizontal select {
     -webkit-appearance: none;
@@ -102,7 +96,7 @@ html,
 }
 
 /* 表头 */
-.gradeTableNew > .grades_header {
+.gradeTableNew .grades_header {
     padding-top: 1em;
     border-bottom: none;
     border-radius: 5px 5px 0 0;
@@ -116,7 +110,7 @@ html,
     font-size: 12px;
 }
 
-.gradeTableNew > .grades_header > div {
+.gradeTableNew .grades_header > div {
     color: var(--c-title);
     font-weight: bold;
     font-size: 11pt !important;

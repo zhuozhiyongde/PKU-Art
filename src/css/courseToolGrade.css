@@ -1,7 +1,6 @@
 @import '../css/arco-palette.css';
 @import 'main.css';
 
-
 .stream_pages {
     display: flex;
     justify-content: space-between;
@@ -29,12 +28,12 @@ html {
     box-sizing: border-box;
 }
 
-.stream_header>h1 span.current-page,
+.stream_header > h1 span.current-page,
 .stream_header span.icon {
     display: none;
 }
 
-.stream_header>h1 span.title-text {
+.stream_header > h1 span.title-text {
     color: var(--c-title);
     font-weight: bold;
     text-shadow: none;
@@ -48,12 +47,12 @@ html {
     height: fit-content;
 }
 
-.stream_list_filter>li {
+.stream_list_filter > li {
     background: transparent !important;
 }
 
-.stream_list_filter>li:nth-child(1),
-.stream_list_filter>li:nth-child(2) {
+.stream_list_filter > li:nth-child(1),
+.stream_list_filter > li:nth-child(2) {
     flex-basis: 50%;
     margin-bottom: 10px;
     padding: 10px 8px 5px 8px;
@@ -61,38 +60,38 @@ html {
     border-bottom: 1px solid var(--c-border);
 }
 
-.stream_list_filter>li:nth-child(1) a,
-.stream_list_filter>li:nth-child(2) a {
+.stream_list_filter > li:nth-child(1) a,
+.stream_list_filter > li:nth-child(2) a {
     background: transparent;
     color: var(--c-text);
     border-bottom: 2px solid transparent;
 }
 
-.stream_list_filter>li:nth-child(1) a:hover,
-.stream_list_filter>li:nth-child(2) a:hover {
+.stream_list_filter > li:nth-child(1) a:hover,
+.stream_list_filter > li:nth-child(2) a:hover {
     border-bottom: 2px solid var(--c-accent);
     background: var(--c-hover);
     border-radius: 5px 5px 0 0;
 }
 
-.stream_list_filter>li.stream_filterlinks_divider {
+.stream_list_filter > li.stream_filterlinks_divider {
     border: none;
 }
 
-.stream_list_filter>li a:hover {
+.stream_list_filter > li a:hover {
     color: var(--c-accent) !important;
 }
 
-.stream_list_filter>li:nth-child(4) a,
-.stream_list_filter>li:nth-child(5) a,
-.stream_list_filter>li:nth-child(6) a {
+.stream_list_filter > li:nth-child(4) button,
+.stream_list_filter > li:nth-child(5) button,
+.stream_list_filter > li:nth-child(6) button {
     color: var(--c-text);
     border-bottom: 2px solid transparent;
     background: transparent;
     border: none !important;
 }
 
-.stream_list_filter>li a.active {
+.stream_list_filter > li button.active {
     background: var(--c-hover);
 }
 
@@ -123,48 +122,48 @@ html {
     background: var(--c-hover);
 }
 
-.stream_left>div {
+.stream_left > div {
     border: none !important;
     border-radius: 6px;
 }
 
-.stream_left>div:last-child {
+.stream_left > div:last-child {
     margin-bottom: 50px;
 }
 
-.stream_left>div * {
+.stream_left > div * {
     background: transparent;
 }
 
-.stream_left>div.active_stream_item {
+.stream_left > div.active_stream_item {
     background: var(--c-hover);
 }
 
-.stream_left>div .grade-value {
+.stream_left > div .grade-value {
     color: var(--c-secondary);
 }
 
-.stream_left>div.active_stream_item .grade-value {
+.stream_left > div.active_stream_item .grade-value {
     color: var(--cyan-7);
 }
 
-.stream_left>div .stream_context {
+.stream_left > div .stream_context {
     color: var(--c-text) !important;
     font-size: 14px !important;
 }
 
-.stream_left>div .stream_area_name {
+.stream_left > div .stream_area_name {
     background-color: var(--c-secondary);
     border-radius: 100px;
     padding: 0 5px;
     color: var(--c-card);
 }
 
-.stream_left>div.active_stream_item .stream_area_name {
+.stream_left > div.active_stream_item .stream_area_name {
     background-color: var(--cyan-7);
 }
 
-.stream_pages>.stream_settings {
+.stream_pages > .stream_settings {
     position: absolute;
     display: none !important;
 }

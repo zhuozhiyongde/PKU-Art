@@ -83,7 +83,7 @@
 }
 
 /* 表头 */
-.gradeTableNew>.grades_header {
+.gradeTableNew .grades_header {
     position: relative;
     width: 100%;
     padding: 0;
@@ -101,7 +101,7 @@
     box-sizing: border-box;
 }
 
-.gradeTableNew>.grades_header>div {
+.gradeTableNew .grades_header>div {
     color: var(--c-title);
     font-weight: bold;
     font-size: 11pt !important;

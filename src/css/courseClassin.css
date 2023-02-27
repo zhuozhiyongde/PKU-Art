@@ -37,7 +37,6 @@
 }
 
 .container * {
-
     font-family: inherit !important;
     color: var(--c-text) !important;
     text-decoration: none !important;

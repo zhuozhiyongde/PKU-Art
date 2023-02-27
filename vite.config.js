@@ -7,8 +7,10 @@ export default defineConfig({
         monkey({
             entry: 'src/main.js',
             userscript: {
-                icon: 'https://vitejs.dev/logo.svg',
+                icon: 'http://cdn.arthals.ink/Arthals-mcskin.png',
                 namespace: 'arthals/pku-art',
+                name: 'PKU-Art',
+                description: '给你一个足够好看的教学网。',
                 match: ['*://*.pku.edu.cn/*'],
             },
         }),
