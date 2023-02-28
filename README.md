@@ -2,7 +2,7 @@
 ![Alt](https://repobeats.axiom.co/api/embed/272266acd73adbfd5ec5fc97dbab3e7a9aab296c.svg "Repobeats analytics image")
 ## 简介
 
-PKU Art 是一款通过浏览器插件，向页面附加的 css 样式表。它可以完成对于原有样式的覆盖，从而增强教学网视觉体验。第一版发布于去年 11 月，相对简陋，最近更新的第二版实现了对第一版完整的重构，完美支持了暗色模式，并且增加了更多的交互动效和设计改进。
+PKU Art 是一款通过浏览器插件，向页面附加的 CSS 样式表。它可以完成对于原有样式的覆盖，从而增强教学网视觉体验。第一版发布于去年 11 月，相对简陋，最近更新的第二版实现了对第一版完整的重构，完美支持了暗色模式，并且增加了更多的交互动效和设计改进。
 
 
 
@@ -127,7 +127,7 @@ PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari �
 
 需要在 Chrome web store 安装 [xStyle](https://chrome.google.com/webstore/detail/xstyle/hncgkmhphmncjohllpoleelnibpmccpj) 或者 [Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe) 插件。
 
-注意：Stylish 的收费政策最近有所改变（最多免费使用三个样式），所以建议安装 xStyle。
+注意：Stylish 的收费政策最近有所改变（最多免费使用三个样式）且访问不是很稳定的样子，所以建议安装 xStyle。
 
 如果你安装的是 xStyle，那么安装完成后，你需要通过 [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.css) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 CSS 源文件，并且手动导入到 xStyle 中，具体操作步骤如下：
 
