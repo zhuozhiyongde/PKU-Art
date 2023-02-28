@@ -123,6 +123,7 @@ PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari �
 
 
 
+
 #### Chrome (Edge/Arc/Chromium)
 
 需要在 Chrome web store 安装 [xStyle](https://chrome.google.com/webstore/detail/xstyle/hncgkmhphmncjohllpoleelnibpmccpj) 或者 [Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe) 插件。
@@ -146,6 +147,7 @@ PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari �
 安装完成后，访问 [JavaScript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可，如果被您的电脑上有 AdGuard 可能会被抢占安装，但使用那种脚本附加手段其实并不影响最终效果。
 
 除此之外，你也可以通过 [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.js) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 JavaScript 源文件，并手动导入到 Userscript 插件中。
+
 
 
 
