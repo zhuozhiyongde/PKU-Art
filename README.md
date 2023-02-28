@@ -4,13 +4,71 @@
 
 PKU Art 是一款通过浏览器插件，向页面附加的 css 样式表。它可以完成对于原有样式的覆盖，从而增强教学网视觉体验。第一版发布于去年 11 月，相对简陋，最近更新的第二版实现了对第一版完整的重构，完美支持了暗色模式，并且增加了更多的交互动效和设计改进。
 
-## 项目地址
+
+
+## 下载与开发
+
+### 安装地址
 
 - [Stylish](https://userstyles.org/styles/220453/pku-art)
 - [GreasyFork](https://greasyfork.org/zh-CN/scripts/436323-pku-art)
+- [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases)
+- [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.css)
+- [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.js)
+
+
+
+
+### 项目地址
+
 - [Github](https://github.com/zhuozhiyongde/PKU-Art)
 
+
+
+### 本地开发
+
+* 克隆本项目：
+
+  ```bash
+  git clone git@github.com:zhuozhiyongde/PKU-Art.git
+  ```
+
+* 进入工作目录后安装依赖：
+
+  ```bash
+  npm install
+  ```
+
+* 启动 Vite 服务器以获得 HMR 热更新开发体验：
+
+  ```bash
+  npm run dev
+  ```
+
+* 不要使用 `npm run build` 来构建项目，而是使用 `custom-builder.py` 脚本来生成发布版本：
+
+  ```bash
+  python3 custom-builder.py
+  ```
+
+  > 注：这么做的原因是我实际使用其构建的脚本存在我目前无法解决的显示 bug，如果你知道怎么解决，欢迎告诉我~
+  >
+  > 另：请参考现有的 `main.js` 格式来写匹配选择（即一次引入必须只有一个正则表达式），否则 `custom-builder.py` 脚本可能无法正常读取并生成发布版本。
+
+
+
 ## 更新日志
+
+**2023.02.28 - v2.2.0**
+
+> 修复了一些小的 bug。
+>
+> 通过更仔细的对比选择器修复了部分小的样式失效问题。
+>
+> 构建了完整的发布工作流程，并且迁移部署了 CDN 文件发放域名至 https://cdn.arthals.ink/ 下。稍后可能会完全禁用原有途径。
+
+
+
 
 **2023.02.19 - v2.2.0 - dev**
 
@@ -20,20 +78,15 @@ PKU Art 是一款通过浏览器插件，向页面附加的 css 样式表。它�
 
 
 
-## TODO
+## Todo
 
-- [ ] 主页指示板修复
-- [ ] 主页标题栏下 Border
-- [ ] 指示板样式
-- [ ] 课程内左侧栏样式
-- [ ] 成绩栏标题（左侧+右侧）、宽度限制
-- [ ] 搞清楚任务是干啥的，并且适配样式
-- [ ] 退出功能修复
-- [ ] 左侧栏隐藏修复
+参见 [Agenda.md](./Agenda.md)
+
+
 
 ## 效果预览
 
-> 篇幅所限，只放黑暗模式下的效果：）
+> 篇幅所限，只放黑暗模式下的效果: )
 >
 > 为展示效果，可能对 html 节点有删改，如录播界面太多了放不下
 
@@ -56,71 +109,99 @@ PKU Art 是一款通过浏览器插件，向页面附加的 css 样式表。它�
 
 PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari 与 Chrome（Edge）两大浏览器。两种安装方式并无效果差异，也都需要借用浏览器插件。
 
+> 补充：有同学反映说 js 安装方式会导致一些页面的渲染会“卡一下”，猜测是 js 注入顺序导致的问题，所以建议同学们采用 css 安装以获得更稳定的体验。
+
 ### CSS 安装
 
 #### Safari
 
-需要使用 Cascadea 插件，可以通过下列途径安装：
-
-- [App Store（18r）](https://apps.apple.com/cn/app/cascadea/id1432182561?mt=12)
+需要在 App Store 安装 [Cascadea](https://apps.apple.com/cn/app/cascadea/id1432182561) 应用（￥18）。
 
 安装完成后，访问 [CSS 下载链接](https://userstyles.org/styles/220453/pku-art)，点击右上角的 Install with Cascadea 即可。
 
-#### Chrome(Edge)
+除此之外，你也可以通过 [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.css) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 CSS 源文件，并手动导入到 Cascadea 插件中。
 
-需要使用 Stylish 插件，可以通过下列途径安装：
 
-- [Chrome web store](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe?utm_source=chrome-ntp-icon)
 
-安装完成后，同样访问 [CSS 下载链接](https://userstyles.org/styles/220453/pku-art)，然后点击 Install Style 即可。
+#### Chrome (Edge/Arc/Chromium)
+
+需要在 Chrome web store 安装 [xStyle](https://chrome.google.com/webstore/detail/xstyle/hncgkmhphmncjohllpoleelnibpmccpj) 或者 [Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe) 插件。
+
+注意：Stylish 的收费政策最近有所改变（最多免费使用三个样式），所以建议安装 xStyle。
+
+如果你安装的是 xStyle，那么安装完成后，你需要通过 [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.css) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 CSS 源文件，并且手动导入到 xStyle 中，具体操作步骤如下：
+
+> 获得源文件文本 - 复制到剪贴板 - 打开 xStyle 面板 - 点击 `WRITE A NEW STYLE` - 将文本直接拷贝到编辑区 - 在右侧面板中勾选 `Enabled` 并 **取消勾选**  `Enable less complier`
+
+如果你装的是 Stylish，那么安装完成后，你同样可以访问 [CSS 下载链接](https://userstyles.org/styles/220453/pku-art)，然后点击 Install Style 即可。
+
+
 
 ### JavaScript 安装
 
 #### Safari
 
-需要使用 Userscript 插件，可以通过下列途径安装：
+需要在 App Store 安装 [Userscript](https://apps.apple.com/cn/app/userscripts/id1463298887) 插件。
 
-- [App store](https://apps.apple.com/cn/app/userscripts/id1463298887)
+安装完成后，访问 [JavaScript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可，如果被您的电脑上有 AdGuard 可能会被抢占安装，但使用那种脚本附加手段其实并不影响最终效果。
 
-安装完成后，访问 [Javascript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可，如果被您的电脑上有 adguard 可能会被抢占安装，但其实也无所谓。
+除此之外，你也可以通过 [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.js) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 JavaScript 源文件，并手动导入到 Userscript 插件中。
 
-#### Chrome(Edge)
 
-需要使用 TamperMonkey 插件，可以通过下列途径安装：
 
-- [Chrome web store](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=chrome-ntp-icon)
+#### Chrome (Edge/Arc/Chromium)
 
-安装完成后，访问 [Javascript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可。
+需要在 Chrome web store 安装 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) 插件。
+
+安装完成后，访问 [JavaScript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可。
+
+当然，除此之外，你也可以通过 [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.js) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 JavaScript 源文件，并手动导入到 Userscript 插件中。
+
+
+
+### CSS 和 JavaScript 安装方式的异同
+
+两者实际上都是通过不同手段将我写的 CSS 样式附加到你的页面上，但添加手段上存在如下差异：
+
+CSS 安装方式会直接通过插件，将你本地的样式通过在页面末附加 `<style>` 标签来引入本地样式。
+
+JavaScript 安装方式会通过插件，实时获得你的页面 URL，并且根据正则匹配页面 URL，动态引入我部署在 CDN 上的 CSS 文件，其具体引入方式是通过在页面末附加 `<link>` 标签来引入外部样式。
+
+说人话就是，CSS 安装方式会直接将你下载好的样式引入，而 JavaScript 安装方式会通过请求我 CDN 上的文件来引入，虽然浏览器有缓存策略，但是可能还是会存在一定的延迟，这可能会导致“页面闪烁”的问题出现。但 CSS 安装方式不会导致此问题。
+
+
 
 ## 使用须知
 
-本样式移除了一些我觉得没有用处的控件元素，如侧栏的收起框（这个太丑了），播放列表上方的导航栏（下方有一样的），这可能会导致一些特殊情况下，某些功能不可用。但你可以随时在插件内禁用本样式，以恢复到原有界面。
+本样式移除了一些我觉得没有用处的控件元素，如侧栏的收起框（这个太丑了），播放列表上方的导航栏（下方有一样的），这可能会导致一些特殊情况下，某些功能不可用（如侧边栏收起后，在样式启用的状态下，现在无法重新展开侧边栏）。但你可以随时在插件内禁用本样式，以恢复到原有界面。
+
+**因为最近教学网刚刚经历了更新，所以我并不能保证开发进度完全覆盖所有页面，因此我建议所有需要使用教学网的助教或者老师不要安装此样式，除非您明确知晓出现功能缺失时如何禁用样式。**
 
 本样式覆盖了所有我认为常用的界面，但我毕竟不是教学网的专业前端维护人员，所以我并不能做到对全部的页面加以修改。但如果你认为某个页面十分常用但却没有被修改，欢迎联系我，在 Github 提 issue，在树洞下留言，抑或是直接加我微信的方式（在文末，这个最欢迎！）都可以。
 
 如果你喜欢这个样式，请不要吝啬点击 Star（树洞和 Github 的都可以！），这是对我最大的鼓励与肯定！
 
+
+
 ## Q&A
-
-### PKU Art 移除了那些控件/元素？
-
-其实并不多，我在第二版严格控制了对于页面的操纵，并没有像第一版一样滥用`display:none;`，稍后我会在本页面下更新移除列表以供查找。
 
 ### 有适配手机版的打算吗？
 
 没有，做手机版自适应工程量几乎等于重构，一个人维护这个项目，我真的太累了 qwq...
 
+
+
 ### 可以在 iPad 上使用吗？
 
 可以，方式等同于在 Safari 上使用 JavaScript 安装。
+
+
 
 ### 我可以审阅代码、提交 PR 吗？
 
 十分欢迎！你可以随时访问我的 Github，哪里有本项目用到的所有代码。我可以保证项目内不含有任何恶意代码，仅仅是通过附加 css（通过 CDN 分发）来改变页面样式。如果你愿意提交 PR，那我会十分乐意接受的！
 
-### 下一步目标是什么？
 
-可以参看后记~
 
 ## 后记
 

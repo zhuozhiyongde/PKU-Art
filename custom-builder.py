@@ -22,7 +22,7 @@ def generate_js(regex_list: list, css_list: list):
         pkuartcss.className = "PKU-Art";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
-        console.log("PKU-Art: Injected {link}.");
+        console.log("PKU-Art: Injected https://cdn.arthals.ink{link}.");
     }}
 '''
     inject_func = '''
@@ -56,7 +56,7 @@ function injectPKUArt () {{
 '''
     file = file_header.format(
         version=version, date=date) + inject_func.format(inject_css=inject_css)
-    f = open('./dist/PKU-Art.js', 'w', encoding='utf-8')
+    f = open('./release/PKU-Art.js', 'w', encoding='utf-8')
     f.write(file)
     f.close()
 
@@ -97,7 +97,7 @@ def generate_css(regex_list: list, css_list: list):
         generate_moz_css(regex, css)
         for regex, css in zip(regex_list, css_list)
     ])
-    f = open('./dist/PKU-Art.css', 'w', encoding='utf-8')
+    f = open('./release/PKU-Art.css', 'w', encoding='utf-8')
     f.write(output)
 
 
