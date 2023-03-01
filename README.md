@@ -117,7 +117,11 @@ PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari �
 
 需要在 App Store 安装 [Cascadea](https://apps.apple.com/cn/app/cascadea/id1432182561) 应用（￥18）。
 
-安装完成后，访问 [CSS 下载链接](https://userstyles.org/styles/220453/pku-art)，点击右上角的 Install with Cascadea 即可。
+安装完成后，打开应用，点击最上面的下载按钮，输入以下网址就可以下载啦：
+
+```tex
+https://cdn.arthals.ink/release/PKU-Art.css
+```
 
 除此之外，你也可以通过 [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.css) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 CSS 源文件，并手动导入到 Cascadea 插件中。
 

@@ -21,7 +21,7 @@
 ## TODO
 
 ```tex
-[x] 自动构建脚本的CDN文件同步策略&自动打开网站以供发布 - DogeCloud API
+[ ] 自动构建脚本的CDN文件同步策略&自动打开网站以供发布 - DogeCloud API
 [ ] 更新README.md
 ```
 
