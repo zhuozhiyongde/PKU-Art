@@ -2,7 +2,7 @@
 @import 'main.css';
 
 /* 卡片样式、flex布局 */
-#content_listContainer>li {
+#content_listContainer > li {
     background: var(--c-card);
     border: 1px solid var(--c-border);
     border-radius: 5px;
@@ -18,12 +18,12 @@
 }
 
 /* 移除不知道干啥的after */
-#content_listContainer>li:after {
+#content_listContainer > li:after {
     display: none;
 }
 
 /* 图标模板调整 */
-#content_listContainer>li>img {
+#content_listContainer > li > img {
     position: relative;
     top: 0;
     left: 0;
@@ -36,26 +36,28 @@
 }
 
 /* 图标内容、背景 */
-#content_listContainer>li>img[src*="document"],
-#content_listContainer>li>img[src*="file"],
-#content_listContainer>li>img {
+#content_listContainer > li > img[src*='document'],
+#content_listContainer > li > img[src*='file'],
+#content_listContainer > li > img {
     content: var(--i-file);
     background: var(--red-3);
 }
 
-#content_listContainer>li>img[src*="folder"] {
+#content_listContainer > li > img[src*='folder'] {
     content: var(--i-folder);
     background: var(--orange-3);
 }
 
-#content_listContainer>li>img[src*="link"] {
+#content_listContainer > li > img[src*='link'] {
     content: var(--i-link);
     background: var(--yellow-3);
 }
-
+#content_listContainer > li > div img[alt='链接的项目'] {
+    display: none;
+}
 
 /* 标题占满首行 */
-#content_listContainer>li>div.item {
+#content_listContainer > li > div.item {
     display: inline;
     /*position: relative;*/
     flex-basis: calc(100% - 42px);
@@ -63,19 +65,19 @@
 }
 
 /* 标题样式 */
-#content_listContainer>li>div.item * {
+#content_listContainer > li > div.item * {
     text-decoration: none;
     color: var(--c-title) !important;
 }
 
 /* detail样式 */
-#content_listContainer>li>div.details {
+#content_listContainer > li > div.details {
     padding-left: 0;
     flex-basis: 100%;
 }
 
 /* detail首个非空顶框 */
-#content_listContainer>li>div.details>*:not(.alignPanel):first-child {
+#content_listContainer > li > div.details > *:not(.alignPanel):first-child {
     margin-top: 10px !important;
     border-top: 1px solid var(--c-border);
     padding-top: 5px !important;
@@ -86,7 +88,7 @@
 /*}*/
 
 /* detail文字格式 */
-#content_listContainer>li>div.details * {
+#content_listContainer > li > div.details * {
     background: var(--c-card);
     border: none;
     color: var(--c-text) !important;
@@ -98,31 +100,30 @@
 }
 
 /* detail下img */
-#content_listContainer>li>div.details img {
+#content_listContainer > li > div.details img {
     border-radius: 5px;
 }
 
 /* detail下链接文件的小图icon，删去 */
-#content_listContainer>li>div.details img[alt="文件"] {
+#content_listContainer > li > div.details img[alt='文件'] {
     display: none;
 }
 
 /*带color的文字改下划线*/
-#content_listContainer>li>div.details *[style*="background"] {
+#content_listContainer > li > div.details *[style*='background'] {
     background: none !important;
 }
 
-#content_listContainer>li>div.details span[style*="text-decoration"],
-#content_listContainer>li>div.details span[style*="color"],
-#content_listContainer>li>div.details span[style*="background"] {
+#content_listContainer > li > div.details span[style*='text-decoration'],
+#content_listContainer > li > div.details span[style*='color'],
+#content_listContainer > li > div.details span[style*='background'] {
     color: var(--c-text) !important;
     background: linear-gradient(180deg, transparent 90%, var(--red-2) 90%) !important;
 }
 
-
 /* detail下链接变蓝 */
-#content_listContainer>li>div.details a,
-#content_listContainer>li>div.details span[style*="color: #0000ff"] {
+#content_listContainer > li > div.details a,
+#content_listContainer > li > div.details span[style*='color: #0000ff'] {
     color: var(--blue-5) !important;
     text-decoration: none;
 }

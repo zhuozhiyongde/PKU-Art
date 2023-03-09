@@ -6,6 +6,7 @@
 #@Software:   Visual Studio Code
 
 import re
+import datetime
 
 
 def get_css(text: str):
@@ -114,8 +115,8 @@ def get_info():
 
     css_pattern = re.compile(r"(?m)(?<=import\('\.).*(?='\))", re.MULTILINE)
     css_content_list = css_pattern.findall(content)
-    print(len(css_content_list))
-    print(len(regex_content_list))
+    print('检测到 css 引入共计 %s 次' % len(css_content_list))
+    print('检测到 regex 分支共计 %s 次' % len(regex_content_list))
 
     return regex_content_list, css_content_list
 
@@ -126,7 +127,7 @@ def main():
     generate_css(regex_content_list, css_content_list)
 
 
-version = "2.2"
-date = "2023/02/27"
+version = "2.2.1"
+date = datetime.datetime.now().strftime("%Y/%m/%d")
 if __name__ == "__main__":
     main()

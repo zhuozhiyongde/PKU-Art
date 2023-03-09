@@ -4,6 +4,12 @@
 
 PKU Art 是一款通过浏览器插件，向页面附加的 CSS 样式表。它可以完成对于原有样式的覆盖，从而增强教学网视觉体验。第一版发布于去年 11 月，相对简陋，最近更新的第二版实现了对第一版完整的重构，完美支持了暗色模式，并且增加了更多的交互动效和设计改进。
 
+## 文档
+
+[PKU Art - Arthals' Docs](https://docs.arthals.ink/pku-art)
+
+此文档内包含更好看的指导界面。
+
 
 
 ## 下载与开发
@@ -123,7 +129,7 @@ PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari �
 
 然后输入以下网址就可以下载啦：
 
-```tex
+```text
 https://cdn.arthals.ink/release/PKU-Art.css
 ```
 

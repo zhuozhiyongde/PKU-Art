@@ -53,7 +53,8 @@
 #topTabs, */
 .container,
 .locationPane,
-.contentPane {
+.contentPane,
+.contentBox {
     background-color: var(--c-background);
 }
 
@@ -240,6 +241,7 @@ nav.navigationPane {
 #courseMenuPalette_contents li,
 #courseMenuPalette div.navPaletteContent {
     background-color: var(--c-sidebar);
+    border-top: none;
 }
 
 /* 移除装饰性元素 */
