@@ -97,7 +97,7 @@ PKU Art 是一款通过浏览器插件，向页面附加的 CSS 样式表。它�
 
 ## 下载安装
 
-以下内容可能不会得到较为及时的更行，建议观看[文档](https://docs.arthals.ink/pku-art)。
+以下内容可能不会得到较为及时的更新，建议观看[文档](https://docs.arthals.ink/pku-art)。
 
 PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari 与 Chrome（Edge）两大浏览器。两种安装方式都需要借助浏览器插件，同时，JavaScript安装会具有一些仅 CSS 无法实现的功能。所以建议大家通过 JavaScript 安装方式。
 
