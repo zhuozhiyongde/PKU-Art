@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.4
+// @version      2.3.8
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-end
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/03/30
+// @date         2023/03/31
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/livingroomhqy\\.pku\\.edu\\.cn\\/\\S*") {
     
@@ -1856,6 +1856,18 @@ li.divider,
     background-color: var(--c-hover);
 }
 }
+@-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\S*blankPage\\S*") {
+    
+#containerdiv {
+    border: 1px solid var(--c-border);
+    background: var(--c-card);
+    margin-bottom: 2em;
+    border-radius: 5px;
+    padding: 20px 30px;
+    color: var(--c-text);
+}
+
+}
 @-moz-document regexp("^https:\\/\\/course.pku.edu.cn\\/webapps\\S*videoList\\S*") {
     
 /*container向上*/
@@ -3054,7 +3066,6 @@ nav.navigationPane {
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/streamViewer\\/streamViewer\\S*streamName=alerts\\S*") {
     
-
 /* 背景着色，移除box-shadow,text-shadow*/
 html,
 #outer_left_stream_alerts {
@@ -3082,7 +3093,6 @@ html,
 #outer_left_stream_alerts {
     border: none;
 }
-
 
 #settingsContainer_alerts {
     background: var(--c-card);
@@ -3144,6 +3154,17 @@ html,
     display: none;
 }
 
+#filter_by_alerts button {
+    color: var(--c-text);
+    border: 1px solid var(--c-border);
+    border-radius: 0.2rem;
+}
+
+#filter_by_alerts button:hover {
+    background: var(--c-hover);
+    color: var(--c-primary);
+}
+
 #streamHeader_alerts .title-text {
     color: var(--c-title);
     font-weight: bold;
@@ -3151,12 +3172,11 @@ html,
     padding-left: 12px;
 }
 
-
 #streamHeader_alerts li {
     padding: 0;
 }
 
-#streamHeader_alerts a[id*="filter_type_all"] {
+#streamHeader_alerts a[id*='filter_type_all'] {
     background: var(--c-label);
     border: 1px solid var(--c-border);
 }
@@ -3199,8 +3219,8 @@ html,
     text-shadow: none;
 }
 
-#left_stream_alerts>div,
-#left_stream_alerts>div * {
+#left_stream_alerts > div,
+#left_stream_alerts > div * {
     color: var(--c-text);
     font-style: normal;
     /* font-family: inherit; */
@@ -3210,31 +3230,31 @@ html,
     /* font-weight: normal; */
 }
 
-#left_stream_alerts>div:nth-child(2n) {
+#left_stream_alerts > div:nth-child(2n) {
     background: var(--gray-1);
 }
 
-#left_stream_alerts>div:hover {
+#left_stream_alerts > div:hover {
     background: var(--c-hover) !important;
 }
 
-#left_stream_alerts>div span.stream_area_name {
+#left_stream_alerts > div span.stream_area_name {
     color: var(--c-secondary);
 }
 
-#left_stream_alerts>div span.inlineContextMenu>a {
+#left_stream_alerts > div span.inlineContextMenu > a {
     color: var(--cyan-5);
     border: none;
     border-radius: 3px;
     font-size: 12px;
 }
 
-#left_stream_alerts>div span.inlineContextMenu>a:hover {
+#left_stream_alerts > div span.inlineContextMenu > a:hover {
     background: var(--cyan-2);
     color: var(--cyan-7);
 }
 
-#left_stream_alerts>div div.stream_details * {
+#left_stream_alerts > div div.stream_details * {
     font-size: 14px;
     line-height: 1em;
 }
@@ -3245,10 +3265,10 @@ span.open_stream_settings {
     background-position: center center;
 }
 
-
 .streamError {
     display: none;
 }
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/streamViewer\\/streamViewer\\S*streamName=mygrades\\S*") {
     

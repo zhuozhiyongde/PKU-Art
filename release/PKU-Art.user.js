@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.4
+// @version      2.3.8
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-end
 // @author       Arthals
@@ -11,7 +11,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/03/30
+// @date         2023/03/31
 // ==/UserScript==
 (function () {
     'use strict';
@@ -99,6 +99,16 @@ function injectPKUArt () {
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("PKU-Art: Injected https://cdn.arthals.ink/css/courseClassin.css.");
+    }
+
+    if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*blankPage\S*$/.test(htmlpath)) {
+        let pkuartcss = document.createElement("link");
+        pkuartcss.href = 'https://cdn.arthals.ink/css/courseBlankPage.css'
+        pkuartcss.rel = "stylesheet";
+        pkuartcss.className = "PKU-Art";
+        pkuartcss.type = "text/css";
+        document.documentElement.appendChild(pkuartcss);
+        console.log("PKU-Art: Injected https://cdn.arthals.ink/css/courseBlankPage.css.");
     }
 
     if (/^https:\/\/course.pku.edu.cn\/webapps\S*videoList\S*$/.test(htmlpath)) {
@@ -293,7 +303,7 @@ function injectPKUArt () {
     // resetSidebar();
 
     let navigationPane = document.getElementById('navigationPane');
-    if (navigationPane.classList.contains('navcollapsed')) {
+    if (navigationPane && navigationPane.classList.contains('navcollapsed')) {
         // 检查侧边栏是否被隐藏
         const puller = document.getElementById('menuPuller');
         setTimeout(() => {

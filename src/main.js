@@ -64,6 +64,14 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*classinCourseClass\S*$/.test(htm
     console.log('[PKU Art] courseClassin.css imported');
 }
 
+// 空白页面
+// courseBlank
+// https://course.pku.edu.cn/webapps/blackboard/execute/content/blankPage?cmd=view&content_id=_940424_1&course_id=_51512_1
+if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*blankPage\S*$/.test(htmlpath)) {
+    import('./css/courseBlankPage.css');
+    console.log('[PKU Art] courseBlankPage.css imported');
+}
+
 // 回放界面
 // courseVideolist
 if (/^https:\/\/course.pku.edu.cn\/webapps\S*videoList\S*$/.test(htmlpath)) {
@@ -232,7 +240,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
     // resetSidebar();
 
     let navigationPane = document.getElementById('navigationPane');
-    if (navigationPane.classList.contains('navcollapsed')) {
+    if (navigationPane && navigationPane.classList.contains('navcollapsed')) {
         // 检查侧边栏是否被隐藏
         const puller = document.getElementById('menuPuller');
         setTimeout(() => {

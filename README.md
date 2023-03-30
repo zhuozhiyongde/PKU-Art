@@ -64,34 +64,8 @@ PKU Art 是一款通过浏览器插件，向页面附加的 CSS 样式表。它�
 
 
 ## 更新日志
-**2023.02.28 - v2.3.0**
 
-> 经过分析，一直以来存在的侧边栏收起后（可能是窗口大小改变或者误触puller）无法重新展开的问题无法简单地通过附加CSS样式解决，因此，我在JavaScript脚本种引入了新的IIFE（立即调用表达式），即 `preventHideSidebar()` 函数，它会检测侧栏是否被收起，如果被收起，则在 **页面刷新** 后，帮你自动点击puller并展开侧栏。
-> 
-> 上述原因导致PKU Art首次出现了JavaScript安装和CSS安装的差异，所以我建议所有采用CSS安装的用户 **改变安装方式** 至JavaScript安装。
-> 
-> `custom-builder.py` 现在支持解析 `main.js` 中的IIFE表达式，并且自动添加到脚本后。
-
-
-
-
-**2023.02.28 - v2.2.0**
-
-> 修复了一些小的 bug。
->
-> 通过更仔细的对比选择器修复了部分小的样式失效问题。
->
-> 构建了完整的发布工作流程，并且迁移部署了 CDN 文件发放域名至 https://cdn.arthals.ink/ 下。稍后可能会完全禁用原有途径。
-
-
-
-
-**2023.02.19 - v2.2.0 - dev**
-
-> 状态：开发中，还未构建发布版 css/js。
->
-> 简单的用 tampermonkey-vite-plugin 重构了一下，小修了几个明显的显示错误，现在可以直接在本地用 Vite HMR 了，不用手写自动刷新脚本了。
-
+参见 [ChangeLog.md](./ChangeLog.md)
 
 
 ## Todo
@@ -123,7 +97,7 @@ PKU Art 是一款通过浏览器插件，向页面附加的 CSS 样式表。它�
 
 ## 下载安装
 
-> 以下内容可能不会得到较为及时的更行，建议观看[文档](https://docs.arthals.ink/pku-art)。
+以下内容可能不会得到较为及时的更行，建议观看[文档](https://docs.arthals.ink/pku-art)。
 
 PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari 与 Chrome（Edge）两大浏览器。两种安装方式都需要借助浏览器插件，同时，JavaScript安装会具有一些仅 CSS 无法实现的功能。所以建议大家通过 JavaScript 安装方式。
 

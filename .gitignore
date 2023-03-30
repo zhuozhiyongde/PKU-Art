@@ -25,5 +25,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-custom-builder.py
+
 update-cdn.py

@@ -1,0 +1,11 @@
+@import '../css/arco-palette.css';
+@import 'main.css';
+
+#containerdiv {
+    border: 1px solid var(--c-border);
+    background: var(--c-card);
+    margin-bottom: 2em;
+    border-radius: 5px;
+    padding: 20px 30px;
+    color: var(--c-text);
+}

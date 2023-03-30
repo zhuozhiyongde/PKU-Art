@@ -1,7 +1,6 @@
 @import '../css/arco-palette.css';
 @import 'main.css';
 
-
 /* 背景着色，移除box-shadow,text-shadow*/
 html,
 #outer_left_stream_alerts {
@@ -29,7 +28,6 @@ html,
 #outer_left_stream_alerts {
     border: none;
 }
-
 
 #settingsContainer_alerts {
     background: var(--c-card);
@@ -91,6 +89,17 @@ html,
     display: none;
 }
 
+#filter_by_alerts button {
+    color: var(--c-text);
+    border: 1px solid var(--c-border);
+    border-radius: 0.2rem;
+}
+
+#filter_by_alerts button:hover {
+    background: var(--c-hover);
+    color: var(--c-primary);
+}
+
 #streamHeader_alerts .title-text {
     color: var(--c-title);
     font-weight: bold;
@@ -98,12 +107,11 @@ html,
     padding-left: 12px;
 }
 
-
 #streamHeader_alerts li {
     padding: 0;
 }
 
-#streamHeader_alerts a[id*="filter_type_all"] {
+#streamHeader_alerts a[id*='filter_type_all'] {
     background: var(--c-label);
     border: 1px solid var(--c-border);
 }
@@ -146,8 +154,8 @@ html,
     text-shadow: none;
 }
 
-#left_stream_alerts>div,
-#left_stream_alerts>div * {
+#left_stream_alerts > div,
+#left_stream_alerts > div * {
     color: var(--c-text);
     font-style: normal;
     /* font-family: inherit; */
@@ -157,31 +165,31 @@ html,
     /* font-weight: normal; */
 }
 
-#left_stream_alerts>div:nth-child(2n) {
+#left_stream_alerts > div:nth-child(2n) {
     background: var(--gray-1);
 }
 
-#left_stream_alerts>div:hover {
+#left_stream_alerts > div:hover {
     background: var(--c-hover) !important;
 }
 
-#left_stream_alerts>div span.stream_area_name {
+#left_stream_alerts > div span.stream_area_name {
     color: var(--c-secondary);
 }
 
-#left_stream_alerts>div span.inlineContextMenu>a {
+#left_stream_alerts > div span.inlineContextMenu > a {
     color: var(--cyan-5);
     border: none;
     border-radius: 3px;
     font-size: 12px;
 }
 
-#left_stream_alerts>div span.inlineContextMenu>a:hover {
+#left_stream_alerts > div span.inlineContextMenu > a:hover {
     background: var(--cyan-2);
     color: var(--cyan-7);
 }
 
-#left_stream_alerts>div div.stream_details * {
+#left_stream_alerts > div div.stream_details * {
     font-size: 14px;
     line-height: 1em;
 }
@@ -191,7 +199,6 @@ span.open_stream_settings {
     background-repeat: no-repeat;
     background-position: center center;
 }
-
 
 .streamError {
     display: none;
