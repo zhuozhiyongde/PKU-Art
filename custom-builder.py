@@ -14,7 +14,7 @@ def get_css(text: str):
     return css.group(1)
 
 
-def generate_js(regex_list: list, css_list: list):
+def generate_js(regex_list: list, css_list: list, iife_list: list):
     inject_css_pattern = '''
     if ({regex}.test(htmlpath)) {{
         let pkuartcss = document.createElement("link");
@@ -55,8 +55,8 @@ function injectPKUArt () {{
     injectPKUArt();
 }})()
 '''
-    file = file_header.format(
-        version=version, date=date) + inject_func.format(inject_css=inject_css)
+    file = file_header.format(version=version, date=date) + inject_func.format(
+        inject_css=inject_css) + ''.join(iife_list)
     f = open('./release/PKU-Art.js', 'w', encoding='utf-8')
     f.write(file)
     f.close()
@@ -115,19 +115,27 @@ def get_info():
 
     css_pattern = re.compile(r"(?m)(?<=import\('\.).*(?='\))", re.MULTILINE)
     css_content_list = css_pattern.findall(content)
+
+    iife_pattern = re.compile(r'\((function.*?\(.*?\).*?\))\(\);',
+                              flags=re.DOTALL)
+    iife_content_list = [
+        iife.group() for iife in iife_pattern.finditer(content)
+    ]
+
     print('检测到 css 引入共计 %s 次' % len(css_content_list))
     print('检测到 regex 分支共计 %s 次' % len(regex_content_list))
+    print('检测到 IIFE 包裹共计 %s 次' % len(iife_content_list))
 
-    return regex_content_list, css_content_list
+    return regex_content_list, css_content_list, iife_content_list
 
 
 def main():
-    regex_content_list, css_content_list = get_info()
-    generate_js(regex_content_list, css_content_list)
+    regex_content_list, css_content_list, iife_content_list = get_info()
+    generate_js(regex_content_list, css_content_list, iife_content_list)
     generate_css(regex_content_list, css_content_list)
 
 
-version = "2.2.1"
+version = "2.3.0"
 date = datetime.datetime.now().strftime("%Y/%m/%d")
 if __name__ == "__main__":
     main()

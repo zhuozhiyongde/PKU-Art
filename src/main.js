@@ -211,3 +211,33 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
     import('./css/courseTask.css');
     console.log('[PKU Art] courseTask.css imported');
 }
+
+(function preventHideSidebar() {
+    // function resetSidebar() {
+    //     let navigationPane = document.getElementById('navigationPane');
+    //     // if its class contains 'navcollapsed' then remove it
+    //     if (navigationPane.classList.contains('navcollapsed')) {
+    //         navigationPane.classList.remove('navcollapsed');
+    //     }
+    //     let puller = document.getElementById('menuWrap');
+    //     puller.style = '';
+    //     let puller_a = document.getElementById('menuPuller');
+    //     // prevent its default behavior
+    //     puller_a.addEventListener('click', function (e) {
+    //         e.preventDefault();
+    //     });
+    //     // log time
+    //     console.log('[PKU Art] sidebar reset at ' + new Date().toLocaleString());
+    // }
+    // resetSidebar();
+
+    let navigationPane = document.getElementById('navigationPane');
+    if (navigationPane.classList.contains('navcollapsed')) {
+        // 检查侧边栏是否被隐藏
+        const puller = document.getElementById('menuPuller');
+        setTimeout(() => {
+            puller.click();
+            console.log('[PKU Art] sidebar reseted by click ' + new Date().toLocaleString());
+        }, 500); // 500ms 后点击侧边栏隐藏按钮，显示侧边栏
+    }
+})();

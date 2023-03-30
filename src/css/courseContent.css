@@ -221,6 +221,7 @@ div.container {
 
 nav.navigationPane {
     height: 100%;
+    transition: none !important;
 }
 
 /* 侧栏样式 */
@@ -234,6 +235,10 @@ nav.navigationPane {
 
 #menuWrap > #puller {
     display: none;
+}
+/* 禁止左侧边栏收缩 */
+.navcollapsed {
+    margin-left: 0;
 }
 
 #menuWrap,
