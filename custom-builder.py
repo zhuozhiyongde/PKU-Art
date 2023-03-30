@@ -42,6 +42,7 @@ function injectPKUArt () {{
 // @description  给你一个足够好看的教学网
 // @version      {version}
 // @match        *://*.pku.edu.cn/*
+// @run-at       document-end
 // @author       Arthals
 // @license      GPL-3.0 license
 // @author-blog  https://arthals.ink
@@ -56,7 +57,7 @@ function injectPKUArt () {{
 }})()
 '''
     file = file_header.format(version=version, date=date) + inject_func.format(
-        inject_css=inject_css) + ''.join(iife_list)
+        inject_css=inject_css) + '// Other IIFE\n' + ''.join(iife_list)
     f = open('./release/PKU-Art.js', 'w', encoding='utf-8')
     f.write(file)
     f.close()
@@ -68,6 +69,7 @@ def generate_css(regex_list: list, css_list: list):
 // @description  给你一个足够好看的教学网
 // @version      {version}
 // @match        *://*.pku.edu.cn/*
+// @run-at       document-end
 // @author       Arthals
 // @license      GPL-3.0 license
 // @author-blog  https://arthals.ink

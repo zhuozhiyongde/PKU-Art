@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import monkey, { cdn } from 'vite-plugin-monkey';
+import monkey from 'vite-plugin-monkey';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,6 +12,7 @@ export default defineConfig({
                 name: 'PKU-Art',
                 description: '给你一个足够好看的教学网。',
                 match: ['*://*.pku.edu.cn/*'],
+                'run-at': 'document-end',
             },
         }),
     ],

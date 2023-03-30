@@ -8,7 +8,7 @@ PKU Art 是一款通过浏览器插件，向页面附加的 CSS 样式表。它�
 
 [PKU Art - Arthals' Docs](https://docs.arthals.ink/pku-art)
 
-此文档内包含更好看的指导界面。
+此文档内包含更好看、更及时的指导界面。
 
 
 
@@ -64,6 +64,16 @@ PKU Art 是一款通过浏览器插件，向页面附加的 CSS 样式表。它�
 
 
 ## 更新日志
+**2023.02.28 - v2.3.0**
+
+> 经过分析，一直以来存在的侧边栏收起后（可能是窗口大小改变或者误触puller）无法重新展开的问题无法简单地通过附加CSS样式解决，因此，我在JavaScript脚本种引入了新的IIFE（立即调用表达式），即 `preventHideSidebar()` 函数，它会检测侧栏是否被收起，如果被收起，则在 **页面刷新** 后，帮你自动点击puller并展开侧栏。
+> 
+> 上述原因导致PKU Art首次出现了JavaScript安装和CSS安装的差异，所以我建议所有采用CSS安装的用户 **改变安装方式** 至JavaScript安装。
+> 
+> `custom-builder.py` 现在支持解析 `main.js` 中的IIFE表达式，并且自动添加到脚本后。
+
+
+
 
 **2023.02.28 - v2.2.0**
 
@@ -113,11 +123,41 @@ PKU Art 是一款通过浏览器插件，向页面附加的 CSS 样式表。它�
 
 ## 下载安装
 
-PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari 与 Chrome（Edge）两大浏览器。两种安装方式并无效果差异，也都需要借用浏览器插件。
+> 以下内容可能不会得到较为及时的更行，建议观看[文档](https://docs.arthals.ink/pku-art)。
 
-> 补充：有同学反映说 js 安装方式会导致一些页面的渲染会“卡一下”，猜测是 js 注入顺序导致的问题，所以建议同学们采用 css 安装以获得更稳定的体验。
+PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari 与 Chrome（Edge）两大浏览器。两种安装方式都需要借助浏览器插件，同时，JavaScript安装会具有一些仅 CSS 无法实现的功能。所以建议大家通过 JavaScript 安装方式
 
-### CSS 安装
+> ~~补充：有同学反映说 js 安装方式会导致一些页面的渲染会“卡一下”，猜测是 js 注入顺序导致的问题，所以建议同学们采用 css 安装以获得更稳定的体验。~~
+>
+> 已修复。
+
+
+### JavaScript 安装
+
+#### Safari
+
+需要在 App Store 安装 [Userscript](https://apps.apple.com/cn/app/userscripts/id1463298887) 插件。
+
+安装完成后，访问 [JavaScript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可，如果被您的电脑上有 AdGuard 可能会被抢占安装，但使用那种脚本附加手段其实并不影响最终效果。
+
+除此之外，你也可以通过 [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.js) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 JavaScript 源文件，并手动导入到 Userscript 插件中。
+
+
+
+
+#### Chrome (Edge/Arc/Chromium)
+
+需要在 Chrome web store 安装 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) 插件。
+
+安装完成后，访问 [JavaScript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可。
+
+当然，除此之外，你也可以通过 [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.js) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 JavaScript 源文件，并手动导入到 Userscript 插件中。
+
+
+
+
+
+### CSS 安装（存在功能缺失，建议使用JavaScript安装）
 
 #### Safari
 
@@ -152,38 +192,19 @@ https://cdn.arthals.ink/release/PKU-Art.css
 
 
 
-### JavaScript 安装
-
-#### Safari
-
-需要在 App Store 安装 [Userscript](https://apps.apple.com/cn/app/userscripts/id1463298887) 插件。
-
-安装完成后，访问 [JavaScript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可，如果被您的电脑上有 AdGuard 可能会被抢占安装，但使用那种脚本附加手段其实并不影响最终效果。
-
-除此之外，你也可以通过 [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.js) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 JavaScript 源文件，并手动导入到 Userscript 插件中。
-
-
-
-
-#### Chrome (Edge/Arc/Chromium)
-
-需要在 Chrome web store 安装 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) 插件。
-
-安装完成后，访问 [JavaScript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可。
-
-当然，除此之外，你也可以通过 [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.js) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 JavaScript 源文件，并手动导入到 Userscript 插件中。
-
-
-
 ### CSS 和 JavaScript 安装方式的异同
 
-两者实际上都是通过不同手段将我写的 CSS 样式附加到你的页面上，但添加手段上存在如下差异：
+两者主要功能都是通过不同手段将我写的 CSS 样式附加到你的页面上，但添加手段上存在如下差异：
 
-CSS 安装方式会直接通过插件，将你本地的样式通过在页面末附加 `<style>` 标签来引入本地样式。
+* CSS 安装方式会直接通过插件，将你本地的样式通过在页面末附加 `<style>` 标签来引入本地样式。
 
-JavaScript 安装方式会通过插件，实时获得你的页面 URL，并且根据正则匹配页面 URL，动态引入我部署在 CDN 上的 CSS 文件，其具体引入方式是通过在页面末附加 `<link>` 标签来引入外部样式。
+* JavaScript 安装方式会通过插件，实时获得你的页面 URL，并且根据正则匹配页面 URL，动态引入我部署在 CDN 上的 CSS 文件，其具体引入方式是通过在页面末附加 `<link>` 标签来引入外部样式。
 
 说人话就是，CSS 安装方式会直接将你下载好的样式引入，而 JavaScript 安装方式会通过请求我 CDN 上的文件来引入，虽然浏览器有缓存策略，但是可能还是会存在一定的延迟，这可能会导致“页面闪烁”的问题出现。但 CSS 安装方式不会导致此问题。
+
+除此之外，两者还具有以下功能上的差异：
+
+* JavaScript 安装方式会引入一些除了附加 CSS 之外的功能，这部分功能无法仅通过 CSS 实现，如避免侧边栏收起问题。
 
 
 
