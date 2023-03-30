@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.0
+// @version      2.3.4
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-end
 // @author       Arthals
@@ -9,6 +9,7 @@
 // @author-blog  https://arthals.ink
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
+// @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
 // @date         2023/03/30
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/livingroomhqy\\.pku\\.edu\\.cn\\/\\S*") {

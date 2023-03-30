@@ -49,6 +49,7 @@ function injectPKUArt () {{
 // @icon         https://cdn.arthals.ink/Arthals-mcskin.png
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
+// @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
 // @date         {date}
 // ==/UserScript==
 (function () {{
@@ -58,7 +59,7 @@ function injectPKUArt () {{
 '''
     file = file_header.format(version=version, date=date) + inject_func.format(
         inject_css=inject_css) + '// Other IIFE\n' + ''.join(iife_list)
-    f = open('./release/PKU-Art.js', 'w', encoding='utf-8')
+    f = open('./release/PKU-Art.user.js', 'w', encoding='utf-8')
     f.write(file)
     f.close()
 
@@ -75,6 +76,7 @@ def generate_css(regex_list: list, css_list: list):
 // @author-blog  https://arthals.ink
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
+// @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
 // @date         {date}
 ==/UserStyle== */
 '''
@@ -100,7 +102,7 @@ def generate_css(regex_list: list, css_list: list):
         generate_moz_css(regex, css)
         for regex, css in zip(regex_list, css_list)
     ])
-    f = open('./release/PKU-Art.css', 'w', encoding='utf-8')
+    f = open('./release/PKU-Art.user.css', 'w', encoding='utf-8')
     f.write(output)
 
 
@@ -137,7 +139,7 @@ def main():
     generate_css(regex_content_list, css_content_list)
 
 
-version = "2.3.0"
+version = "2.3.4"
 date = datetime.datetime.now().strftime("%Y/%m/%d")
 if __name__ == "__main__":
     main()

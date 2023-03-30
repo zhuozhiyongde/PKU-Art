@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.0
+// @version      2.3.4
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-end
 // @author       Arthals
@@ -10,6 +10,7 @@
 // @icon         https://cdn.arthals.ink/Arthals-mcskin.png
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
+// @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
 // @date         2023/03/30
 // ==/UserScript==
 (function () {

@@ -19,8 +19,8 @@ PKU Art 是一款通过浏览器插件，向页面附加的 CSS 样式表。它�
 - [Stylish](https://userstyles.org/styles/220453/pku-art)
 - [GreasyFork](https://greasyfork.org/zh-CN/scripts/436323-pku-art)
 - [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases)
-- [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.css)
-- [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.js)
+- [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.user.css)
+- [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.user.js)
 
 
 
@@ -125,7 +125,7 @@ PKU Art 是一款通过浏览器插件，向页面附加的 CSS 样式表。它�
 
 > 以下内容可能不会得到较为及时的更行，建议观看[文档](https://docs.arthals.ink/pku-art)。
 
-PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari 与 Chrome（Edge）两大浏览器。两种安装方式都需要借助浏览器插件，同时，JavaScript安装会具有一些仅 CSS 无法实现的功能。所以建议大家通过 JavaScript 安装方式
+PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari 与 Chrome（Edge）两大浏览器。两种安装方式都需要借助浏览器插件，同时，JavaScript安装会具有一些仅 CSS 无法实现的功能。所以建议大家通过 JavaScript 安装方式。
 
 > ~~补充：有同学反映说 js 安装方式会导致一些页面的渲染会“卡一下”，猜测是 js 注入顺序导致的问题，所以建议同学们采用 css 安装以获得更稳定的体验。~~
 >
@@ -138,9 +138,11 @@ PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari �
 
 需要在 App Store 安装 [Userscript](https://apps.apple.com/cn/app/userscripts/id1463298887) 插件。
 
-安装完成后，访问 [JavaScript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可，如果被您的电脑上有 AdGuard 可能会被抢占安装，但使用那种脚本附加手段其实并不影响最终效果。
+安装完成后，访问 [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.user.js) ，点击插件图标，应当有`Userscript Detected:Tap to install`字样，点击安装即可。这种安装方式是最推荐的，因为它可以自动检测到我后续的更新。
 
-除此之外，你也可以通过 [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.js) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 JavaScript 源文件，并手动导入到 Userscript 插件中。
+你也可以访问 [JavaScript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可，如果被您的电脑上有 AdGuard 可能会被抢占安装，但使用那种脚本附加手段其实并不影响最终效果。
+
+除此之外，你也可以通过 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 JavaScript 源文件，并手动导入到 Userscript 插件中。
 
 
 
@@ -149,9 +151,11 @@ PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari �
 
 需要在 Chrome web store 安装 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) 插件。
 
-安装完成后，访问 [JavaScript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可。
+安装完成后，访问 [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.user.js) ，点击安装即可。这种安装方式是最推荐的，因为它可以自动检测到我后续的更新。
 
-当然，除此之外，你也可以通过 [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.js) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 JavaScript 源文件，并手动导入到 Userscript 插件中。
+你也可以访问 [JavaScript 下载链接](https://greasyfork.org/zh-CN/scripts/436323-pku-art)，点击安装即可。
+
+除此之外，你还可以通过 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 JavaScript 源文件，并手动导入到 TamperMonkey 插件中。
 
 
 
@@ -170,10 +174,10 @@ PKU Art 目前支持 css 安装与 js 安装两种安装方式，兼容 Safari �
 然后输入以下网址就可以下载啦：
 
 ```text
-https://cdn.arthals.ink/release/PKU-Art.css
+https://cdn.arthals.ink/release/PKU-Art.user.css
 ```
 
-除此之外，你也可以通过 [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.css) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 CSS 源文件，并手动导入到 Cascadea 插件中。
+除此之外，你也可以通过 [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.user.css) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 CSS 源文件，并手动导入到 Cascadea 插件中。
 
 
 
@@ -184,7 +188,7 @@ https://cdn.arthals.ink/release/PKU-Art.css
 
 注意：Stylish 的收费政策最近有所改变（最多免费使用三个样式）且访问不是很稳定的样子，所以建议安装 xStyle。
 
-如果你安装的是 xStyle，那么安装完成后，你需要通过 [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.css) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 CSS 源文件，并且手动导入到 xStyle 中，具体操作步骤如下：
+如果你安装的是 xStyle，那么安装完成后，你需要通过 [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.user.css) 或者 [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases) 来下载 CSS 源文件，并且手动导入到 xStyle 中，具体操作步骤如下：
 
 > 获得源文件文本 - 复制到剪贴板 - 打开 xStyle 面板 - 点击 `WRITE A NEW STYLE` - 将文本直接拷贝到编辑区 - 在右侧面板中勾选 `Enabled` 并 **取消勾选**  `Enable less complier`
 
