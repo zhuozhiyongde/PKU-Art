@@ -5,9 +5,9 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
+        "build": "python3 update-cdn.py build",
         "preview": "vite preview",
-        "update": "python3 update-cdn.py"
+        "update": "python3 update-cdn.py update"
     },
     "devDependencies": {
         "vite": "^4.1.1",

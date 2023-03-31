@@ -235,3 +235,10 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
     resetNavigationPane();
     window.addEventListener('resize', resetNavigationPane);
 })();
+
+(function replaceIcon() {
+    const icon = document.querySelector('link[rel="SHORTCUT ICON"]');
+    if (icon) {
+        icon.href = 'https://www.pku.edu.cn/favicon.ico';
+    }
+})();

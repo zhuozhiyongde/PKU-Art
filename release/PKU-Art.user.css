@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.10
+// @version      2.3.11
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -3854,14 +3854,14 @@ embed {
 }
 
 /* form卡片样式 */
-.container>form {
+.container > form {
     background: var(--c-card);
     border-radius: 5px;
     border: 1px solid var(--c-border);
     padding: 10px;
 }
 
-.container>form * {
+.container > form * {
     background: var(--c-card);
     color: var(--c-text);
     font-style: normal;
@@ -3869,7 +3869,7 @@ embed {
 }
 
 #dataCollectionContainer,
-#dataCollectionContainer>div {
+#dataCollectionContainer > div {
     background: var(--c-card);
 }
 
@@ -3878,14 +3878,14 @@ embed {
 } */
 
 /* 各步骤布局 */
-#dataCollectionContainer>div[id^="step"] {
+#dataCollectionContainer > div[id^='step'] {
     border-top: none;
     background: var(--c-card) !important;
     padding-bottom: 16px;
 }
 
 /* 步骤标题 */
-#dataCollectionContainer>div[id^="step"]>.steptitle {
+#dataCollectionContainer > div[id^='step'] > .steptitle {
     position: relative;
     top: 0;
     margin: 0;
@@ -3896,7 +3896,7 @@ embed {
 }
 
 /* 边框 */
-div[id*="stepcontent"] {
+div[id*='stepcontent'] {
     border-bottom: 1px solid var(--c-border);
     background: var(--c-card) !important;
 }
@@ -3908,8 +3908,8 @@ div[id*="stepcontent"] {
     background: var(--cyan-2) !important;
 }
 
-#metadata div[class*="meta"],
-#metadata div[class*="meta"] span.metaSubInfo {
+#metadata div[class*='meta'],
+#metadata div[class*='meta'] span.metaSubInfo {
     background: transparent;
 }
 
@@ -3919,32 +3919,32 @@ div[id*="stepcontent"] {
 }
 
 /* 全局按钮样式更改 */
-form[name="uploadAssignmentForm"] a#submissionLink,
-form[name="uploadAssignmentForm"] input[type="file"],
-form[name="uploadAssignmentForm"] input[type="button"] {
+form[name='uploadAssignmentForm'] a#submissionLink,
+form[name='uploadAssignmentForm'] input[type='file'],
+form[name='uploadAssignmentForm'] input[type='button'] {
     border-radius: 5px;
     background: var(--c-button);
     box-shadow: none;
     color: var(--c-text);
 }
 
-form[name="uploadAssignmentForm"] a#submissionLink:hover,
-form[name="uploadAssignmentForm"] input[type="file"]:hover,
-form[name="uploadAssignmentForm"] input[type="button"]:hover {
+form[name='uploadAssignmentForm'] a#submissionLink:hover,
+form[name='uploadAssignmentForm'] input[type='file']:hover,
+form[name='uploadAssignmentForm'] input[type='button']:hover {
     background: var(--gray-2);
     color: var(--c-title);
     font-weight: bold;
 }
 
 /* 提交按钮特判 */
-form[name="uploadAssignmentForm"] input[type="submit"].submit {
+form[name='uploadAssignmentForm'] input[type='submit'].submit {
     border-radius: 5px;
     background: var(--c-primary-light);
     box-shadow: none;
     color: var(--c-primary);
 }
 
-form[name="uploadAssignmentForm"] input[type="submit"].submit:hover {
+form[name='uploadAssignmentForm'] input[type='submit'].submit:hover {
     background: var(--blue-2);
     /* box-shadow: none ; */
     color: var(--blue-7);
@@ -3952,7 +3952,7 @@ form[name="uploadAssignmentForm"] input[type="submit"].submit:hover {
 }
 
 /* 步骤布局 */
-form[name="uploadAssignmentForm"] ol[role="presentation"]>li {
+form[name='uploadAssignmentForm'] ol[role='presentation'] > li {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -3962,66 +3962,66 @@ form[name="uploadAssignmentForm"] ol[role="presentation"]>li {
 }
 
 /* 标签统一宽度 */
-form[name="uploadAssignmentForm"] ol[role="presentation"]>li div.label {
+form[name='uploadAssignmentForm'] ol[role='presentation'] > li div.label {
     width: 40px;
     min-width: none;
     max-width: none;
 }
 
 /* 文件上传区域样式修改 */
-form[name="uploadAssignmentForm"] ol[role="presentation"]>li.dropzone {
+form[name='uploadAssignmentForm'] ol[role='presentation'] > li.dropzone {
     border: 2px dashed var(--c-border) !important;
 }
 
-form[name="uploadAssignmentForm"] #content ol[role="presentation"]>li.dropzone.hover {
+form[name='uploadAssignmentForm'] ol[role='presentation'] > li.dropzone.hover {
     background: var(--c-hover) !important;
 }
 
-form[name="uploadAssignmentForm"] ol[role="presentation"]>li.dropzone div,
-form[name="uploadAssignmentForm"] ol[role="presentation"]>li.dropzone label {
+form[name='uploadAssignmentForm'] ol[role='presentation'] > li.dropzone div,
+form[name='uploadAssignmentForm'] ol[role='presentation'] > li.dropzone label {
     background: transparent;
 }
 
 /* 上传文件列表 */
-form[name="uploadAssignmentForm"] #newFile_table * {
+form[name='uploadAssignmentForm'] #newFile_table * {
     border-color: var(--c-border) !important;
 }
 
-form[name="uploadAssignmentForm"] #newFile_table img {
+form[name='uploadAssignmentForm'] #newFile_table img {
     /* content: var(--i-file);
     height: 15px; */
     display: none;
 }
 
-form[name="uploadAssignmentForm"] li#newFile_listHtmlDiv {
+form[name='uploadAssignmentForm'] li#newFile_listHtmlDiv {
     margin-top: 30px !important;
 }
 
 /* 注释区样式 */
-form[name="uploadAssignmentForm"] table.mceLayout {
+form[name='uploadAssignmentForm'] table.mceLayout {
     border: 1px solid var(--c-border) !important;
     border-radius: 5px;
     padding: 5px;
 }
 
-form[name="uploadAssignmentForm"] table.mceLayout * {
+form[name='uploadAssignmentForm'] table.mceLayout * {
     border: none !important;
     background: transparent !important;
     box-shadow: none !important;
 }
 
 /* 聚焦提示下属margin */
-form[name="uploadAssignmentForm"] .vtbehelp {
+form[name='uploadAssignmentForm'] .vtbehelp {
     margin-bottom: 5px;
 }
 
-form[name="uploadAssignmentForm"] .mceFirst:hover,
-form[name="uploadAssignmentForm"] .mceLast:hover {
+form[name='uploadAssignmentForm'] .mceFirst:hover,
+form[name='uploadAssignmentForm'] .mceLast:hover {
     background: transparent;
 }
 
 /* 语法检查按钮 */
-form[name="uploadAssignmentForm"] .defaultSkin .mceSplitButton span.mceAction {
+form[name='uploadAssignmentForm'] .defaultSkin .mceSplitButton span.mceAction {
     background-image: var(--i-check);
     background-repeat: no-repeat;
     background-position: center center;
@@ -4029,7 +4029,7 @@ form[name="uploadAssignmentForm"] .defaultSkin .mceSplitButton span.mceAction {
 }
 
 /* 语法检查下拉选择框 */
-form[name="uploadAssignmentForm"] div[role="listbox"] {
+form[name='uploadAssignmentForm'] div[role='listbox'] {
     background: var(--c-card);
     border: 1px solid var(--c-border);
     border-radius: 5px;
@@ -4037,11 +4037,11 @@ form[name="uploadAssignmentForm"] div[role="listbox"] {
     box-shadow: var(--c-box-shadow);
 }
 
-form[name="uploadAssignmentForm"] div[role="listbox"] * {
+form[name='uploadAssignmentForm'] div[role='listbox'] * {
     border: none !important;
 }
 
-form[name="uploadAssignmentForm"] .defaultSkin .mceMenu {
+form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
     top: 0;
     left: 0;
     position: relative;
@@ -4078,22 +4078,22 @@ form[name="uploadAssignmentForm"] .defaultSkin .mceMenu {
     background: var(--c-card) !important;
 }
 
-#inlineGrader .fileTile>img {
+#inlineGrader .fileTile > img {
     content: var(--i-file);
     width: 50px;
     height: 50px;
 }
 
-#inlineGrader .fileTile>h5 {
+#inlineGrader .fileTile > h5 {
     color: var(--c-title);
 }
 
-#inlineGrader .fileTile>a {
+#inlineGrader .fileTile > a {
     background: var(--c-button);
     border-radius: 5px;
 }
 
-#inlineGrader .fileTile>a:hover {
+#inlineGrader .fileTile > a:hover {
     background: var(--cyan-2);
     color: var(--c-title);
     font-weight: bold;
@@ -4132,7 +4132,6 @@ form[name="uploadAssignmentForm"] .defaultSkin .mceMenu {
     background: var(--c-hover);
 }
 
-
 #inlineGrader .resizeControls #maximizer_btn {
     display: none;
 }
@@ -4170,7 +4169,6 @@ form[name="uploadAssignmentForm"] .defaultSkin .mceMenu {
     background-repeat: no-repeat;
     background-size: 15px;
     background-position: center center;
-
 }
 
 #inlineGrader #gradingPanel .backLink a {
@@ -4185,6 +4183,7 @@ form[name="uploadAssignmentForm"] .defaultSkin .mceMenu {
 #inlineGrader div.contentDetailsHeader {
     margin-top: 15px;
 }
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*context=mybb\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/blackboard\\/execute\\/announcement$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*playVideo\\S*") {
     

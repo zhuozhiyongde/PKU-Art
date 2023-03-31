@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.10
+// @version      2.3.11
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -296,4 +296,10 @@ function injectPKUArt () {
     }
     resetNavigationPane();
     window.addEventListener('resize', resetNavigationPane);
+})();
+(function replaceIcon() {
+    const icon = document.querySelector('link[rel="SHORTCUT ICON"]');
+    if (icon) {
+        icon.href = 'https://www.pku.edu.cn/favicon.ico';
+    }
 })();
