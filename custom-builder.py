@@ -42,7 +42,7 @@ function injectPKUArt () {{
 // @description  给你一个足够好看的教学网
 // @version      {version}
 // @match        *://*.pku.edu.cn/*
-// @run-at       document-end
+// @run-at       document-start
 // @author       Arthals
 // @license      GPL-3.0 license
 // @author-blog  https://arthals.ink
@@ -70,7 +70,7 @@ def generate_css(regex_list: list, css_list: list):
 // @description  给你一个足够好看的教学网
 // @version      {version}
 // @match        *://*.pku.edu.cn/*
-// @run-at       document-end
+// @run-at       document-start
 // @author       Arthals
 // @license      GPL-3.0 license
 // @author-blog  https://arthals.ink

@@ -1,15 +1,16 @@
 {
-  "name": "pku-art",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "vite": "^4.1.1",
-    "vite-plugin-monkey": "^2.12.0"
-  }
+    "name": "pku-art",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "update": "python3 update-cdn.py"
+    },
+    "devDependencies": {
+        "vite": "^4.1.1",
+        "vite-plugin-monkey": "^2.12.0"
+    }
 }

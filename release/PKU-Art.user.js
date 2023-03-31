@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.8
+// @version      2.3.9
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-end
 // @author       Arthals
@@ -284,31 +284,16 @@ function injectPKUArt () {
 }
 // Other IIFE
 (function preventHideSidebar() {
-    // function resetSidebar() {
-    //     let navigationPane = document.getElementById('navigationPane');
-    //     // if its class contains 'navcollapsed' then remove it
-    //     if (navigationPane.classList.contains('navcollapsed')) {
-    //         navigationPane.classList.remove('navcollapsed');
-    //     }
-    //     let puller = document.getElementById('menuWrap');
-    //     puller.style = '';
-    //     let puller_a = document.getElementById('menuPuller');
-    //     // prevent its default behavior
-    //     puller_a.addEventListener('click', function (e) {
-    //         e.preventDefault();
-    //     });
-    //     // log time
-    //     console.log('[PKU Art] sidebar reset at ' + new Date().toLocaleString());
-    // }
-    // resetSidebar();
-
-    let navigationPane = document.getElementById('navigationPane');
-    if (navigationPane && navigationPane.classList.contains('navcollapsed')) {
-        // 检查侧边栏是否被隐藏
-        const puller = document.getElementById('menuPuller');
-        setTimeout(() => {
-            puller.click();
-            console.log('[PKU Art] sidebar reseted by click ' + new Date().toLocaleString());
-        }, 500); // 500ms 后点击侧边栏隐藏按钮，显示侧边栏
+    function resetNavigationPane() {
+        // console.log('[PKU Art] resetNavigationPane() has been used at ' + new Date().toLocaleString());
+        let navigationPane = document.getElementById('navigationPane');
+        if (navigationPane && navigationPane.classList.contains('navcollapsed')) {
+            // 检查侧边栏是否被隐藏
+            const puller = document.getElementById('menuPuller');
+            puller.click(); // 点击侧边栏隐藏按钮，显示侧边栏
+            console.log('[PKU Art] sidebar reseted by auto click at ' + new Date().toLocaleString());
+        }
     }
+    resetNavigationPane();
+    window.addEventListener('resize', resetNavigationPane);
 })();

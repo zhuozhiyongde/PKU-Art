@@ -12,7 +12,7 @@ export default defineConfig({
                 name: 'PKU-Art',
                 description: '给你一个足够好看的教学网。',
                 match: ['*://*.pku.edu.cn/*'],
-                'run-at': 'document-end',
+                'run-at': 'document-start',
             },
         }),
     ],
