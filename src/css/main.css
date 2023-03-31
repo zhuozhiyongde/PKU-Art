@@ -20,6 +20,8 @@
     --c-primary-light: #e8f3ff;
     --c-secondary: #89a2ac;
     --c-button: #f7f8fa;
+    --c-card-hover: #66ecf331;
+    --c-scrollbar: #c1c1c1;
 
     /* 图片 */
     --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo.png');
@@ -65,6 +67,8 @@
         --c-primary-light: #262947;
         --c-secondary: #00879d;
         --c-button: #22262d;
+        --c-card-hover: rgba(23, 231, 242, 0.23);
+        --c-scrollbar: #6b6b6b;
 
         --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo_Dark.png');
         --i-remind: url('https://cdn.arthals.ink/css/src/remind_dark.svg');
@@ -160,4 +164,23 @@ html {
     100% {
         opacity: 1;
     }
+}
+/* 定义滚动条的宽度和高度 */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* 定义滚动条轨道的背景色 */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* 定义滚动条滑块的背景色 */
+::-webkit-scrollbar-thumb {
+    background-color: var(--c-scrollbar);
+    border-radius: 9999px;
 }

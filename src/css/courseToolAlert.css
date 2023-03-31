@@ -164,13 +164,27 @@ html,
     border: none;
     /* font-weight: normal; */
 }
-
+/* 新项目 */
+#left_stream_alerts > div.stream_new_entry {
+    background: inherit;
+}
+#left_stream_alerts > div.stream_new_entry .stream_context::before {
+    content: 'New';
+    color: var(--c-accent);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 5px;
+    background: var(--c-label);
+    border-radius: 5px;
+    margin-right: 5px;
+}
 #left_stream_alerts > div:nth-child(2n) {
     background: var(--gray-1);
 }
 
 #left_stream_alerts > div:hover {
-    background: var(--c-hover) !important;
+    background: var(--c-card-hover) !important;
+    transition: all ease-in 0.2s;
 }
 
 #left_stream_alerts > div span.stream_area_name {

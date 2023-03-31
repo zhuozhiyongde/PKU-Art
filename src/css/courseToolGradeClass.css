@@ -133,6 +133,7 @@ html,
     border: none;
     box-sizing: border-box;
     height: 65px;
+    transition: all ease-in 0.2s;
 }
 
 #grades_wrapper > div:last-child {
@@ -145,7 +146,7 @@ html,
 }
 
 #grades_wrapper > div:not(.calculatedRow):hover {
-    background: var(--c-hover);
+    background: var(--c-card-hover);
 }
 
 #grades_wrapper > div:first-child {

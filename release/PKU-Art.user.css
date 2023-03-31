@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.11
+// @version      2.3.12
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -34,6 +34,8 @@
     --c-primary-light: #e8f3ff;
     --c-secondary: #89a2ac;
     --c-button: #f7f8fa;
+    --c-card-hover: #66ecf331;
+    --c-scrollbar: #c1c1c1;
 
     /* 图片 */
     --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo.png');
@@ -79,6 +81,8 @@
         --c-primary-light: #262947;
         --c-secondary: #00879d;
         --c-button: #22262d;
+        --c-card-hover: rgba(23, 231, 242, 0.23);
+        --c-scrollbar: #6b6b6b;
 
         --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo_Dark.png');
         --i-remind: url('https://cdn.arthals.ink/css/src/remind_dark.svg');
@@ -174,6 +178,25 @@ html {
     100% {
         opacity: 1;
     }
+}
+/* 定义滚动条的宽度和高度 */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* 定义滚动条轨道的背景色 */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* 定义滚动条滑块的背景色 */
+::-webkit-scrollbar-thumb {
+    background-color: var(--c-scrollbar);
+    border-radius: 9999px;
 }
 
 }
@@ -3229,13 +3252,27 @@ html,
     border: none;
     /* font-weight: normal; */
 }
-
+/* 新项目 */
+#left_stream_alerts > div.stream_new_entry {
+    background: inherit;
+}
+#left_stream_alerts > div.stream_new_entry .stream_context::before {
+    content: 'New';
+    color: var(--c-accent);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 5px;
+    background: var(--c-label);
+    border-radius: 5px;
+    margin-right: 5px;
+}
 #left_stream_alerts > div:nth-child(2n) {
     background: var(--gray-1);
 }
 
 #left_stream_alerts > div:hover {
-    background: var(--c-hover) !important;
+    background: var(--c-card-hover) !important;
+    transition: all ease-in 0.2s;
 }
 
 #left_stream_alerts > div span.stream_area_name {
@@ -3590,6 +3627,7 @@ html,
     border: none;
     box-sizing: border-box;
     height: 65px;
+    transition: all ease-in 0.2s;
 }
 
 #grades_wrapper > div:last-child {
@@ -3602,7 +3640,7 @@ html,
 }
 
 #grades_wrapper > div:not(.calculatedRow):hover {
-    background: var(--c-hover);
+    background: var(--c-card-hover);
 }
 
 #grades_wrapper > div:first-child {
@@ -4058,6 +4096,9 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
 }
 
 /* 作业复查界面 */
+#inlineReceipt_good {
+    background: var(--c-accent);
+}
 #inlineGrader {
     border: 1px solid var(--c-border);
     border-radius: 5px;

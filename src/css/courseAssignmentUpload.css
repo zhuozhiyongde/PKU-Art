@@ -211,6 +211,9 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
 }
 
 /* 作业复查界面 */
+#inlineReceipt_good {
+    background: var(--c-accent);
+}
 #inlineGrader {
     border: 1px solid var(--c-border);
     border-radius: 5px;
