@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.9
+// @version      2.3.10
 // @match        *://*.pku.edu.cn/*
-// @run-at       document-end
+// @run-at       document-start
 // @author       Arthals
 // @license      GPL-3.0 license
 // @author-blog  https://arthals.ink
