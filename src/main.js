@@ -244,6 +244,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
 })();
 
 (function deleteCourseSerial() {
+    let htmlpath = location.href;
     if (
         /^https:\/\/course\.pku\.edu\.cn\/webapps\/?$|^https:\/\/course\.pku\.edu\.cn\/webapps\/portal\/\S*$/.test(
             htmlpath

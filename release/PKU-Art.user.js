@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.13
+// @version      2.3.14
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -304,6 +304,7 @@ function injectPKUArt () {
     }
 })();
 (function deleteCourseSerial() {
+    let htmlpath = location.href;
     if (
         /^https:\/\/course\.pku\.edu\.cn\/webapps\/?$|^https:\/\/course\.pku\.edu\.cn\/webapps\/portal\/\S*$/.test(
             htmlpath
