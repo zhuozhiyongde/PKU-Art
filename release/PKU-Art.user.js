@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.12
+// @version      2.3.13
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -11,7 +11,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/03/31
+// @date         2023/04/01
 // ==/UserScript==
 (function () {
     'use strict';
@@ -301,5 +301,21 @@ function injectPKUArt () {
     const icon = document.querySelector('link[rel="SHORTCUT ICON"]');
     if (icon) {
         icon.href = 'https://www.pku.edu.cn/favicon.ico';
+    }
+})();
+(function deleteCourseSerial() {
+    if (
+        /^https:\/\/course\.pku\.edu\.cn\/webapps\/?$|^https:\/\/course\.pku\.edu\.cn\/webapps\/portal\/\S*$/.test(
+            htmlpath
+        )
+    ) {
+        const courses = document.querySelectorAll(
+            '.containerPortal > div:not(:first-child) .portlet .portletList-img > li > a'
+        );
+        // 22232-00048-04834600-0006170251-00-1: JavaScript及Web网页前端开发(22-23学年第2学期)
+        courses.forEach((course) => {
+            course.innerHTML = course.innerHTML.replace(/[\d-]+: /, '');
+        });
+        console.log('[PKU Art] course serial deleted:' + courses.length + 'courses');
     }
 })();
