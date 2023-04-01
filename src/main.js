@@ -250,13 +250,15 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
             htmlpath
         )
     ) {
-        const courses = document.querySelectorAll(
-            '.containerPortal > div:not(:first-child) .portlet .portletList-img > li > a'
-        );
-        // 22232-00048-04834600-0006170251-00-1: JavaScript及Web网页前端开发(22-23学年第2学期)
-        courses.forEach((course) => {
-            course.innerHTML = course.innerHTML.replace(/[\d-]+: /, '');
+        document.addEventListener('DOMContentLoaded', () => {
+            const courses = document.querySelectorAll(
+                '.containerPortal > div:not(:first-child) .portlet .portletList-img > li > a'
+            );
+            // 22232-00048-04834600-0006170251-00-1: JavaScript及Web网页前端开发(22-23学年第2学期)
+            courses.forEach((course) => {
+                course.innerHTML = course.innerHTML.replace(/[\d-]+: /, '');
+            });
+            console.log('[PKU Art] course serial deleted:' + courses.length + 'courses');
         });
-        console.log('[PKU Art] course serial deleted:' + courses.length + 'courses');
     }
 })();

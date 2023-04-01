@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.14
+// @version      2.3.15
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -310,13 +310,15 @@ function injectPKUArt () {
             htmlpath
         )
     ) {
-        const courses = document.querySelectorAll(
-            '.containerPortal > div:not(:first-child) .portlet .portletList-img > li > a'
-        );
-        // 22232-00048-04834600-0006170251-00-1: JavaScript及Web网页前端开发(22-23学年第2学期)
-        courses.forEach((course) => {
-            course.innerHTML = course.innerHTML.replace(/[\d-]+: /, '');
+        document.addEventListener('DOMContentLoaded', () => {
+            const courses = document.querySelectorAll(
+                '.containerPortal > div:not(:first-child) .portlet .portletList-img > li > a'
+            );
+            // 22232-00048-04834600-0006170251-00-1: JavaScript及Web网页前端开发(22-23学年第2学期)
+            courses.forEach((course) => {
+                course.innerHTML = course.innerHTML.replace(/[\d-]+: /, '');
+            });
+            console.log('[PKU Art] course serial deleted:' + courses.length + 'courses');
         });
-        console.log('[PKU Art] course serial deleted:' + courses.length + 'courses');
     }
 })();
