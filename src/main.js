@@ -222,24 +222,30 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
 
 // Other IIFE
 (function preventHideSidebar() {
-    function resetNavigationPane() {
-        // console.log('[PKU Art] resetNavigationPane() has been used at ' + new Date().toLocaleString());
-        let navigationPane = document.getElementById('navigationPane');
-        if (navigationPane && navigationPane.classList.contains('navcollapsed')) {
-            // 检查侧边栏是否被隐藏
-            const puller = document.getElementById('menuPuller');
-            puller.click(); // 点击侧边栏隐藏按钮，显示侧边栏
-            console.log('[PKU Art] sidebar reseted by auto click at ' + new Date().toLocaleString());
+    let htmlpath = location.href;
+    if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath)) {
+        function resetNavigationPane() {
+            // console.log('[PKU Art] resetNavigationPane() has been used at ' + new Date().toLocaleString());
+            let navigationPane = document.getElementById('navigationPane');
+            if (navigationPane && navigationPane.classList.contains('navcollapsed')) {
+                // 检查侧边栏是否被隐藏
+                const puller = document.getElementById('menuPuller');
+                puller.click(); // 点击侧边栏隐藏按钮，显示侧边栏
+                console.log('[PKU Art] sidebar reseted by auto click at ' + new Date().toLocaleString());
+            }
         }
+        resetNavigationPane();
+        window.addEventListener('resize', resetNavigationPane);
     }
-    resetNavigationPane();
-    window.addEventListener('resize', resetNavigationPane);
 })();
 
 (function replaceIcon() {
-    const icon = document.querySelector('link[rel="SHORTCUT ICON"]');
-    if (icon) {
-        icon.href = 'https://www.pku.edu.cn/favicon.ico';
+    let htmlpath = location.href;
+    if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath)) {
+        const icon = document.querySelector('link[rel="SHORTCUT ICON"]');
+        if (icon) {
+            icon.href = 'https://www.pku.edu.cn/favicon.ico';
+        }
     }
 })();
 
@@ -258,7 +264,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
             courses.forEach((course) => {
                 course.innerHTML = course.innerHTML.replace(/[\d-]+: /, '');
             });
-            console.log('[PKU Art] course serial deleted:' + courses.length + 'courses');
+            console.log('[PKU Art] course serial deleted: ' + courses.length + ' courses');
         });
     }
 })();
