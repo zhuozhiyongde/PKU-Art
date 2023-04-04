@@ -242,10 +242,14 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
 (function replaceIcon() {
     let htmlpath = location.href;
     if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath)) {
-        const icon = document.querySelector('link[rel="SHORTCUT ICON"]');
-        if (icon) {
-            icon.href = 'https://www.pku.edu.cn/favicon.ico';
+        function executeReplaceIcon() {
+            const icon = document.querySelector('link[rel="SHORTCUT ICON"]');
+            if (icon) {
+                icon.href = 'https://www.pku.edu.cn/favicon.ico';
+            }
         }
+        executeReplaceIcon();
+        document.addEventListener('DOMContentLoaded', executeReplaceIcon);
     }
 })();
 
@@ -256,7 +260,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
             htmlpath
         )
     ) {
-        document.addEventListener('DOMContentLoaded', () => {
+        function executeDeleteCourseSerical() {
             const courses = document.querySelectorAll(
                 '.containerPortal > div:not(:first-child) .portlet .portletList-img > li > a'
             );
@@ -265,6 +269,8 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
                 course.innerHTML = course.innerHTML.replace(/[\d-]+: /, '');
             });
             console.log('[PKU Art] course serial deleted: ' + courses.length + ' courses');
-        });
+        }
+        executeDeleteCourseSerical();
+        document.addEventListener('DOMContentLoaded', executeDeleteCourseSerical);
     }
 })();

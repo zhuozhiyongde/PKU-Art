@@ -20,7 +20,12 @@
     font-style: normal;
     font-family: sans-serif;
 }
-
+/* 提示文本的颜色修改 */
+.container > form #instructions *[style*='color'] {
+    color: var(--c-text) !important;
+    background: transparent !important;
+    background: linear-gradient(180deg, transparent 90%, var(--red-2) 90%) !important;
+}
 #dataCollectionContainer,
 #dataCollectionContainer > div {
     background: var(--c-card);

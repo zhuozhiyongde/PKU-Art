@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.16
+// @version      2.3.17
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/04/01
+// @date         2023/04/04
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/livingroomhqy\\.pku\\.edu\\.cn\\/\\S*") {
     
@@ -1215,6 +1215,13 @@ div.edit_controls > a:hover::before {
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*course_id\\S*") {
     
+/* 限制页面最低高度 */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
 .brandingImgWrap,
 #appTabList > tbody > tr :not(:first-child),
 .hideoff,
@@ -1424,14 +1431,23 @@ table.bouncer span:hover {
 }
 
 /* 置高 */
-#globalNavPageContentArea,
+#globalNavPageContentArea {
+    flex-grow: 1;
+}
+.locationPane {
+    min-height: 100%;
+}
+#globalNavPageNavArea {
+    flex-shrink: 0;
+}
+/* #globalNavPageContentArea,
 #globalNavPageContentArea .locationPane,
 #contentPanel,
 div#content,
 div.container {
     height: fit-content !important;
     min-height: 100vh;
-}
+} */
 
 nav.navigationPane {
     height: 100%;
@@ -1709,7 +1725,7 @@ li.divider,
     border: none;
 }
 
-#announcementList>li {
+#announcementList > li {
     border: 1px solid var(--c-border);
     background: var(--c-card);
     margin-bottom: 2em;
@@ -1717,12 +1733,12 @@ li.divider,
     position: relative;
 }
 
-#announcementList>li>h3:first-child {
+#announcementList > li > h3:first-child {
     color: var(--c-title) !important;
     font-size: 18px;
 }
 
-#announcementList>li>.announcementInfo {
+#announcementList > li > .announcementInfo {
     position: absolute;
     top: 50px;
     left: 30px;
@@ -1736,7 +1752,7 @@ li.divider,
     margin-top: 5px;
 }
 
-#announcementList>li>.announcementInfo>p {
+#announcementList > li > .announcementInfo > p {
     display: inline;
     width: fit-content;
     height: fit-content;
@@ -1748,16 +1764,16 @@ li.divider,
     margin-right: 1em;
 }
 
-#announcementList>li>.announcementInfo>p>span {
+#announcementList > li > .announcementInfo > p > span {
     display: none;
 }
 
-#announcementList>li>.details {
+#announcementList > li > .details {
     margin: 0;
     margin-top: 40px;
 }
 
-#announcementList>li>.details * {
+#announcementList > li > .details * {
     font-family: inherit !important;
     color: var(--c-text) !important;
     text-decoration: none !important;
@@ -1766,12 +1782,14 @@ li.divider,
     line-height: 1.6;
 }
 
-#announcementList>li>.details *[style*="background-color"],
-#announcementList>li>.details *[style*="text-decoration"] {
+#announcementList > li > .details *[style*='background-color'],
+#announcementList > li > .details *[style*='text-decoration'] {
     background-color: transparent !important;
     background: linear-gradient(180deg, transparent 90%, var(--red-2) 90%) !important;
 }
-
+#announcementList > li > .details *[style*='text-decoration-style: initial;'] {
+    background: none !important;
+}
 /* #announcementList>li>.details strong {
     padding: 0 0.4em;
     background-color: var(--c-label);
@@ -1780,19 +1798,18 @@ li.divider,
     border-radius: 3px;
 } */
 
-#announcementList>li>.details strong {
+#announcementList > li > .details strong {
     color: var(--c-accent) !important;
     font-weight: normal;
 }
 
-#announcementList>li>.details a {
+#announcementList > li > .details a {
     color: var(--c-accent) !important;
     background: linear-gradient(180deg, transparent 90%, var(--c-link) 90%) !important;
 }
 
-#announcementList>li>.details a:hover {
+#announcementList > li > .details a:hover {
     background: linear-gradient(180deg, var(--c-hover) 90%, var(--c-link) 90%) !important;
-
 }
 
 /* #announcementList>li>.details a[value]:before {
@@ -1805,7 +1822,7 @@ li.divider,
     height: 19px;
     background-repeat: no-repeat;
 } */
-#announcementList>li>.details>p:first-child span {
+#announcementList > li > .details > p:first-child span {
     display: flex;
     flex-direction: flex-start;
     justify-content: center;
@@ -1813,8 +1830,8 @@ li.divider,
     width: fit-content;
 }
 
-#announcementList>li>.details>p:first-child span:before {
-    content: "";
+#announcementList > li > .details > p:first-child span:before {
+    content: '';
     display: inline-block;
     background: var(--i-watch);
     margin-right: 1em;
@@ -1824,6 +1841,7 @@ li.divider,
     height: 20px;
     background-repeat: no-repeat;
 }
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\S*classinCourseClass\\S*") {
     
@@ -3905,7 +3923,12 @@ embed {
     font-style: normal;
     font-family: sans-serif;
 }
-
+/* 提示文本的颜色修改 */
+.container > form #instructions *[style*='color'] {
+    color: var(--c-text) !important;
+    background: transparent !important;
+    background: linear-gradient(180deg, transparent 90%, var(--red-2) 90%) !important;
+}
 #dataCollectionContainer,
 #dataCollectionContainer > div {
     background: var(--c-card);

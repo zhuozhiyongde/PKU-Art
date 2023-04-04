@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.16
+// @version      2.3.17
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -11,7 +11,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/04/01
+// @date         2023/04/04
 // ==/UserScript==
 (function () {
     'use strict';
@@ -303,10 +303,14 @@ function injectPKUArt () {
 (function replaceIcon() {
     let htmlpath = location.href;
     if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath)) {
-        const icon = document.querySelector('link[rel="SHORTCUT ICON"]');
-        if (icon) {
-            icon.href = 'https://www.pku.edu.cn/favicon.ico';
+        function executeReplaceIcon() {
+            const icon = document.querySelector('link[rel="SHORTCUT ICON"]');
+            if (icon) {
+                icon.href = 'https://www.pku.edu.cn/favicon.ico';
+            }
         }
+        executeReplaceIcon();
+        document.addEventListener('DOMContentLoaded', executeReplaceIcon);
     }
 })();
 (function deleteCourseSerial() {
@@ -316,7 +320,7 @@ function injectPKUArt () {
             htmlpath
         )
     ) {
-        document.addEventListener('DOMContentLoaded', () => {
+        function executeDeleteCourseSerical() {
             const courses = document.querySelectorAll(
                 '.containerPortal > div:not(:first-child) .portlet .portletList-img > li > a'
             );
@@ -325,6 +329,8 @@ function injectPKUArt () {
                 course.innerHTML = course.innerHTML.replace(/[\d-]+: /, '');
             });
             console.log('[PKU Art] course serial deleted: ' + courses.length + ' courses');
-        });
+        }
+        executeDeleteCourseSerical();
+        document.addEventListener('DOMContentLoaded', executeDeleteCourseSerical);
     }
 })();

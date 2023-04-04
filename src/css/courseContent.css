@@ -1,6 +1,13 @@
 @import '../css/arco-palette.css';
 @import 'main.css';
 
+/* 限制页面最低高度 */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
 .brandingImgWrap,
 #appTabList > tbody > tr :not(:first-child),
 .hideoff,
@@ -210,14 +217,23 @@ table.bouncer span:hover {
 }
 
 /* 置高 */
-#globalNavPageContentArea,
+#globalNavPageContentArea {
+    flex-grow: 1;
+}
+.locationPane {
+    min-height: 100%;
+}
+#globalNavPageNavArea {
+    flex-shrink: 0;
+}
+/* #globalNavPageContentArea,
 #globalNavPageContentArea .locationPane,
 #contentPanel,
 div#content,
 div.container {
     height: fit-content !important;
     min-height: 100vh;
-}
+} */
 
 nav.navigationPane {
     height: 100%;
