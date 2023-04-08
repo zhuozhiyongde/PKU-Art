@@ -265,8 +265,9 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
                 '.containerPortal > div:not(:first-child) .portlet .portletList-img > li > a'
             );
             // 22232-00048-04834600-0006170251-00-1: JavaScript及Web网页前端开发(22-23学年第2学期)
+            // 22232-00038-03835950-w201600370-00-1: 高级英语口语(22-23学年第2学期
             courses.forEach((course) => {
-                course.innerHTML = course.innerHTML.replace(/[\d-]+: /, '');
+                course.innerHTML = course.innerHTML.replace(/^.*?: /, '');
             });
             console.log('[PKU Art] course serial deleted: ' + courses.length + ' courses');
         }

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.17
+// @version      2.3.18
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -11,7 +11,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/04/04
+// @date         2023/04/08
 // ==/UserScript==
 (function () {
     'use strict';
@@ -325,8 +325,9 @@ function injectPKUArt () {
                 '.containerPortal > div:not(:first-child) .portlet .portletList-img > li > a'
             );
             // 22232-00048-04834600-0006170251-00-1: JavaScript及Web网页前端开发(22-23学年第2学期)
+            // 22232-00038-03835950-w201600370-00-1: 高级英语口语(22-23学年第2学期
             courses.forEach((course) => {
-                course.innerHTML = course.innerHTML.replace(/[\d-]+: /, '');
+                course.innerHTML = course.innerHTML.replace(/^.*?: /, '');
             });
             console.log('[PKU Art] course serial deleted: ' + courses.length + ' courses');
         }
