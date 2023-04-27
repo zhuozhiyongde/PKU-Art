@@ -69,7 +69,7 @@
     background-color: transparent !important;
     background: linear-gradient(180deg, transparent 90%, var(--red-2) 90%) !important;
 }
-#announcementList > li > .details *[style*='text-decoration-style: initial;'] {
+#announcementList > li > .details *[style*='text-decoration-style: initial;']:not([style*='background-color']) {
     background: none !important;
 }
 /* #announcementList>li>.details strong {

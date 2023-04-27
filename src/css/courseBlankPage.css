@@ -9,3 +9,21 @@
     padding: 20px 30px;
     color: var(--c-text);
 }
+/* 尝试更改空白页面的字体显示 */
+#containerdiv * {
+    font-family: inherit !important;
+    color: var(--c-text) !important;
+    text-decoration: none !important;
+    font-style: normal !important;
+    font-size: 14px !important;
+    line-height: 1.6;
+}
+
+#containerdiv *[style*='background-color'],
+#containerdiv *[style*='text-decoration'] {
+    background-color: transparent !important;
+    background: linear-gradient(180deg, transparent 90%, var(--red-2) 90%) !important;
+}
+#containerdiv *[style*='text-decoration-style: initial;']:not([style*='background-color']) {
+    background: none !important;
+}

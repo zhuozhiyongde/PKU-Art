@@ -1,4 +1,12 @@
 # ChangeLog
+
+**2023.04.27 - v2.3.19**
+
+> 添加了一些对于 courseBlankPage 的字体颜色样式的更改。
+>
+> 类似的，修复了一个 `courseAnnouncement.css` 的字体颜色样式更改的选择器问题。
+
+
 **2023.04.08 - v2.3.18**
 
 > 修复了 `deleteCourseSerial()` 函数对于某些课程无法正常工作的问题。closed #7
