@@ -1,5 +1,10 @@
 # ChangeLog
 
+**2023.05.14 - v2.3.20**
+
+> 修复了一个 `courseGlobalPage.css` 的宽度样式问题。
+
+
 **2023.04.27 - v2.3.19**
 
 > 添加了一些对于 courseBlankPage 的字体颜色样式的更改。

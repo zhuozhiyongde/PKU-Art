@@ -2,7 +2,7 @@
 @import 'main.css';
 
 .brandingImgWrap,
-#appTabList>tbody>tr :not(:first-child),
+#appTabList > tbody > tr :not(:first-child),
 .hideoff,
 #quick_links_wrap,
 #global-avatar,
@@ -11,9 +11,8 @@
     /* visibility: hidden; */
 }
 
-
 /* 个人界面面板 */
-#global-nav-link>* {
+#global-nav-link > * {
     display: none;
 }
 
@@ -91,11 +90,9 @@
 }
 
 .tabWrapper-right,
-.bouncer[role="presentation"] {
+.bouncer[role='presentation'] {
     width: fit-content;
 }
-
-
 
 .global-nav-bar-wrap {
     position: absolute;
@@ -169,7 +166,7 @@ table.bouncer span:hover {
     /* display: inline-block; */
     /* float: right; */
     /* width: 1000px; */
-    width: 100%;
+    /* width: 100%; */
     padding: 1.2em 1em 1em 1em;
     box-sizing: border-box;
     height: 80px;
@@ -191,8 +188,8 @@ table.bouncer span:hover {
 #breadcrumbs span {
     font-size: 18pt;
     color: var(--c-title);
-    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
 /* 置高 */
@@ -226,15 +223,14 @@ div.container {
 
 /* 动画 */
 #contentPanel {
-    -webkit-animation: fadeInUpStablePixel 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    -webkit-animation: fadeInUpStablePixel 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
     animation-delay: 500ms;
-    animation: fadeInUpStablePixel 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: fadeInUpStablePixel 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
 .localViewToggle {
     display: none;
 }
-
 
 #pageTitleHeader {
     /*color: var(--c-primary);*/
@@ -253,8 +249,6 @@ div.container {
 #pageTitleText {
     font-weight: bold;
 }
-
-
 
 /* 个人导航面板 */
 #vertical_container,
@@ -290,23 +284,23 @@ div.container {
     /*border:1px solid #EEE;*/
 }
 
-#global-list-tools>.overview,
-#global-list-tools>.stream,
-#global-list-tools>.calendar {
+#global-list-tools > .overview,
+#global-list-tools > .stream,
+#global-list-tools > .calendar {
     display: none;
 }
 
-#global-list-tools>.alerts,
-#global-list-tools>.grade {
+#global-list-tools > .alerts,
+#global-list-tools > .grade {
     background-color: var(--c-card);
 }
 
-#global-list-tools>.alerts>a:hover,
-#global-list-tools>.grades>a:hover {
+#global-list-tools > .alerts > a:hover,
+#global-list-tools > .grades > a:hover {
     background-color: var(--c-hover);
 }
 
-#global-list-tools>.alerts>a {
+#global-list-tools > .alerts > a {
     border-radius: 5px;
     background: var(--i-alarm);
     /* background-color: var(--c-card) !important; */
@@ -317,8 +311,7 @@ div.container {
     /* transition: 350ms opacity; */
 }
 
-
-#global-list-tools>.grades>a {
+#global-list-tools > .grades > a {
     border-radius: 5px;
     background: var(--i-idcard);
     /* background-color: var(--c-card) !important; */

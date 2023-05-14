@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.19
+// @version      2.3.20
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -11,7 +11,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/04/27
+// @date         2023/05/14
 // ==/UserScript==
 (function () {
     'use strict';
@@ -25,7 +25,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/main.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/main.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/main.css.");
@@ -35,7 +35,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/arco-palette.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/arco-palette.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/arco-palette.css.");
@@ -45,7 +45,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/iaaaOAuthPage.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/iaaaOAuthPage.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/iaaaOAuthPage.css.");
@@ -55,7 +55,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseLoginPage.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseLoginPage.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseLoginPage.css.");
@@ -65,7 +65,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseHomePage.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseHomePage.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseHomePage.css.");
@@ -75,7 +75,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseContent.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseContent.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseContent.css.");
@@ -85,7 +85,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseAnnouncement.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseAnnouncement.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseAnnouncement.css.");
@@ -95,7 +95,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseClassin.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseClassin.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseClassin.css.");
@@ -105,7 +105,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseBlankPage.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseBlankPage.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseBlankPage.css.");
@@ -115,7 +115,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseVideolist.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseVideolist.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseVideolist.css.");
@@ -125,7 +125,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseOther.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseOther.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseOther.css.");
@@ -135,7 +135,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseClassGrade.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseClassGrade.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseClassGrade.css.");
@@ -145,7 +145,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseListContent.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseListContent.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseListContent.css.");
@@ -155,7 +155,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseViewAttempt.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseViewAttempt.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseViewAttempt.css.");
@@ -165,7 +165,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseToolFrame.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseToolFrame.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseToolFrame.css.");
@@ -175,7 +175,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseToolAlert.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseToolAlert.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseToolAlert.css.");
@@ -185,7 +185,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseToolGrade.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseToolGrade.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseToolGrade.css.");
@@ -195,7 +195,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseToolGradeClass.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseToolGradeClass.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseToolGradeClass.css.");
@@ -205,7 +205,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseToolGradeItem.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseToolGradeItem.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseToolGradeItem.css.");
@@ -215,7 +215,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseFileEmbed.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseFileEmbed.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseFileEmbed.css.");
@@ -225,7 +225,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseAssignmentUpload.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseAssignmentUpload.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseAssignmentUpload.css.");
@@ -235,7 +235,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseGlobalPage.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseGlobalPage.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseGlobalPage.css.");
@@ -245,7 +245,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseGlobalAnnouncement.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseGlobalAnnouncement.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseGlobalAnnouncement.css.");
@@ -255,7 +255,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseVideoPlay.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseVideoPlay.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseVideoPlay.css.");
@@ -265,7 +265,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseVideoPlayFrame.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseVideoPlayFrame.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseVideoPlayFrame.css.");
@@ -275,7 +275,7 @@ function injectPKUArt () {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseTask.css'
         pkuartcss.rel = "stylesheet";
-        pkuartcss.className = "PKU-Art";
+        pkuartcss.className = "PKU-Art /css/courseTask.css";
         pkuartcss.type = "text/css";
         document.documentElement.appendChild(pkuartcss);
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseTask.css.");

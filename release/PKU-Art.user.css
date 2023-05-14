@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.19
+// @version      2.3.20
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/04/27
+// @date         2023/05/14
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/livingroomhqy\\.pku\\.edu\\.cn\\/\\S*") {
     
@@ -4270,7 +4270,7 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*context=mybb\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/blackboard\\/execute\\/announcement$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*playVideo\\S*") {
     
 .brandingImgWrap,
-#appTabList>tbody>tr :not(:first-child),
+#appTabList > tbody > tr :not(:first-child),
 .hideoff,
 #quick_links_wrap,
 #global-avatar,
@@ -4279,9 +4279,8 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
     /* visibility: hidden; */
 }
 
-
 /* 个人界面面板 */
-#global-nav-link>* {
+#global-nav-link > * {
     display: none;
 }
 
@@ -4359,11 +4358,9 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
 }
 
 .tabWrapper-right,
-.bouncer[role="presentation"] {
+.bouncer[role='presentation'] {
     width: fit-content;
 }
-
-
 
 .global-nav-bar-wrap {
     position: absolute;
@@ -4437,7 +4434,7 @@ table.bouncer span:hover {
     /* display: inline-block; */
     /* float: right; */
     /* width: 1000px; */
-    width: 100%;
+    /* width: 100%; */
     padding: 1.2em 1em 1em 1em;
     box-sizing: border-box;
     height: 80px;
@@ -4459,8 +4456,8 @@ table.bouncer span:hover {
 #breadcrumbs span {
     font-size: 18pt;
     color: var(--c-title);
-    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
 /* 置高 */
@@ -4494,15 +4491,14 @@ div.container {
 
 /* 动画 */
 #contentPanel {
-    -webkit-animation: fadeInUpStablePixel 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    -webkit-animation: fadeInUpStablePixel 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
     animation-delay: 500ms;
-    animation: fadeInUpStablePixel 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: fadeInUpStablePixel 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
 .localViewToggle {
     display: none;
 }
-
 
 #pageTitleHeader {
     /*color: var(--c-primary);*/
@@ -4521,8 +4517,6 @@ div.container {
 #pageTitleText {
     font-weight: bold;
 }
-
-
 
 /* 个人导航面板 */
 #vertical_container,
@@ -4558,23 +4552,23 @@ div.container {
     /*border:1px solid #EEE;*/
 }
 
-#global-list-tools>.overview,
-#global-list-tools>.stream,
-#global-list-tools>.calendar {
+#global-list-tools > .overview,
+#global-list-tools > .stream,
+#global-list-tools > .calendar {
     display: none;
 }
 
-#global-list-tools>.alerts,
-#global-list-tools>.grade {
+#global-list-tools > .alerts,
+#global-list-tools > .grade {
     background-color: var(--c-card);
 }
 
-#global-list-tools>.alerts>a:hover,
-#global-list-tools>.grades>a:hover {
+#global-list-tools > .alerts > a:hover,
+#global-list-tools > .grades > a:hover {
     background-color: var(--c-hover);
 }
 
-#global-list-tools>.alerts>a {
+#global-list-tools > .alerts > a {
     border-radius: 5px;
     background: var(--i-alarm);
     /* background-color: var(--c-card) !important; */
@@ -4585,8 +4579,7 @@ div.container {
     /* transition: 350ms opacity; */
 }
 
-
-#global-list-tools>.grades>a {
+#global-list-tools > .grades > a {
     border-radius: 5px;
     background: var(--i-idcard);
     /* background-color: var(--c-card) !important; */
@@ -4606,6 +4599,7 @@ div.container {
 .mybb-tools li a:focus img {
     outline: none;
 }
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*announcement\\S*context=mybb\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/blackboard\\/execute\\/announcement") {
     
