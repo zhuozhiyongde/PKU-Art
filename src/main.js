@@ -245,7 +245,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
         function executeReplaceIcon() {
             const icon = document.querySelector('link[rel="SHORTCUT ICON"]');
             if (icon) {
-                icon.href = 'https://www.pku.edu.cn/favicon.ico';
+                icon.href = 'https://cdn.arthals.ink/css/src/PKU.svg';
             }
         }
         executeReplaceIcon();

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.20
+// @version      2.3.21
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/05/14
+// @date         2023/06/05
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/livingroomhqy\\.pku\\.edu\\.cn\\/\\S*") {
     
@@ -38,7 +38,7 @@
     --c-scrollbar: #c1c1c1;
 
     /* 图片 */
-    --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo.png');
+    --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo.svg');
     --i-remind: url('https://cdn.arthals.ink/css/src/remind.svg');
     --i-exit: url('https://cdn.arthals.ink/css/src/exit.svg');
     --i-watch: url('https://cdn.arthals.ink/css/src/stopwatch-start.svg');
@@ -84,7 +84,7 @@
         --c-card-hover: rgba(23, 231, 242, 0.23);
         --c-scrollbar: #6b6b6b;
 
-        --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo_Dark.png');
+        --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg');
         --i-remind: url('https://cdn.arthals.ink/css/src/remind_dark.svg');
         --i-exit: url('https://cdn.arthals.ink/css/src/exit_dark.svg');
         --i-watch: url('https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg');
