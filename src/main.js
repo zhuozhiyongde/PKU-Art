@@ -246,6 +246,11 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
             const icon = document.querySelector('link[rel="SHORTCUT ICON"]');
             if (icon) {
                 icon.href = 'https://cdn.arthals.ink/css/src/PKU.svg';
+            } else {
+                const icon = document.createElement('link');
+                icon.rel = 'SHORTCUT ICON';
+                icon.href = 'https://cdn.arthals.ink/css/src/PKU.svg';
+                document.head.appendChild(icon);
             }
         }
         executeReplaceIcon();
