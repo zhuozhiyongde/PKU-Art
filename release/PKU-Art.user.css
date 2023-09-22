@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.23
+// @version      2.3.24
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/09/12
+// @date         2023/09/22
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/livingroomhqy\\.pku\\.edu\\.cn\\/\\S*") {
     
@@ -1416,7 +1416,9 @@ table.bouncer span:hover {
 #breadcrumbs .coursePath {
     padding: 0;
     margin: 0;
+    border-right: none;
 }
+
 
 #breadcrumb_controls_id,
 #breadcrumbs li:not([class*='coursePath']) {
@@ -3221,7 +3223,7 @@ html,
 
 #filter_by_alerts button:hover {
     background: var(--c-hover);
-    color: var(--c-primary);
+    color: var(--c-accent);
 }
 
 #streamHeader_alerts .title-text {

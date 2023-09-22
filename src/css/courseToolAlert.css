@@ -97,7 +97,7 @@ html,
 
 #filter_by_alerts button:hover {
     background: var(--c-hover);
-    color: var(--c-primary);
+    color: var(--c-accent);
 }
 
 #streamHeader_alerts .title-text {

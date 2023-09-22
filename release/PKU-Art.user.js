@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.23
+// @version      2.3.24
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -11,7 +11,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/09/12
+// @date         2023/09/22
 // ==/UserScript==
 (function () {
     'use strict';
@@ -332,11 +332,30 @@ function injectPKUArt () {
             // 22232-00048-04834600-0006170251-00-1: JavaScript及Web网页前端开发(22-23学年第2学期)
             // 22232-00038-03835950-w201600370-00-1: 高级英语口语(22-23学年第2学期
             courses.forEach((course) => {
-                course.innerHTML = course.innerHTML.replace(/^.*?: /, '');
+                course.innerHTML = course.innerHTML.replace(/^.*?: /, '').replace(/\(\d+-\d+学年第\d学期\)/, '');
             });
             console.log('[PKU Art] course serial deleted: ' + courses.length + ' courses');
         }
         executeDeleteCourseSerical();
         document.addEventListener('DOMContentLoaded', executeDeleteCourseSerical);
+    }
+    if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*streamName=alerts\S*$/.test(htmlpath)) {
+        function executeDeleteCourseSerical() {
+            const courses = document.querySelectorAll('#streamHeader_alerts a');
+            // console.log(courses);
+            courses.forEach((course) => {
+                course.innerHTML = course.innerHTML.replace(/\(\d+-\d+学年第\d学期\)/, '');
+            });
+            if (courses.length !== 0) {
+                clearInterval(timerId); // 成功执行后移除定时器
+            }
+        }
+        executeDeleteCourseSerical();
+        const timerId = setInterval(() => {
+            const courses = document.querySelectorAll('#streamHeader_alerts a');
+            if (courses.length !== 0) {
+                executeDeleteCourseSerical();
+            }
+        }, 50);
     }
 })();
