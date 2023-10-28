@@ -20,6 +20,7 @@
 #global-nav-link,
 #global-nav-link:hover,
 #global-nav-link:focus {
+    overflow: hidden;
     color: transparent;
     width: 32px;
     height: 32px;
