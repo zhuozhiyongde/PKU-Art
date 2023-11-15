@@ -205,7 +205,6 @@ table.bouncer span:hover {
     border-right: none;
 }
 
-
 #breadcrumb_controls_id,
 #breadcrumbs li:not([class*='coursePath']) {
     display: none;
@@ -502,4 +501,32 @@ li.divider,
 .mybb-tools li a:focus,
 .mybb-tools li a:focus img {
     outline: none;
+}
+
+/* 独立文件链接，如外接课件打开 */
+
+div.container a.individualContent-link {
+    background-color: transparent !important;
+    background: linear-gradient(180deg, transparent 90%, var(--red-2) 90%) !important;
+}
+
+div.container a.individualContent-link span {
+    text-decoration: none;
+}
+
+div.container .liItem,
+.buildList > li {
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.25rem;
+}
+
+div.container .liItem:hover,
+.buildList > li:hover {
+    border: none;
+    background: var(--c-hover);
+}
+
+/* 下拉小图标 */
+.pageTitle h1 + .contextMenuContainer {
+    display: none !important;
 }

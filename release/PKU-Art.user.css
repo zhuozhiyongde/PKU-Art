@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.25
+// @version      2.3.26
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/10/28
+// @date         2023/11/15
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/livingroomhqy\\.pku\\.edu\\.cn\\/\\S*") {
     
@@ -1420,7 +1420,6 @@ table.bouncer span:hover {
     border-right: none;
 }
 
-
 #breadcrumb_controls_id,
 #breadcrumbs li:not([class*='coursePath']) {
     display: none;
@@ -1717,6 +1716,34 @@ li.divider,
 .mybb-tools li a:focus,
 .mybb-tools li a:focus img {
     outline: none;
+}
+
+/* 独立文件链接，如外接课件打开 */
+
+div.container a.individualContent-link {
+    background-color: transparent !important;
+    background: linear-gradient(180deg, transparent 90%, var(--red-2) 90%) !important;
+}
+
+div.container a.individualContent-link span {
+    text-decoration: none;
+}
+
+div.container .liItem,
+.buildList > li {
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.25rem;
+}
+
+div.container .liItem:hover,
+.buildList > li:hover {
+    border: none;
+    background: var(--c-hover);
+}
+
+/* 下拉小图标 */
+.pageTitle h1 + .contextMenuContainer {
+    display: none !important;
 }
 
 }
