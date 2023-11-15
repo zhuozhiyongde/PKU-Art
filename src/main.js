@@ -243,20 +243,27 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
     let htmlpath = location.href;
     if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath)) {
         function executeReplaceIcon() {
-            const icon = document.querySelector('link[rel="SHORTCUT ICON"]');
-            if (icon) {
-                icon.href = 'https://cdn.arthals.ink/css/src/PKU.svg';
+            const icons = document.querySelectorAll('link[rel="SHORTCUT ICON"], link[rel="icon"]');
+            if (icons.length > 0) {
+                // 替换第一个 ICON 的 URL
+                icons[0].href = 'https://cdn.arthals.ink/css/src/PKU.svg';
+                // 删除除第一个 ICON 之外的所有 ICON
+                for (let i = 1; i < icons.length; i++) {
+                    icons[i].parentNode.removeChild(icons[i]);
+                }
             } else {
-                const icon = document.createElement('link');
-                icon.rel = 'SHORTCUT ICON';
-                icon.href = 'https://cdn.arthals.ink/css/src/PKU.svg';
-                document.head.appendChild(icon);
+                // 如果没有找到 ICON，创建一个新的 ICON
+                const newIcon = document.createElement('link');
+                newIcon.rel = 'SHORTCUT ICON';
+                newIcon.href = 'https://cdn.arthals.ink/css/src/PKU.svg';
+                document.head.appendChild(newIcon);
             }
         }
         executeReplaceIcon();
         document.addEventListener('DOMContentLoaded', executeReplaceIcon);
     }
 })();
+
 
 (function deleteCourseSerial() {
     let htmlpath = location.href;
