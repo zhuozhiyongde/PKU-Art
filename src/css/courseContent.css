@@ -505,25 +505,29 @@ li.divider,
 
 /* 独立文件链接，如外接课件打开 */
 
-div.container a.individualContent-link {
+#pageList a.individualContent-link {
     background-color: transparent !important;
     background: linear-gradient(180deg, transparent 90%, var(--red-2) 90%) !important;
 }
 
-div.container a.individualContent-link span {
+#pageList a.individualContent-link span {
     text-decoration: none;
+    color: var(--c-text) !important;
 }
 
-div.container .liItem,
-.buildList > li {
-    padding: 0.5rem 0.7rem;
-    border-radius: 0.25rem;
+#pageList .liItem,
+#pageList .buildList > li {
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid transparent;
+    width: fit-content;
 }
 
-div.container .liItem:hover,
-.buildList > li:hover {
+#pageList .liItem:hover,
+#pageList .buildList > li:hover {
     border: none;
-    background: var(--c-hover);
+    background: var(--c-button);
+    border: 1px solid var(--c-border);
 }
 
 /* 下拉小图标 */

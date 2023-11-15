@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.26
+// @version      2.3.27
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
