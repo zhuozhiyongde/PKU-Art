@@ -521,6 +521,7 @@ li.divider,
     border-radius: 0.5rem;
     border: 1px solid transparent;
     width: fit-content;
+    transition: all ease-in 0.15s;
 }
 
 #pageList .liItem:hover,
