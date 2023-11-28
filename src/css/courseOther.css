@@ -1,8 +1,13 @@
-@import '../css/arco-palette.css';
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
 @import 'main.css';
 
-
-#pageTitleDiv>*:not([id="pageTitleBar"]) {
+#pageTitleDiv > *:not([id='pageTitleBar']) {
     display: none;
 }
 
@@ -15,8 +20,8 @@
     border-bottom: 1px solid var(--c-border);
 }
 
-#actionbar .mainButton>a,
-#actionbar .secondaryButton>a {
+#actionbar .mainButton > a,
+#actionbar .secondaryButton > a {
     color: var(--c-text);
     background: var(--c-background);
     outline: none;
@@ -24,23 +29,23 @@
     border-bottom: 2px solid transparent !important;
 }
 
-#actionbar .mainButton>a:hover,
-#actionbar .secondaryButton>a:hover {
+#actionbar .mainButton > a:hover,
+#actionbar .secondaryButton > a:hover {
     background: var(--c-hover);
     border-bottom: 2px solid var(--c-accent) !important;
 }
 
-#actionbar .secondaryButton>a.liveAreaTab {
+#actionbar .secondaryButton > a.liveAreaTab {
     /*background: var(--c-hover);*/
     border-bottom: 2px solid var(--c-accent) !important;
 }
 
-#actionbar+.containerOptions {
+#actionbar + .containerOptions {
     padding-right: 30px;
     padding-left: 30px;
 }
 
-#actionbar+.containerOptions .liveArea {
+#actionbar + .containerOptions .liveArea {
     /*padding: 0;*/
     border-radius: 0 0 5px 5px;
     border: 1px solid var(--c-border);

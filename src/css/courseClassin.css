@@ -1,8 +1,13 @@
-@import '../css/arco-palette.css';
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
 @import 'main.css';
 
-
-#pageTitleDiv>*:not([id="pageTitleBar"]) {
+#pageTitleDiv > *:not([id='pageTitleBar']) {
     display: none;
 }
 
@@ -15,13 +20,13 @@
     border-bottom: 1px solid var(--c-border);
 }
 
-#actionbar .mainButton>a {
+#actionbar .mainButton > a {
     color: var(--c-text);
     border-radius: 5px 5px 0 0;
     border-bottom: 2px solid transparent !important;
 }
 
-#actionbar .mainButton>a:hover {
+#actionbar .mainButton > a:hover {
     background: var(--c-hover);
     border-bottom: 2px solid var(--c-accent) !important;
 }

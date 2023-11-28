@@ -1,4 +1,10 @@
-@import '../css/arco-palette.css';
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
 @import 'main.css';
 
 * {
@@ -14,15 +20,14 @@ html,
 }
 
 /* 标题栏 */
-#streamDetailHeaderRight>span {
+#streamDetailHeaderRight > span {
     display: none;
 }
 
 #streamDetailHeaderRight h2.streamHeader a {
     color: var(--cyan-8);
-    border: none
+    border: none;
 }
-
 
 #streamDetailHeaderRight {
     height: fit-content;
@@ -66,13 +71,13 @@ html,
     color: var(--cyan-7) !important;
 }
 
-.gradesByDate input[type="button"] {
+.gradesByDate input[type='button'] {
     color: var(--c-text) !important;
     padding: 3px 8px;
     text-decoration: none;
     border-radius: 3px;
 }
 
-.gradesByDate input[type="button"]:hover {
+.gradesByDate input[type='button']:hover {
     background: var(--cyan-2);
 }

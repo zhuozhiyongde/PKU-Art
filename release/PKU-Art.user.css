@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.29
+// @version      2.3.30
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,10 +10,16 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/11/22
+// @date         2023/11/28
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/livingroomhqy\\.pku\\.edu\\.cn\\/\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 :root {
     --c-title: #212121;
     --c-text: #666;
@@ -201,7 +207,13 @@ html {
 
 }
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/livingroomhqy\\.pku\\.edu\\.cn\\/\\S*") {
-    :root {
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+:root {
     --red-1: #FFECE8;
     --red-2: #FDCDC5;
     --red-3: #FBACA3;
@@ -518,231 +530,250 @@ html {
 }
 }
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 /*移除不必要的部分*/
 .top,
 .bottom {
-	display: none;
+    display: none;
 }
 
 .main {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .mid {
-	background-image: none !important;
-	display: flex;
-	justify-content: center;
+    background-image: none !important;
+    display: flex;
+    justify-content: center;
 }
 
 .single_col_panel {
-	margin-top: 20vh;
-	/* height: 400px; */
-	display: flex;
-	height: max(fit-content, 400px);
-	width: 300px !important;
-	align-items: center;
-	flex-direction: column;
-	box-shadow: var(--c-box-shadow);
-	background-color: var(--c-card);
-	background-image: var(--i-logo);
-	border: 1px solid var(--c-border);
-	background-size: 50%;
-	background-position: top center;
-	background-position-y: 25px;
-	background-repeat: no-repeat;
-	float: none;
-	border-radius: 10px;
-	padding: 90px 20px 20px 20px;
-	text-align: center;
+    margin-top: 20vh;
+    /* height: 400px; */
+    display: flex;
+    height: max(fit-content, 400px);
+    width: 300px !important;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: var(--c-box-shadow);
+    background-color: var(--c-card);
+    background-image: var(--i-logo);
+    border: 1px solid var(--c-border);
+    background-size: 50%;
+    background-position: top center;
+    background-position-y: 25px;
+    background-repeat: no-repeat;
+    float: none;
+    border-radius: 10px;
+    padding: 90px 20px 20px 20px;
+    text-align: center;
 }
 
 .row .row-title {
-	border-bottom: 1px solid var(--c-border);
+    border-bottom: 1px solid var(--c-border);
 }
 
 .row .row-title a {
-	color: var(--c-text);
+    color: var(--c-text);
 }
 
 .row .row-title .current {
-	color: var(--c-accent);
+    color: var(--c-accent);
 }
 
 input:nth-last-child(n + 2) {
-	background-color: var(--c-input-bg);
-	border: 1px solid var(--c-border);
-	color: var(--c-text);
+    background-color: var(--c-input-bg);
+    border: 1px solid var(--c-border);
+    color: var(--c-text);
 }
 
 input:nth-last-child(n + 2):focus {
-	background-color: transparent;
-	border: 2px solid var(--c-accent);
+    background-color: transparent;
+    border: 2px solid var(--c-accent);
 }
 
 input[type='submit'] {
-	background-color: var(--c-accent);
+    background-color: var(--c-accent);
 }
 
 #remember_text {
-	margin-top: 4px;
-	color: var(--c-text);
+    margin-top: 4px;
+    color: var(--c-text);
 }
 
 #passwd_area:before {
-	content: '密码';
-	display: block;
-	/*font-weight: 800;*/
-	/*font-size:16p;*/
-	font: bold 13pt arial, sans-serif;
-	text-align: left;
-	margin-left: 5px;
-	margin-bottom: 3px;
-	color: var(--c-title);
+    content: '密码';
+    display: block;
+    /*font-weight: 800;*/
+    /*font-size:16p;*/
+    font: bold 13pt arial, sans-serif;
+    text-align: left;
+    margin-left: 5px;
+    margin-bottom: 3px;
+    color: var(--c-title);
 }
 
-#login_panel>div:nth-child(1):before {
-	content: '账号';
-	display: block;
-	height: 25px;
-	/*font-weight: 800;*/
-	/*font-size:16p;*/
-	font: bold 13pt arial, sans-serif;
-	text-align: left;
-	margin-left: 5px;
-	margin-bottom: 3px;
-	color: var(--c-title);
+#login_panel > div:nth-child(1):before {
+    content: '账号';
+    display: block;
+    height: 25px;
+    /*font-weight: 800;*/
+    /*font-size:16p;*/
+    font: bold 13pt arial, sans-serif;
+    text-align: left;
+    margin-left: 5px;
+    margin-bottom: 3px;
+    color: var(--c-title);
 }
 
 .fa.fa-times-circle,
 .pad-tip {
-	transform: translate(0, 25px);
-	color: var(--c-title);
-	font-weight: 100;
+    transform: translate(0, 25px);
+    color: var(--c-title);
+    font-weight: 100;
 }
 
 input[type='password']::placeholder,
 input[type='text']::placeholder {
-	color: transparent;
+    color: transparent;
 }
 
 input {
-	border-radius: 6px !important;
-	height: 40px !important;
-	box-sizing: border-box;
+    border-radius: 6px !important;
+    height: 40px !important;
+    box-sizing: border-box;
 }
 
 /* 提示消息居中 */
 #msg {
-	display: flex;
-	justify-content: center;
-	text-align: center;
-	width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
 }
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/login\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn[\\/]?") {
-    
-.container>div:nth-child(1),
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
+.container > div:nth-child(1),
 .ad,
 #footer,
 iframe {
-	display: none;
+    display: none;
 }
 
 .container {
-	background: none;
-	width: fit-content;
-	height: fit-content;
+    background: none;
+    width: fit-content;
+    height: fit-content;
 }
 
 /* 覆盖行内样式 */
-.container>div {
-	padding: 0 !important;
-	display: flex;
-	justify-content: center;
+.container > div {
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
 }
 
 #login form {
-	padding: 0 !important;
+    padding: 0 !important;
 }
-
 
 #login {
-	background: none;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0;
-	padding: 0;
-	height: fit-content;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
 }
 
-body>div>div>#login>form :not(:first-child) {
-	display: none;
+body > div > div > #login > form :not(:first-child) {
+    display: none;
 }
 
-body>div>div>#login>form {
-	width: 100%;
-	height: 10px;
-	display: block;
-	text-align: center !important;
-	margin-top: min(20vh, 300px);
+body > div > div > #login > form {
+    width: 100%;
+    height: 10px;
+    display: block;
+    text-align: center !important;
+    margin-top: min(20vh, 300px);
 }
 
 .login_stu {
-	/* position: absolute;
+    /* position: absolute;
  	top: 20%;
  	left: 50%;
  	transform: translate(-111px); */
-	background-color: var(--c-card);
-	border: 1px solid var(--c-border);
-	background-image: var(--i-logo);
-	background-size: 50%;
-	background-position: top center;
-	background-position-y: 20px;
-	background-repeat: no-repeat;
-	float: none;
-	border-radius: 10px;
-	margin: 0 auto !important;
-	width: 200px !important;
-	height: 100px;
-	padding: 10px;
-	text-align: center;
-	box-shadow: var(--c-box-shadow)
+    background-color: var(--c-card);
+    border: 1px solid var(--c-border);
+    background-image: var(--i-logo);
+    background-size: 50%;
+    background-position: top center;
+    background-position-y: 20px;
+    background-repeat: no-repeat;
+    float: none;
+    border-radius: 10px;
+    margin: 0 auto !important;
+    width: 200px !important;
+    height: 100px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: var(--c-box-shadow);
 }
 
 .login_stu a:before {
-	display: block;
-	content: "";
-	color: rgba(0, 0, 0, 0);
-	height: 1px;
-	width: 200px;
-	/*transform: translate(-20px);*/
-	margin: 0 auto;
-	background-color: var(--c-border);
-	position: relative;
-	bottom: 17px;
+    display: block;
+    content: '';
+    color: rgba(0, 0, 0, 0);
+    height: 1px;
+    width: 200px;
+    /*transform: translate(-20px);*/
+    margin: 0 auto;
+    background-color: var(--c-border);
+    position: relative;
+    bottom: 17px;
 }
 
 .login_stu a {
-	display: block;
-	margin: 2px auto;
-	width: 100%;
-	height: 25px;
-	text-decoration: none;
-	padding-top: 5px;
-	color: #FFF;
-	position: relative;
-	top: 65px;
-	background-color: var(--c-accent);
-	border-radius: 10px;
-	font-size: 10pt;
+    display: block;
+    margin: 2px auto;
+    width: 100%;
+    height: 25px;
+    text-decoration: none;
+    padding-top: 5px;
+    color: #fff;
+    position: relative;
+    top: 65px;
+    background-color: var(--c-accent);
+    border-radius: 10px;
+    font-size: 10pt;
 }
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/?$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/portal\\/\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 /* 隐藏不需要的模块 */
 .brandingImgWrap,
 #appTabList > tbody > tr :not(:first-child),
@@ -1215,7 +1246,13 @@ div.edit_controls > a:hover::before {
 
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*course_id\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 /* 限制页面最低高度 */
 body {
     display: flex;
@@ -1753,7 +1790,13 @@ li.divider,
 
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/blackboard\\S*announcement\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 /* 重置公告样式 */
 #containerdiv,
 #announcementList {
@@ -1879,9 +1922,14 @@ li.divider,
 
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\S*classinCourseClass\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
 
-#pageTitleDiv>*:not([id="pageTitleBar"]) {
+#pageTitleDiv > *:not([id='pageTitleBar']) {
     display: none;
 }
 
@@ -1894,13 +1942,13 @@ li.divider,
     border-bottom: 1px solid var(--c-border);
 }
 
-#actionbar .mainButton>a {
+#actionbar .mainButton > a {
     color: var(--c-text);
     border-radius: 5px 5px 0 0;
     border-bottom: 2px solid transparent !important;
 }
 
-#actionbar .mainButton>a:hover {
+#actionbar .mainButton > a:hover {
     background: var(--c-hover);
     border-bottom: 2px solid var(--c-accent) !important;
 }
@@ -1931,9 +1979,16 @@ li.divider,
 .container .backLink a:hover {
     background-color: var(--c-hover);
 }
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\S*blankPage\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 #containerdiv {
     border: 1px solid var(--c-border);
     background: var(--c-card);
@@ -1963,7 +2018,13 @@ li.divider,
 
 }
 @-moz-document regexp("^https:\\/\\/course.pku.edu.cn\\/webapps\\S*videoList\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 /*container向上*/
 
 .container {
@@ -1999,21 +2060,20 @@ li.divider,
 }
 
 /*标题栏底部边框*/
-#listContainer_datatable>.inventoryListHead * {
+#listContainer_datatable > .inventoryListHead * {
     border-bottom: 1px solid var(--c-border) !important;
 }
-
 
 #listContainer_databody {
     border-bottom: none;
 }
 
 /*斑马纹表格*/
-#listContainer_databody>tr {
+#listContainer_databody > tr {
     background: var(--c-card);
 }
 
-#listContainer_databody>tr:nth-child(2n) {
+#listContainer_databody > tr:nth-child(2n) {
     background: var(--gray-1);
 }
 
@@ -2023,21 +2083,21 @@ li.divider,
 /*}*/
 
 /*每行行首行尾圆角*/
-#listContainer_databody>tr>*:first-child {
+#listContainer_databody > tr > *:first-child {
     border-radius: 5px 0 0 5px;
 }
 
-#listContainer_databody>tr>*:last-child {
+#listContainer_databody > tr > *:last-child {
     border-radius: 0 5px 5px 0;
     border-bottom: none !important;
 }
 
 /*表格底部边框*/
-#listContainer_databody>tr:last-child>* {
+#listContainer_databody > tr:last-child > * {
     border-bottom: none !important;
 }
 
-#listContainer_databody>tr>* {
+#listContainer_databody > tr > * {
     line-height: 24px;
     margin-top: 5px;
     /*padding-top:100px!important;*/
@@ -2047,24 +2107,23 @@ li.divider,
     /*border-bottom: 1px solid var(--c-border);*/
 }
 
-#listContainer_databody>tr * {
+#listContainer_databody > tr * {
     color: var(--c-text);
 }
 
-#listContainer_databody>tr .table-data-cell-value>a {
+#listContainer_databody > tr .table-data-cell-value > a {
     color: var(--cyan-7);
     border-radius: 3px;
     padding: 0 1em;
 }
 
-#listContainer_databody>tr .table-data-cell-value>a:hover {
+#listContainer_databody > tr .table-data-cell-value > a:hover {
     text-decoration: none;
     background: var(--cyan-2);
 }
 
-
 /*导航栏*/
-#listContainer>.rumble_top {
+#listContainer > .rumble_top {
     display: none;
 }
 
@@ -2074,7 +2133,7 @@ li.divider,
     padding: 10px 0 0 0;
 }
 
-#listContainer_nav_batch_bot>.inventory_paging {
+#listContainer_nav_batch_bot > .inventory_paging {
     margin: 0;
     padding: 0;
 }
@@ -2094,7 +2153,7 @@ li.divider,
     justify-content: center;
 }
 
-#listContainer_navpaging_bot>a {
+#listContainer_navpaging_bot > a {
     background-color: transparent;
     border: none;
     box-shadow: none;
@@ -2108,29 +2167,35 @@ li.divider,
     margin-bottom: 5px;
 }
 
-#listContainer_pagingcontrols #listContainer_itemcount>span {
+#listContainer_pagingcontrols #listContainer_itemcount > span {
     border: none;
     padding: 0;
     margin: 0;
     color: var(--c-text);
 }
 
-#listContainer_pagingcontrols #listContainer_itemcount>span>strong {
+#listContainer_pagingcontrols #listContainer_itemcount > span > strong {
     color: var(--c-title);
     display: inline;
     padding: 0 5px;
 }
 
-#listContainer_pagingcontrols #listContainer_itemcount>span>strong:last-child {
+#listContainer_pagingcontrols #listContainer_itemcount > span > strong:last-child {
     padding-right: 0;
 }
 
 /*#listContainer_navpaging_bot #listContainer_currentpage_bot*/
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\S*((discussionboard)|(groupContentList))\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
 
-#pageTitleDiv>*:not([id="pageTitleBar"]) {
+#pageTitleDiv > *:not([id='pageTitleBar']) {
     display: none;
 }
 
@@ -2143,8 +2208,8 @@ li.divider,
     border-bottom: 1px solid var(--c-border);
 }
 
-#actionbar .mainButton>a,
-#actionbar .secondaryButton>a {
+#actionbar .mainButton > a,
+#actionbar .secondaryButton > a {
     color: var(--c-text);
     background: var(--c-background);
     outline: none;
@@ -2152,23 +2217,23 @@ li.divider,
     border-bottom: 2px solid transparent !important;
 }
 
-#actionbar .mainButton>a:hover,
-#actionbar .secondaryButton>a:hover {
+#actionbar .mainButton > a:hover,
+#actionbar .secondaryButton > a:hover {
     background: var(--c-hover);
     border-bottom: 2px solid var(--c-accent) !important;
 }
 
-#actionbar .secondaryButton>a.liveAreaTab {
+#actionbar .secondaryButton > a.liveAreaTab {
     /*background: var(--c-hover);*/
     border-bottom: 2px solid var(--c-accent) !important;
 }
 
-#actionbar+.containerOptions {
+#actionbar + .containerOptions {
     padding-right: 30px;
     padding-left: 30px;
 }
 
-#actionbar+.containerOptions .liveArea {
+#actionbar + .containerOptions .liveArea {
     /*padding: 0;*/
     border-radius: 0 0 5px 5px;
     border: 1px solid var(--c-border);
@@ -2201,9 +2266,15 @@ li.divider,
 .container .backLink a:hover {
     background-color: var(--c-hover);
 }
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\S*myGrades\\S*course_id\\S*is_stream=false\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
 
 /*#containerdiv{*/
 /*	border-radius: 5px;*/
@@ -2229,7 +2300,7 @@ li.divider,
     padding-bottom: 0;
 }
 
-#filterby>li {
+#filterby > li {
     height: 100%;
     position: relative;
 }
@@ -2260,7 +2331,6 @@ li.divider,
     border-bottom: 2px solid var(--c-accent);
 }
 
-
 .filterBarHorizontal select {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -2276,7 +2346,6 @@ li.divider,
     background: var(--c-hover);
     color: var(--c-title);
 }
-
 
 /* 面板 */
 .gradeTableNew {
@@ -2304,7 +2373,7 @@ li.divider,
     box-sizing: border-box;
 }
 
-.gradeTableNew .grades_header>div {
+.gradeTableNew .grades_header > div {
     color: var(--c-title);
     font-weight: bold;
     font-size: 11pt !important;
@@ -2317,7 +2386,7 @@ li.divider,
 }
 
 /* 表格 */
-.gradeTableNew>#grades_wrapper {
+.gradeTableNew > #grades_wrapper {
     width: 100%;
     display: block;
     margin-top: 0;
@@ -2329,7 +2398,7 @@ li.divider,
     box-sizing: border-box;
 }
 
-#grades_wrapper>div {
+#grades_wrapper > div {
     border-radius: 5px;
     padding: 5px 0;
     border: none;
@@ -2338,11 +2407,11 @@ li.divider,
 }
 
 /*斑马纹*/
-#grades_wrapper>div:not(.calculatedRow):nth-child(2n) {
+#grades_wrapper > div:not(.calculatedRow):nth-child(2n) {
     background: var(--gray-1);
 }
 
-#grades_wrapper>div:not(.calculatedRow):hover {
+#grades_wrapper > div:not(.calculatedRow):hover {
     background: var(--c-hover);
 }
 
@@ -2367,18 +2436,18 @@ li.divider,
 }
 
 /* 第一列单元格样式 */
-#grades_wrapper>div>div.gradable {
+#grades_wrapper > div > div.gradable {
     height: 100%;
 }
 
-#grades_wrapper>div>div.gradable,
-#grades_wrapper>div>div.gradable>a {
+#grades_wrapper > div > div.gradable,
+#grades_wrapper > div > div.gradable > a {
     color: var(--gray-7);
     font-weight: bold;
     font-size: 14px;
 }
 
-#grades_wrapper>div>div.gradable>a {
+#grades_wrapper > div > div.gradable > a {
     /*overflow: visible;*/
     /*border-bottom:2px solid var(--c-accent);*/
     width: fit-content;
@@ -2389,7 +2458,7 @@ li.divider,
     margin-bottom: 8px;
 }
 
-#grades_wrapper>div>div.gradable>div {
+#grades_wrapper > div > div.gradable > div {
     font-size: 12px;
     display: inline;
     /*width: fit-content;*/
@@ -2398,52 +2467,51 @@ li.divider,
 }
 
 /* 达到block-inline-block的效果 */
-#grades_wrapper>div>div.gradable>div:first-child:before {
+#grades_wrapper > div > div.gradable > div:first-child:before {
     display: block;
     margin-bottom: 8px;
-    content: "";
+    content: '';
 }
 
-#grades_wrapper>div>div.gradable>a+div:before {
+#grades_wrapper > div > div.gradable > a + div:before {
     display: none;
 }
 
-
 /* 其他列div */
-#grades_wrapper>div>div.gradable>div {
+#grades_wrapper > div > div.gradable > div {
     margin-right: 8px;
 }
 
-#grades_wrapper>div>div.activity span {
+#grades_wrapper > div > div.activity span {
     color: var(--c-text);
 }
 
-#grades_wrapper>div>div.grade span.grade {
+#grades_wrapper > div > div.grade span.grade {
     color: var(--cyan-7);
 }
 
-#grades_wrapper>div>div.grade span.pointsPossible {
+#grades_wrapper > div > div.grade span.pointsPossible {
     color: var(--c-text);
 }
 
 /*icon更改*/
-#grades_wrapper>div>div img.tooltip-icon {
+#grades_wrapper > div > div img.tooltip-icon {
     width: 18px;
     content: var(--i-tip);
 }
 
-#grades_wrapper>div>div i.icon-comment:before {
+#grades_wrapper > div > div i.icon-comment:before {
     width: 18px;
     background: var(--i-comment);
     background-size: contain !important;
     background-repeat: no-repeat;
     background-position: center center;
-    content: ".";
+    content: '.';
     color: transparent;
 }
 
 /*提示页面*/
-#grades_wrapper>div>div .tooltip {
+#grades_wrapper > div > div .tooltip {
     background: var(--c-card);
     border: 1px solid var(--c-border);
     box-shadow: none !important;
@@ -2451,7 +2519,7 @@ li.divider,
     text-shadow: none;
 }
 
-#grades_wrapper>div>div .tooltipContainer-left .tooltip:after {
+#grades_wrapper > div > div .tooltipContainer-left .tooltip:after {
     text-shadow: none;
 }
 
@@ -2460,9 +2528,16 @@ li.divider,
     color: var(--c-text);
     font-family: sans-serif;
 }
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\S*listContent\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 /* 卡片样式、flex布局 */
 #content_listContainer > li {
     background: var(--c-card);
@@ -2592,7 +2667,13 @@ li.divider,
 
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\S*viewAttempts\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 /* 整体卡片布局 */
 #containerdiv {
     border-radius: 5px;
@@ -2613,7 +2694,7 @@ li.divider,
 }
 
 /* 卡片内区域着色 */
-#containerdiv>.stepcontent {
+#containerdiv > .stepcontent {
     /*display: none;*/
     background: var(--gray-1);
     box-sizing: border-box;
@@ -2622,26 +2703,25 @@ li.divider,
 }
 
 /* 左侧装饰边框 */
-#containerdiv>.stepcontent .label {
+#containerdiv > .stepcontent .label {
     color: var(--c-text);
     border-left: 3px solid var(--c-accent);
     padding-left: 6px;
 }
 
 /* 标题信息着色 */
-#containerdiv>.stepcontent .field {
+#containerdiv > .stepcontent .field {
     color: var(--c-title);
-
 }
 
 /* 拒绝多余空间 */
-#containerdiv>.stepcontent li:last-child {
+#containerdiv > .stepcontent li:last-child {
     padding-bottom: 0;
     margin-bottom: 0;
 }
 
 /* 卡片内区域着色 */
-#containerdiv>.columnStep>div {
+#containerdiv > .columnStep > div {
     background: var(--gray-1);
     padding: 5px;
     box-sizing: border-box;
@@ -2650,28 +2730,28 @@ li.divider,
 }
 
 /* 行首样式特判 */
-#containerdiv>.columnStep .attachments tr:first-child {
+#containerdiv > .columnStep .attachments tr:first-child {
     border: none;
 }
 
-#containerdiv>.columnStep .attachments tr:first-child * {
+#containerdiv > .columnStep .attachments tr:first-child * {
     color: var(--c-title);
     font-weight: bold;
 }
 
 /* 内容顶部划分线条 */
-#containerdiv>.columnStep .attachments tr:not(:first-child) {
+#containerdiv > .columnStep .attachments tr:not(:first-child) {
     border-top: 1px solid var(--c-border);
 }
 
-#containerdiv>.columnStep .attachments tr:not(:first-child) * {
+#containerdiv > .columnStep .attachments tr:not(:first-child) * {
     padding-top: 5px;
     padding-bottom: 5px;
     color: var(--c-text);
 }
 
 /* 图标解释按钮 */
-#containerdiv>.iconlegend a {
+#containerdiv > .iconlegend a {
     background: var(--c-label);
     border: 1px solid var(--c-border);
     border-radius: 5px;
@@ -2680,22 +2760,29 @@ li.divider,
 }
 
 /* 返回链接 */
-#containerdiv>.backLink a {
+#containerdiv > .backLink a {
     border-radius: 5px 0 5px 0;
     background: var(--c-card);
     box-shadow: none;
     color: var(--c-text);
 }
 
-#containerdiv>.backLink a:hover {
+#containerdiv > .backLink a:hover {
     background: var(--c-hover);
     color: var(--c-primary);
 }
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\S*toolId\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 .brandingImgWrap,
-#appTabList>tbody>tr :not(:first-child),
+#appTabList > tbody > tr :not(:first-child),
 .hideoff,
 #quick_links_wrap,
 #global-avatar,
@@ -2704,9 +2791,8 @@ li.divider,
     /* visibility: hidden; */
 }
 
-
 /* 个人界面面板 */
-#global-nav-link>* {
+#global-nav-link > * {
     display: none;
 }
 
@@ -2784,11 +2870,9 @@ li.divider,
 }
 
 .tabWrapper-right,
-.bouncer[role="presentation"] {
+.bouncer[role='presentation'] {
     width: fit-content;
 }
-
-
 
 .global-nav-bar-wrap {
     position: absolute;
@@ -2863,7 +2947,7 @@ table.bouncer span:hover {
 #contentPanel,
 #content,
 #containerdiv,
-#containerdiv>div,
+#containerdiv > div,
 #iframe_wrap {
     height: fit-content !important;
     /* min-height: calc(100vh - 60px) !important; */
@@ -2873,7 +2957,6 @@ table.bouncer span:hover {
     height: calc(100vh - 60px) !important;
     top: 0px;
 }
-
 
 nav.navigationPane {
     height: 100%;
@@ -2896,7 +2979,6 @@ nav.navigationPane {
     /* -webkit-animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
     animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards; */
 }
-
 
 /* 个人导航面板 */
 #vertical_container,
@@ -2932,23 +3014,23 @@ nav.navigationPane {
     /*border:1px solid #EEE;*/
 }
 
-#global-list-tools>.overview,
-#global-list-tools>.stream,
-#global-list-tools>.calendar {
+#global-list-tools > .overview,
+#global-list-tools > .stream,
+#global-list-tools > .calendar {
     display: none;
 }
 
-#global-list-tools>.alerts,
-#global-list-tools>.grade {
+#global-list-tools > .alerts,
+#global-list-tools > .grade {
     background-color: var(--c-card);
 }
 
-#global-list-tools>.alerts>a:hover,
-#global-list-tools>.grades>a:hover {
+#global-list-tools > .alerts > a:hover,
+#global-list-tools > .grades > a:hover {
     background-color: var(--c-hover);
 }
 
-#global-list-tools>.alerts>a {
+#global-list-tools > .alerts > a {
     border-radius: 5px;
     background: var(--i-alarm);
     /* background-color: var(--c-card) !important; */
@@ -2959,8 +3041,7 @@ nav.navigationPane {
     /* transition: 350ms opacity; */
 }
 
-
-#global-list-tools>.grades>a {
+#global-list-tools > .grades > a {
     border-radius: 5px;
     background: var(--i-idcard);
     /* background-color: var(--c-card) !important; */
@@ -2992,7 +3073,6 @@ nav.navigationPane {
     margin: 0;
 }
 
-
 /* 内容框架 */
 #globalNavPageContentArea,
 #globalNavPageContentArea .locationPane,
@@ -3010,7 +3090,7 @@ nav.navigationPane {
 }
 
 #side_nav:before {
-    content: "工具";
+    content: '工具';
     display: block;
     width: 100%;
     font-size: 19px;
@@ -3031,7 +3111,7 @@ nav.navigationPane {
 
 #side_nav #mybbListTools:before {
     z-index: 1;
-    content: "";
+    content: '';
     color: transparent;
     visibility: visible;
     display: block;
@@ -3052,8 +3132,8 @@ nav.navigationPane {
     border-left: 6px solid transparent;
 }
 
-#side_nav #mybbListTools li[id*="Alerts"],
-#side_nav #mybbListTools li[id*="MyGrades"] {
+#side_nav #mybbListTools li[id*='Alerts'],
+#side_nav #mybbListTools li[id*='MyGrades'] {
     display: block;
 }
 
@@ -3083,30 +3163,30 @@ nav.navigationPane {
     border-radius: 0 5px 5px 0;
 }
 
-#side_nav #mybbListTools li[id*="Alerts"] span.menu-icon {
+#side_nav #mybbListTools li[id*='Alerts'] span.menu-icon {
     background: var(--i-sandclock);
     background-repeat: no-repeat;
     background-size: 25px 25px;
     background-position: 10px;
 }
 
-#side_nav #mybbListTools li[id*="Alerts"] span.menu-icon:after {
-    content: "禁止摸鱼";
+#side_nav #mybbListTools li[id*='Alerts'] span.menu-icon:after {
+    content: '禁止摸鱼';
     color: var(--c-text);
     display: block;
     font-size: 16px;
     /* text-decoration: none !important; */
 }
 
-#side_nav #mybbListTools li[id*="MyGrades"] span.menu-icon {
+#side_nav #mybbListTools li[id*='MyGrades'] span.menu-icon {
     background: var(--i-clover);
     background-repeat: no-repeat;
     background-size: 25px 25px;
     background-position: 10px;
 }
 
-#side_nav #mybbListTools li[id*="MyGrades"] span.menu-icon:after {
-    content: "绩点高高";
+#side_nav #mybbListTools li[id*='MyGrades'] span.menu-icon:after {
+    content: '绩点高高';
     color: var(--c-text);
     display: block;
     font-size: 16px;
@@ -3121,10 +3201,9 @@ nav.navigationPane {
     background-color: var(--c-hover) !important;
 }
 
-#side_nav #mybbListTools li[id*="Alerts"] img {
+#side_nav #mybbListTools li[id*='Alerts'] img {
     display: none;
 }
-
 
 #iframe_wrap {
     /* display: none; */
@@ -3159,7 +3238,13 @@ nav.navigationPane {
 
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/streamViewer\\/streamViewer\\S*streamName=alerts\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 /* 背景着色，移除box-shadow,text-shadow*/
 html,
 #outer_left_stream_alerts {
@@ -3379,7 +3464,13 @@ span.open_stream_settings {
 
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/streamViewer\\/streamViewer\\S*streamName=mygrades\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 .stream_pages {
     display: flex;
     justify-content: space-between;
@@ -3565,7 +3656,13 @@ iframe.stream_right {
 
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*course_id\\S*stream_name=mygrades") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 * {
     box-shadow: none !important;
     text-shadow: none !important;
@@ -3834,7 +3931,13 @@ html,
 
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*course_id\\S*stream_name=mygrades_d\\S*gradable_item_id\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 * {
     box-shadow: none !important;
     text-shadow: none !important;
@@ -3848,15 +3951,14 @@ html,
 }
 
 /* 标题栏 */
-#streamDetailHeaderRight>span {
+#streamDetailHeaderRight > span {
     display: none;
 }
 
 #streamDetailHeaderRight h2.streamHeader a {
     color: var(--cyan-8);
-    border: none
+    border: none;
 }
-
 
 #streamDetailHeaderRight {
     height: fit-content;
@@ -3900,25 +4002,32 @@ html,
     color: var(--cyan-7) !important;
 }
 
-.gradesByDate input[type="button"] {
+.gradesByDate input[type='button'] {
     color: var(--c-text) !important;
     padding: 3px 8px;
     text-decoration: none;
     border-radius: 3px;
 }
 
-.gradesByDate input[type="button"]:hover {
+.gradesByDate input[type='button']:hover {
     background: var(--cyan-2);
 }
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*content\\/file\\?cmd=view\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 /* 标题 */
 ul#content_listContainer {
     background: var(--cyan-1);
 }
 
-ul#content_listContainer>li {
+ul#content_listContainer > li {
     border-left: 6px solid var(--cyan-6);
     border-top: none;
     border-bottom: none;
@@ -3930,12 +4039,12 @@ ul#content_listContainer>li {
     flex-direction: column;
 }
 
-ul#content_listContainer>li>* {
+ul#content_listContainer > li > * {
     padding: 0;
     width: 100%;
 }
 
-ul#content_listContainer>li a {
+ul#content_listContainer > li a {
     color: var(--cyan-6);
 }
 
@@ -3954,9 +4063,16 @@ embed {
     padding: 10px;
     box-sizing: border-box;
 }
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*assignment\\/uploadAssignment\\?\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 /* 移除Content边框 */
 #containerdiv {
     border: none;
@@ -4303,7 +4419,13 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
 
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*context=mybb\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/blackboard\\/execute\\/announcement$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*playVideo\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 .brandingImgWrap,
 #appTabList > tbody > tr :not(:first-child),
 .hideoff,
@@ -4637,7 +4759,13 @@ div.container {
 
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*announcement\\S*context=mybb\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/blackboard\\/execute\\/announcement") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 .announcementFilter,
 .announcementList {
     margin: 0;
@@ -4656,7 +4784,6 @@ div.container {
     border-bottom: none;
     margin-bottom: 10px;
 }
-
 
 .announcementFilter select#searchSelectId {
     -webkit-appearance: none;
@@ -4692,9 +4819,16 @@ div.container {
     background: var(--cyan-2);
     color: var(--cyan-6);
 }
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*playVideo\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 /* 容器 */
 #content,
 .container {
@@ -4705,9 +4839,16 @@ div.container {
 iframe {
     min-height: 80vh;
 }
+
 }
 @-moz-document regexp("^https:\\/\\/livingroomhqy\\.pku\\.edu\\.cn\\/player\\?course_id\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
 html,
 body,
 #app {
@@ -4730,8 +4871,8 @@ body,
     font-weight: bold;
     font-size: 18pt;
     color: var(--c-title);
-    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
 .course-info__wrapper .course-info__main {
@@ -4745,7 +4886,6 @@ body,
     background: var(--c-button);
     border: none;
     color: var(--c-text);
-
 }
 
 .course-info__wrapper .course-info__footer button:hover {
@@ -4753,8 +4893,14 @@ body,
     color: var(--cyan-6);
     font-weight: bold;
 }
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*taskView\\S*") {
-    
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
 
 }

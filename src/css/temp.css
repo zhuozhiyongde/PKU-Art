@@ -1,60 +1,66 @@
-@import '../css/arco-palette.css';
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
 @import 'main.css';
 
 .brandingImgWrap,
-#appTabList>tbody>tr :not(:first-child),
+#appTabList > tbody > tr :not(:first-child),
 .hideoff,
 #quick_links_wrap {
-	display: none;
-	/* visibility: hidden; */
+    display: none;
+    /* visibility: hidden; */
 }
 
 #global-avatar,
 #global-toggle-img {
-	display: none;
+    display: none;
 }
 
 #global-nav-link {
-	color: rgba(0, 0, 0, 0);
-	width: 0px !important;
-	background: rgba(0, 0, 0, 0);
-	/*text-indent: 10000px!important;*/
-	/*padding: 0px;*/
-	/*需修改，若设置padding=0会导致页面可横拉*/
+    color: rgba(0, 0, 0, 0);
+    width: 0px !important;
+    background: rgba(0, 0, 0, 0);
+    /*text-indent: 10000px!important;*/
+    /*padding: 0px;*/
+    /*需修改，若设置padding=0会导致页面可横拉*/
 }
 
 #badgeTotal {
-	/*visibility: visible!important;*/
-	/*↑测试开关确保没有消息的时候也能测试*/
+    /*visibility: visible!important;*/
+    /*↑测试开关确保没有消息的时候也能测试*/
 }
 
 #badgeTotalCount {
-	/*font-size: 10px;*/
-	color: rgba(0, 0, 0, 0);
-	width: 4px !important;
-	margin: 0 auto;
-	height: 4px !important;
-	padding: 3px;
-	text-align: center;
-	vertical-align: middle;
-	background-color: #9B0000;
-	border-radius: 10px;
-	transform: translate(36px, 10px);
-	/*float: right;*/
+    /*font-size: 10px;*/
+    color: rgba(0, 0, 0, 0);
+    width: 4px !important;
+    margin: 0 auto;
+    height: 4px !important;
+    padding: 3px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #9b0000;
+    border-radius: 10px;
+    transform: translate(36px, 10px);
+    /*float: right;*/
 }
 
 #global-nav-link:after {
-	content: "";
-	display: block;
-	height: 27px;
-	width: 27px;
-	color: rgb(0, 0, 0);
-	background-image: url("https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/notification.png") !important;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	margin: 0 auto;
-	transform: translate(60px, -6px);
-	float: right;
+    content: '';
+    display: block;
+    height: 27px;
+    width: 27px;
+    color: rgb(0, 0, 0);
+    background-image: url('https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/notification.png') !important;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    transform: translate(60px, -6px);
+    float: right;
 }
 
 .tabWrapper-right,
@@ -65,307 +71,306 @@
 .schemePreviewBody,
 body,
 .locationPane {
-	background-color: #fff !important;
+    background-color: #fff !important;
 }
 
 #topframe\.logout\.label {
-	background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/exit.png);
-	background-size: 80%;
-	background-color: #fff;
-	margin-top: 20px;
-	float: right;
-	background-position: center center !important;
+    background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/exit.png);
+    background-size: 80%;
+    background-color: #fff;
+    margin-top: 20px;
+    float: right;
+    background-position: center center !important;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-	background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0);
 }
 
 .tabWrapper-right {
-	padding: 0px;
+    padding: 0px;
 }
 
 #global-list-tools li span.badge {
-	font-size: 10px;
-	text-align: center;
-	margin: 0 auto;
-	line-height: 9px;
-	height: 10px;
-	width: 15px;
-	padding: 2px 2px 1px;
-	border-radius: 100px;
+    font-size: 10px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 9px;
+    height: 10px;
+    width: 15px;
+    padding: 2px 2px 1px;
+    border-radius: 100px;
 }
 
 #我的主页\(MyPage\) {
-	border: none;
-	margin-top: 21px;
-	float: right;
-	transform: translate(-90px);
+    border: none;
+    margin-top: 21px;
+    float: right;
+    transform: translate(-90px);
 }
 
 #我的主页\(MyPage\) a {
-	padding: 0px;
+    padding: 0px;
 }
 
-#globalNavPageNavArea>table {
-	border: none !important;
-	height: 100% !important;
+#globalNavPageNavArea > table {
+    border: none !important;
+    height: 100% !important;
 }
 
 #globalNavPageContentArea {
-	height: 102% !important;
+    height: 102% !important;
 }
 
 .locationPane {
-	padding: 0;
-	height: 100% !important;
+    padding: 0;
+    height: 100% !important;
 }
 
-#globalNavPageContentArea>div>div,
+#globalNavPageContentArea > div > div,
 #content,
-#content>div,
-#content>div>div,
-#content>div>div>div {
-	height: 100% !important;
+#content > div,
+#content > div > div,
+#content > div > div > div {
+    height: 100% !important;
 }
 
-#我的主页\(MyPage\)>a span {
-	color: #333;
+#我的主页\(MyPage\) > a span {
+    color: #333;
 }
 
-#我的主页\(MyPage\)>a :hover {
-	color: #86112E !important;
+#我的主页\(MyPage\) > a :hover {
+    color: #86112e !important;
 }
 
 .container {
-	width: 100%;
-	padding: 0;
-	margin: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-#content>.container {
-	border: none;
+#content > .container {
+    border: none;
 }
 
 #column0:before {
-	content: "";
-	display: block;
-	color: rgba(0, 0, 0, 0);
-	width: 100%;
-	text-align: center;
-	height: 80px;
-	background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/PKU_LOGO.png);
-	background-size: 120px;
-	background-position: center left;
-	background-position-x: 20px;
-	background-repeat: no-repeat;
+    content: '';
+    display: block;
+    color: rgba(0, 0, 0, 0);
+    width: 100%;
+    text-align: center;
+    height: 80px;
+    background-image: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/PKU_LOGO.png);
+    background-size: 120px;
+    background-position: center left;
+    background-position-x: 20px;
+    background-repeat: no-repeat;
 }
 
 .containerPortal {
-	height: 100% !important;
+    height: 100% !important;
 }
 
 #column0 {
-	transform: translate(0, -72px);
-	/*有修改，原为-80px*/
-	display: block;
-	background-color: #F1F0F5;
-	height: 100% !important;
-	width: 15% !important;
-	max-width: 200px;
+    transform: translate(0, -72px);
+    /*有修改，原为-80px*/
+    display: block;
+    background-color: #f1f0f5;
+    height: 100% !important;
+    width: 15% !important;
+    max-width: 200px;
 }
 
 .portlet {
-	border: none;
+    border: none;
 }
 
-#column0>div:first-child {
-	background-color: #F1F0F5;
+#column0 > div:first-child {
+    background-color: #f1f0f5;
 }
 
 .portlet h2 {
-	font-size: 14pt;
-	background-color: #fff;
-
+    font-size: 14pt;
+    background-color: #fff;
 }
 
-#column0>div:first-child h2 {
-	background-color: #F1F0F5;
-	font-size: 14pt;
+#column0 > div:first-child h2 {
+    background-color: #f1f0f5;
+    font-size: 14pt;
 }
 
-#column0>div:first-child h2:after {
-	z-index: 1;
-	content: "";
-	color: rgba(0, 0, 0, 0);
-	visibility: visible;
-	display: block;
-	height: 10px;
-	position: relative;
-	top: 5px;
-	width: 60px;
-	/*background-color: rgba(248, 144, 144, .3);*/
-	border-radius: 50px;
-	background-color: #E44C47;
+#column0 > div:first-child h2:after {
+    z-index: 1;
+    content: '';
+    color: rgba(0, 0, 0, 0);
+    visibility: visible;
+    display: block;
+    height: 10px;
+    position: relative;
+    top: 5px;
+    width: 60px;
+    /*background-color: rgba(248, 144, 144, .3);*/
+    border-radius: 50px;
+    background-color: #e44c47;
 }
 
 .portlet .portletList li {
-	border-top: none;
+    border-top: none;
 }
 
 .portlet .portletList li a {
-	position: relative;
-	color: #6c6c6c;
-	font-size: 11pt;
+    position: relative;
+    color: #6c6c6c;
+    font-size: 11pt;
 }
 
 .portlet .portletList li a:after {
-	content: "";
-	color: rgba(0, 0, 0, 0);
-	visibility: visible !important;
-	position: absolute;
-	border-bottom: 2px solid #E44C47;
-	/*border-radius: 2px !important;*/
-	bottom: -2px;
-	/*向左偏移隐藏*/
-	left: 100%;
-	width: 0;
-	-webkit-transition: width 350ms, left 350ms;
-	-moz-transition: width 350ms, left 350ms;
-	transition: width 350ms, left 350ms
+    content: '';
+    color: rgba(0, 0, 0, 0);
+    visibility: visible !important;
+    position: absolute;
+    border-bottom: 2px solid #e44c47;
+    /*border-radius: 2px !important;*/
+    bottom: -2px;
+    /*向左偏移隐藏*/
+    left: 100%;
+    width: 0;
+    -webkit-transition: width 350ms, left 350ms;
+    -moz-transition: width 350ms, left 350ms;
+    transition: width 350ms, left 350ms;
 }
 
 .portlet .portletList li a:hover {
-	color: #86112E;
+    color: #86112e;
 }
 
 .portlet .portletList li a:hover:after {
-	visibility: visible !important;
-	left: 0;
-	width: 100%;
-	-webkit-transition: width 350ms;
-	-moz-transition: width 350ms;
-	transition: width 350ms
+    visibility: visible !important;
+    left: 0;
+    width: 100%;
+    -webkit-transition: width 350ms;
+    -moz-transition: width 350ms;
+    transition: width 350ms;
 }
 
-.portlet .portletList-img>li {
-	padding: 5px !important;
-	border-radius: 5px;
-	border: none;
+.portlet .portletList-img > li {
+    padding: 5px !important;
+    border-radius: 5px;
+    border: none;
 }
 
-.portlet .portletList-img>li:hover {
-	background-color: #F6F6F6;
+.portlet .portletList-img > li:hover {
+    background-color: #f6f6f6;
 }
 
-.portlet .portletList-img>li a {
-	padding-left: 5px;
-	color: #82A3AC;
+.portlet .portletList-img > li a {
+    padding-left: 5px;
+    color: #82a3ac;
 }
 
-.portlet .portletList-img>li:hover a {
-	color: #429EBD;
+.portlet .portletList-img > li:hover a {
+    color: #429ebd;
 }
 
 .collapsible {
-	border-top: none;
+    border-top: none;
 }
 
 .portlet .noItems {
-	text-align: left;
+    text-align: left;
 }
 
 #column1,
 #column2 {
-	/* animation: fadeInUp 2000ms cubic-bezier(0.23, 1, 0.32, 1); */
+    /* animation: fadeInUp 2000ms cubic-bezier(0.23, 1, 0.32, 1); */
 
-	-webkit-animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
-	animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
-	position: relative;
-	left: 20%;
+    -webkit-animation: fadeInUpStablePixel 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: fadeInUpStablePixel 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    position: relative;
+    left: 20%;
 }
 
 #column0 {
-	position: fixed;
-	animation: fadeInLeftStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+    position: fixed;
+    animation: fadeInLeftStablePixel 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 #column2 .collapsible div,
 #column2 .collapsible h3,
 #column2 .collapsible a {
-	font-size: 14px;
-	font-style: normal;
-	/*font-weight: 600;*/
+    font-size: 14px;
+    font-style: normal;
+    /*font-weight: 600;*/
 }
 
 #column2 .collapsible a {
-	color: #429EBD;
+    color: #429ebd;
 }
 
 #column2 .collapsible .courseDataBlock,
 #column2 .collapsible li {
-	background: none;
-	padding: 0;
+    background: none;
+    padding: 0;
 }
 
 /*导航工具*/
 #global-more-link {
-	/*display: none;*/
+    /*display: none;*/
 }
 
 #vertical_container,
 #bottomButtons {
-	display: none;
+    display: none;
 }
 
 #global-nav-flyout {
-	box-shadow: none;
-	border-radius: 5px;
-	width: 40px !important;
-	height: 100px !important;
-	transform: translate(18px, 30px);
-	background-color: rgba(0, 0, 0, 0);
-	/*background-color: #000;*/
+    box-shadow: none;
+    border-radius: 5px;
+    width: 40px !important;
+    height: 100px !important;
+    transform: translate(18px, 30px);
+    background-color: rgba(0, 0, 0, 0);
+    /*background-color: #000;*/
 }
 
 #global-nav-tools {
-	background-color: #FAFAFC;
+    background-color: #fafafc;
 }
 
 #global-list-tools {
-	margin: 0;
-	box-shadow: 0 0 15px 1px rgba(19, 41, 75, .2);
-	border-radius: 5px;
-	background-color: #FAFAFC;
-	/*border:1px solid #EEE;*/
+    margin: 0;
+    box-shadow: 0 0 15px 1px rgba(19, 41, 75, 0.2);
+    border-radius: 5px;
+    background-color: #fafafc;
+    /*border:1px solid #EEE;*/
 }
 
-#global-list-tools>.overview,
-#global-list-tools>.stream,
-#global-list-tools>.calendar {
-	display: none;
+#global-list-tools > .overview,
+#global-list-tools > .stream,
+#global-list-tools > .calendar {
+    display: none;
 }
 
-#global-list-tools>.alerts>a {
-	background: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/schedule.png);
-	background-size: 80%;
-	background-repeat: no-repeat;
-	background-position: center center;
-	margin: 0 auto;
-	transition: 350ms opacity;
+#global-list-tools > .alerts > a {
+    background: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/schedule.png);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0 auto;
+    transition: 350ms opacity;
 }
 
-#global-list-tools>.grades>a {
-	background: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/grade.png);
-	background-size: 80%;
-	background-repeat: no-repeat;
-	background-position: center center;
-	margin: 0 auto;
-	transition: 350ms opacity;
+#global-list-tools > .grades > a {
+    background: url(https://arthals-1307721114.cos.ap-beijing.myqcloud.com/uPic/grade.png);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0 auto;
+    transition: 350ms opacity;
 }
 
-#global-list-tools>.alerts a:hover,
-#global-list-tools>.grades a:hover {
-	transition: 350ms opacity;
+#global-list-tools > .alerts a:hover,
+#global-list-tools > .grades a:hover {
+    transition: 350ms opacity;
 }

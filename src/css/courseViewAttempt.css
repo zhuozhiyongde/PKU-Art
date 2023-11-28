@@ -1,4 +1,10 @@
-@import '../css/arco-palette.css';
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
 @import 'main.css';
 
 /* 整体卡片布局 */
@@ -21,7 +27,7 @@
 }
 
 /* 卡片内区域着色 */
-#containerdiv>.stepcontent {
+#containerdiv > .stepcontent {
     /*display: none;*/
     background: var(--gray-1);
     box-sizing: border-box;
@@ -30,26 +36,25 @@
 }
 
 /* 左侧装饰边框 */
-#containerdiv>.stepcontent .label {
+#containerdiv > .stepcontent .label {
     color: var(--c-text);
     border-left: 3px solid var(--c-accent);
     padding-left: 6px;
 }
 
 /* 标题信息着色 */
-#containerdiv>.stepcontent .field {
+#containerdiv > .stepcontent .field {
     color: var(--c-title);
-
 }
 
 /* 拒绝多余空间 */
-#containerdiv>.stepcontent li:last-child {
+#containerdiv > .stepcontent li:last-child {
     padding-bottom: 0;
     margin-bottom: 0;
 }
 
 /* 卡片内区域着色 */
-#containerdiv>.columnStep>div {
+#containerdiv > .columnStep > div {
     background: var(--gray-1);
     padding: 5px;
     box-sizing: border-box;
@@ -58,28 +63,28 @@
 }
 
 /* 行首样式特判 */
-#containerdiv>.columnStep .attachments tr:first-child {
+#containerdiv > .columnStep .attachments tr:first-child {
     border: none;
 }
 
-#containerdiv>.columnStep .attachments tr:first-child * {
+#containerdiv > .columnStep .attachments tr:first-child * {
     color: var(--c-title);
     font-weight: bold;
 }
 
 /* 内容顶部划分线条 */
-#containerdiv>.columnStep .attachments tr:not(:first-child) {
+#containerdiv > .columnStep .attachments tr:not(:first-child) {
     border-top: 1px solid var(--c-border);
 }
 
-#containerdiv>.columnStep .attachments tr:not(:first-child) * {
+#containerdiv > .columnStep .attachments tr:not(:first-child) * {
     padding-top: 5px;
     padding-bottom: 5px;
     color: var(--c-text);
 }
 
 /* 图标解释按钮 */
-#containerdiv>.iconlegend a {
+#containerdiv > .iconlegend a {
     background: var(--c-label);
     border: 1px solid var(--c-border);
     border-radius: 5px;
@@ -88,14 +93,14 @@
 }
 
 /* 返回链接 */
-#containerdiv>.backLink a {
+#containerdiv > .backLink a {
     border-radius: 5px 0 5px 0;
     background: var(--c-card);
     box-shadow: none;
     color: var(--c-text);
 }
 
-#containerdiv>.backLink a:hover {
+#containerdiv > .backLink a:hover {
     background: var(--c-hover);
     color: var(--c-primary);
 }

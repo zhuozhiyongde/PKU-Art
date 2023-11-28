@@ -1,99 +1,104 @@
-@import '../css/arco-palette.css';
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
 @import 'main.css';
 
-.container>div:nth-child(1),
+.container > div:nth-child(1),
 .ad,
 #footer,
 iframe {
-	display: none;
+    display: none;
 }
 
 .container {
-	background: none;
-	width: fit-content;
-	height: fit-content;
+    background: none;
+    width: fit-content;
+    height: fit-content;
 }
 
 /* 覆盖行内样式 */
-.container>div {
-	padding: 0 !important;
-	display: flex;
-	justify-content: center;
+.container > div {
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
 }
 
 #login form {
-	padding: 0 !important;
+    padding: 0 !important;
 }
-
 
 #login {
-	background: none;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0;
-	padding: 0;
-	height: fit-content;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
 }
 
-body>div>div>#login>form :not(:first-child) {
-	display: none;
+body > div > div > #login > form :not(:first-child) {
+    display: none;
 }
 
-body>div>div>#login>form {
-	width: 100%;
-	height: 10px;
-	display: block;
-	text-align: center !important;
-	margin-top: min(20vh, 300px);
+body > div > div > #login > form {
+    width: 100%;
+    height: 10px;
+    display: block;
+    text-align: center !important;
+    margin-top: min(20vh, 300px);
 }
 
 .login_stu {
-	/* position: absolute;
+    /* position: absolute;
  	top: 20%;
  	left: 50%;
  	transform: translate(-111px); */
-	background-color: var(--c-card);
-	border: 1px solid var(--c-border);
-	background-image: var(--i-logo);
-	background-size: 50%;
-	background-position: top center;
-	background-position-y: 20px;
-	background-repeat: no-repeat;
-	float: none;
-	border-radius: 10px;
-	margin: 0 auto !important;
-	width: 200px !important;
-	height: 100px;
-	padding: 10px;
-	text-align: center;
-	box-shadow: var(--c-box-shadow)
+    background-color: var(--c-card);
+    border: 1px solid var(--c-border);
+    background-image: var(--i-logo);
+    background-size: 50%;
+    background-position: top center;
+    background-position-y: 20px;
+    background-repeat: no-repeat;
+    float: none;
+    border-radius: 10px;
+    margin: 0 auto !important;
+    width: 200px !important;
+    height: 100px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: var(--c-box-shadow);
 }
 
 .login_stu a:before {
-	display: block;
-	content: "";
-	color: rgba(0, 0, 0, 0);
-	height: 1px;
-	width: 200px;
-	/*transform: translate(-20px);*/
-	margin: 0 auto;
-	background-color: var(--c-border);
-	position: relative;
-	bottom: 17px;
+    display: block;
+    content: '';
+    color: rgba(0, 0, 0, 0);
+    height: 1px;
+    width: 200px;
+    /*transform: translate(-20px);*/
+    margin: 0 auto;
+    background-color: var(--c-border);
+    position: relative;
+    bottom: 17px;
 }
 
 .login_stu a {
-	display: block;
-	margin: 2px auto;
-	width: 100%;
-	height: 25px;
-	text-decoration: none;
-	padding-top: 5px;
-	color: #FFF;
-	position: relative;
-	top: 65px;
-	background-color: var(--c-accent);
-	border-radius: 10px;
-	font-size: 10pt;
+    display: block;
+    margin: 2px auto;
+    width: 100%;
+    height: 25px;
+    text-decoration: none;
+    padding-top: 5px;
+    color: #fff;
+    position: relative;
+    top: 65px;
+    background-color: var(--c-accent);
+    border-radius: 10px;
+    font-size: 10pt;
 }

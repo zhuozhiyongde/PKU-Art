@@ -1,8 +1,14 @@
-@import '../css/arco-palette.css';
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
 @import 'main.css';
 
 .brandingImgWrap,
-#appTabList>tbody>tr :not(:first-child),
+#appTabList > tbody > tr :not(:first-child),
 .hideoff,
 #quick_links_wrap,
 #global-avatar,
@@ -11,9 +17,8 @@
     /* visibility: hidden; */
 }
 
-
 /* 个人界面面板 */
-#global-nav-link>* {
+#global-nav-link > * {
     display: none;
 }
 
@@ -91,11 +96,9 @@
 }
 
 .tabWrapper-right,
-.bouncer[role="presentation"] {
+.bouncer[role='presentation'] {
     width: fit-content;
 }
-
-
 
 .global-nav-bar-wrap {
     position: absolute;
@@ -170,7 +173,7 @@ table.bouncer span:hover {
 #contentPanel,
 #content,
 #containerdiv,
-#containerdiv>div,
+#containerdiv > div,
 #iframe_wrap {
     height: fit-content !important;
     /* min-height: calc(100vh - 60px) !important; */
@@ -180,7 +183,6 @@ table.bouncer span:hover {
     height: calc(100vh - 60px) !important;
     top: 0px;
 }
-
 
 nav.navigationPane {
     height: 100%;
@@ -203,7 +205,6 @@ nav.navigationPane {
     /* -webkit-animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
     animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards; */
 }
-
 
 /* 个人导航面板 */
 #vertical_container,
@@ -239,23 +240,23 @@ nav.navigationPane {
     /*border:1px solid #EEE;*/
 }
 
-#global-list-tools>.overview,
-#global-list-tools>.stream,
-#global-list-tools>.calendar {
+#global-list-tools > .overview,
+#global-list-tools > .stream,
+#global-list-tools > .calendar {
     display: none;
 }
 
-#global-list-tools>.alerts,
-#global-list-tools>.grade {
+#global-list-tools > .alerts,
+#global-list-tools > .grade {
     background-color: var(--c-card);
 }
 
-#global-list-tools>.alerts>a:hover,
-#global-list-tools>.grades>a:hover {
+#global-list-tools > .alerts > a:hover,
+#global-list-tools > .grades > a:hover {
     background-color: var(--c-hover);
 }
 
-#global-list-tools>.alerts>a {
+#global-list-tools > .alerts > a {
     border-radius: 5px;
     background: var(--i-alarm);
     /* background-color: var(--c-card) !important; */
@@ -266,8 +267,7 @@ nav.navigationPane {
     /* transition: 350ms opacity; */
 }
 
-
-#global-list-tools>.grades>a {
+#global-list-tools > .grades > a {
     border-radius: 5px;
     background: var(--i-idcard);
     /* background-color: var(--c-card) !important; */
@@ -299,7 +299,6 @@ nav.navigationPane {
     margin: 0;
 }
 
-
 /* 内容框架 */
 #globalNavPageContentArea,
 #globalNavPageContentArea .locationPane,
@@ -317,7 +316,7 @@ nav.navigationPane {
 }
 
 #side_nav:before {
-    content: "工具";
+    content: '工具';
     display: block;
     width: 100%;
     font-size: 19px;
@@ -338,7 +337,7 @@ nav.navigationPane {
 
 #side_nav #mybbListTools:before {
     z-index: 1;
-    content: "";
+    content: '';
     color: transparent;
     visibility: visible;
     display: block;
@@ -359,8 +358,8 @@ nav.navigationPane {
     border-left: 6px solid transparent;
 }
 
-#side_nav #mybbListTools li[id*="Alerts"],
-#side_nav #mybbListTools li[id*="MyGrades"] {
+#side_nav #mybbListTools li[id*='Alerts'],
+#side_nav #mybbListTools li[id*='MyGrades'] {
     display: block;
 }
 
@@ -390,30 +389,30 @@ nav.navigationPane {
     border-radius: 0 5px 5px 0;
 }
 
-#side_nav #mybbListTools li[id*="Alerts"] span.menu-icon {
+#side_nav #mybbListTools li[id*='Alerts'] span.menu-icon {
     background: var(--i-sandclock);
     background-repeat: no-repeat;
     background-size: 25px 25px;
     background-position: 10px;
 }
 
-#side_nav #mybbListTools li[id*="Alerts"] span.menu-icon:after {
-    content: "禁止摸鱼";
+#side_nav #mybbListTools li[id*='Alerts'] span.menu-icon:after {
+    content: '禁止摸鱼';
     color: var(--c-text);
     display: block;
     font-size: 16px;
     /* text-decoration: none !important; */
 }
 
-#side_nav #mybbListTools li[id*="MyGrades"] span.menu-icon {
+#side_nav #mybbListTools li[id*='MyGrades'] span.menu-icon {
     background: var(--i-clover);
     background-repeat: no-repeat;
     background-size: 25px 25px;
     background-position: 10px;
 }
 
-#side_nav #mybbListTools li[id*="MyGrades"] span.menu-icon:after {
-    content: "绩点高高";
+#side_nav #mybbListTools li[id*='MyGrades'] span.menu-icon:after {
+    content: '绩点高高';
     color: var(--c-text);
     display: block;
     font-size: 16px;
@@ -428,10 +427,9 @@ nav.navigationPane {
     background-color: var(--c-hover) !important;
 }
 
-#side_nav #mybbListTools li[id*="Alerts"] img {
+#side_nav #mybbListTools li[id*='Alerts'] img {
     display: none;
 }
-
 
 #iframe_wrap {
     /* display: none; */

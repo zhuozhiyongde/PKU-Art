@@ -1,6 +1,11 @@
-@import '../css/arco-palette.css';
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
 @import 'main.css';
-
 
 /*#containerdiv{*/
 /*	border-radius: 5px;*/
@@ -26,7 +31,7 @@
     padding-bottom: 0;
 }
 
-#filterby>li {
+#filterby > li {
     height: 100%;
     position: relative;
 }
@@ -57,7 +62,6 @@
     border-bottom: 2px solid var(--c-accent);
 }
 
-
 .filterBarHorizontal select {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -73,7 +77,6 @@
     background: var(--c-hover);
     color: var(--c-title);
 }
-
 
 /* 面板 */
 .gradeTableNew {
@@ -101,7 +104,7 @@
     box-sizing: border-box;
 }
 
-.gradeTableNew .grades_header>div {
+.gradeTableNew .grades_header > div {
     color: var(--c-title);
     font-weight: bold;
     font-size: 11pt !important;
@@ -114,7 +117,7 @@
 }
 
 /* 表格 */
-.gradeTableNew>#grades_wrapper {
+.gradeTableNew > #grades_wrapper {
     width: 100%;
     display: block;
     margin-top: 0;
@@ -126,7 +129,7 @@
     box-sizing: border-box;
 }
 
-#grades_wrapper>div {
+#grades_wrapper > div {
     border-radius: 5px;
     padding: 5px 0;
     border: none;
@@ -135,11 +138,11 @@
 }
 
 /*斑马纹*/
-#grades_wrapper>div:not(.calculatedRow):nth-child(2n) {
+#grades_wrapper > div:not(.calculatedRow):nth-child(2n) {
     background: var(--gray-1);
 }
 
-#grades_wrapper>div:not(.calculatedRow):hover {
+#grades_wrapper > div:not(.calculatedRow):hover {
     background: var(--c-hover);
 }
 
@@ -164,18 +167,18 @@
 }
 
 /* 第一列单元格样式 */
-#grades_wrapper>div>div.gradable {
+#grades_wrapper > div > div.gradable {
     height: 100%;
 }
 
-#grades_wrapper>div>div.gradable,
-#grades_wrapper>div>div.gradable>a {
+#grades_wrapper > div > div.gradable,
+#grades_wrapper > div > div.gradable > a {
     color: var(--gray-7);
     font-weight: bold;
     font-size: 14px;
 }
 
-#grades_wrapper>div>div.gradable>a {
+#grades_wrapper > div > div.gradable > a {
     /*overflow: visible;*/
     /*border-bottom:2px solid var(--c-accent);*/
     width: fit-content;
@@ -186,7 +189,7 @@
     margin-bottom: 8px;
 }
 
-#grades_wrapper>div>div.gradable>div {
+#grades_wrapper > div > div.gradable > div {
     font-size: 12px;
     display: inline;
     /*width: fit-content;*/
@@ -195,52 +198,51 @@
 }
 
 /* 达到block-inline-block的效果 */
-#grades_wrapper>div>div.gradable>div:first-child:before {
+#grades_wrapper > div > div.gradable > div:first-child:before {
     display: block;
     margin-bottom: 8px;
-    content: "";
+    content: '';
 }
 
-#grades_wrapper>div>div.gradable>a+div:before {
+#grades_wrapper > div > div.gradable > a + div:before {
     display: none;
 }
 
-
 /* 其他列div */
-#grades_wrapper>div>div.gradable>div {
+#grades_wrapper > div > div.gradable > div {
     margin-right: 8px;
 }
 
-#grades_wrapper>div>div.activity span {
+#grades_wrapper > div > div.activity span {
     color: var(--c-text);
 }
 
-#grades_wrapper>div>div.grade span.grade {
+#grades_wrapper > div > div.grade span.grade {
     color: var(--cyan-7);
 }
 
-#grades_wrapper>div>div.grade span.pointsPossible {
+#grades_wrapper > div > div.grade span.pointsPossible {
     color: var(--c-text);
 }
 
 /*icon更改*/
-#grades_wrapper>div>div img.tooltip-icon {
+#grades_wrapper > div > div img.tooltip-icon {
     width: 18px;
     content: var(--i-tip);
 }
 
-#grades_wrapper>div>div i.icon-comment:before {
+#grades_wrapper > div > div i.icon-comment:before {
     width: 18px;
     background: var(--i-comment);
     background-size: contain !important;
     background-repeat: no-repeat;
     background-position: center center;
-    content: ".";
+    content: '.';
     color: transparent;
 }
 
 /*提示页面*/
-#grades_wrapper>div>div .tooltip {
+#grades_wrapper > div > div .tooltip {
     background: var(--c-card);
     border: 1px solid var(--c-border);
     box-shadow: none !important;
@@ -248,7 +250,7 @@
     text-shadow: none;
 }
 
-#grades_wrapper>div>div .tooltipContainer-left .tooltip:after {
+#grades_wrapper > div > div .tooltipContainer-left .tooltip:after {
     text-shadow: none;
 }
 

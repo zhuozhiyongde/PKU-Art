@@ -1,4 +1,10 @@
-@import '../css/arco-palette.css';
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
 @import 'main.css';
 
 html,
@@ -23,8 +29,8 @@ body,
     font-weight: bold;
     font-size: 18pt;
     color: var(--c-title);
-    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
 .course-info__wrapper .course-info__main {
@@ -38,7 +44,6 @@ body,
     background: var(--c-button);
     border: none;
     color: var(--c-text);
-
 }
 
 .course-info__wrapper .course-info__footer button:hover {

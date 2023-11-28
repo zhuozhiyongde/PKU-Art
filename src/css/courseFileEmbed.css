@@ -1,4 +1,10 @@
-@import '../css/arco-palette.css';
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
 @import 'main.css';
 
 /* 标题 */
@@ -6,7 +12,7 @@ ul#content_listContainer {
     background: var(--cyan-1);
 }
 
-ul#content_listContainer>li {
+ul#content_listContainer > li {
     border-left: 6px solid var(--cyan-6);
     border-top: none;
     border-bottom: none;
@@ -18,12 +24,12 @@ ul#content_listContainer>li {
     flex-direction: column;
 }
 
-ul#content_listContainer>li>* {
+ul#content_listContainer > li > * {
     padding: 0;
     width: 100%;
 }
 
-ul#content_listContainer>li a {
+ul#content_listContainer > li a {
     color: var(--cyan-6);
 }
 
