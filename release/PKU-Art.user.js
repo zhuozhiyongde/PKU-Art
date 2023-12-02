@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.30
+// @version      2.3.31
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -11,7 +11,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/11/28
+// @date         2023/12/02
 // ==/UserScript==
 (function () {
     'use strict';
@@ -302,9 +302,9 @@ function injectPKUArt () {
 })();
 (function replaceIcon() {
     let htmlpath = location.href;
-    if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath)) {
+    if (/^https:\/\/(course|autolab)\.pku\.edu\.cn\//.test(htmlpath)) {
         function executeReplaceIcon() {
-            const icons = document.querySelectorAll('link[rel="SHORTCUT ICON"], link[rel="icon"]');
+            const icons = document.querySelectorAll('link[rel="icon" i], link[rel="shortcut icon" i]');
             if (icons.length > 0) {
                 // 替换第一个 ICON 的 URL
                 icons[0].href = 'https://cdn.arthals.ink/css/src/PKU.svg';

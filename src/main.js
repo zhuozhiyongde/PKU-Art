@@ -241,9 +241,9 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
 
 (function replaceIcon() {
     let htmlpath = location.href;
-    if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath)) {
+    if (/^https:\/\/(course|autolab)\.pku\.edu\.cn\//.test(htmlpath)) {
         function executeReplaceIcon() {
-            const icons = document.querySelectorAll('link[rel="SHORTCUT ICON"], link[rel="icon"]');
+            const icons = document.querySelectorAll('link[rel="icon" i], link[rel="shortcut icon" i]');
             if (icons.length > 0) {
                 // 替换第一个 ICON 的 URL
                 icons[0].href = 'https://cdn.arthals.ink/css/src/PKU.svg';
@@ -263,7 +263,6 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
         document.addEventListener('DOMContentLoaded', executeReplaceIcon);
     }
 })();
-
 
 (function deleteCourseSerial() {
     let htmlpath = location.href;
