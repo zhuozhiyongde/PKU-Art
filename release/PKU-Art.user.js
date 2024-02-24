@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.31
+// @version      2.3.32
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -11,7 +11,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/12/02
+// @date         2024/02/24
 // ==/UserScript==
 (function () {
     'use strict';
@@ -261,7 +261,7 @@ function injectPKUArt () {
         console.log("[PKU-Art] Injected https://cdn.arthals.ink/css/courseVideoPlay.css.");
     }
 
-    if (/^https:\/\/livingroomhqy\.pku\.edu\.cn\/player\?course_id\S*$/.test(htmlpath)) {
+    if (/^https:\/\/onlineroomse\.pku\.edu\.cn\/player\?course_id\S*$/.test(htmlpath)) {
         let pkuartcss = document.createElement("link");
         pkuartcss.href = 'https://cdn.arthals.ink/css/courseVideoPlayFrame.css'
         pkuartcss.rel = "stylesheet";

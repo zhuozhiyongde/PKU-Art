@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.31
+// @version      2.3.32
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2023/12/02
+// @date         2024/02/24
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/livingroomhqy\\.pku\\.edu\\.cn\\/\\S*") {
     /*
@@ -4624,7 +4624,7 @@ table.bouncer span:hover {
 div#content,
 div.container {
     height: fit-content !important;
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
 
 /* 面板内容样式 */
@@ -4841,13 +4841,17 @@ iframe {
 }
 
 }
-@-moz-document regexp("^https:\\/\\/livingroomhqy\\.pku\\.edu\\.cn\\/player\\?course_id\\S*") {
+@-moz-document regexp("^https:\\/\\/onlineroomse\\.pku\\.edu\\.cn\\/player\\?course_id\\S*") {
     /*
  * Author: Arthals
  * Email: zhuozhiyongde@126.com
  * Github: https://github.com/zhuozhiyongde
  * Blog: https://arthals.ink
  */
+
+body {
+    position: relative;
+}
 
 html,
 body,
@@ -4856,7 +4860,7 @@ body,
 }
 
 .course-info__wrapper {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     margin-bottom: 0;
 }
 

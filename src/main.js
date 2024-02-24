@@ -206,7 +206,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*playVideo\S*$/.test(htmlpath))
 // 回放帧框
 // courseVideoPlayFrane
 // https://livingroomhqy.pku.edu.cn/player?course_id=33467&sub_id=776419
-if (/^https:\/\/livingroomhqy\.pku\.edu\.cn\/player\?course_id\S*$/.test(htmlpath)) {
+if (/^https:\/\/onlineroomse\.pku\.edu\.cn\/player\?course_id\S*$/.test(htmlpath)) {
     import('./css/courseVideoPlayFrame.css');
     console.log('[PKU Art] courseVideoPlayFrame.css imported');
 }

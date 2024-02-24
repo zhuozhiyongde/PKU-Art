@@ -7,6 +7,10 @@
 @import 'arco-palette.css';
 @import 'main.css';
 
+body {
+    position: relative;
+}
+
 html,
 body,
 #app {
@@ -14,7 +18,7 @@ body,
 }
 
 .course-info__wrapper {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     margin-bottom: 0;
 }
 
