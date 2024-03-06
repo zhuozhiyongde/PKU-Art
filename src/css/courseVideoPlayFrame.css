@@ -43,15 +43,51 @@ body,
     border-radius: 5px;
     border: 1px solid var(--c-border);
 }
+.course-info__wrapper .course-info__footer {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 
 .course-info__wrapper .course-info__footer button {
     background: var(--c-button);
     border: none;
     color: var(--c-text);
+    margin-left: 0;
+}
+
+.course-info__wrapper .course-info__footer #injectDownloadUrlInput {
+    background: var(--c-button);
+    border: none;
+    color: var(--c-text);
+    padding: 10px 20px;
+    border-radius: 4px;
+    display: inline-block;
+    height: 34px;
+    line-height: 14px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border: none;
+    font-weight: bold;
+    border-image-width: 0;
+    width: 200px;
+    transition: 0.1s;
 }
 
 .course-info__wrapper .course-info__footer button:hover {
     background: var(--cyan-2);
     color: var(--cyan-6);
+}
+
+.course-info__wrapper .course-info__footer #injectDownloadUrlInput:hover {
+    background: var(--cyan-2);
+    color: var(--cyan-6);
     font-weight: bold;
+    transition: 0.1s;
+}
+
+.course-info__wrapper .course-info__footer #injectDownloadUrlInput:hover::placeholder {
+    color: var(--cyan-6);
+    transition: 0.1s;
 }

@@ -1,5 +1,11 @@
 # ChangeLog
 
+**2024.03.07 - v2.3.33**
+
+> 参照 https://leohlee.github.io/pkuVideo.html 的代码，修改了录播下载页面的代码，使得可以直接下载 mp4 格式的录播。
+>
+> 修正了 `main.css` 和 `arco-palette.css` 注入时机匹配失败的问题。
+
 **2024.02.24 - v2.3.32**
 
 > 修复了回放页面 URL 变动的问题。

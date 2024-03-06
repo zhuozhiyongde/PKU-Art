@@ -2,7 +2,7 @@ let htmlpath = location.href;
 
 // 限定全局样式生效路径
 if (
-    /^https:\/\/iaaa\.pku\.edu\.cn\/\S*$|^https:\/\/course\.pku\.edu\.cn\/\S*$|^https:\/\/livingroomhqy\.pku\.edu\.cn\/\S*$/.test(
+    /^https:\/\/iaaa\.pku\.edu\.cn\/\S*$|^https:\/\/course\.pku\.edu\.cn\/\S*$|^https:\/\/onlineroomse\.pku\.edu\.cn\/\S*$/.test(
         htmlpath
     )
 ) {
@@ -12,7 +12,7 @@ if (
 
 // 限定全局样式生效路径
 if (
-    /^https:\/\/iaaa\.pku\.edu\.cn\/\S*$|^https:\/\/course\.pku\.edu\.cn\/\S*$|^https:\/\/livingroomhqy\.pku\.edu\.cn\/\S*$/.test(
+    /^https:\/\/iaaa\.pku\.edu\.cn\/\S*$|^https:\/\/course\.pku\.edu\.cn\/\S*$|^https:\/\/onlineroomse\.pku\.edu\.cn\/\S*$/.test(
         htmlpath
     )
 ) {
@@ -304,4 +304,93 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
             }
         }, 50);
     }
+})();
+
+(async function directDownload() {
+    let htmlpath = location.href;
+
+    // 检查当前URL是否匹配特定格式
+    if (!/^https:\/\/onlineroomse\.pku\.edu\.cn\/player\?course_id\S*$/.test(htmlpath)) return;
+
+    console.log('[PKU Art] Injected directDownload() at ' + new Date().toLocaleString());
+    // 等待页面加载完成
+    await new Promise((resolve) => {
+        const checkExist = setInterval(() => {
+            let downloadApp = document.querySelector(
+                '#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(1)'
+            );
+            if (downloadApp) {
+                clearInterval(checkExist);
+                resolve();
+            }
+        }, 100); // 每100毫秒检查一次
+    });
+
+    let downloadApp = document.querySelector(
+        '#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(1)'
+    );
+
+    // 获取特定的按钮
+    let downloadUrlButton = document.querySelector(
+        '#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(2)'
+    );
+
+    // 修改 downloadApp > span 的内容
+    downloadApp.children[1].innerText = '下载视频';
+    // 移除 downloadApp 的所有 onclick 的 eventListener
+    downloadApp.replaceWith(downloadApp.cloneNode(true));
+
+    // 在 downloadUrlButton 的后面添加一个文本框
+    let downloadUrlInput = document.createElement('input');
+    downloadUrlInput.setAttribute('type', 'text');
+    downloadUrlInput.setAttribute('id', 'injectDownloadUrlInput');
+    downloadUrlInput.setAttribute('class', 'PKU-Art');
+    downloadUrlInput.setAttribute('placeholder', '请填入复制的下载链接...');
+    // 移动到 downloadUrlButton 的后面
+    downloadUrlButton.parentNode.insertBefore(downloadUrlInput, downloadUrlButton.nextSibling);
+
+    console.log('Injected downloadUrlInput');
+
+    // 重新获取 downloadApp
+    downloadApp = document.querySelector(
+        '#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(1)'
+    );
+    // 添加一个点击事件
+    downloadApp.addEventListener('click', () => {
+        let downloadUrl = document.querySelector('#injectDownloadUrlInput').value;
+        // https://resourcese.pku.edu.cn/play/0/harpocrates/2024/03/04/0be82eb1dc7448c09eabcb6f31a8efea/0/playlist.m3u8?title=人工智能基础&sub_title=2024-03-04第5-6节
+        // m3u8Pattern = /https://resourcese.pku.edu.cn/play/0/harpocrates/\d/\d*/\d*/([a-zA-Z0-9]+)/0/playlist.m3u8?.*/;
+        // https://resourcese.pku.edu.cn/play/0/harpocrates/2024/03/04/0be82eb1dc7448c09eabcb6f31a8efea/0/playlist.m3u8?title=人工智能基础&sub_title=2024-03-04第5-6节
+        let mp4Pattern = /http.+\.mp4\?.*/;
+        let m3u8Pattern =
+            /https:\/\/resourcese\.pku\.edu\.cn\/play\/0\/harpocrates\/\d+\/\d+\/\d+\/([a-zA-Z0-9]+)\/0\/playlist.m3u8?.*/;
+        if (mp4Pattern.test(downloadUrl)) {
+            // 直接下载
+            window.open(downloadUrl);
+            return;
+        }
+        if (!m3u8Pattern.test(downloadUrl)) {
+            alert('请填入正确的下载链接！');
+            return;
+        }
+        let hash = downloadUrl.match(m3u8Pattern)[1];
+        let trueDownloadUrl = `https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=${hash}`;
+        window.open(trueDownloadUrl);
+    });
+
+    downloadUrlButton.addEventListener('click', () => {
+        // 尝试每100ms查找 .course-info__footer_span_success，更改内容
+        let attempts = 0; // 尝试的次数
+        const maxAttempts = 10; // 最多尝试的次数
+        const intervalId = setInterval(() => {
+            const element = document.querySelector('.course-info__footer_span_success');
+            if (element) {
+                element.textContent = '复制成功，请在左侧输入栏输入下载链接'; // 这里替换成你想要的内容
+                clearInterval(intervalId); // 找到元素后清除定时器
+            } else if (attempts >= maxAttempts) {
+                clearInterval(intervalId); // 尝试次数超过限制也清除定时器
+            }
+            attempts++; // 增加尝试的次数
+        }, 100);
+    });
 })();

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.32
+// @version      2.3.33
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,9 +10,9 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
-// @date         2024/02/24
+// @date         2024/03/07
 ==/UserStyle== */
-@-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/livingroomhqy\\.pku\\.edu\\.cn\\/\\S*") {
+@-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/onlineroomse\\.pku\\.edu\\.cn\\/\\S*") {
     /*
  * Author: Arthals
  * Email: zhuozhiyongde@126.com
@@ -206,7 +206,7 @@ html {
 }
 
 }
-@-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/livingroomhqy\\.pku\\.edu\\.cn\\/\\S*") {
+@-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/onlineroomse\\.pku\\.edu\\.cn\\/\\S*") {
     /*
  * Author: Arthals
  * Email: zhuozhiyongde@126.com
@@ -4837,7 +4837,8 @@ div.container {
 }
 
 iframe {
-    min-height: 80vh;
+    min-height: 100vh;
+    height: fit-content;
 }
 
 }
@@ -4885,17 +4886,53 @@ body,
     border-radius: 5px;
     border: 1px solid var(--c-border);
 }
+.course-info__wrapper .course-info__footer {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 
 .course-info__wrapper .course-info__footer button {
     background: var(--c-button);
     border: none;
     color: var(--c-text);
+    margin-left: 0;
+}
+
+.course-info__wrapper .course-info__footer #injectDownloadUrlInput {
+    background: var(--c-button);
+    border: none;
+    color: var(--c-text);
+    padding: 10px 20px;
+    border-radius: 4px;
+    display: inline-block;
+    height: 34px;
+    line-height: 14px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border: none;
+    font-weight: bold;
+    border-image-width: 0;
+    width: 200px;
+    transition: 0.1s;
 }
 
 .course-info__wrapper .course-info__footer button:hover {
     background: var(--cyan-2);
     color: var(--cyan-6);
+}
+
+.course-info__wrapper .course-info__footer #injectDownloadUrlInput:hover {
+    background: var(--cyan-2);
+    color: var(--cyan-6);
     font-weight: bold;
+    transition: 0.1s;
+}
+
+.course-info__wrapper .course-info__footer #injectDownloadUrlInput:hover::placeholder {
+    color: var(--cyan-6);
+    transition: 0.1s;
 }
 
 }
