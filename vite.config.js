@@ -13,7 +13,6 @@ export default defineConfig({
                 description: '给你一个足够好看的教学网。',
                 match: ['*://*.pku.edu.cn/*'],
                 'run-at': 'document-start',
-                grant:['GM.GET']
             },
         }),
     ],
