@@ -59,6 +59,11 @@
     background: var(--gray-1);
 }
 
+/* 录播表格限宽 */
+#containerdiv {
+    width: inherit;
+}
+
 /*感觉hover用不太到*/
 /*#listContainer_databody>tr:hover {*/
 /*	background: var(--c-hover);*/
