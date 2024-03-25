@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.3.36
-// @author       monkey
+// @version      2.3.37
+// @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
 // @icon         http://cdn.arthals.ink/Arthals-mcskin.png
