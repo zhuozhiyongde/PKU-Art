@@ -1,3 +1,37 @@
+import mainStyles from './css/main.css?inline';
+import arcoPaletteStyles from './css/arco-palette.css?inline';
+import iaaaOAuthPageStyles from './css/iaaaOAuthPage.css?inline';
+import courseLoginPageStyles from './css/courseLoginPage.css?inline';
+import courseHomePageStyles from './css/courseHomePage.css?inline';
+import courseContentStyles from './css/courseContent.css?inline';
+import courseAnnouncementStyles from './css/courseAnnouncement.css?inline';
+import courseClassinStyles from './css/courseClassin.css?inline';
+import courseBlankPageStyles from './css/courseBlankPage.css?inline';
+import courseVideolistStyles from './css/courseVideolist.css?inline';
+import courseOtherStyles from './css/courseOther.css?inline';
+import courseClassGradeStyles from './css/courseClassGrade.css?inline';
+import courseListContentStyles from './css/courseListContent.css?inline';
+import courseViewAttemptStyles from './css/courseViewAttempt.css?inline';
+import courseToolFrameStyles from './css/courseToolFrame.css?inline';
+import courseToolAlertStyles from './css/courseToolAlert.css?inline';
+import courseToolGradeStyles from './css/courseToolGrade.css?inline';
+import courseToolGradeClassStyles from './css/courseToolGradeClass.css?inline';
+import courseToolGradeItemStyles from './css/courseToolGradeItem.css?inline';
+import courseFileEmbedStyles from './css/courseFileEmbed.css?inline';
+import courseAssignmentUploadStyles from './css/courseAssignmentUpload.css?inline';
+import courseGlobalPageStyles from './css/courseGlobalPage.css?inline';
+import courseGlobalAnnouncementStyles from './css/courseGlobalAnnouncement.css?inline';
+import courseVideoPlayStyles from './css/courseVideoPlay.css?inline';
+import courseVideoPlayFrameStyles from './css/courseVideoPlayFrame.css?inline';
+import courseTaskStyles from './css/courseTask.css?inline';
+
+function injectStyles(styleString) {
+    const styleElement = document.createElement('style');
+    styleElement.textContent = styleString;
+    styleElement.className = 'PKU-Art';
+    document.head.appendChild(styleElement);
+}
+
 let htmlpath = location.href;
 
 // 限定全局样式生效路径
@@ -6,7 +40,7 @@ if (
         htmlpath
     )
 ) {
-    import('./css/main.css');
+    injectStyles(mainStyles);
     console.log('[PKU Art] main.css imported');
 }
 
@@ -16,20 +50,20 @@ if (
         htmlpath
     )
 ) {
-    import('./css/arco-palette.css');
+    injectStyles(arcoPaletteStyles);
     console.log('[PKU Art] arco-palette.css imported');
 }
 
 // iaaa登录界面
 if (/^https:\/\/iaaa\.pku\.edu\.cn\/\S*$/.test(htmlpath)) {
-    import('./css/iaaaOAuthPage.css');
+    injectStyles(iaaaOAuthPageStyles);
     console.log('[PKU Art] iaaaOAuthPage.css imported');
 }
 
 // 课程网首页
 // courseLoginPage
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/login\S*$|^https:\/\/course\.pku\.edu\.cn[\/]?$/.test(htmlpath)) {
-    import('./css/courseLoginPage.css');
+    injectStyles(courseLoginPageStyles);
     console.log('[PKU Art] courseLoginPage.css imported');
 }
 
@@ -38,21 +72,21 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/login\S*$|^https:\/\/course\.pku\
 if (
     /^https:\/\/course\.pku\.edu\.cn\/webapps\/?$|^https:\/\/course\.pku\.edu\.cn\/webapps\/portal\/\S*$/.test(htmlpath)
 ) {
-    import('./css/courseHomePage.css');
+    injectStyles(courseHomePageStyles);
     console.log('[PKU Art] courseHomePage.css imported');
 }
 
 // 课程页面框架
 // courseContent
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*$/.test(htmlpath)) {
-    import('./css/courseContent.css');
+    injectStyles(courseContentStyles);
     console.log('[PKU Art] courseContent.css imported');
 }
 
 // 课程通知界面
 // courseAnnouncement
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/blackboard\S*announcement\S*$/.test(htmlpath)) {
-    import('./css/courseAnnouncement.css');
+    injectStyles(courseAnnouncementStyles);
     console.log('[PKU Art] courseAnnouncement.css imported');
 }
 
@@ -60,7 +94,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/blackboard\S*announcement\S*$/.te
 // courseClassin
 // https://course.pku.edu.cn/webapps/bb-ClassIn-BBLEARN/classinCourseClass/getHomeClassList.do?course_id=_51512_1&page=1
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*classinCourseClass\S*$/.test(htmlpath)) {
-    import('./css/courseClassin.css');
+    injectStyles(courseClassinStyles);
     console.log('[PKU Art] courseClassin.css imported');
 }
 
@@ -68,49 +102,49 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*classinCourseClass\S*$/.test(htm
 // courseBlank
 // https://course.pku.edu.cn/webapps/blackboard/execute/content/blankPage?cmd=view&content_id=_940424_1&course_id=_51512_1
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*blankPage\S*$/.test(htmlpath)) {
-    import('./css/courseBlankPage.css');
+    injectStyles(courseBlankPageStyles);
     console.log('[PKU Art] courseBlankPage.css imported');
 }
 
 // 回放界面
 // courseVideolist
 if (/^https:\/\/course.pku.edu.cn\/webapps\S*videoList\S*$/.test(htmlpath)) {
-    import('./css/courseVideolist.css');
+    injectStyles(courseVideolistStyles);
     console.log('[PKU Art] courseVideolist.css imported');
 }
 
 // 其他个人成绩界面
 // courseOther
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*((discussionboard)|(groupContentList))\S*$/.test(htmlpath)) {
-    import('./css/courseOther.css');
+    injectStyles(courseOtherStyles);
     console.log('[PKU Art] courseOther.css imported');
 }
 
 // 个人成绩界面
 // courseClassGrade
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*myGrades\S*course_id\S*is_stream=false\S*$/.test(htmlpath)) {
-    import('./css/courseClassGrade.css');
+    injectStyles(courseClassGradeStyles);
     console.log('[PKU Art] courseClassGrade.css imported');
 }
 
 // 文件列表界面
 // courseListContent
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*listContent\S*$/.test(htmlpath)) {
-    import('./css/courseListContent.css');
+    injectStyles(courseListContentStyles);
     console.log('[PKU Art] courseListContent.css imported');
 }
 
 // 查看尝试界面
 // courseViewAttempt
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*viewAttempts\S*$/.test(htmlpath)) {
-    import('./css/courseViewAttempt.css');
+    injectStyles(courseViewAttemptStyles);
     console.log('[PKU Art] courseViewAttempt.css imported');
 }
 
 // 全局工具界面框架
 // courseToolFrame
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*toolId\S*$/.test(htmlpath)) {
-    import('./css/courseToolFrame.css');
+    injectStyles(courseToolFrameStyles);
     console.log('[PKU Art] courseToolFrame.css imported');
 }
 
@@ -118,7 +152,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*toolId\S*$/.test(htmlpath)) {
 // courseToolAlert
 // https://course.pku.edu.cn/webapps/bb-social-learning-bb_bb60/execute/mybb?cmd=display&toolId=AlertsOnMyBb_____AlertsTool
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*streamName=alerts\S*$/.test(htmlpath)) {
-    import('./css/courseToolAlert.css');
+    injectStyles(courseToolAlertStyles);
     console.log('[PKU Art] courseToolAlert.css imported');
 }
 
@@ -126,7 +160,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*stre
 // courseToolGrade
 // https://course.pku.edu.cn/webapps/bb-social-learning-bb_bb60/execute/mybb?cmd=display&toolId=MyGradesOnMyBb_____MyGradesTool
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*streamName=mygrades\S*$/.test(htmlpath)) {
-    import('./css/courseToolGrade.css');
+    injectStyles(courseToolGradeStyles);
     console.log('[PKU Art] courseToolGrade.css imported');
 }
 
@@ -134,7 +168,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*stre
 // courseToolGradeClass
 // https://course.pku.edu.cn/webapps/bb-mygrades-bb_bb60/myGrades?course_id=_64001_1&stream_name=mygrades
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*stream_name=mygrades$/.test(htmlpath)) {
-    import('./css/courseToolGradeClass.css');
+    injectStyles(courseToolGradeClassStyles);
     console.log('[PKU Art] courseToolGradeClass.css imported');
 }
 
@@ -146,7 +180,7 @@ if (
         htmlpath
     )
 ) {
-    import('./css/courseToolGradeItem.css');
+    injectStyles(courseToolGradeItemStyles);
     console.log('[PKU Art] courseToolGradeItem.css imported');
 }
 
@@ -154,7 +188,7 @@ if (
 // courseFileEmbed
 // https://course.pku.edu.cn/webapps/blackboard/execute/content/file?cmd=view&content_id=_836702_1&course_id=_64964_1
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*content\/file\?cmd=view\S*$/.test(htmlpath)) {
-    import('./css/courseFileEmbed.css');
+    injectStyles(courseFileEmbedStyles);
     console.log('[PKU Art] courseFileEmbed.css imported');
 }
 
@@ -166,7 +200,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*content\/file\?cmd=view\S*$/.t
 // courseAssignmentReview
 // https://course.pku.edu.cn/webapps/assignment/uploadAssignment?content_id=_862403_1&course_id=_64001_1&group_id=&mode=view#
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*assignment\/uploadAssignment\?\S*$/.test(htmlpath)) {
-    import('./css/courseAssignmentUpload.css');
+    injectStyles(courseAssignmentUploadStyles);
     console.log('[PKU Art] courseAssignmentUpload.css imported');
 }
 
@@ -179,7 +213,7 @@ if (
         htmlpath
     )
 ) {
-    import('./css/courseGlobalPage.css');
+    injectStyles(courseGlobalPageStyles);
     console.log('[PKU Art] courseGlobalPage.css imported');
 }
 
@@ -191,7 +225,7 @@ if (
         htmlpath
     )
 ) {
-    import('./css/courseGlobalAnnouncement.css');
+    injectStyles(courseGlobalAnnouncementStyles);
     console.log('[PKU Art] courseGlobalAnnouncement.css imported');
 }
 
@@ -199,7 +233,7 @@ if (
 // courseVideoPlay
 // https://course.pku.edu.cn/webapps/bb-streammedia-hqy-bb_bb60/playVideo.action?hqyCourseId=33467&hqySubId=776419&kcwybm=21222-012-01233170-0006166248-1
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*playVideo\S*$/.test(htmlpath)) {
-    import('./css/courseVideoPlay.css');
+    injectStyles(courseVideoPlayStyles);
     console.log('[PKU Art] courseVideoPlay.css imported');
 }
 
@@ -207,7 +241,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*playVideo\S*$/.test(htmlpath))
 // courseVideoPlayFrane
 // https://livingroomhqy.pku.edu.cn/player?course_id=33467&sub_id=776419
 if (/^https:\/\/onlineroomse\.pku\.edu\.cn\/player\?course_id\S*$/.test(htmlpath)) {
-    import('./css/courseVideoPlayFrame.css');
+    injectStyles(courseVideoPlayFrameStyles);
     console.log('[PKU Art] courseVideoPlayFrame.css imported');
 }
 
@@ -216,7 +250,7 @@ if (/^https:\/\/onlineroomse\.pku\.edu\.cn\/player\?course_id\S*$/.test(htmlpath
 // https://course.pku.edu.cn/webapps/blackboard/execute/taskView?course_id=&task_id=_563_1
 
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) {
-    import('./css/courseTask.css');
+    injectStyles(courseTaskStyles);
     console.log('[PKU Art] courseTask.css imported');
 }
 
@@ -313,84 +347,165 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
     if (!/^https:\/\/onlineroomse\.pku\.edu\.cn\/player\?course_id\S*$/.test(htmlpath)) return;
 
     console.log('[PKU Art] Injected directDownload() at ' + new Date().toLocaleString());
+
+    // 下载链接、课程名、录播时间
+    let downloadUrl = '';
+    let downloadJson = '';
+    let courseName = '';
+    let subTitle = '';
+    let lecturerName = '';
+    let hashFileName = '';
+    let fileName = '';
+
+    const originSend = XMLHttpRequest.prototype.send;
+
+    XMLHttpRequest.prototype.send = function () {
+        this.addEventListener('load', function () {
+            if (this.responseURL.includes('search-live-course-list')) {
+                downloadJson = JSON.parse(this.response);
+                console.log('[PKU Art] XHR 响应结果：\n', downloadJson);
+
+                courseName = downloadJson.list[0].title;
+                subTitle = downloadJson.list[0].sub_title;
+                lecturerName = downloadJson.list[0].lecturer_name;
+                fileName = `${courseName} - ${subTitle} - ${lecturerName}.mp4`;
+                let filmContent = JSON.parse(downloadJson.list[0].sub_content);
+                hashFileName = filmContent.download_url;
+                /* "Y:\video\vod\httpDownload\Source\2024\03\21\986F1B043E520C8B7E0D915D54C8E39F.mp4" */
+                // 解析出文件名
+                hashFileName = hashFileName.split('\\').pop();
+                let is_m3u8 = filmContent.save_playback.is_m3u8;
+                let trueDownloadUrl = '';
+                if (is_m3u8 == 'yes') {
+                    let m3u8 = filmContent.save_playback.contents;
+                    let m3u8Pattern =
+                        /https:\/\/resourcese\.pku\.edu\.cn\/play\/0\/harpocrates\/\d+\/\d+\/\d+\/([a-zA-Z0-9]+)\/0\/playlist.m3u8?.*/;
+                    let hash = m3u8.match(m3u8Pattern)[1];
+                    trueDownloadUrl = `https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=${hash}`;
+                    console.log(trueDownloadUrl);
+                } else {
+                    trueDownloadUrl = filmContent.save_playback.contents;
+                }
+                downloadUrl = trueDownloadUrl;
+                console.log('[PKU Art] 下载链接解析成功：\n', downloadUrl);
+                console.log('[PKU Art] XHR 响应结果：\n', this.response);
+            }
+        });
+        originSend.apply(this, arguments);
+    };
+
     // 等待页面加载完成
     await new Promise((resolve) => {
         const checkExist = setInterval(() => {
-            let downloadApp = document.querySelector(
+            let downloadButton = document.querySelector(
                 '#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(1)'
             );
-            if (downloadApp) {
+            if (downloadButton && downloadJson) {
+                console.log('[PKU Art] 页面加载完成，下载链接解析成功\n', downloadJson);
                 clearInterval(checkExist);
                 resolve();
             }
         }, 100); // 每100毫秒检查一次
     });
 
-    let downloadApp = document.querySelector(
+    let downloadButton = document.querySelector(
         '#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(1)'
     );
-
-    // 获取特定的按钮
-    let downloadUrlButton = document.querySelector(
-        '#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(2)'
+    let replayTite = document.querySelector(
+        '#app > div.container > div > div > div.course-info__wrap > div.course-info__header > span'
     );
+    // 修改 replayTtile 的内容
+    replayTite.innerText = `${courseName} - ${subTitle} - ${lecturerName}`;
 
-    // 修改 downloadApp > span 的内容
-    downloadApp.children[1].innerText = '下载视频';
-    // 移除 downloadApp 的所有 onclick 的 eventListener
-    downloadApp.replaceWith(downloadApp.cloneNode(true));
-
-    // 在 downloadUrlButton 的后面添加一个文本框
-    let downloadUrlInput = document.createElement('input');
-    downloadUrlInput.setAttribute('type', 'text');
-    downloadUrlInput.setAttribute('id', 'injectDownloadUrlInput');
-    downloadUrlInput.setAttribute('class', 'PKU-Art');
-    downloadUrlInput.setAttribute('placeholder', '请填入复制的下载链接...');
-    // 移动到 downloadUrlButton 的后面
-    downloadUrlButton.parentNode.insertBefore(downloadUrlInput, downloadUrlButton.nextSibling);
-
-    console.log('Injected downloadUrlInput');
-
-    // 重新获取 downloadApp
-    downloadApp = document.querySelector(
+    // 修改 downloadButton > span 的内容
+    downloadButton.children[1].innerText = '下载视频';
+    // 移除 downloadButton 的所有 onclick 的 eventListener
+    downloadButton.replaceWith(downloadButton.cloneNode(true));
+    // 重新获取 downloadButton
+    downloadButton = document.querySelector(
         '#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(1)'
     );
+    let downloadArea = document.querySelector('#app > div.container > div > div > div.course-info__wrap');
+
+    let downloadAreaFooter = document.querySelector(
+        '#app > div.container > div > div > div.course-info__wrap > div.course-info__footer'
+    );
+
+    // 添加是否选择重命名的开关
+    const downloadSwitchArea = document.createElement('div');
+    downloadSwitchArea.id = 'injectDownloadSwitchArea';
+    downloadSwitchArea.className = 'PKU-Art';
+    downloadSwitchArea.innerHTML = `
+    <input type="checkbox" id="injectDownloadSwitch" class="PKU-Art" checked>
+    <span  id="injectDownloadSwitchDesc" class="PKU-Art"> 是否重命名文件，如果开启，下载时会消耗 1~2 G 内存/节课程 </span>
+    `;
+    if (navigator.userAgent.indexOf('Safari') > -1 && !(navigator.userAgent.indexOf('Chrome') > -1)) {
+        downloadSwitchArea.innerHTML = `
+    <input type="checkbox" id="injectDownloadSwitch" class="PKU-Art" disabled>
+    <span  id="injectDownloadSwitchDesc" class="PKU-Art"> 是否重命名文件，Safari 暂不支持此功能 </span>`;
+    }
+
+    downloadAreaFooter.appendChild(downloadSwitchArea);
+
     // 添加一个点击事件
-    downloadApp.addEventListener('click', () => {
-        let downloadUrl = document.querySelector('#injectDownloadUrlInput').value;
-        // https://resourcese.pku.edu.cn/play/0/harpocrates/2024/03/04/0be82eb1dc7448c09eabcb6f31a8efea/0/playlist.m3u8?title=人工智能基础&sub_title=2024-03-04第5-6节
-        // m3u8Pattern = /https://resourcese.pku.edu.cn/play/0/harpocrates/\d/\d*/\d*/([a-zA-Z0-9]+)/0/playlist.m3u8?.*/;
-        // https://resourcese.pku.edu.cn/play/0/harpocrates/2024/03/04/0be82eb1dc7448c09eabcb6f31a8efea/0/playlist.m3u8?title=人工智能基础&sub_title=2024-03-04第5-6节
-        let mp4Pattern = /http.+\.mp4\?.*/;
-        let m3u8Pattern =
-            /https:\/\/resourcese\.pku\.edu\.cn\/play\/0\/harpocrates\/\d+\/\d+\/\d+\/([a-zA-Z0-9]+)\/0\/playlist.m3u8?.*/;
-        if (mp4Pattern.test(downloadUrl)) {
-            // 直接下载
-            window.open(downloadUrl);
-            return;
-        }
-        if (!m3u8Pattern.test(downloadUrl)) {
-            alert('请填入正确的下载链接！');
-            return;
-        }
-        let hash = downloadUrl.match(m3u8Pattern)[1];
-        let trueDownloadUrl = `https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=${hash}`;
-        window.open(trueDownloadUrl);
-    });
+    downloadButton.addEventListener('click', async () => {
+        console.log(`[PKU Art] 已启动下载：\n文件名：${fileName}\n源地址：${downloadUrl}`);
 
-    downloadUrlButton.addEventListener('click', () => {
-        // 尝试每100ms查找 .course-info__footer_span_success，更改内容
-        let attempts = 0; // 尝试的次数
-        const maxAttempts = 10; // 最多尝试的次数
-        const intervalId = setInterval(() => {
-            const element = document.querySelector('.course-info__footer_span_success');
-            if (element) {
-                element.textContent = '复制成功，请在左侧输入栏输入下载链接'; // 这里替换成你想要的内容
-                clearInterval(intervalId); // 找到元素后清除定时器
-            } else if (attempts >= maxAttempts) {
-                clearInterval(intervalId); // 尝试次数超过限制也清除定时器
+        // 检查是否选择重命名
+        const downloadSwitch = document.getElementById('injectDownloadSwitch'); // 开关
+
+        let downloadInfo = `下载文件名：${fileName}\n下载地址：${downloadUrl}\n乱码文件名：${hashFileName}`;
+
+        if (!downloadSwitch.checked) {
+            downloadInfo = `下载文件名：${hashFileName}\n下载地址：${downloadUrl}\n正常文件名：${fileName}`;
+        }
+
+        // 先检查是否已经在下载，即检查是否存在 injectDownloadTip
+        if (document.getElementById('injectDownloadTip')) {
+            document.getElementById(
+                'injectDownloadTip'
+            ).innerText = `正在下载中，请勿重新启动/刷新页面\n${downloadInfo}`;
+            return;
+        }
+
+        const downloadTip = document.createElement('div');
+        downloadTip.id = 'injectDownloadTip';
+        downloadTip.className = 'PKU-Art';
+        downloadTip.innerText = `已在后台启动下载，请勿刷新页面\n${downloadInfo}`;
+        // 在 downloadArea 的最后一个元素之前插入 downloadTip
+        downloadArea.insertBefore(downloadTip, downloadArea.lastElementChild);
+
+        if (!downloadSwitch.checked) {
+            // 不重命名文件
+            window.open(downloadUrl, '_blank');
+        } else {
+            try {
+                GM_xmlhttpRequest({
+                    method: 'GET',
+                    url: downloadUrl,
+                    responseType: 'blob',
+                    onload: function (response) {
+                        const blob = response.response;
+                        const url = URL.createObjectURL(blob); // 为Blob对象创建一个临时URL
+                        const a = document.createElement('a'); // 创建一个a标签
+                        a.href = url;
+                        a.download = fileName;
+                        document.body.appendChild(a); // 将a标签添加到文档中
+                        a.click(); // 模拟点击a标签以触发下载
+                        document.body.removeChild(a); // 下载后移除a标签
+                        URL.revokeObjectURL(url); // 释放URL对象
+                        downloadTip.innerText = `已完成下载\n${downloadInfo}`;
+                    },
+                    onerror: function (err) {
+                        alert('下载失败，请重试');
+                    },
+                });
+            } catch {
+                window.open(downloadUrl, '_blank');
+                downloadInfo = `下载文件名：${hashFileName}\n下载地址：${downloadUrl}\n正常文件名：${fileName}`;
+                downloadTip.innerText = `已在后台启动下载，请勿刷新页面\n${downloadInfo}`;
+                alert('看上去你的浏览器（如 Safari）不支持自动重命名功能，已尝试使用新标签页下载');
             }
-            attempts++; // 增加尝试的次数
-        }, 100);
+        }
     });
 })();
