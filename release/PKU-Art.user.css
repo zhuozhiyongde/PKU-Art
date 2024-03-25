@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.35
+// @version      2.3.36
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -774,6 +774,11 @@ body > div > div > #login > form {
  * Blog: https://arthals.ink
  */
 
+/* 固定 body 作为 relative */
+body {
+    position: relative;
+}
+
 /* 隐藏不需要的模块 */
 .brandingImgWrap,
 #appTabList > tbody > tr :not(:first-child),
@@ -836,6 +841,12 @@ body > div > div > #login > form {
 }
 
 /* 重置导航栏布局 */
+#globalNavPageNavArea {
+    position: fixed;
+    width: 100%;
+    z-index: 30;
+}
+
 .tabWrapper-right,
 #globalNavPageNavArea,
 #topTabs {
@@ -867,7 +878,7 @@ body > div > div > #login > form {
 }
 
 .global-nav-bar-wrap {
-    position: absolute;
+    position: fixed;
     /* left: 90vw; */
     right: 20px;
     display: flex;
@@ -978,9 +989,12 @@ table.bouncer span:hover {
     /* margin-bottom: 1000px; */
     /* padding-bottom: 1000px; */
     margin: 0;
+    margin-top: 60px;
     background-color: var(--c-sidebar);
     border-right: 1px solid var(--c-border);
     width: min(25%, 300px) !important;
+    position: fixed;
+    height: 100%;
 }
 
 html #global-nav-bar-wrap {
@@ -1092,8 +1106,13 @@ html #global-nav-bar-wrap {
 
 /* 右侧卡片样式 */
 
+#column1 {
+    margin-left: calc(min(25%, 300px) + 1rem) !important;
+}
+
 #column1,
 #column2 {
+    margin-top: 60px;
     margin-left: 1em;
     height: fit-content;
 }
@@ -1119,6 +1138,7 @@ html #global-nav-bar-wrap {
     padding: 7px 10px !important;
     border-radius: 5px;
     margin-bottom: 0.25em;
+    position: relative;
 }
 
 .collapsible {
@@ -1255,6 +1275,7 @@ div.edit_controls > a:hover::before {
 
 /* 限制页面最低高度 */
 body {
+    position: relative;
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -1352,6 +1373,9 @@ body {
     background-size: auto 30px;
     background-position: 2em center;
     border-bottom: 1px solid var(--c-border);
+    position: fixed;
+    width: 100%;
+    z-index: 30;
 }
 
 .tabWrapper-right,
@@ -1360,7 +1384,7 @@ body {
 }
 
 .global-nav-bar-wrap {
-    position: absolute;
+    position: fixed;
     /* left: 90vw; */
     right: 20px;
     display: flex;
@@ -1437,7 +1461,8 @@ table.bouncer span:hover {
     box-sizing: border-box;
     height: 80px;
     margin-bottom: 1em;
-    z-index: 500;
+    margin-top: 60px;
+    z-index: 10;
     color: var(--c-title);
     background-color: var(--c-background);
     display: flex;
@@ -1496,6 +1521,8 @@ nav.navigationPane {
 /* 侧栏样式 */
 .locationPane nav {
     width: min(25%, 300px) !important;
+    position: fixed;
+    margin-top: 60px;
 }
 
 #menuWrap {
@@ -1633,6 +1660,8 @@ li.divider,
 }
 
 #contentPanel {
+    z-index: 10;
+    margin-top: 60px;
     margin-left: min(25%, 300px);
     /* -webkit-animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
     animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards; */
@@ -4431,6 +4460,10 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
  * Blog: https://arthals.ink
  */
 
+body {
+    position: relative;
+}
+
 .brandingImgWrap,
 #appTabList > tbody > tr :not(:first-child),
 .hideoff,
@@ -4505,6 +4538,7 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
 #globalNavPageNavArea {
     padding: 1em 0;
     height: 60px;
+    top: 0px !important;
     box-sizing: border-box;
     /* vertical-align: middle; */
     display: flex;
@@ -4517,6 +4551,9 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
     background-size: auto 30px;
     background-position: 2em center;
     border-bottom: 1px solid var(--c-border);
+    position: fixed;
+    width: 100%;
+    z-index: 20;
 }
 
 .tabWrapper-right,
@@ -4525,7 +4562,8 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
 }
 
 .global-nav-bar-wrap {
-    position: absolute;
+    position: fixed;
+    z-index: 30;
     /* left: 90vw; */
     right: 20px;
     display: flex;
@@ -4601,7 +4639,8 @@ table.bouncer span:hover {
     box-sizing: border-box;
     height: 80px;
     margin-bottom: 1em;
-    z-index: 500;
+    margin-top: 60px;
+    z-index: 10;
     color: var(--c-title);
     background-color: var(--c-background);
     display: flex;
@@ -4623,6 +4662,10 @@ table.bouncer span:hover {
 }
 
 /* 置高 */
+#globalNavPageContentArea {
+    margin-top: 60px;
+}
+
 #globalNavPageContentArea,
 #globalNavPageContentArea .locationPane,
 #contentPanel,
