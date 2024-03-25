@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite';
-import monkey from 'vite-plugin-monkey';
+import monkey, { util } from 'vite-plugin-monkey';
 import mkcert from 'vite-plugin-mkcert';
 import fs from 'fs';
 import dotenv from 'dotenv';
+import AutoImport from 'unplugin-auto-import/vite';
 
 const date = new Date().toLocaleDateString('zh-CN', {
     year: 'numeric',
@@ -16,6 +17,9 @@ const envConfig = dotenv.parse(fs.readFileSync('./version.env'));
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
+        AutoImport({
+            imports: [util.unimportPreset],
+        }),
         mkcert(),
         monkey({
             entry: 'src/main.js',
@@ -30,6 +34,7 @@ export default defineConfig({
                 version: envConfig.VERSION,
                 updateURL: 'https://cdn.arthals.ink/release/PKU-Art.user.js',
                 supportURL: 'https://github.com/zhuozhiyongde/PKU-Art/issues',
+                connect: ['pku.edu.cn'],
                 license: 'GPL-3.0 license',
                 author: 'Arthals',
                 $extra: {

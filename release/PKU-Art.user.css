@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.37
+// @version      2.3.38
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -53,6 +53,7 @@
     --i-link: url('https://cdn.arthals.ink/css/src/link.svg');
     --i-setting: url('https://cdn.arthals.ink/css/src/setting.svg');
     --i-check: url('https://cdn.arthals.ink/css/src/check.svg');
+    --i-check-simple: url('https://cdn.arthals.ink/css/src/check-simple.svg');
     --i-download: url('https://cdn.arthals.ink/css/src/download.svg');
 
     /* 不需要根据黑暗模式改编的变量 */
@@ -99,13 +100,14 @@
         --i-link: url('https://cdn.arthals.ink/css/src/link_dark.svg');
         --i-setting: url('https://cdn.arthals.ink/css/src/setting_dark.svg');
         --i-check: url('https://cdn.arthals.ink/css/src/check_dark.svg');
+        --i-check-simple: url('https://cdn.arthals.ink/css/src/check-simple_dark.svg');
         --i-download: url('https://cdn.arthals.ink/css/src/download_dark.svg');
     }
 }
 
 body,
 html {
-    background-color: var(--c-background);
+    background: var(--c-background) !important;
     /* animation: transparentToOpaque .5s ease-in-out; */
 }
 
@@ -185,6 +187,7 @@ html {
         opacity: 1;
     }
 }
+
 /* 定义滚动条的宽度和高度 */
 ::-webkit-scrollbar {
     width: 10px;
@@ -1150,6 +1153,7 @@ html #global-nav-bar-wrap {
 }
 
 .containerPortal > div:not(:first-child) .portlet .portletList-img > li > a {
+    display: block;
     color: var(--c-subtitle);
     font-size: 11pt;
 }
@@ -4969,6 +4973,32 @@ body,
     transition: 0.1s;
 }
 
+#injectDownloadSwitch {
+    display: none;
+}
+
+#injectDownloadSwitch:checked + label {
+    background-color: var(--c-button);
+    background-image: var(--i-check-simple);
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+label[for='injectDownloadSwitch'] {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: var(--c-button);
+    border: 1px solid var(--c-border);
+    border-radius: 4px;
+}
+
+label[for='injectDownloadSwitch']:before {
+    content: '';
+    transition: 0.1s;
+}
+
 #injectDownloadTip {
     background: var(--c-button);
     border: none;
@@ -4983,6 +5013,11 @@ body,
     width: fit-content;
     margin-top: 10px;
     margin-bottom: -10px;
+}
+
+#injectDownloadTip a {
+    color: var(--c-accent);
+    text-decoration: underline;
 }
 
 .course-info__wrapper .course-info__footer button:hover {
