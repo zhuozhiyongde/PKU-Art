@@ -31,6 +31,7 @@ export default defineConfig({
                 updateURL: 'https://cdn.arthals.ink/release/PKU-Art.user.js',
                 supportURL: 'https://github.com/zhuozhiyongde/PKU-Art/issues',
                 license: 'GPL-3.0 license',
+                author: 'Arthals',
                 $extra: {
                     'author-blog': 'https://arthals.ink',
                     date,
