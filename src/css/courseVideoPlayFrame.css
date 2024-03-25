@@ -88,10 +88,10 @@ body,
     box-sizing: border-box;
     border: none;
     font-weight: bold;
-    border-image-width: 0;
     transition: 0.1s;
     width: fit-content;
     margin-top: 10px;
+    margin-bottom: -10px;
 }
 
 .course-info__wrapper .course-info__footer button:hover {

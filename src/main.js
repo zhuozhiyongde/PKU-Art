@@ -454,10 +454,10 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
         // 检查是否选择重命名
         const downloadSwitch = document.getElementById('injectDownloadSwitch'); // 开关
 
-        let downloadInfo = `下载文件名：${fileName}\n下载地址：${downloadUrl}\n乱码文件名：${hashFileName}`;
+        let downloadInfo = `下载文件名：${fileName}\n乱码文件名：${hashFileName}\n下载地址：${downloadUrl}`;
 
         if (!downloadSwitch.checked) {
-            downloadInfo = `下载文件名：${hashFileName}\n下载地址：${downloadUrl}\n正常文件名：${fileName}`;
+            downloadInfo = `下载文件名：${hashFileName}\n正常文件名：${fileName}\n下载地址：${downloadUrl}`;
         }
 
         // 先检查是否已经在下载，即检查是否存在 injectDownloadTip
@@ -480,6 +480,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
             window.open(downloadUrl, '_blank');
         } else {
             try {
+                let lastPrintTime = 0; // 记录上次打印时间
                 GM_xmlhttpRequest({
                     method: 'GET',
                     url: downloadUrl,
@@ -498,6 +499,26 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
                     },
                     onerror: function (err) {
                         alert('下载失败，请重试');
+                    },
+                    onprogress: function (event) {
+                        const currentTime = Date.now(); // 获取当前时间
+                        if (event.lengthComputable && currentTime - lastPrintTime >= 100) {
+                            let percentComplete = (event.loaded / event.total) * 100;
+                            let currentProgress = percentComplete.toFixed(2);
+                            // 获取 downloadTip.innerText 并修改
+                            if (!downloadTip.innerText.includes('下载进度')) {
+                                downloadTip.innerText = downloadTip.innerText.replace(
+                                    /刷新页面/,
+                                    `刷新页面。下载进度：${currentProgress}%`
+                                );
+                            } else {
+                                downloadTip.innerText = downloadTip.innerText.replace(
+                                    /下载进度：.*%/,
+                                    `下载进度：${currentProgress}%`
+                                );
+                            }
+                            lastPrintTime = currentTime; // 更新上次打印时间
+                        }
                     },
                 });
             } catch {
