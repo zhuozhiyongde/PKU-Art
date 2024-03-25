@@ -39,6 +39,7 @@
     --i-link: url('https://cdn.arthals.ink/css/src/link.svg');
     --i-setting: url('https://cdn.arthals.ink/css/src/setting.svg');
     --i-check: url('https://cdn.arthals.ink/css/src/check.svg');
+    --i-check-simple: url('https://cdn.arthals.ink/css/src/check-simple.svg');
     --i-download: url('https://cdn.arthals.ink/css/src/download.svg');
 
     /* 不需要根据黑暗模式改编的变量 */
@@ -85,13 +86,14 @@
         --i-link: url('https://cdn.arthals.ink/css/src/link_dark.svg');
         --i-setting: url('https://cdn.arthals.ink/css/src/setting_dark.svg');
         --i-check: url('https://cdn.arthals.ink/css/src/check_dark.svg');
+        --i-check-simple: url('https://cdn.arthals.ink/css/src/check-simple_dark.svg');
         --i-download: url('https://cdn.arthals.ink/css/src/download_dark.svg');
     }
 }
 
 body,
 html {
-    background-color: var(--c-background);
+    background: var(--c-background) !important;
     /* animation: transparentToOpaque .5s ease-in-out; */
 }
 
@@ -171,6 +173,7 @@ html {
         opacity: 1;
     }
 }
+
 /* 定义滚动条的宽度和高度 */
 ::-webkit-scrollbar {
     width: 10px;

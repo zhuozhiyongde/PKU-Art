@@ -437,11 +437,13 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
     downloadSwitchArea.className = 'PKU-Art';
     downloadSwitchArea.innerHTML = `
     <input type="checkbox" id="injectDownloadSwitch" class="PKU-Art" checked>
-    <span  id="injectDownloadSwitchDesc" class="PKU-Art"> 是否重命名文件，如果开启，下载时会消耗 1~2 G 内存/节课程 </span>
+    <label for="injectDownloadSwitch"></label>
+    <span  id="injectDownloadSwitchDesc" class="PKU-Art"> 是否重命名文件</span>
     `;
     if (navigator.userAgent.indexOf('Safari') > -1 && !(navigator.userAgent.indexOf('Chrome') > -1)) {
         downloadSwitchArea.innerHTML = `
     <input type="checkbox" id="injectDownloadSwitch" class="PKU-Art" disabled>
+    <label for="injectDownloadSwitch"></label>
     <span  id="injectDownloadSwitchDesc" class="PKU-Art"> 是否重命名文件，Safari 暂不支持此功能 </span>`;
     }
 
@@ -454,24 +456,28 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
         // 检查是否选择重命名
         const downloadSwitch = document.getElementById('injectDownloadSwitch'); // 开关
 
-        let downloadInfo = `下载文件名：${fileName}\n乱码文件名：${hashFileName}\n下载地址：${downloadUrl}`;
+        let downloadInfo = `下载文件名：${fileName}<br/>乱码文件名：${hashFileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
 
         if (!downloadSwitch.checked) {
-            downloadInfo = `下载文件名：${hashFileName}\n正常文件名：${fileName}\n下载地址：${downloadUrl}`;
+            downloadInfo = `下载文件名：${hashFileName}<br/>正常文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
         }
 
         // 先检查是否已经在下载，即检查是否存在 injectDownloadTip
         if (document.getElementById('injectDownloadTip')) {
             document.getElementById(
                 'injectDownloadTip'
-            ).innerText = `正在下载中，请勿重新启动/刷新页面\n${downloadInfo}`;
+            ).innerHTML = `正在下载中，请勿重新启动/刷新页面<br/>${downloadInfo}`;
             return;
         }
 
         const downloadTip = document.createElement('div');
         downloadTip.id = 'injectDownloadTip';
         downloadTip.className = 'PKU-Art';
-        downloadTip.innerText = `已在后台启动下载，请勿刷新页面\n${downloadInfo}`;
+        if (!downloadSwitch.checked) {
+            downloadTip.innerHTML = `已在新窗口启动下载<br/>${downloadInfo}`;
+        } else {
+            downloadTip.innerHTML = `已在后台启动下载，请勿刷新页面<br/>${downloadInfo}`;
+        }
         // 在 downloadArea 的最后一个元素之前插入 downloadTip
         downloadArea.insertBefore(downloadTip, downloadArea.lastElementChild);
 
@@ -481,38 +487,28 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
         } else {
             try {
                 let lastPrintTime = 0; // 记录上次打印时间
-                GM_xmlhttpRequest({
-                    method: 'GET',
+                const download = GM_download({
                     url: downloadUrl,
-                    responseType: 'blob',
-                    onload: function (response) {
-                        const blob = response.response;
-                        const url = URL.createObjectURL(blob); // 为Blob对象创建一个临时URL
-                        const a = document.createElement('a'); // 创建一个a标签
-                        a.href = url;
-                        a.download = fileName;
-                        document.body.appendChild(a); // 将a标签添加到文档中
-                        a.click(); // 模拟点击a标签以触发下载
-                        document.body.removeChild(a); // 下载后移除a标签
-                        URL.revokeObjectURL(url); // 释放URL对象
-                        downloadTip.innerText = `已完成下载\n${downloadInfo}`;
-                    },
+                    name: fileName,
+                    saveAs: true,
                     onerror: function (err) {
                         alert('下载失败，请重试');
                     },
                     onprogress: function (event) {
+                        console.log(event);
+                        // {loaded: 216792, total: 1870859166}
                         const currentTime = Date.now(); // 获取当前时间
-                        if (event.lengthComputable && currentTime - lastPrintTime >= 100) {
+                        if (event.total && currentTime - lastPrintTime >= 100) {
                             let percentComplete = (event.loaded / event.total) * 100;
                             let currentProgress = percentComplete.toFixed(2);
                             // 获取 downloadTip.innerText 并修改
-                            if (!downloadTip.innerText.includes('下载进度')) {
-                                downloadTip.innerText = downloadTip.innerText.replace(
+                            if (!downloadTip.innerHTML.includes('下载进度')) {
+                                downloadTip.innerHTML = downloadTip.innerHTML.replace(
                                     /刷新页面/,
                                     `刷新页面。下载进度：${currentProgress}%`
                                 );
                             } else {
-                                downloadTip.innerText = downloadTip.innerText.replace(
+                                downloadTip.innerHTML = downloadTip.innerHTML.replace(
                                     /下载进度：.*%/,
                                     `下载进度：${currentProgress}%`
                                 );
@@ -520,11 +516,17 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
                             lastPrintTime = currentTime; // 更新上次打印时间
                         }
                     },
+                    onload: function () {
+                        downloadTip.innerHTML = `下载完成<br/>${downloadInfo}`;
+                    },
+                });
+                window.addEventListener('beforeunload', function (event) {
+                    download.abort(); // 取消下载
                 });
             } catch {
                 window.open(downloadUrl, '_blank');
-                downloadInfo = `下载文件名：${hashFileName}\n下载地址：${downloadUrl}\n正常文件名：${fileName}`;
-                downloadTip.innerText = `已在后台启动下载，请勿刷新页面\n${downloadInfo}`;
+                downloadInfo = `下载文件名：${hashFileName}<br/>正常文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
+                downloadTip.innerHTML = `已在新窗口启动下载<br/>${downloadInfo}`;
                 alert('看上去你的浏览器（如 Safari）不支持自动重命名功能，已尝试使用新标签页下载');
             }
         }

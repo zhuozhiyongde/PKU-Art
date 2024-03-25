@@ -78,6 +78,32 @@ body,
     transition: 0.1s;
 }
 
+#injectDownloadSwitch {
+    display: none;
+}
+
+#injectDownloadSwitch:checked + label {
+    background-color: var(--c-button);
+    background-image: var(--i-check-simple);
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+label[for='injectDownloadSwitch'] {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: var(--c-button);
+    border: 1px solid var(--c-border);
+    border-radius: 4px;
+}
+
+label[for='injectDownloadSwitch']:before {
+    content: '';
+    transition: 0.1s;
+}
+
 #injectDownloadTip {
     background: var(--c-button);
     border: none;
@@ -92,6 +118,11 @@ body,
     width: fit-content;
     margin-top: 10px;
     margin-bottom: -10px;
+}
+
+#injectDownloadTip a {
+    color: var(--c-accent);
+    text-decoration: underline;
 }
 
 .course-info__wrapper .course-info__footer button:hover {

@@ -383,6 +383,7 @@ html #global-nav-bar-wrap {
 }
 
 .containerPortal > div:not(:first-child) .portlet .portletList-img > li > a {
+    display: block;
     color: var(--c-subtitle);
     font-size: 11pt;
 }
