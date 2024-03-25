@@ -7,6 +7,10 @@
 @import 'arco-palette.css';
 @import 'main.css';
 
+body {
+    position: relative;
+}
+
 .brandingImgWrap,
 #appTabList > tbody > tr :not(:first-child),
 .hideoff,
@@ -81,6 +85,7 @@
 #globalNavPageNavArea {
     padding: 1em 0;
     height: 60px;
+    top: 0px !important;
     box-sizing: border-box;
     /* vertical-align: middle; */
     display: flex;
@@ -93,6 +98,9 @@
     background-size: auto 30px;
     background-position: 2em center;
     border-bottom: 1px solid var(--c-border);
+    position: fixed;
+    width: 100%;
+    z-index: 20;
 }
 
 .tabWrapper-right,
@@ -101,7 +109,8 @@
 }
 
 .global-nav-bar-wrap {
-    position: absolute;
+    position: fixed;
+    z-index: 30;
     /* left: 90vw; */
     right: 20px;
     display: flex;
@@ -177,7 +186,8 @@ table.bouncer span:hover {
     box-sizing: border-box;
     height: 80px;
     margin-bottom: 1em;
-    z-index: 500;
+    margin-top: 60px;
+    z-index: 10;
     color: var(--c-title);
     background-color: var(--c-background);
     display: flex;
@@ -199,6 +209,10 @@ table.bouncer span:hover {
 }
 
 /* 置高 */
+#globalNavPageContentArea {
+    margin-top: 60px;
+}
+
 #globalNavPageContentArea,
 #globalNavPageContentArea .locationPane,
 #contentPanel,

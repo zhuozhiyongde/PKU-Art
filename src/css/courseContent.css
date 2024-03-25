@@ -9,6 +9,7 @@
 
 /* 限制页面最低高度 */
 body {
+    position: relative;
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -106,6 +107,9 @@ body {
     background-size: auto 30px;
     background-position: 2em center;
     border-bottom: 1px solid var(--c-border);
+    position: fixed;
+    width: 100%;
+    z-index: 30;
 }
 
 .tabWrapper-right,
@@ -114,7 +118,7 @@ body {
 }
 
 .global-nav-bar-wrap {
-    position: absolute;
+    position: fixed;
     /* left: 90vw; */
     right: 20px;
     display: flex;
@@ -191,7 +195,8 @@ table.bouncer span:hover {
     box-sizing: border-box;
     height: 80px;
     margin-bottom: 1em;
-    z-index: 500;
+    margin-top: 60px;
+    z-index: 10;
     color: var(--c-title);
     background-color: var(--c-background);
     display: flex;
@@ -250,6 +255,8 @@ nav.navigationPane {
 /* 侧栏样式 */
 .locationPane nav {
     width: min(25%, 300px) !important;
+    position: fixed;
+    margin-top: 60px;
 }
 
 #menuWrap {
@@ -387,6 +394,8 @@ li.divider,
 }
 
 #contentPanel {
+    z-index: 10;
+    margin-top: 60px;
     margin-left: min(25%, 300px);
     /* -webkit-animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
     animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards; */

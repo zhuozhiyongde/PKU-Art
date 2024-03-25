@@ -7,6 +7,11 @@
 @import 'arco-palette.css';
 @import 'main.css';
 
+/* 固定 body 作为 relative */
+body {
+    position: relative;
+}
+
 /* 隐藏不需要的模块 */
 .brandingImgWrap,
 #appTabList > tbody > tr :not(:first-child),
@@ -69,6 +74,12 @@
 }
 
 /* 重置导航栏布局 */
+#globalNavPageNavArea {
+    position: fixed;
+    width: 100%;
+    z-index: 30;
+}
+
 .tabWrapper-right,
 #globalNavPageNavArea,
 #topTabs {
@@ -100,7 +111,7 @@
 }
 
 .global-nav-bar-wrap {
-    position: absolute;
+    position: fixed;
     /* left: 90vw; */
     right: 20px;
     display: flex;
@@ -211,9 +222,12 @@ table.bouncer span:hover {
     /* margin-bottom: 1000px; */
     /* padding-bottom: 1000px; */
     margin: 0;
+    margin-top: 60px;
     background-color: var(--c-sidebar);
     border-right: 1px solid var(--c-border);
     width: min(25%, 300px) !important;
+    position: fixed;
+    height: 100%;
 }
 
 html #global-nav-bar-wrap {
@@ -325,8 +339,13 @@ html #global-nav-bar-wrap {
 
 /* 右侧卡片样式 */
 
+#column1 {
+    margin-left: calc(min(25%, 300px) + 1rem) !important;
+}
+
 #column1,
 #column2 {
+    margin-top: 60px;
     margin-left: 1em;
     height: fit-content;
 }
@@ -352,6 +371,7 @@ html #global-nav-bar-wrap {
     padding: 7px 10px !important;
     border-radius: 5px;
     margin-bottom: 0.25em;
+    position: relative;
 }
 
 .collapsible {
