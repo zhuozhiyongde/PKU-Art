@@ -272,3 +272,14 @@ html,
     color: var(--c-text);
     font-family: sans-serif;
 }
+
+#grades_wrapper > div {
+    position: relative;
+}
+
+#grades_wrapper .itemStats {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    padding: 5px;
+}

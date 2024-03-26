@@ -81,3 +81,14 @@ html,
 .gradesByDate input[type='button']:hover {
     background: var(--cyan-2);
 }
+
+#grades_wrapper > div {
+    position: relative;
+}
+
+#grades_wrapper .itemStats {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    padding: 5px;
+}

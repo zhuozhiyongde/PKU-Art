@@ -33,9 +33,9 @@ function injectStyles(styleString) {
         document.head.appendChild(styleElement);
     } else {
         // 等待 head 加载完成
-        document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener('DOMContentLoaded', () => {
             document.head.appendChild(styleElement);
-        })
+        });
     }
 }
 
