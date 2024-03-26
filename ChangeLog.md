@@ -1,5 +1,9 @@
 # ChangeLog
 
+**2024.03.26 - v2.3.39**
+
+> merged #12，fixed [#9](https://github.com/zhuozhiyongde/PKU-Art/issues/9)
+
 **2024.03.25 - v2.3.38**
 
 > 让首页的课程 a 标签宽度范围大了一些，方便点击。

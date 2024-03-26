@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.38
+// @version      2.3.39
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.css
-// @date         2024/03/25
+// @date         2024/03/26
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/onlineroomse\\.pku\\.edu\\.cn\\/\\S*") {
     /*
@@ -2566,7 +2566,6 @@ li.divider,
     color: var(--c-text);
     font-family: sans-serif;
 }
-
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\S*listContent\\S*") {
     /*
@@ -3967,6 +3966,17 @@ html,
     font-family: sans-serif;
 }
 
+#grades_wrapper > div {
+    position: relative;
+}
+
+#grades_wrapper .itemStats {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    padding: 5px;
+}
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*course_id\\S*stream_name=mygrades_d\\S*gradable_item_id\\S*") {
     /*
@@ -4049,6 +4059,17 @@ html,
 
 .gradesByDate input[type='button']:hover {
     background: var(--cyan-2);
+}
+
+#grades_wrapper > div {
+    position: relative;
+}
+
+#grades_wrapper .itemStats {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    padding: 5px;
 }
 
 }
