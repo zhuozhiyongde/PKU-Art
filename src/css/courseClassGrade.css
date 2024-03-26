@@ -259,3 +259,13 @@
     color: var(--c-text);
     font-family: sans-serif;
 }
+
+#grades_wrapper .grade {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    flex-wrap: wrap;
+    max-height: 85px; /* 偷懒大法 */
+    padding: 0;
+}

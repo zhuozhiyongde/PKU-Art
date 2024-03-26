@@ -29,7 +29,14 @@ function injectStyles(styleString) {
     const styleElement = document.createElement('style');
     styleElement.textContent = styleString;
     styleElement.className = 'PKU-Art';
-    document.head.appendChild(styleElement);
+    if (document.head) {
+        document.head.appendChild(styleElement);
+    } else {
+        // 等待 head 加载完成
+        document.addEventListener("DOMContentLoaded", () => {
+            document.head.appendChild(styleElement);
+        })
+    }
 }
 
 let htmlpath = location.href;
