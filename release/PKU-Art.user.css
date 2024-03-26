@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.39
+// @version      2.3.40
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -2566,6 +2566,18 @@ li.divider,
     color: var(--c-text);
     font-family: sans-serif;
 }
+
+#grades_wrapper > div {
+    position: relative;
+}
+
+#grades_wrapper .itemStats {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    padding: 5px;
+}
+
 }
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\S*listContent\\S*") {
     /*

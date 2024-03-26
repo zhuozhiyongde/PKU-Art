@@ -1,5 +1,9 @@
 # ChangeLog
 
+**2024.03.26 - v2.3.40**
+
+> 将上一个版本的修复复制到了 `courseClassGrade` 页面，修复了这个页面的样式问题。
+
 **2024.03.26 - v2.3.39**
 
 > merged #12，fixed [#9](https://github.com/zhuozhiyongde/PKU-Art/issues/9)
