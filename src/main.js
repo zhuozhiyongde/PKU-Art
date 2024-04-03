@@ -386,7 +386,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
                 if (is_m3u8 == 'yes') {
                     let m3u8 = filmContent.save_playback.contents;
                     let m3u8Pattern =
-                        /https:\/\/resourcese\.pku\.edu\.cn\/play\/0\/harpocrates\/\d+\/\d+\/\d+\/([a-zA-Z0-9]+)\/0\/playlist.m3u8?.*/;
+                        /https:\/\/resourcese\.pku\.edu\.cn\/play\/0\/harpocrates\/\d+\/\d+\/\d+\/([a-zA-Z0-9]+)(\/.+)\/playlist\.m3u8.*/;
                     let hash = m3u8.match(m3u8Pattern)[1];
                     trueDownloadUrl = `https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=${hash}`;
                     console.log(trueDownloadUrl);

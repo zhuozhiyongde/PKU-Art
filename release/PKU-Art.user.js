@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.3.41
+// @version      2.3.42
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -14,7 +14,7 @@
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2024/04/03
+// @date         2024/04/04
 // ==/UserScript==
 
 (function () {
@@ -275,7 +275,7 @@
           let trueDownloadUrl = "";
           if (is_m3u8 == "yes") {
             let m3u8 = filmContent.save_playback.contents;
-            let m3u8Pattern = /https:\/\/resourcese\.pku\.edu\.cn\/play\/0\/harpocrates\/\d+\/\d+\/\d+\/([a-zA-Z0-9]+)\/0\/playlist.m3u8?.*/;
+            let m3u8Pattern = /https:\/\/resourcese\.pku\.edu\.cn\/play\/0\/harpocrates\/\d+\/\d+\/\d+\/([a-zA-Z0-9]+)(\/.+)\/playlist\.m3u8.*/;
             let hash = m3u8.match(m3u8Pattern)[1];
             trueDownloadUrl = `https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=${hash}`;
             console.log(trueDownloadUrl);
