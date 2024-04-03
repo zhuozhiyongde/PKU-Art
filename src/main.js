@@ -502,7 +502,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
                         alert('下载失败，请重试');
                     },
                     onprogress: function (event) {
-                        console.log(event);
+                        // console.log(event);
                         // {loaded: 216792, total: 1870859166}
                         const currentTime = Date.now(); // 获取当前时间
                         if (event.total && currentTime - lastPrintTime >= 100) {

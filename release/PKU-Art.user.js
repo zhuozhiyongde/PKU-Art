@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.3.40
+// @version      2.3.41
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -14,7 +14,7 @@
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2024/03/26
+// @date         2024/04/03
 // ==/UserScript==
 
 (function () {
@@ -369,7 +369,6 @@
               alert("下载失败，请重试");
             },
             onprogress: function(event) {
-              console.log(event);
               const currentTime = Date.now();
               if (event.total && currentTime - lastPrintTime >= 100) {
                 let percentComplete = event.loaded / event.total * 100;
