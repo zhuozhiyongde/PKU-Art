@@ -282,26 +282,39 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
 
 (function replaceIcon() {
     let htmlpath = location.href;
-    if (/^https:\/\/(course|autolab)\.pku\.edu\.cn\//.test(htmlpath)) {
+    if (/^https:\/\/(course|autolab|disk)\.pku\.edu\.cn\//.test(htmlpath)) {
         function executeReplaceIcon() {
             const icons = document.querySelectorAll('link[rel="icon" i], link[rel="shortcut icon" i]');
             if (icons.length > 0) {
-                // 替换第一个 ICON 的 URL
                 icons[0].href = 'https://cdn.arthals.ink/css/src/PKU.svg';
-                // 删除除第一个 ICON 之外的所有 ICON
                 for (let i = 1; i < icons.length; i++) {
                     icons[i].parentNode.removeChild(icons[i]);
                 }
             } else {
-                // 如果没有找到 ICON，创建一个新的 ICON
                 const newIcon = document.createElement('link');
                 newIcon.rel = 'SHORTCUT ICON';
                 newIcon.href = 'https://cdn.arthals.ink/css/src/PKU.svg';
                 document.head.appendChild(newIcon);
             }
         }
+
         executeReplaceIcon();
         document.addEventListener('DOMContentLoaded', executeReplaceIcon);
+
+        // 创建 MutationObserver 实例
+        const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                if (mutation.type === 'childList') {
+                    executeReplaceIcon();
+                }
+            });
+        });
+
+        // 配置观察选项
+        const config = { childList: true, subtree: true };
+
+        // 传递目标节点和观察选项
+        observer.observe(document.head, config);
     }
 })();
 

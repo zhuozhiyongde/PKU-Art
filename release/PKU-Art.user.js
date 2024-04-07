@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.3.42
+// @version      2.3.43
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -14,7 +14,7 @@
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2024/04/04
+// @date         2024/04/07
 // ==/UserScript==
 
 (function () {
@@ -191,7 +191,7 @@
   })();
   (function replaceIcon() {
     let htmlpath2 = location.href;
-    if (/^https:\/\/(course|autolab)\.pku\.edu\.cn\//.test(htmlpath2)) {
+    if (/^https:\/\/(course|autolab|disk)\.pku\.edu\.cn\//.test(htmlpath2)) {
       let executeReplaceIcon2 = function() {
         const icons = document.querySelectorAll('link[rel="icon" i], link[rel="shortcut icon" i]');
         if (icons.length > 0) {
@@ -208,6 +208,15 @@
       };
       executeReplaceIcon2();
       document.addEventListener("DOMContentLoaded", executeReplaceIcon2);
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === "childList") {
+            executeReplaceIcon2();
+          }
+        });
+      });
+      const config = { childList: true, subtree: true };
+      observer.observe(document.head, config);
     }
   })();
   (function deleteCourseSerial() {
