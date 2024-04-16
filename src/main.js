@@ -507,6 +507,11 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
         } else {
             try {
                 let lastPrintTime = 0; // 记录上次打印时间
+                let bytesDownloadedInLast100ms = 0; // 记录最近100毫秒内下载的字节数
+                let lastBytesLoaded = 0; // 记录上次下载的字节数
+                let averageSpeed = 0; // 平均下载速度
+                const SMOOTHING_FACTOR = 0.02; // 平滑因子
+
                 const download = GM_download({
                     url: downloadUrl,
                     name: fileName,
@@ -515,25 +520,37 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
                         alert('下载失败，请重试');
                     },
                     onprogress: function (event) {
-                        // console.log(event);
-                        // {loaded: 216792, total: 1870859166}
                         const currentTime = Date.now(); // 获取当前时间
                         if (event.total && currentTime - lastPrintTime >= 100) {
                             let percentComplete = (event.loaded / event.total) * 100;
                             let currentProgress = percentComplete.toFixed(2);
-                            // 获取 downloadTip.innerText 并修改
+
+                            // 计算最近100毫秒内的下载速度
+                            bytesDownloadedInLast100ms = event.loaded - lastBytesLoaded;
+                            let lastSpeed = bytesDownloadedInLast100ms / (currentTime - lastPrintTime); // 字节/毫秒
+
+                            // 使用指数平滑来计算平均下载速度
+                            averageSpeed = SMOOTHING_FACTOR * lastSpeed + (1 - SMOOTHING_FACTOR) * averageSpeed;
+
+                            // 使用平均下载速度预测剩余的下载时间
+                            let bytesRemaining = event.total - event.loaded;
+                            let estimatedTimeRemaining = bytesRemaining / averageSpeed; // 毫秒
+                            let estimatedTimeRemainingSeconds = Math.round(estimatedTimeRemaining / 1000); // 将毫秒转换为秒
+
+                            // 更新下载提示
                             if (!downloadTip.innerHTML.includes('下载进度')) {
                                 downloadTip.innerHTML = downloadTip.innerHTML.replace(
                                     /刷新页面/,
-                                    `刷新页面。下载进度：${currentProgress}%`
+                                    `刷新页面。下载进度：${currentProgress}%，预计剩余时间：${estimatedTimeRemainingSeconds}秒`
                                 );
                             } else {
                                 downloadTip.innerHTML = downloadTip.innerHTML.replace(
-                                    /下载进度：.*%/,
-                                    `下载进度：${currentProgress}%`
+                                    /下载进度：.*$/,
+                                    `下载进度：${currentProgress}%，预计剩余时间：${estimatedTimeRemainingSeconds}秒`
                                 );
                             }
                             lastPrintTime = currentTime; // 更新上次打印时间
+                            lastBytesLoaded = event.loaded; // 更新上次下载的字节数
                         }
                     },
                     onload: function () {
