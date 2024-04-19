@@ -381,10 +381,9 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
 
     XMLHttpRequest.prototype.send = function () {
         this.addEventListener('load', function () {
-            if (this.responseURL.includes('search-live-course-list')) {
+            if (this.responseURL.includes('get-sub-info-by-auth-data')) {
                 downloadJson = JSON.parse(this.response);
                 console.log('[PKU Art] XHR 响应结果：\n', downloadJson);
-
                 courseName = downloadJson.list[0].title;
                 subTitle = downloadJson.list[0].sub_title;
                 lecturerName = downloadJson.list[0].lecturer_name;

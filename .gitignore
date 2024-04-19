@@ -27,3 +27,4 @@ dist-ssr
 *.sw?
 
 update-cdn.py
+test

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.3.43
+// @version      2.3.44
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -14,7 +14,7 @@
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2024/04/07
+// @date         2024/04/19
 // ==/UserScript==
 
 (function () {
@@ -270,7 +270,7 @@
     const originSend = XMLHttpRequest.prototype.send;
     XMLHttpRequest.prototype.send = function() {
       this.addEventListener("load", function() {
-        if (this.responseURL.includes("search-live-course-list")) {
+        if (this.responseURL.includes("get-sub-info-by-auth-data")) {
           downloadJson = JSON.parse(this.response);
           console.log("[PKU Art] XHR 响应结果：\n", downloadJson);
           courseName = downloadJson.list[0].title;
