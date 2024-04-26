@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.3.44
+// @version      2.3.45
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -14,7 +14,7 @@
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2024/04/19
+// @date         2024/04/27
 // ==/UserScript==
 
 (function () {
@@ -370,6 +370,10 @@
       } else {
         try {
           let lastPrintTime = 0;
+          let bytesDownloadedInLast100ms = 0;
+          let lastBytesLoaded = 0;
+          let averageSpeed = 0;
+          const SMOOTHING_FACTOR = 0.02;
           const download = _GM_download({
             url: downloadUrl,
             name: fileName,
@@ -382,18 +386,25 @@
               if (event.total && currentTime - lastPrintTime >= 100) {
                 let percentComplete = event.loaded / event.total * 100;
                 let currentProgress = percentComplete.toFixed(2);
+                bytesDownloadedInLast100ms = event.loaded - lastBytesLoaded;
+                let lastSpeed = bytesDownloadedInLast100ms / (currentTime - lastPrintTime);
+                averageSpeed = SMOOTHING_FACTOR * lastSpeed + (1 - SMOOTHING_FACTOR) * averageSpeed;
+                let bytesRemaining = event.total - event.loaded;
+                let estimatedTimeRemaining = bytesRemaining / averageSpeed;
+                let estimatedTimeRemainingSeconds = Math.round(estimatedTimeRemaining / 1e3);
                 if (!downloadTip.innerHTML.includes("下载进度")) {
                   downloadTip.innerHTML = downloadTip.innerHTML.replace(
                     /刷新页面/,
-                    `刷新页面。下载进度：${currentProgress}%`
+                    `刷新页面。下载进度：${currentProgress}%，预计剩余时间：${estimatedTimeRemainingSeconds}秒`
                   );
                 } else {
                   downloadTip.innerHTML = downloadTip.innerHTML.replace(
-                    /下载进度：.*%/,
-                    `下载进度：${currentProgress}%`
+                    /下载进度：.*秒/,
+                    `下载进度：${currentProgress}%，预计剩余时间：${estimatedTimeRemainingSeconds}秒`
                   );
                 }
                 lastPrintTime = currentTime;
+                lastBytesLoaded = event.loaded;
               }
             },
             onload: function() {

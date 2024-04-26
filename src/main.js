@@ -544,7 +544,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
                                 );
                             } else {
                                 downloadTip.innerHTML = downloadTip.innerHTML.replace(
-                                    /下载进度：.*$/,
+                                    /下载进度：.*秒/,
                                     `下载进度：${currentProgress}%，预计剩余时间：${estimatedTimeRemainingSeconds}秒`
                                 );
                             }
