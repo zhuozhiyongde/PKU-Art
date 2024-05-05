@@ -11,7 +11,57 @@
 
 现在想想，两三天的时间换未来几年的视觉快感，也算是值辽！
 
-<img class="p-3" src="https://repobeats.axiom.co/api/embed/272266acd73adbfd5ec5fc97dbab3e7a9aab296c.svg"/>
+<div align="center">
+  <div>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="
+        https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark
+      "
+      width="800"
+      height="auto"
+    />
+    <img
+      alt="Activity Trends of zhuozhiyongde/PKU-Art - Last 28 days"
+      src="https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light"
+      width="800"
+      height="auto"
+    />
+  </div>&nbsp;
+  <div>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="
+        https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark
+      "
+      width="800"
+      height="auto"
+    />
+    <img
+      alt="Performance Stats of zhuozhiyongde/PKU-Art - Last 28 days"
+      src="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light"
+      width="800"
+      height="auto"
+    />
+  </div>&nbsp;
+  <div>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="
+        https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark
+      "
+      width="800"
+      height="auto"
+    />
+    <img
+      alt="Star History of zhuozhiyongde/PKU-Art"
+      src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light"
+      width="800"
+      height="auto"
+    />
+  </div>
+</div>
+
 
 ## 效果
 
