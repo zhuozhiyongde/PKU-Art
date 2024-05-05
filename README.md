@@ -16,9 +16,7 @@
     <picture>
       <source
         media="(prefers-color-scheme: dark)"
-        srcset="
-          https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark
-        "
+        srcset="https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark"
         width="800"
         height="auto"
       />
@@ -35,9 +33,7 @@
     <picture>
       <source
         media="(prefers-color-scheme: dark)"
-        srcset="
-          https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark
-        "
+        srcset="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark"
         width="800"
         height="auto"
       />
@@ -54,9 +50,7 @@
     <picture>
       <source
         media="(prefers-color-scheme: dark)"
-        srcset="
-          https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark
-        "
+        srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark"
         width="800"
         height="auto"
       />
