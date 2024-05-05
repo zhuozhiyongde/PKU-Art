@@ -13,55 +13,62 @@
 
 <div align="center">
   <div>
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="
-        https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark
-      "
-      width="800"
-      height="auto"
-    />
-    <img
-      alt="Activity Trends of zhuozhiyongde/PKU-Art - Last 28 days"
-      src="https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light"
-      width="800"
-      height="auto"
-    />
-  </div>&nbsp;
+    <picture>
+      <source
+        media="(prefers-color-scheme: dark)"
+        srcset="
+          https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark
+        "
+        width="800"
+        height="auto"
+      />
+      <img
+        alt="Activity Trends of zhuozhiyongde/PKU-Art - Last 28 days"
+        src="https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light"
+        width="800"
+        height="auto"
+      />
+    </picture>
+  </div>
+  &nbsp;
   <div>
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="
-        https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark
-      "
-      width="800"
-      height="auto"
-    />
-    <img
-      alt="Performance Stats of zhuozhiyongde/PKU-Art - Last 28 days"
-      src="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light"
-      width="800"
-      height="auto"
-    />
-  </div>&nbsp;
+    <picture>
+      <source
+        media="(prefers-color-scheme: dark)"
+        srcset="
+          https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark
+        "
+        width="800"
+        height="auto"
+      />
+      <img
+        alt="Performance Stats of zhuozhiyongde/PKU-Art - Last 28 days"
+        src="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light"
+        width="800"
+        height="auto"
+      />
+    </picture>
+  </div>
+  &nbsp;
   <div>
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="
-        https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark
-      "
-      width="800"
-      height="auto"
-    />
-    <img
-      alt="Star History of zhuozhiyongde/PKU-Art"
-      src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light"
-      width="800"
-      height="auto"
-    />
+    <picture>
+      <source
+        media="(prefers-color-scheme: dark)"
+        srcset="
+          https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark
+        "
+        width="800"
+        height="auto"
+      />
+      <img
+        alt="Star History of zhuozhiyongde/PKU-Art"
+        src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light"
+        width="800"
+        height="auto"
+      />
+    </picture>
   </div>
 </div>
-
 
 ## 效果
 
@@ -97,17 +104,19 @@ PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新
 
 PKU Art 目前支持 CSS 安装与 JavaScript 安装两种安装方式，兼容 Safari 与 Chrome (Edge/Arc) 两大浏览器。两种安装方式都需要借助浏览器插件，同时，JavaScript 安装会包含一些 CSS 无法实现的功能（如首页自动隐去课程号等），所以建议大家选择 JavaScript 安装方式。
 
-- [GreasyFork](https://greasyfork.org/zh-CN/scripts/436323-pku-art)
-  - Chrome/Edge/Arc 需安装浏览器插件 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-  - Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/userscripts/id1463298887)
+-   [GreasyFork](https://greasyfork.org/zh-CN/scripts/436323-pku-art)
 
-- [Stylish](https://userstyles.org/styles/220453/pku-art)
-  - Chrome/Edge/Arc 需安装浏览器插件 [xStyle](https://chrome.google.com/webstore/detail/xstyle/hncgkmhphmncjohllpoleelnibpmccpj)/[Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe)
-  - Safari 需安装浏览器插件 [Cascadea](https://apps.apple.com/cn/app/cascadea/id1432182561)（售价 18￥）
+    -   Chrome/Edge/Arc 需安装浏览器插件 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+    -   Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/userscripts/id1463298887)
 
-- [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.user.js)：同 GreasyFork。
-- [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.user.css)：同 Stylish。
-- [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases)：供备份、发布之用。
+-   [Stylish](https://userstyles.org/styles/220453/pku-art)
+
+    -   Chrome/Edge/Arc 需安装浏览器插件 [xStyle](https://chrome.google.com/webstore/detail/xstyle/hncgkmhphmncjohllpoleelnibpmccpj)/[Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe)
+    -   Safari 需安装浏览器插件 [Cascadea](https://apps.apple.com/cn/app/cascadea/id1432182561)（售价 18 ￥）
+
+-   [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.user.js)：同 GreasyFork。
+-   [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.user.css)：同 Stylish。
+-   [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases)：供备份、发布之用。
 
 更详细的安装指导，请参考文档：[PKU Art - Arthals' Docs](https://docs.arthals.ink/pku-art)
 
@@ -119,9 +128,7 @@ PKU Art 目前支持 CSS 安装与 JavaScript 安装两种安装方式，兼容 
 
 如果你喜欢这个样式，请不要吝啬点击 Star（树洞和 Github 的都可以！），这是对我最大的鼓励与肯定！
 
-
 ## 开发
-
 
 ### 项目地址
 
@@ -129,39 +136,37 @@ https://github.com/zhuozhiyongde/PKU-Art
 
 ### 本地开发
 
-* 克隆本项目：
+-   克隆本项目：
 
-  ```bash
-  git clone git@github.com:zhuozhiyongde/PKU-Art.git
-  ```
+    ```bash
+    git clone git@github.com:zhuozhiyongde/PKU-Art.git
+    ```
 
-* 进入工作目录后安装依赖：
+-   进入工作目录后安装依赖：
 
-  ```bash
-  npm install
-  ```
+    ```bash
+    npm install
+    ```
 
-* 启动 Vite 服务器以获得 HMR 热更新开发体验：
+-   启动 Vite 服务器以获得 HMR 热更新开发体验：
 
-  ```bash
-  npm run dev
-  ```
+    ```bash
+    npm run dev
+    ```
 
-* 编译，随后在本地预览：
+-   编译，随后在本地预览：
 
-  ```bash
-  npm run build
-  ```
+    ```bash
+    npm run build
+    ```
 
-  > 注：你需要首先将 `update-cdn-sample.py` 重命名为 `update-cdn.py`
-  >
+    > 注：你需要首先将 `update-cdn-sample.py` 重命名为 `update-cdn.py`
 
-* 而后，你就可以发起 Pull Request，我将在审核代码后更新 CDN。
+-   而后，你就可以发起 Pull Request，我将在审核代码后更新 CDN。
 
 ## 更新日志
 
 参见 [ChangeLog.md](https://github.com/zhuozhiyongde/PKU-Art/blob/main/ChangeLog.md)
-
 
 ## TO-DO
 
