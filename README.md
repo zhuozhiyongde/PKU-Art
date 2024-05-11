@@ -112,7 +112,7 @@ PKU Art 目前支持 CSS 安装与 JavaScript 安装两种安装方式，兼容 
 -   [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.user.css)：同 Stylish。
 -   [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases)：供备份、发布之用。
 
-更详细的安装指导，请参考文档：[PKU Art - Arthals' Docs](https://docs.arthals.ink/pku-art)
+更详细的安装指导，请参考文档：[PKU Art - Arthals' Docs](https://docs.arthals.ink/docs/pku-art)
 
 ## 使用须知
 
