@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.3.45
+// @version      2.3.46
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -14,7 +14,7 @@
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2024/04/27
+// @date         2024/06/06
 // ==/UserScript==
 
 (function () {
@@ -265,7 +265,6 @@
     let courseName = "";
     let subTitle = "";
     let lecturerName = "";
-    let hashFileName = "";
     let fileName = "";
     const originSend = XMLHttpRequest.prototype.send;
     XMLHttpRequest.prototype.send = function() {
@@ -278,8 +277,6 @@
           lecturerName = downloadJson.list[0].lecturer_name;
           fileName = `${courseName} - ${subTitle} - ${lecturerName}.mp4`;
           let filmContent = JSON.parse(downloadJson.list[0].sub_content);
-          hashFileName = filmContent.download_url;
-          hashFileName = hashFileName.split("\\").pop();
           let is_m3u8 = filmContent.save_playback.is_m3u8;
           let trueDownloadUrl = "";
           if (is_m3u8 == "yes") {
@@ -287,13 +284,12 @@
             let m3u8Pattern = /https:\/\/resourcese\.pku\.edu\.cn\/play\/0\/harpocrates\/\d+\/\d+\/\d+\/([a-zA-Z0-9]+)(\/.+)\/playlist\.m3u8.*/;
             let hash = m3u8.match(m3u8Pattern)[1];
             trueDownloadUrl = `https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=${hash}`;
-            console.log(trueDownloadUrl);
+            console.log("[PKU Art] m3u8 下载链接转换成功：\n", trueDownloadUrl);
           } else {
             trueDownloadUrl = filmContent.save_playback.contents;
           }
           downloadUrl = trueDownloadUrl;
           console.log("[PKU Art] 下载链接解析成功：\n", downloadUrl);
-          console.log("[PKU Art] XHR 响应结果：\n", this.response);
         }
       });
       originSend.apply(this, arguments);
@@ -346,9 +342,9 @@
 文件名：${fileName}
 源地址：${downloadUrl}`);
       const downloadSwitch = document.getElementById("injectDownloadSwitch");
-      let downloadInfo = `下载文件名：${fileName}<br/>乱码文件名：${hashFileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
+      let downloadInfo = `下载文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
       if (!downloadSwitch.checked) {
-        downloadInfo = `下载文件名：${hashFileName}<br/>正常文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
+        downloadInfo = `正常文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
       }
       if (document.getElementById("injectDownloadTip")) {
         document.getElementById(
