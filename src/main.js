@@ -374,7 +374,6 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
     let courseName = '';
     let subTitle = '';
     let lecturerName = '';
-    let hashFileName = '';
     let fileName = '';
 
     const originSend = XMLHttpRequest.prototype.send;
@@ -389,10 +388,6 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
                 lecturerName = downloadJson.list[0].lecturer_name;
                 fileName = `${courseName} - ${subTitle} - ${lecturerName}.mp4`;
                 let filmContent = JSON.parse(downloadJson.list[0].sub_content);
-                hashFileName = filmContent.download_url;
-                /* "Y:\video\vod\httpDownload\Source\2024\03\21\986F1B043E520C8B7E0D915D54C8E39F.mp4" */
-                // 解析出文件名
-                hashFileName = hashFileName.split('\\').pop();
                 let is_m3u8 = filmContent.save_playback.is_m3u8;
                 let trueDownloadUrl = '';
                 if (is_m3u8 == 'yes') {
@@ -401,13 +396,12 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
                         /https:\/\/resourcese\.pku\.edu\.cn\/play\/0\/harpocrates\/\d+\/\d+\/\d+\/([a-zA-Z0-9]+)(\/.+)\/playlist\.m3u8.*/;
                     let hash = m3u8.match(m3u8Pattern)[1];
                     trueDownloadUrl = `https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=${hash}`;
-                    console.log(trueDownloadUrl);
+                    console.log('[PKU Art] m3u8 下载链接转换成功：\n', trueDownloadUrl);
                 } else {
                     trueDownloadUrl = filmContent.save_playback.contents;
                 }
                 downloadUrl = trueDownloadUrl;
                 console.log('[PKU Art] 下载链接解析成功：\n', downloadUrl);
-                console.log('[PKU Art] XHR 响应结果：\n', this.response);
             }
         });
         originSend.apply(this, arguments);
@@ -475,10 +469,10 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
         // 检查是否选择重命名
         const downloadSwitch = document.getElementById('injectDownloadSwitch'); // 开关
 
-        let downloadInfo = `下载文件名：${fileName}<br/>乱码文件名：${hashFileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
+        let downloadInfo = `下载文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
 
         if (!downloadSwitch.checked) {
-            downloadInfo = `下载文件名：${hashFileName}<br/>正常文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
+            downloadInfo = `正常文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
         }
 
         // 先检查是否已经在下载，即检查是否存在 injectDownloadTip
