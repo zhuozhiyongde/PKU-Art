@@ -424,19 +424,26 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
     let downloadButton = document.querySelector(
         '#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(1)'
     );
-    let replayTite = document.querySelector(
+    let copyDownloadUrlButton = document.querySelector(
+        '#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(2)'
+    );
+    let replayTitle = document.querySelector(
         '#app > div.container > div > div > div.course-info__wrap > div.course-info__header > span'
     );
     // 修改 replayTtile 的内容
-    replayTite.innerText = `${courseName} - ${subTitle} - ${lecturerName}`;
+    replayTitle.innerText = `${courseName} - ${subTitle} - ${lecturerName}`;
 
     // 修改 downloadButton > span 的内容
     downloadButton.children[1].innerText = '下载视频';
     // 移除 downloadButton 的所有 onclick 的 eventListener
     downloadButton.replaceWith(downloadButton.cloneNode(true));
+    copyDownloadUrlButton.replaceWith(copyDownloadUrlButton.cloneNode(true));
     // 重新获取 downloadButton
     downloadButton = document.querySelector(
         '#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(1)'
+    );
+    copyDownloadUrlButton = document.querySelector(
+        '#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(2)'
     );
     let downloadArea = document.querySelector('#app > div.container > div > div > div.course-info__wrap');
 
@@ -560,5 +567,10 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
                 alert('看上去你的浏览器（如 Safari）不支持自动重命名功能，已尝试使用新标签页下载');
             }
         }
+    });
+    copyDownloadUrlButton.addEventListener('click', async () => {
+        console.log(`[PKU Art] 已复制下载链接：\n${downloadUrl}`);
+        GM_setClipboard(downloadUrl);
+        alert('下载链接已复制到剪贴板，但是因为存在鉴权，可能依旧无法使用 FDM 之类的工具下载，请在浏览器中打开后下载');
     });
 })();
