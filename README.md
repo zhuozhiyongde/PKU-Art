@@ -139,22 +139,20 @@ https://github.com/zhuozhiyongde/PKU-Art
 -   进入工作目录后安装依赖：
 
     ```bash
-    npm install
+    pnpm install
     ```
 
 -   启动 Vite 服务器以获得 HMR 热更新开发体验：
 
     ```bash
-    npm run dev
+    pnpm dev
     ```
 
 -   编译，随后在本地预览：
 
     ```bash
-    npm run build
+    pnpm build
     ```
-
-    > 注：你需要首先将 `update-cdn-sample.py` 重命名为 `update-cdn.py`
 
 -   而后，你就可以发起 Pull Request，我将在审核代码后更新 CDN。
 
