@@ -25,10 +25,13 @@ import courseVideoPlayStyles from './css/courseVideoPlay.css?inline';
 import courseVideoPlayFrameStyles from './css/courseVideoPlayFrame.css?inline';
 import courseTaskStyles from './css/courseTask.css?inline';
 
-function injectStyles(styleString) {
+function injectStyles(styleString, cssFileName) {
     const styleElement = document.createElement('style');
     styleElement.textContent = styleString;
+    styleElement.dataset.cssFileName = cssFileName;
+    styleElement.dataset.author = 'Arthals';
     styleElement.className = 'PKU-Art';
+
     if (document.head) {
         document.head.appendChild(styleElement);
     } else {
@@ -47,7 +50,7 @@ if (
         htmlpath
     )
 ) {
-    injectStyles(mainStyles);
+    injectStyles(mainStyles, 'main.css');
     console.log('[PKU Art] main.css imported');
 }
 
@@ -57,20 +60,20 @@ if (
         htmlpath
     )
 ) {
-    injectStyles(arcoPaletteStyles);
+    injectStyles(arcoPaletteStyles, 'arco-palette.css');
     console.log('[PKU Art] arco-palette.css imported');
 }
 
 // iaaa登录界面
 if (/^https:\/\/iaaa\.pku\.edu\.cn\/\S*$/.test(htmlpath)) {
-    injectStyles(iaaaOAuthPageStyles);
+    injectStyles(iaaaOAuthPageStyles, 'iaaaOAuthPage.css');
     console.log('[PKU Art] iaaaOAuthPage.css imported');
 }
 
 // 课程网首页
 // courseLoginPage
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/login\S*$|^https:\/\/course\.pku\.edu\.cn[\/]?$/.test(htmlpath)) {
-    injectStyles(courseLoginPageStyles);
+    injectStyles(courseLoginPageStyles, 'courseLoginPage.css');
     console.log('[PKU Art] courseLoginPage.css imported');
 }
 
@@ -79,21 +82,21 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/login\S*$|^https:\/\/course\.pku\
 if (
     /^https:\/\/course\.pku\.edu\.cn\/webapps\/?$|^https:\/\/course\.pku\.edu\.cn\/webapps\/portal\/\S*$/.test(htmlpath)
 ) {
-    injectStyles(courseHomePageStyles);
+    injectStyles(courseHomePageStyles, 'courseHomePage.css');
     console.log('[PKU Art] courseHomePage.css imported');
 }
 
 // 课程页面框架
 // courseContent
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*$/.test(htmlpath)) {
-    injectStyles(courseContentStyles);
+    injectStyles(courseContentStyles, 'courseContent.css');
     console.log('[PKU Art] courseContent.css imported');
 }
 
 // 课程通知界面
 // courseAnnouncement
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/blackboard\S*announcement\S*$/.test(htmlpath)) {
-    injectStyles(courseAnnouncementStyles);
+    injectStyles(courseAnnouncementStyles, 'courseAnnouncement.css');
     console.log('[PKU Art] courseAnnouncement.css imported');
 }
 
@@ -101,7 +104,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/blackboard\S*announcement\S*$/.te
 // courseClassin
 // https://course.pku.edu.cn/webapps/bb-ClassIn-BBLEARN/classinCourseClass/getHomeClassList.do?course_id=_51512_1&page=1
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*classinCourseClass\S*$/.test(htmlpath)) {
-    injectStyles(courseClassinStyles);
+    injectStyles(courseClassinStyles, 'courseClassin.css');
     console.log('[PKU Art] courseClassin.css imported');
 }
 
@@ -109,49 +112,49 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*classinCourseClass\S*$/.test(htm
 // courseBlank
 // https://course.pku.edu.cn/webapps/blackboard/execute/content/blankPage?cmd=view&content_id=_940424_1&course_id=_51512_1
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*blankPage\S*$/.test(htmlpath)) {
-    injectStyles(courseBlankPageStyles);
+    injectStyles(courseBlankPageStyles, 'courseBlankPage.css');
     console.log('[PKU Art] courseBlankPage.css imported');
 }
 
 // 回放界面
 // courseVideolist
 if (/^https:\/\/course.pku.edu.cn\/webapps\S*videoList\S*$/.test(htmlpath)) {
-    injectStyles(courseVideolistStyles);
+    injectStyles(courseVideolistStyles, 'courseVideolist.css');
     console.log('[PKU Art] courseVideolist.css imported');
 }
 
 // 其他个人成绩界面
 // courseOther
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*((discussionboard)|(groupContentList))\S*$/.test(htmlpath)) {
-    injectStyles(courseOtherStyles);
+    injectStyles(courseOtherStyles, 'courseOther.css');
     console.log('[PKU Art] courseOther.css imported');
 }
 
 // 个人成绩界面
 // courseClassGrade
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*myGrades\S*course_id\S*is_stream=false\S*$/.test(htmlpath)) {
-    injectStyles(courseClassGradeStyles);
+    injectStyles(courseClassGradeStyles, 'courseClassGrade.css');
     console.log('[PKU Art] courseClassGrade.css imported');
 }
 
 // 文件列表界面
 // courseListContent
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*listContent\S*$/.test(htmlpath)) {
-    injectStyles(courseListContentStyles);
+    injectStyles(courseListContentStyles, 'courseListContent.css');
     console.log('[PKU Art] courseListContent.css imported');
 }
 
 // 查看尝试界面
 // courseViewAttempt
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*viewAttempts\S*$/.test(htmlpath)) {
-    injectStyles(courseViewAttemptStyles);
+    injectStyles(courseViewAttemptStyles, 'courseViewAttempt.css');
     console.log('[PKU Art] courseViewAttempt.css imported');
 }
 
 // 全局工具界面框架
 // courseToolFrame
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*toolId\S*$/.test(htmlpath)) {
-    injectStyles(courseToolFrameStyles);
+    injectStyles(courseToolFrameStyles, 'courseToolFrame.css');
     console.log('[PKU Art] courseToolFrame.css imported');
 }
 
@@ -159,7 +162,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*toolId\S*$/.test(htmlpath)) {
 // courseToolAlert
 // https://course.pku.edu.cn/webapps/bb-social-learning-bb_bb60/execute/mybb?cmd=display&toolId=AlertsOnMyBb_____AlertsTool
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*streamName=alerts\S*$/.test(htmlpath)) {
-    injectStyles(courseToolAlertStyles);
+    injectStyles(courseToolAlertStyles, 'courseToolAlert.css');
     console.log('[PKU Art] courseToolAlert.css imported');
 }
 
@@ -167,7 +170,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*stre
 // courseToolGrade
 // https://course.pku.edu.cn/webapps/bb-social-learning-bb_bb60/execute/mybb?cmd=display&toolId=MyGradesOnMyBb_____MyGradesTool
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*streamName=mygrades\S*$/.test(htmlpath)) {
-    injectStyles(courseToolGradeStyles);
+    injectStyles(courseToolGradeStyles, 'courseToolGrade.css');
     console.log('[PKU Art] courseToolGrade.css imported');
 }
 
@@ -175,7 +178,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*stre
 // courseToolGradeClass
 // https://course.pku.edu.cn/webapps/bb-mygrades-bb_bb60/myGrades?course_id=_64001_1&stream_name=mygrades
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*stream_name=mygrades$/.test(htmlpath)) {
-    injectStyles(courseToolGradeClassStyles);
+    injectStyles(courseToolGradeClassStyles, 'courseToolGradeClass.css');
     console.log('[PKU Art] courseToolGradeClass.css imported');
 }
 
@@ -187,7 +190,7 @@ if (
         htmlpath
     )
 ) {
-    injectStyles(courseToolGradeItemStyles);
+    injectStyles(courseToolGradeItemStyles, 'courseToolGradeItem.css');
     console.log('[PKU Art] courseToolGradeItem.css imported');
 }
 
@@ -195,7 +198,7 @@ if (
 // courseFileEmbed
 // https://course.pku.edu.cn/webapps/blackboard/execute/content/file?cmd=view&content_id=_836702_1&course_id=_64964_1
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*content\/file\?cmd=view\S*$/.test(htmlpath)) {
-    injectStyles(courseFileEmbedStyles);
+    injectStyles(courseFileEmbedStyles, 'courseFileEmbed.css');
     console.log('[PKU Art] courseFileEmbed.css imported');
 }
 
@@ -207,7 +210,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*content\/file\?cmd=view\S*$/.t
 // courseAssignmentReview
 // https://course.pku.edu.cn/webapps/assignment/uploadAssignment?content_id=_862403_1&course_id=_64001_1&group_id=&mode=view#
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*assignment\/uploadAssignment\?\S*$/.test(htmlpath)) {
-    injectStyles(courseAssignmentUploadStyles);
+    injectStyles(courseAssignmentUploadStyles, 'courseAssignmentUpload.css');
     console.log('[PKU Art] courseAssignmentUpload.css imported');
 }
 
@@ -220,7 +223,7 @@ if (
         htmlpath
     )
 ) {
-    injectStyles(courseGlobalPageStyles);
+    injectStyles(courseGlobalPageStyles, 'courseGlobalPage.css');
     console.log('[PKU Art] courseGlobalPage.css imported');
 }
 
@@ -232,7 +235,7 @@ if (
         htmlpath
     )
 ) {
-    injectStyles(courseGlobalAnnouncementStyles);
+    injectStyles(courseGlobalAnnouncementStyles, 'courseGlobalAnnouncement.css');
     console.log('[PKU Art] courseGlobalAnnouncement.css imported');
 }
 
@@ -240,7 +243,7 @@ if (
 // courseVideoPlay
 // https://course.pku.edu.cn/webapps/bb-streammedia-hqy-bb_bb60/playVideo.action?hqyCourseId=33467&hqySubId=776419&kcwybm=21222-012-01233170-0006166248-1
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*playVideo\S*$/.test(htmlpath)) {
-    injectStyles(courseVideoPlayStyles);
+    injectStyles(courseVideoPlayStyles, 'courseVideoPlay.css');
     console.log('[PKU Art] courseVideoPlay.css imported');
 }
 
@@ -248,7 +251,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*playVideo\S*$/.test(htmlpath))
 // courseVideoPlayFrane
 // https://livingroomhqy.pku.edu.cn/player?course_id=33467&sub_id=776419
 if (/^https:\/\/onlineroomse\.pku\.edu\.cn\/player\?course_id\S*$/.test(htmlpath)) {
-    injectStyles(courseVideoPlayFrameStyles);
+    injectStyles(courseVideoPlayFrameStyles, 'courseVideoPlayFrame.css');
     console.log('[PKU Art] courseVideoPlayFrame.css imported');
 }
 
@@ -257,7 +260,7 @@ if (/^https:\/\/onlineroomse\.pku\.edu\.cn\/player\?course_id\S*$/.test(htmlpath
 // https://course.pku.edu.cn/webapps/blackboard/execute/taskView?course_id=&task_id=_563_1
 
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) {
-    injectStyles(courseTaskStyles);
+    injectStyles(courseTaskStyles, 'courseTask.css');
     console.log('[PKU Art] courseTask.css imported');
 }
 

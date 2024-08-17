@@ -12,6 +12,12 @@ ul#content_listContainer {
     background: var(--cyan-1);
 }
 
+ul#content_listContainer > li:hover {
+    background: var(--cyan-1);
+    border: none;
+    border-left: 6px solid var(--cyan-6);
+}
+
 ul#content_listContainer > li {
     border-left: 6px solid var(--cyan-6);
     border-top: none;
@@ -22,6 +28,8 @@ ul#content_listContainer > li {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: none;
+    margin: 0;
 }
 
 ul#content_listContainer > li > * {
