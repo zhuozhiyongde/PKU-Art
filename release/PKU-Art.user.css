@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.48
+// @version      2.3.49
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.css
-// @date         2024/08/18
+// @date         2024/09/17
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/onlineroomse\\.pku\\.edu\\.cn\\/\\S*") {
     /*
@@ -4980,7 +4980,9 @@ body,
     border: 1px solid var(--c-border);
 }
 .course-info__wrapper .course-info__footer {
-    display: inline-flex;
+    display: grid;
+    width: fit-content;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -4991,6 +4993,7 @@ body,
     border: none;
     color: var(--c-text);
     margin-left: 0;
+    height: 35px;
 }
 
 #injectDownloadSwitchArea {
@@ -5012,6 +5015,7 @@ body,
     font-weight: bold;
     border-image-width: 0;
     transition: 0.1s;
+    height: 35px !important;
 }
 
 #injectDownloadSwitch {
@@ -5053,7 +5057,10 @@ label[for='injectDownloadSwitch']:before {
     transition: 0.1s;
     width: fit-content;
     margin-top: 10px;
-    margin-bottom: -10px;
+    /* margin-bottom: -10px; */
+    line-height: 1.5rem;
+    grid-column: 1 / 4;
+    width: 100%;
 }
 
 #injectDownloadTip a {

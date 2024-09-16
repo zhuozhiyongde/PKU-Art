@@ -501,8 +501,8 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
         } else {
             downloadTip.innerHTML = `已在后台启动下载，请勿刷新页面<br/>${downloadInfo}`;
         }
-        // 在 downloadArea 的最后一个元素之前插入 downloadTip
-        downloadArea.insertBefore(downloadTip, downloadArea.lastElementChild);
+
+        downloadAreaFooter.insertBefore(downloadTip, downloadAreaFooter.firstElementChild);
 
         if (!downloadSwitch.checked) {
             // 不重命名文件
@@ -539,6 +539,10 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
                             let bytesRemaining = event.total - event.loaded;
                             let estimatedTimeRemaining = bytesRemaining / averageSpeed; // 毫秒
                             let estimatedTimeRemainingSeconds = Math.round(estimatedTimeRemaining / 1000); // 将毫秒转换为秒
+                            // 超过 2000 秒，则改为 +inf
+                            if (estimatedTimeRemainingSeconds > 9999) {
+                                estimatedTimeRemainingSeconds = 'inf';
+                            }
 
                             // 更新下载提示
                             if (!downloadTip.innerHTML.includes('下载进度')) {
