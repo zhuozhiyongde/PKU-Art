@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.3.49
+// @version      2.3.50
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -15,7 +15,7 @@
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2024/09/17
+// @date         2024/10/03
 // ==/UserScript==
 
 (function () {
@@ -178,6 +178,24 @@
     injectStyles(courseTaskStyles, "courseTask.css");
     console.log("[PKU Art] courseTask.css imported");
   }
+  (function logoNavigate() {
+    let htmlpath2 = location.href;
+    if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath2)) {
+      let executeLogoNavigate2 = function() {
+        const navArea = document.getElementById("globalNavPageNavArea");
+        if (navArea) {
+          navArea.addEventListener("click", function(event) {
+            const clickX = event.clientX - navArea.getBoundingClientRect().left;
+            if (clickX <= 150) {
+              window.location.href = "https://course.pku.edu.cn";
+            }
+          });
+        }
+      };
+      executeLogoNavigate2();
+      document.addEventListener("DOMContentLoaded", executeLogoNavigate2);
+    }
+  })();
   (function preventHideSidebar() {
     let htmlpath2 = location.href;
     if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath2)) {

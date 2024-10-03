@@ -265,6 +265,30 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
 }
 
 // Other IIFE
+(function logoNavigate() {
+    let htmlpath = location.href;
+    if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath)) {
+        function executeLogoNavigate() {
+            // console.log('[PKU Art] logoNavigate() has been used at ' + new Date().toLocaleString());
+            const navArea = document.getElementById('globalNavPageNavArea');
+            if (navArea) {
+                navArea.addEventListener('click', function (event) {
+                    // 获取点击位置相对于 #globalNavPageNavArea 的X坐标
+                    const clickX = event.clientX - navArea.getBoundingClientRect().left;
+
+                    // 判断点击是否在左侧150px区域内
+                    if (clickX <= 150) {
+                        // 导航到指定URL
+                        window.location.href = 'https://course.pku.edu.cn';
+                    }
+                });
+            }
+        }
+        executeLogoNavigate();
+        document.addEventListener('DOMContentLoaded', executeLogoNavigate);
+    }
+})();
+
 (function preventHideSidebar() {
     let htmlpath = location.href;
     if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath)) {
