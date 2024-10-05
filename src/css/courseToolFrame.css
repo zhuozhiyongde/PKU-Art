@@ -8,7 +8,7 @@
 @import 'main.css';
 
 .brandingImgWrap,
-#appTabList > tbody > tr :not(:first-child),
+#appTabList > tbody > tr,
 .hideoff,
 #quick_links_wrap,
 #global-avatar,
@@ -145,16 +145,6 @@ table.bouncer,
 .appTabs a:hover span,
 .appTabs a:focus span {
     border: none;
-}
-
-table.bouncer span {
-    color: var(--c-title);
-}
-
-table.bouncer a:hover,
-table.bouncer span:hover {
-    color: var(--c-accent);
-    text-decoration: none !important;
 }
 
 .topTabs .tabWrapper-right {

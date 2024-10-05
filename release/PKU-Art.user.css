@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.50
+// @version      2.3.51
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.css
-// @date         2024/10/03
+// @date         2024/10/06
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/onlineroomse\\.pku\\.edu\\.cn\\/\\S*") {
     /*
@@ -784,7 +784,7 @@ body {
 
 /* 隐藏不需要的模块 */
 .brandingImgWrap,
-#appTabList > tbody > tr :not(:first-child),
+#appTabList > tbody > tr,
 .hideoff,
 #quick_links_wrap,
 #global-avatar,
@@ -919,21 +919,6 @@ body {
 /* .nav-link {
 	transform: translateY(-50%);
 } */
-
-table.bouncer,
-.appTabs td.active,
-.appTabs a:hover span,
-.appTabs a:focus span {
-    border: none;
-}
-
-table.bouncer span {
-    color: var(--c-title);
-}
-
-table.bouncer span:hover {
-    color: var(--c-accent);
-}
 
 .topTabs .tabWrapper-right {
     height: fit-content;
@@ -1286,7 +1271,7 @@ body {
 }
 
 .brandingImgWrap,
-#appTabList > tbody > tr :not(:first-child),
+#appTabList > tbody > tr,
 .hideoff,
 #quick_links_wrap,
 #global-avatar,
@@ -1432,17 +1417,6 @@ table.bouncer,
 .appTabs a:hover span,
 .appTabs a:focus span {
     border: none;
-}
-
-table.bouncer span {
-    color: var(--c-title);
-    font-weight: bold;
-}
-
-table.bouncer a:hover,
-table.bouncer span:hover {
-    color: var(--c-accent);
-    text-decoration: none !important;
 }
 
 .topTabs .tabWrapper-right {
@@ -2831,7 +2805,7 @@ li.divider,
  */
 
 .brandingImgWrap,
-#appTabList > tbody > tr :not(:first-child),
+#appTabList > tbody > tr,
 .hideoff,
 #quick_links_wrap,
 #global-avatar,
@@ -2968,16 +2942,6 @@ table.bouncer,
 .appTabs a:hover span,
 .appTabs a:focus span {
     border: none;
-}
-
-table.bouncer span {
-    color: var(--c-title);
-}
-
-table.bouncer a:hover,
-table.bouncer span:hover {
-    color: var(--c-accent);
-    text-decoration: none !important;
 }
 
 .topTabs .tabWrapper-right {
@@ -4510,7 +4474,7 @@ body {
 }
 
 .brandingImgWrap,
-#appTabList > tbody > tr :not(:first-child),
+#appTabList > tbody > tr,
 .hideoff,
 #quick_links_wrap,
 #global-avatar,
@@ -4652,16 +4616,6 @@ table.bouncer,
 .appTabs a:hover span,
 .appTabs a:focus span {
     border: none;
-}
-
-table.bouncer span {
-    color: var(--c-title);
-}
-
-table.bouncer a:hover,
-table.bouncer span:hover {
-    color: var(--c-accent);
-    text-decoration: none !important;
 }
 
 .topTabs .tabWrapper-right {

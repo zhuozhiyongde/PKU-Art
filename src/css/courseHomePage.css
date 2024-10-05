@@ -14,7 +14,7 @@ body {
 
 /* 隐藏不需要的模块 */
 .brandingImgWrap,
-#appTabList > tbody > tr :not(:first-child),
+#appTabList > tbody > tr,
 .hideoff,
 #quick_links_wrap,
 #global-avatar,
@@ -149,21 +149,6 @@ body {
 /* .nav-link {
 	transform: translateY(-50%);
 } */
-
-table.bouncer,
-.appTabs td.active,
-.appTabs a:hover span,
-.appTabs a:focus span {
-    border: none;
-}
-
-table.bouncer span {
-    color: var(--c-title);
-}
-
-table.bouncer span:hover {
-    color: var(--c-accent);
-}
 
 .topTabs .tabWrapper-right {
     height: fit-content;
