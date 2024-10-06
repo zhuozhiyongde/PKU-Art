@@ -605,3 +605,29 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
         alert('下载链接已复制到剪贴板，但是因为存在鉴权，可能依旧无法使用 FDM 之类的工具下载，请在浏览器中打开后下载');
     });
 })();
+
+// Other IIFE
+(function replaceMore() {
+    let htmlpath = location.href;
+    if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath)) {
+        function executeReplaceMore() {
+            // 修改 #global-more-link > a 的 href 为 /webapps/bb-social-learning-BBLEARN/execute/mybb?cmd=display&toolId=MyGradesOnMyBb_____MyGradesTool
+            const moreLink = document.querySelector('#global-more-link > a');
+            if (moreLink) {
+                console.log('[PKU Art] replaceMore() has been used at ' + new Date().toLocaleString());
+                moreLink.href =
+                    '/webapps/bb-social-learning-BBLEARN/execute/mybb?cmd=display&toolId=MyGradesOnMyBb_____MyGradesTool';
+
+                clearInterval(intervalId);
+            }
+        }
+
+        // Set an interval to execute the function every 50ms
+        const intervalId = setInterval(executeReplaceMore, 50);
+
+        // Optionally, you can clear the interval once the desired change is detected
+        document.addEventListener('DOMContentLoaded', () => {
+            executeReplaceMore();
+        });
+    }
+})();

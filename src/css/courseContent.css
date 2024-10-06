@@ -322,7 +322,7 @@ li.divider,
 
 /* 侧栏选项 下划线 Hover样式覆盖 */
 #menuWrap > .menuWrap-inner a:hover,
-#menuWrap > .menuWrap-inner span:hover {
+#menuWrap > .menuWrap-inner span:not(.reorder):hover {
     color: var(--red-5) !important;
     text-decoration: none;
 }
@@ -332,13 +332,13 @@ li.divider,
 }
 
 /* 下划线动画 */
-#menuWrap span {
+#menuWrap a span {
     /* width: fit-content; */
     display: inline;
     position: relative;
 }
 
-#menuWrap span:after {
+#menuWrap a span:nth-child(1):after {
     content: '';
     color: transparent;
     visibility: visible !important;
@@ -356,7 +356,7 @@ li.divider,
     transition: width 350ms, left 350ms;
 }
 
-#menuWrap span:hover:after {
+#menuWrap a span:nth-child(1):hover:after {
     visibility: visible !important;
     left: 0;
     width: 100%;
@@ -497,6 +497,19 @@ li.divider,
     /* transition: 350ms opacity; */
 }
 
+#global-list-tools > .more-link > a {
+    border-radius: 5px;
+    background: var(--i-idcard);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#global-more-tools {
+    display: none !important;
+}
+
 .mybb-tools li a {
     opacity: 1;
     background-color: var(--c-card);
@@ -538,4 +551,19 @@ li.divider,
 /* 下拉小图标 */
 .pageTitle h1 + .contextMenuContainer {
     display: none !important;
+}
+
+/* 左侧边栏间距移除 .reorder for 助教页面 */
+/* #menuWrap span.reorder {
+    position: absolute;
+    display: inline !important;
+} */
+
+/* 我用不到这个编辑模式，移除 */
+/* .ineditmode div.listCm ul.courseMenu li:hover {
+    background-color: var(--c-background) !important;
+} */
+
+.ineditmode div.listCm ul.courseMenu li {
+    border: none !important;
 }

@@ -437,7 +437,8 @@ html #global-nav-bar-wrap {
 }
 
 #global-list-tools > .alerts > a:hover,
-#global-list-tools > .grades > a:hover {
+#global-list-tools > .grades > a:hover,
+#global-list-tools > .more-link a:hover{
     background-color: var(--c-hover);
 }
 
@@ -461,6 +462,19 @@ html #global-nav-bar-wrap {
     background-position: center center;
     margin: 0 auto;
     /* transition: 350ms opacity; */
+}
+
+#global-list-tools > .more-link > a {
+    border-radius: 5px;
+    background: var(--i-idcard);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#global-more-tools {
+    display: none !important;
 }
 
 .mybb-tools li a {

@@ -51,6 +51,7 @@
     --i-comment: url('https://cdn.arthals.ink/css/src/comment.svg');
     --i-clover: url('https://cdn.arthals.ink/css/src/clover.svg');
     --i-sandclock: url('https://cdn.arthals.ink/css/src/sandclock.svg');
+    /* --i-more: url('http://localhost:3000/more.svg'); */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -88,6 +89,7 @@
         --i-check: url('https://cdn.arthals.ink/css/src/check_dark.svg');
         --i-check-simple: url('https://cdn.arthals.ink/css/src/check-simple_dark.svg');
         --i-download: url('https://cdn.arthals.ink/css/src/download_dark.svg');
+        /* --i-more: url('http://localhost:3000/more_dark.svg'); */
     }
 }
 

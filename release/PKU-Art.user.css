@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.51
+// @version      2.3.52
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -65,6 +65,7 @@
     --i-comment: url('https://cdn.arthals.ink/css/src/comment.svg');
     --i-clover: url('https://cdn.arthals.ink/css/src/clover.svg');
     --i-sandclock: url('https://cdn.arthals.ink/css/src/sandclock.svg');
+    /* --i-more: url('http://localhost:3000/more.svg'); */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -102,6 +103,7 @@
         --i-check: url('https://cdn.arthals.ink/css/src/check_dark.svg');
         --i-check-simple: url('https://cdn.arthals.ink/css/src/check-simple_dark.svg');
         --i-download: url('https://cdn.arthals.ink/css/src/download_dark.svg');
+        /* --i-more: url('http://localhost:3000/more_dark.svg'); */
     }
 }
 
@@ -1207,7 +1209,8 @@ html #global-nav-bar-wrap {
 }
 
 #global-list-tools > .alerts > a:hover,
-#global-list-tools > .grades > a:hover {
+#global-list-tools > .grades > a:hover,
+#global-list-tools > .more-link a:hover{
     background-color: var(--c-hover);
 }
 
@@ -1231,6 +1234,19 @@ html #global-nav-bar-wrap {
     background-position: center center;
     margin: 0 auto;
     /* transition: 350ms opacity; */
+}
+
+#global-list-tools > .more-link > a {
+    border-radius: 5px;
+    background: var(--i-idcard);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#global-more-tools {
+    display: none !important;
 }
 
 .mybb-tools li a {
@@ -1577,7 +1593,7 @@ li.divider,
 
 /* 侧栏选项 下划线 Hover样式覆盖 */
 #menuWrap > .menuWrap-inner a:hover,
-#menuWrap > .menuWrap-inner span:hover {
+#menuWrap > .menuWrap-inner span:not(.reorder):hover {
     color: var(--red-5) !important;
     text-decoration: none;
 }
@@ -1587,13 +1603,13 @@ li.divider,
 }
 
 /* 下划线动画 */
-#menuWrap span {
+#menuWrap a span {
     /* width: fit-content; */
     display: inline;
     position: relative;
 }
 
-#menuWrap span:after {
+#menuWrap a span:nth-child(1):after {
     content: '';
     color: transparent;
     visibility: visible !important;
@@ -1611,7 +1627,7 @@ li.divider,
     transition: width 350ms, left 350ms;
 }
 
-#menuWrap span:hover:after {
+#menuWrap a span:nth-child(1):hover:after {
     visibility: visible !important;
     left: 0;
     width: 100%;
@@ -1752,6 +1768,19 @@ li.divider,
     /* transition: 350ms opacity; */
 }
 
+#global-list-tools > .more-link > a {
+    border-radius: 5px;
+    background: var(--i-idcard);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#global-more-tools {
+    display: none !important;
+}
+
 .mybb-tools li a {
     opacity: 1;
     background-color: var(--c-card);
@@ -1793,6 +1822,21 @@ li.divider,
 /* 下拉小图标 */
 .pageTitle h1 + .contextMenuContainer {
     display: none !important;
+}
+
+/* 左侧边栏间距移除 .reorder for 助教页面 */
+/* #menuWrap span.reorder {
+    position: absolute;
+    display: inline !important;
+} */
+
+/* 我用不到这个编辑模式，移除 */
+/* .ineditmode div.listCm ul.courseMenu li:hover {
+    background-color: var(--c-background) !important;
+} */
+
+.ineditmode div.listCm ul.courseMenu li {
+    border: none !important;
 }
 
 }
@@ -3063,6 +3107,19 @@ nav.navigationPane {
     background-position: center center;
     margin: 0 auto;
     /* transition: 350ms opacity; */
+}
+
+#global-list-tools > .more-link > a {
+    border-radius: 5px;
+    background: var(--i-idcard);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#global-more-tools {
+    display: none !important;
 }
 
 .mybb-tools li a {
@@ -4792,6 +4849,19 @@ div.container {
     background-position: center center;
     margin: 0 auto;
     /* transition: 350ms opacity; */
+}
+
+#global-list-tools > .more-link > a {
+    border-radius: 5px;
+    background: var(--i-idcard);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#global-more-tools {
+    display: none !important;
 }
 
 .mybb-tools li a {
