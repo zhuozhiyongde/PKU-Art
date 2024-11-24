@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.53
+// @version      2.3.54
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -115,7 +115,6 @@ html {
 
 * {
     outline: none !important;
-    transition: all ease-in-out 0.15s;
 }
 
 @keyframes fadeInUpTransition {
