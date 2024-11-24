@@ -567,7 +567,6 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
                             if (estimatedTimeRemainingSeconds > 9999) {
                                 estimatedTimeRemainingSeconds = 'inf';
                             }
-
                             // 更新下载提示
                             if (!downloadTip.innerHTML.includes('下载进度')) {
                                 downloadTip.innerHTML = downloadTip.innerHTML.replace(

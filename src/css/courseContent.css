@@ -329,6 +329,7 @@ li.divider,
 
 #menuWrap h3 a:hover {
     background-color: var(--c-hover);
+    transition: all ease-in-out 0.15s;
 }
 
 /* 下划线动画 */
@@ -536,15 +537,14 @@ li.divider,
 #pageList .buildList > li {
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
-    border: 1px solid transparent;
+    border: 1px solid var(--c-border);
     width: fit-content;
     transition: all ease-in 0.15s;
 }
 
 #pageList .liItem:hover,
 #pageList .buildList > li:hover {
-    border: none;
-    background: var(--c-button);
+    background: var(--c-hover);
     border: 1px solid var(--c-border);
 }
 

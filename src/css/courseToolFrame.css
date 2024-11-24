@@ -397,6 +397,7 @@ nav.navigationPane {
     background-repeat: no-repeat;
     background-size: 25px 25px;
     background-position: 10px;
+    transition: all ease-in-out 0.15s;
 }
 
 #side_nav #mybbListTools li[id*='Alerts'] span.menu-icon:after {
@@ -412,6 +413,7 @@ nav.navigationPane {
     background-repeat: no-repeat;
     background-size: 25px 25px;
     background-position: 10px;
+    transition: all ease-in-out 0.15s;
 }
 
 #side_nav #mybbListTools li[id*='MyGrades'] span.menu-icon:after {

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.52
+// @version      2.3.53
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.css
-// @date         2024/10/06
+// @date         2024/11/24
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/onlineroomse\\.pku\\.edu\\.cn\\/\\S*") {
     /*
@@ -115,6 +115,7 @@ html {
 
 * {
     outline: none !important;
+    transition: all ease-in-out 0.15s;
 }
 
 @keyframes fadeInUpTransition {
@@ -1600,6 +1601,7 @@ li.divider,
 
 #menuWrap h3 a:hover {
     background-color: var(--c-hover);
+    transition: all ease-in-out 0.15s;
 }
 
 /* 下划线动画 */
@@ -1807,15 +1809,14 @@ li.divider,
 #pageList .buildList > li {
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
-    border: 1px solid transparent;
+    border: 1px solid var(--c-border);
     width: fit-content;
     transition: all ease-in 0.15s;
 }
 
 #pageList .liItem:hover,
 #pageList .buildList > li:hover {
-    border: none;
-    background: var(--c-button);
+    background: var(--c-hover);
     border: 1px solid var(--c-border);
 }
 
@@ -3238,6 +3239,7 @@ nav.navigationPane {
     background-repeat: no-repeat;
     background-size: 25px 25px;
     background-position: 10px;
+    transition: all ease-in-out 0.15s;
 }
 
 #side_nav #mybbListTools li[id*='Alerts'] span.menu-icon:after {
@@ -3253,6 +3255,7 @@ nav.navigationPane {
     background-repeat: no-repeat;
     background-size: 25px 25px;
     background-position: 10px;
+    transition: all ease-in-out 0.15s;
 }
 
 #side_nav #mybbListTools li[id*='MyGrades'] span.menu-icon:after {
@@ -3605,6 +3608,7 @@ html {
     background: transparent;
     color: var(--c-text);
     border-bottom: 2px solid transparent;
+    transition: all ease-in-out 0.15s;
 }
 
 .stream_list_filter > li:nth-child(1) a:hover,

@@ -101,6 +101,7 @@ html {
 
 * {
     outline: none !important;
+    transition: all ease-in-out 0.15s;
 }
 
 @keyframes fadeInUpTransition {

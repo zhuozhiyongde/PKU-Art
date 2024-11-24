@@ -71,6 +71,7 @@ html {
     background: transparent;
     color: var(--c-text);
     border-bottom: 2px solid transparent;
+    transition: all ease-in-out 0.15s;
 }
 
 .stream_list_filter > li:nth-child(1) a:hover,
