@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.54
+// @version      2.3.55
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.css
-// @date         2024/11/24
+// @date         2024/12/01
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/onlineroomse\\.pku\\.edu\\.cn\\/\\S*") {
     /*
@@ -796,9 +796,9 @@ body {
 }
 
 /* 个人界面面板 */
-#global-nav-link > * {
+/* #global-nav-link > * {
     display: none;
-}
+} */
 
 #global-nav-link,
 #global-nav-link:hover,
@@ -817,8 +817,16 @@ body {
     outline: none;
 }
 
-#global-nav-link > * {
+/* #global-nav-link > * {
     display: none !important;
+} */
+
+#global-nav-link > #badgeTotal > .badge {
+    top: 0 !important;
+    right: 0 !important;
+    border-radius: 3px;
+    background-color: var(--c-accent);
+    color: #fff;
 }
 
 /* 退出按键 */
