@@ -52,6 +52,9 @@ body {
 #global-nav-link > #badgeTotal > .badge {
     top: 0 !important;
     right: 0 !important;
+    border-radius: 3px;
+    background-color: var(--c-accent);
+    color: #fff;
 }
 
 /* 退出按键 */
