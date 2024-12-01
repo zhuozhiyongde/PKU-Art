@@ -24,9 +24,9 @@ body {
 }
 
 /* 个人界面面板 */
-#global-nav-link > * {
+/* #global-nav-link > * {
     display: none;
-}
+} */
 
 #global-nav-link,
 #global-nav-link:hover,
@@ -45,8 +45,16 @@ body {
     outline: none;
 }
 
-#global-nav-link > * {
+/* #global-nav-link > * {
     display: none !important;
+} */
+
+#global-nav-link > #badgeTotal > .badge {
+    top: 0 !important;
+    right: 0 !important;
+    border-radius: 3px;
+    background-color: var(--c-accent);
+    color: #fff;
 }
 
 /* 退出按键 */
