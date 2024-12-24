@@ -204,6 +204,7 @@ nav.navigationPane {
 
 #global-nav-tools {
     z-index: 9999;
+    height: inherit !important;
 }
 
 #global-nav-flyout {

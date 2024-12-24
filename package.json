@@ -13,7 +13,7 @@
         "dotenv": "^16.4.5",
         "unplugin-auto-import": "^0.17.5",
         "vite": "^4.4.9",
-        "vite-plugin-mkcert": "^1.17.5",
+        "vite-plugin-mkcert": "^1.17.6",
         "vite-plugin-monkey": "^3.5.2"
     },
     "dependencies": {

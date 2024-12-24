@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.55
+// @version      2.3.56
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.css
-// @date         2024/12/01
+// @date         2024/12/25
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/onlineroomse\\.pku\\.edu\\.cn\\/\\S*") {
     /*
@@ -1179,6 +1179,7 @@ html #global-nav-bar-wrap {
 
 #global-nav-tools {
     z-index: 9999;
+    height: inherit !important;
 }
 
 #global-nav-flyout {
@@ -1713,6 +1714,7 @@ li.divider,
 
 #global-nav-tools {
     z-index: 9999;
+    height: inherit !important;
 }
 
 #global-nav-flyout {
@@ -3053,6 +3055,7 @@ nav.navigationPane {
 
 #global-nav-tools {
     z-index: 9999;
+    height: inherit !important;
 }
 
 #global-nav-flyout {
@@ -4798,6 +4801,7 @@ div.container {
 
 #global-nav-tools {
     z-index: 9999;
+    height: inherit !important;
 }
 
 #global-nav-flyout {

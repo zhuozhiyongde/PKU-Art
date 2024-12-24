@@ -407,6 +407,7 @@ html #global-nav-bar-wrap {
 
 #global-nav-tools {
     z-index: 9999;
+    height: inherit !important;
 }
 
 #global-nav-flyout {
