@@ -53,7 +53,7 @@ body,
 }
 
 .course-info__wrapper .course-info__footer button {
-    background: var(--c-button);
+    background: var(--c-tip);
     border: none;
     color: var(--c-text);
     margin-left: 0;
@@ -61,7 +61,7 @@ body,
 }
 
 #injectDownloadSwitchArea {
-    background: var(--c-button);
+    background: var(--c-tip);
     border: none;
     color: var(--c-text);
     padding: 10px 20px;
@@ -87,7 +87,7 @@ body,
 }
 
 #injectDownloadSwitch:checked + label {
-    background-color: var(--c-button);
+    background-color: var(--c-tip);
     background-image: var(--i-check-simple);
     background-size: 80% 80%;
     background-position: center;
@@ -98,7 +98,7 @@ label[for='injectDownloadSwitch'] {
     display: inline-block;
     width: 16px;
     height: 16px;
-    background: var(--c-button);
+    background: var(--c-tip);
     border: 1px solid var(--c-border);
     border-radius: 4px;
 }
@@ -109,7 +109,7 @@ label[for='injectDownloadSwitch']:before {
 }
 
 #injectDownloadTip {
-    background: var(--c-button);
+    background: var(--c-tip);
     border: none;
     color: var(--c-text);
     padding: 10px 20px;

@@ -28,6 +28,7 @@
     --c-button: #f7f8fa;
     --c-card-hover: #66ecf331;
     --c-scrollbar: #c1c1c1;
+    --c-tip: #e5e7eb;
 
     /* 图片 */
     --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo.svg');
@@ -77,6 +78,7 @@
         --c-button: #22262d;
         --c-card-hover: rgba(23, 231, 242, 0.23);
         --c-scrollbar: #6b6b6b;
+        --c-tip: #22262d;
 
         --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg');
         --i-remind: url('https://cdn.arthals.ink/css/src/remind_dark.svg');

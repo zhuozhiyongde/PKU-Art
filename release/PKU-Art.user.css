@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.56
+// @version      2.3.57
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.css
-// @date         2024/12/25
+// @date         2025/03/08
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/onlineroomse\\.pku\\.edu\\.cn\\/\\S*") {
     /*
@@ -42,6 +42,7 @@
     --c-button: #f7f8fa;
     --c-card-hover: #66ecf331;
     --c-scrollbar: #c1c1c1;
+    --c-tip: #e5e7eb;
 
     /* 图片 */
     --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo.svg');
@@ -91,6 +92,7 @@
         --c-button: #22262d;
         --c-card-hover: rgba(23, 231, 242, 0.23);
         --c-scrollbar: #6b6b6b;
+        --c-tip: #22262d;
 
         --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg');
         --i-remind: url('https://cdn.arthals.ink/css/src/remind_dark.svg');
@@ -5028,7 +5030,7 @@ body,
 }
 
 .course-info__wrapper .course-info__footer button {
-    background: var(--c-button);
+    background: var(--c-tip);
     border: none;
     color: var(--c-text);
     margin-left: 0;
@@ -5036,7 +5038,7 @@ body,
 }
 
 #injectDownloadSwitchArea {
-    background: var(--c-button);
+    background: var(--c-tip);
     border: none;
     color: var(--c-text);
     padding: 10px 20px;
@@ -5062,7 +5064,7 @@ body,
 }
 
 #injectDownloadSwitch:checked + label {
-    background-color: var(--c-button);
+    background-color: var(--c-tip);
     background-image: var(--i-check-simple);
     background-size: 80% 80%;
     background-position: center;
@@ -5073,7 +5075,7 @@ label[for='injectDownloadSwitch'] {
     display: inline-block;
     width: 16px;
     height: 16px;
-    background: var(--c-button);
+    background: var(--c-tip);
     border: 1px solid var(--c-border);
     border-radius: 4px;
 }
@@ -5084,7 +5086,7 @@ label[for='injectDownloadSwitch']:before {
 }
 
 #injectDownloadTip {
-    background: var(--c-button);
+    background: var(--c-tip);
     border: none;
     color: var(--c-text);
     padding: 10px 20px;
