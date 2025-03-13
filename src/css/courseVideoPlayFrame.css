@@ -82,6 +82,11 @@ body,
     height: 35px !important;
 }
 
+#injectDownloadSwitchArea.safari {
+    /* 占据父亲 grid 的 2 列 */
+    grid-column: span 2;
+}
+
 #injectDownloadSwitch {
     display: none;
 }
@@ -100,6 +105,19 @@ label[for='injectDownloadSwitch'] {
     height: 16px;
     background: var(--c-tip);
     border: 1px solid var(--c-border);
+    border-radius: 4px;
+}
+
+#injectDownloadSwitchArea.safari label[for='injectDownloadSwitch'] {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: var(--c-tip);
+    background-image: var(--i-warning);
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
     border-radius: 4px;
 }
 

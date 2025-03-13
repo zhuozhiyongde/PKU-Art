@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.57
+// @version      2.3.58
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.css
-// @date         2025/03/08
+// @date         2025/03/13
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/onlineroomse\\.pku\\.edu\\.cn\\/\\S*") {
     /*
@@ -66,6 +66,7 @@
     --i-comment: url('https://cdn.arthals.ink/css/src/comment.svg');
     --i-clover: url('https://cdn.arthals.ink/css/src/clover.svg');
     --i-sandclock: url('https://cdn.arthals.ink/css/src/sandclock.svg');
+    --i-warning: url('https://cdn.arthals.ink/css/src/warning.svg');
     /* --i-more: url('http://localhost:3000/more.svg'); */
 }
 
@@ -105,6 +106,7 @@
         --i-check: url('https://cdn.arthals.ink/css/src/check_dark.svg');
         --i-check-simple: url('https://cdn.arthals.ink/css/src/check-simple_dark.svg');
         --i-download: url('https://cdn.arthals.ink/css/src/download_dark.svg');
+        --i-warning: url('https://cdn.arthals.ink/css/src/warning_dark.svg');
         /* --i-more: url('http://localhost:3000/more_dark.svg'); */
     }
 }
@@ -5059,6 +5061,11 @@ body,
     height: 35px !important;
 }
 
+#injectDownloadSwitchArea.safari {
+    /* 占据父亲 grid 的 2 列 */
+    grid-column: span 2;
+}
+
 #injectDownloadSwitch {
     display: none;
 }
@@ -5077,6 +5084,19 @@ label[for='injectDownloadSwitch'] {
     height: 16px;
     background: var(--c-tip);
     border: 1px solid var(--c-border);
+    border-radius: 4px;
+}
+
+#injectDownloadSwitchArea.safari label[for='injectDownloadSwitch'] {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: var(--c-tip);
+    background-image: var(--i-warning);
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
     border-radius: 4px;
 }
 

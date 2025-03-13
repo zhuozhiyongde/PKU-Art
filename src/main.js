@@ -491,7 +491,11 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
         downloadSwitchArea.innerHTML = `
     <input type="checkbox" id="injectDownloadSwitch" class="PKU-Art" disabled>
     <label for="injectDownloadSwitch"></label>
-    <span  id="injectDownloadSwitchDesc" class="PKU-Art"> 是否重命名文件，Safari 暂不支持此功能 </span>`;
+    <span  id="injectDownloadSwitchDesc" class="PKU-Art"> Safari 不支持复制下载链接、重命名文件 </span>`;
+        // add class safari to downloadSwitchArea
+        downloadSwitchArea.classList.add('safari');
+        // remove copyDownloadUrlButton;
+        copyDownloadUrlButton.remove();
     }
 
     downloadAreaFooter.appendChild(downloadSwitchArea);
@@ -592,7 +596,7 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
                 });
             } catch {
                 window.open(downloadUrl, '_blank');
-                downloadInfo = `下载文件名：${hashFileName}<br/>正常文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
+                downloadInfo = `正常文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
                 downloadTip.innerHTML = `已在新窗口启动下载<br/>${downloadInfo}`;
                 alert('看上去你的浏览器（如 Safari）不支持自动重命名功能，已尝试使用新标签页下载');
             }
