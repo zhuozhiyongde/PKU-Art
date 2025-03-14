@@ -221,6 +221,18 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
     background: var(--c-hover);
 }
 
+/* TINY深色模式 */
+@media screen and (prefers-color-scheme: dark) {
+    .tox.tox-tinymce {
+      -webkit-filter: invert(100%) hue-rotate(180deg);
+      filter: invert(100%) hue-rotate(180deg);
+    }
+    .tox.tox-tinymce svg {
+      -webkit-filter: invert(100%) hue-rotate(180deg);
+      filter: invert(100%) hue-rotate(180deg);
+    }
+    }
+
 /* 作业复查界面 */
 #inlineReceipt_good {
     background: var(--c-accent);
