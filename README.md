@@ -1,7 +1,22 @@
-<p align="center">
-<img src="https://cdn.arthals.ink/bed/2023/09/320e0710b11ef734ec11feb2b8e2a061.jpeg" alt="PKU-Art">
+<div align="center">
+
+![PKU Art](https://cdn.arthals.ink/bed/2023/09/320e0710b11ef734ec11feb2b8e2a061.jpeg)
+
+# 🎨 PKU Art
+
+<p align="left">
+
+PKU Art 是一款通过浏览器插件向页面附加的 CSS 样式表 / JavaScript 脚本。它可以完成对于原有样式的覆盖，从而增强教学网视觉体验。
+
+PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新的第二版实现了对第一版完整重构，完美支持了暗色模式，并且增加了更多的交互动效和设计改进。
+
 </p>
-<h1 align="center">PKU Art</h1>
+
+[💫 碎碎念](##-%E7%A2%8E%E7%A2%8E%E5%BF%B5) · [✨ 功能](#-%E5%8A%9F%E8%83%BD) · [📦 安装](#-%E5%AE%89%E8%A3%85) · [🚨 使用须知](#-%E4%BD%BF%E7%94%A8%E9%A1%BB%E7%9F%A5) · [🧑‍💻 贡献](#-%E8%B4%A1%E7%8C%AE) · [📝 更新日志](#-%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97) · [💬 Q&A](#%E9%97%AE%E9%A2%98%E4%B8%8E%E5%8F%8D%E9%A6%88) · [📋 LICENSE](#%E5%90%8E%E8%AE%B0)
+
+</div>
+
+## 💫 碎碎念
 
 作为一名 PKUer ，我从入学伊始就对教学网的样式适应不来，这做的真的太丑了！这怎么会让人有学习的动力呢？！我为什么老摸鱼？不就是因为这教学网让我看了就不想学习吗！（震声
 
@@ -11,60 +26,12 @@
 
 现在想想，两三天的时间换未来几年的视觉快感，也算是值辽！
 
-<div align="center">
-  <div>
-    <picture>
-      <source
-        media="(prefers-color-scheme: dark)"
-        srcset="https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark"
-        width="800"
-        height="auto"
-      />
-      <img
-        alt="Activity Trends of zhuozhiyongde/PKU-Art - Last 28 days"
-        src="https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light"
-        width="800"
-        height="auto"
-      />
-    </picture>
-  </div>
-  &nbsp;
-  <div>
-    <picture>
-      <source
-        media="(prefers-color-scheme: dark)"
-        srcset="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark"
-        width="800"
-        height="auto"
-      />
-      <img
-        alt="Performance Stats of zhuozhiyongde/PKU-Art - Last 28 days"
-        src="https://next.ossinsight.io/widgets/official/compose-last-28-days-stats/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light"
-        width="800"
-        height="auto"
-      />
-    </picture>
-  </div>
-  &nbsp;
-  <div>
-    <picture>
-      <source
-        media="(prefers-color-scheme: dark)"
-        srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark"
-        width="800"
-        height="auto"
-      />
-      <img
-        alt="Star History of zhuozhiyongde/PKU-Art"
-        src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light"
-        width="800"
-        height="auto"
-      />
-    </picture>
-  </div>
-</div>
+## ✨ 功能
 
-## 效果
+### `1` 界面美化
+
+<details>
+<summary>点击展开</summary>
 
 ![IAAA 登录界面](https://cdn.arthals.ink/bed/2023/09/3073959894d62a0044d8b8b1ebb3d0a8.png)
 
@@ -88,83 +55,138 @@
 
 ![全局课程成绩页面](https://cdn.arthals.ink/bed/2023/09/62b77db88f0222d5ec6632a186cbdaa1.png)
 
-## 简介
+</details>
 
-PKU Art 是一款通过浏览器插件向页面附加的 CSS 样式表 / JavaScript 脚本。它可以完成对于原有样式的覆盖，从而增强教学网视觉体验。
+### `2` 录播下载、重命名
 
-PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新的第二版实现了对第一版完整重构，完美支持了暗色模式，并且增加了更多的交互动效和设计改进。
+![download](https://cdn.arthals.ink/bed/2025/03/download-cf6787897a09ef8b607b3c375f899a38.png)
 
-## 下载安装
+## 📦 安装
 
-PKU Art 目前支持 CSS 安装与 JavaScript 安装两种安装方式，兼容 Safari 与 Chrome (Edge/Arc) 两大浏览器。两种安装方式都需要借助浏览器插件，同时，JavaScript 安装会包含一些 CSS 无法实现的功能（如首页自动隐去课程号等），所以建议大家选择 JavaScript 安装方式。
+PKU Art 目前支持 CSS 安装与 JavaScript 安装两种安装方式，兼容 Safari 与 Chrome（Edge/Arc）两大浏览器。
 
--   [GreasyFork](https://greasyfork.org/zh-CN/scripts/436323-pku-art)
+### JavaScript [推荐]
 
-    -   Chrome/Edge/Arc 需安装浏览器插件 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-    -   Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/userscripts/id1463298887)
+请注意，Safari 下部分 JavaScript 功能无法使用，如录播下载重命名（但仍然可以下载 mp4 文件！）、复制视频下载链接等。
 
--   [Stylish](https://userstyles.org/styles/220453/pku-art)
+前置插件需求：
 
-    -   Chrome/Edge/Arc 需安装浏览器插件 [xStyle](https://chrome.google.com/webstore/detail/xstyle/hncgkmhphmncjohllpoleelnibpmccpj)/[Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe)
-    -   Safari 需安装浏览器插件 [Cascadea](https://apps.apple.com/cn/app/cascadea/id1432182561)（售价 18 ￥）
+-   Chrome/Edge/Arc 需安装浏览器插件 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)，点开脚本页面后自动触发安装页面，跟随指引即可。
+-   Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/userscripts/id1463298887)，安装好后点击工具栏图标，启用并授权后再在脚本页面点击图标，再点击 Click to install 即可安装。
 
--   [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.user.js)：同 GreasyFork。
--   [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.user.css)：同 Stylish。
--   [Github Release](https://github.com/zhuozhiyongde/PKU-Art/releases)：供备份、发布之用。
+安装渠道：
 
-更详细的安装指导，请参考文档：[PKU Art - Arthals' Docs](https://docs.arthals.ink/docs/pku-art)
+-   [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.user.js)：源代码更新后立即更新
+-   [GreasyFork](https://greasyfork.org/zh-CN/scripts/436323-pku-art)：每天同步上述源一次
 
-## 使用须知
+### CSS
 
-本样式移除了一些我觉得没有用处的控件元素，如侧栏的收起框（这个太丑了），播放列表上方的导航栏（下方有一样的），这可能会导致一些特殊情况下，某些功能不可用（如侧边栏收起后，在样式启用的状态下，现在无法重新展开侧边栏）。但你可以 **随时在插件内禁用本样式** ，以恢复到原有界面。
+CSS 安装方式只提供了非侵入式样式修改，不支持 JavaScript 版本功能（如首页自动隐去课程号、录播下载等）。
 
-本样式覆盖了所有我认为常用的界面，但我毕竟不是教学网的专业前端维护人员，所以我并不能做到对全部的页面加以修改。但如果你认为某个页面十分常用但却没有被修改，欢迎联系我，在 Github 提 issue，在 [树洞#3918083](https://treehole.pku.edu.cn/web/#3918083) 下留言，抑或是直接加我微信的方式（zhuozhiyongde）都可以。
+CSS 安装方式目前已不会在版本更新前确认效果。
+
+前置插件要求：
+
+-   Chrome/Edge/Arc 需安装浏览器插件 [xStyle](https://chrome.google.com/webstore/detail/xstyle/hncgkmhphmncjohllpoleelnibpmccpj)/[Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe)
+-   Safari 需安装浏览器插件 [Cascadea](https://apps.apple.com/cn/app/cascadea/id1432182561)（售价 18 ￥）
+
+安装渠道：
+
+-   [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.user.css)：源代码更新后立即更新
+-   [Stylish](https://userstyles.org/styles/220453/pku-art)：每天同步上述源一次
+
+## 🚨 使用须知
+
+本脚本移除了一些我觉得没有用处的控件元素，如侧栏的收起框（这个太丑了），播放列表上方的导航栏（下方有一样的），这可能会导致一些特殊情况下，某些功能不可用（如助教功能）。你可以 **随时在插件内禁用本样式** ，以恢复到原有界面。
+
+本样式覆盖了所有我认为常用的界面，但我毕竟不是教学网的专业前端维护人员，所以我并不能做到对全部的页面加以修改。但如果你认为某个页面十分常用但却没有被修改，欢迎联系我，在 Github 提 issue，抑或是直接加我微信的方式（zhuozhiyongde）都可以。
 
 如果你喜欢这个样式，请不要吝啬点击 Star（树洞和 Github 的都可以！），这是对我最大的鼓励与肯定！
 
-## 开发
+## 🧑‍💻 贡献
 
-### 项目地址
+欢迎为 PKU Art 贡献代码！
 
-https://github.com/zhuozhiyongde/PKU-Art
+1. 克隆本项目：
 
-### 本地开发
+   ```bash
+   git clone https://github.com/zhuozhiyongde/PKU-Art.git
+   ```
 
--   克隆本项目：
+2. 进入工作目录，安装依赖：
 
-    ```bash
-    git clone git@github.com:zhuozhiyongde/PKU-Art.git
-    ```
+   ```bash
+   cd PKU-Art && pnpm install
+   ```
 
--   进入工作目录后安装依赖：
+3. 启动 Vite 服务器以获得 HMR 热更新开发体验：
 
-    ```bash
-    pnpm install
-    ```
+   ```bash
+   pnpm dev
+   ```
 
--   启动 Vite 服务器以获得 HMR 热更新开发体验：
+4. 如果你需要引入新的图标（`src/css/src` 目录），你可能需要在本地额外启动文件服务器：
 
-    ```bash
-    pnpm dev
-    ```
+   ```bash
+   python server.py
+   ```
 
--   编译，随后在本地预览：
+5. 编译，随后在本地预览：
 
-    ```bash
-    pnpm build
-    ```
+   ```bash
+   pnpm build
+   ```
 
--   而后，你就可以发起 Pull Request，我将在审核代码后更新 CDN。
+6. 而后，你就可以发起 Pull Request，我将在审核代码后进行合并，随后更新 CDN。
 
-## 更新日志
+## 📝 更新日志
 
-参见 [ChangeLog.md](https://github.com/zhuozhiyongde/PKU-Art/blob/main/ChangeLog.md)
+参见 [ChangeLog.md](https://github.com/zhuozhiyongde/PKU-Art/blob/main/ChangeLog.md) 或 [GitHub Release](https://github.com/zhuozhiyongde/PKU-Art/releases)。
 
-## TO-DO
+<div align="center">
+  <div>
+    <picture>
+      <source
+        media="(prefers-color-scheme: dark)"
+        srcset="https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark"
+        width="800"
+        height="auto"
+      />
+      <img
+        alt="Activity Trends of zhuozhiyongde/PKU-Art - Last 28 days"
+        src="https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light"
+        width="800"
+        height="auto"
+      />
+    </picture>
+  </div>
+  &nbsp;
+  <div>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-pushes-and-commits-per-month/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark" width="800" height="auto">
+    <img alt="Pushes and Commits of zhuozhiyongde/PKU-Art" src="https://next.ossinsight.io/widgets/official/analyze-repo-pushes-and-commits-per-month/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light" width="800" height="auto">
+  </picture>
+  </div>
+  &nbsp;
+  <div>
+    <picture>
+      <source
+        media="(prefers-color-scheme: dark)"
+        srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark"
+        width="800"
+        height="auto"
+      />
+      <img
+        alt="Star History of zhuozhiyongde/PKU-Art"
+        src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light"
+        width="800"
+        height="auto"
+      />
+    </picture>
+  </div>
+</div>
 
-参见 [Agenda.md](https://github.com/zhuozhiyongde/PKU-Art/blob/main/Agenda.md)
-
-## Q&A
+## 💬 Q&A
 
 ### 有适配手机版的打算吗？
 
@@ -178,7 +200,7 @@ https://github.com/zhuozhiyongde/PKU-Art
 
 十分欢迎！你可以随时访问我的 Github，哪里有本项目用到的所有代码。我可以保证项目内不含有任何恶意代码，仅仅是通过附加 css（通过 CDN 分发）来改变页面样式。如果你愿意提交 PR，那我会十分乐意接受的！
 
-## 后记
+## 📜 后记
 
 平日里的我并非是个话很多的人，但这堪称疯狂的一周，实在是让我感触颇丰，总觉得还是得记下点什么。
 
@@ -198,6 +220,6 @@ https://github.com/zhuozhiyongde/PKU-Art
 
 于是，我终于相信，这一版的 PKU Art v2，足够让我、让大家满意。
 
-至此，教学网的页面设计问题终于被我解决，我预想的下一步是，通过新学到的 js 知识，解决一些功能交互方面的问题。譬如说期末考试前大预习的晚上发现下载教学网视频多有不便（不能批量下载、有这奇怪的 source 命名难以查找等…）除了教学网之外，常年闲逛于树洞的我更是从同学们的评论中找到了各种痛点：收藏夹无法导出、无法批量取关…（我也一直很想给树洞加一个限时功能来限制自己的摸鱼 hhh
+## 📋 LICENSE
 
-我希望能够在接下来的暑假，除了学一学先修课之外，再为自己找点事情做 —— 那就是，完成一个 PKU Tool 脚本 / 网站，尝试解决上述所有提出的问题！虽然能完成多少、要花多长时间完成都是一个未知数，但是我会尽力去做，就像去年年末那个成天在图书馆摸鱼 PKU Art 的我一样 hhh。
+GPL-3.0 license
