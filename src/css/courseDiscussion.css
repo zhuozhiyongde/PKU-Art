@@ -7,7 +7,7 @@
 @import 'arco-palette.css';
 @import 'main.css';
 
-#breadcrumbs {
+*[var='nameFormatEnum'] #breadcrumbs {
     /* 中间有一层 <bbdata:constants/> 导致 body 的 flex 布局无法继承 */
     margin-top: 0;
 }
@@ -202,7 +202,7 @@ ul.tree li a.itemActive,
 .threadButtons .reply {
     background: var(--c-button) !important;
     border: 1px solid var(--c-border) !important;
-    border-radius: 5px;
+    border-radius: 5px !important;
     width: fit-content;
     height: 100%;
     display: block;
@@ -228,6 +228,10 @@ ul.tree li a.itemActive,
     border-radius: 10px;
     box-shadow: none;
     background: transparent;
+}
+
+.db-message-wrapper .profileCardAvatarThumb {
+    color: var(--c-title) !important;
 }
 
 /* 外部 table 头像 */
@@ -398,4 +402,134 @@ input[type='checkbox']:checked {
 .vtbegenerated::-webkit-scrollbar-thumb {
     background-color: var(--c-scrollbar);
     border-radius: 9999px;
+}
+
+/* icon */
+.author_props .highlight-pop {
+    background: var(--i-verified);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    width: 20px;
+    height: 20px;
+}
+
+img[src='../images/paperclip.png'] {
+    /* content: var(--i-file); */
+    display: none;
+}
+
+img[src='/images/ci/ng/cal_year_event.gif'] {
+    content: var(--i-file);
+}
+
+.dbAttachment {
+    border: 1px solid var(--c-border);
+    border-radius: 5px;
+    width: fit-content;
+    padding: 3px 5px;
+}
+
+.dbAttachment img {
+    width: 20px;
+    height: 20px;
+}
+
+.dbAttachment:hover {
+    background-color: var(--c-hover);
+}
+
+.navigationBar div > button {
+    border: 1px solid var(--c-border);
+    display: inline-block;
+    box-shadow: none;
+    background: var(--c-button);
+    border-radius: 3px;
+    color: var(--c-text);
+    text-shadow: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+a.reply-count-link {
+    bottom: 3px;
+    position: absolute;
+    background: transparent;
+    display: block;
+    border-radius: 3px !important;
+    border: 1px solid var(--c-border) !important;
+}
+
+.db_msg_metadata,
+.reply-lvl-0 .db_msg_metadata {
+    border: 1px solid var(--c-border) !important;
+    box-shadow: none;
+    background: var(--c-card);
+    border-radius: 0 0 0 2px;
+    line-height: 1.5;
+    top: 3px;
+    right: 3px;
+    min-width: 140px;
+    text-align: right;
+}
+
+#actionbar {
+    top: 100px;
+    right: 30px;
+    box-shadow: none;
+    opacity: 1 !important;
+    background: transparent !important;
+    border-bottom: none !important;
+}
+
+.collapsedMessage .db-message .profileCardAvatarThumb:after {
+    display: none;
+}
+
+.thread-detail-page #actionbar .mainButton > a,
+.thread-detail-page #actionbar .secondaryButton > a {
+    color: var(--c-text) !important;
+}
+
+.thread-detail-page #actionbar .mainButton > a:hover,
+.thread-detail-page #actionbar .secondaryButton > a:hover {
+    background: var(--c-hover) !important;
+}
+
+.thread-detail-page #navsecondary a#refreshTreeActionButtonId:before {
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background-image: var(--i-refresh);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.thread-detail-page #navsecondary #searchActionButtonId a:before {
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background-image: var(--i-search);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+img[src='/images/ci/actionbar/flag.gif'] {
+    display: none;
+}
+
+img[src='/images/ci/ng/sort_on2.gif'] {
+    content: var(--i-arrow);
+    width: 16px;
+    height: 16px;
+}
+img[src='/images/ci/ng/sort_on_up2.gif'] {
+    content: var(--i-arrow);
+    transform: rotate(180deg);
+    width: 16px;
+    height: 16px;
 }
