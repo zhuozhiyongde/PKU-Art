@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.62
+// @version      2.3.63
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.css
-// @date         2025/03/15
+// @date         2025/03/16
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/onlineroomse\\.pku\\.edu\\.cn\\/\\S*") {
     /*
@@ -1008,6 +1008,21 @@ body {
     height: 100%;
 }
 
+#column0:after {
+    content: 'PKU Art @ Arthals';
+    display: block;
+    background-color: var(--c-sidebar);
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--c-text);
+    height: 20px;
+    z-index: 99999;
+    opacity: 0.3;
+    visibility: visible !important;
+}
+
 html #global-nav-bar-wrap {
     /* display: none !important; */
     display: flex;
@@ -1232,7 +1247,7 @@ html #global-nav-bar-wrap {
 
 #global-list-tools > .alerts > a:hover,
 #global-list-tools > .grades > a:hover,
-#global-list-tools > .more-link a:hover{
+#global-list-tools > .more-link a:hover {
     background-color: var(--c-hover);
 }
 
@@ -1529,6 +1544,21 @@ div.container {
 nav.navigationPane {
     height: 100%;
     transition: none !important;
+}
+
+nav.navigationPane:after {
+    content: 'PKU Art @ Arthals';
+    display: block;
+    background-color: var(--c-sidebar);
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--c-text);
+    height: 20px;
+    z-index: 99999;
+    opacity: 0.3;
+    visibility: visible !important;
 }
 
 /* 侧栏样式 */
@@ -3257,6 +3287,21 @@ table.bouncer,
 
 nav.navigationPane {
     height: 100%;
+}
+
+#side_nav:after {
+    content: 'PKU Art @ Arthals';
+    display: block;
+    background-color: var(--c-sidebar);
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--c-text);
+    height: 20px;
+    z-index: 99999;
+    opacity: 0.3;
+    visibility: visible !important;
 }
 
 /* 面板内容样式 */

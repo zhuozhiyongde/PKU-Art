@@ -238,6 +238,21 @@ nav.navigationPane {
     transition: none !important;
 }
 
+nav.navigationPane:after {
+    content: 'PKU Art @ Arthals';
+    display: block;
+    background-color: var(--c-sidebar);
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--c-text);
+    height: 20px;
+    z-index: 99999;
+    opacity: 0.3;
+    visibility: visible !important;
+}
+
 /* 侧栏样式 */
 .locationPane nav {
     width: min(25%, 300px) !important;

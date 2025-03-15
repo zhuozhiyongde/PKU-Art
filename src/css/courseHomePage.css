@@ -223,6 +223,21 @@ body {
     height: 100%;
 }
 
+#column0:after {
+    content: 'PKU Art @ Arthals';
+    display: block;
+    background-color: var(--c-sidebar);
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--c-text);
+    height: 20px;
+    z-index: 99999;
+    opacity: 0.3;
+    visibility: visible !important;
+}
+
 html #global-nav-bar-wrap {
     /* display: none !important; */
     display: flex;
@@ -447,7 +462,7 @@ html #global-nav-bar-wrap {
 
 #global-list-tools > .alerts > a:hover,
 #global-list-tools > .grades > a:hover,
-#global-list-tools > .more-link a:hover{
+#global-list-tools > .more-link a:hover {
     background-color: var(--c-hover);
 }
 
