@@ -270,3 +270,25 @@
     right: 0px;
     padding: 5px;
 }
+
+/* 留言框 */
+div.lb-overlay {
+    z-index: 2000;
+}
+
+body div.lb-wrapper {
+    background-color: var(--c-card) !important;
+}
+body div.lb-wrapper div.lb-header {
+    color: var(--c-text);
+    background: transparent;
+}
+
+body div.lb-wrapper div.lb-content {
+    background: transparent;
+}
+
+body div.lb-wrapper div.lb-content .container {
+    color: var(--c-text);
+    border: none;
+}
