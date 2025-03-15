@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.59
+// @version      2.3.60
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -67,6 +67,7 @@
     --i-clover: url('https://cdn.arthals.ink/css/src/clover.svg');
     --i-sandclock: url('https://cdn.arthals.ink/css/src/sandclock.svg');
     --i-warning: url('https://cdn.arthals.ink/css/src/warning.svg');
+    --i-student: url('https://cdn.arthals.ink/css/src/student.svg');
     /* --i-more: url('http://localhost:3000/more.svg'); */
 }
 
@@ -107,6 +108,7 @@
         --i-check-simple: url('https://cdn.arthals.ink/css/src/check-simple_dark.svg');
         --i-download: url('https://cdn.arthals.ink/css/src/download_dark.svg');
         --i-warning: url('https://cdn.arthals.ink/css/src/warning_dark.svg');
+        --i-student: url('https://cdn.arthals.ink/css/src/student_dark.svg');
         /* --i-more: url('http://localhost:3000/more_dark.svg'); */
     }
 }
@@ -1305,7 +1307,7 @@ body {
 #quick_links_wrap,
 #global-avatar,
 #global-toggle-img {
-    display: none;
+    display: none !important;
     /* visibility: hidden; */
 }
 
@@ -1341,8 +1343,8 @@ body {
     background: transparent;
     background-image: var(--i-exit) !important;
     background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
 }
 
 /* 替换背景 */
@@ -1373,7 +1375,7 @@ body {
 #topTabs {
     /* position: absolute; */
     /* width: fit-content; */
-    background-color: var(--c-navbar);
+    background-color: var(--c-navbar) !important;
 }
 
 #globalNavPageNavArea {
@@ -1386,10 +1388,7 @@ body {
     justify-content: flex-end;
     flex-direction: row;
     padding-right: 140px;
-    background-image: var(--i-logo);
-    background-repeat: no-repeat;
-    background-size: auto 30px;
-    background-position: 2em center;
+    background: var(--c-navbar) var(--i-logo) no-repeat 2em center / auto 30px !important;
     border-bottom: 1px solid var(--c-border);
     position: fixed;
     width: 100%;
@@ -1401,7 +1400,7 @@ body {
     width: fit-content;
 }
 
-.global-nav-bar-wrap {
+body .global-nav-bar-wrap {
     position: fixed;
     /* left: 90vw; */
     right: 20px;
@@ -1423,8 +1422,8 @@ body {
 .global-nav-bar {
     /* margin: 30px 5px; */
     margin: 0;
-    float: none;
-    height: 60px;
+    float: none !important;
+    height: 60px !important;
     display: flex;
     /* display: inline-block; */
     /* background-color: var(--c-navbar); */
@@ -1544,11 +1543,16 @@ nav.navigationPane {
     margin-left: 0;
 }
 
+/* 侧栏背景 */
 #menuWrap,
 .navPaletteContent,
 #courseMenuPalette_contents li,
 #courseMenuPalette div.navPaletteContent {
-    background-color: var(--c-sidebar);
+    background-color: var(--c-sidebar) !important;
+    border-top: none;
+}
+
+#menuWrap .navPalette.tools {
     border-top: none;
 }
 
@@ -1557,7 +1561,7 @@ nav.navigationPane {
 li.divider,
 #copyright,
 #menuWrap li > hr {
-    display: none;
+    display: none !important;
 }
 
 /* 选项着色 */
@@ -1655,12 +1659,13 @@ li.divider,
 }
 
 /* 面板内容样式 */
-.locationPane {
+#globalNavPageContentArea .locationPane {
     background-color: var(--c-background);
 }
 
 .contentPane .shadow {
-    border: none;
+    border: none !important;
+    background-color: var(--c-background);
 }
 
 #pageTitleDiv {
@@ -1736,7 +1741,7 @@ li.divider,
 }
 
 #global-list-tools {
-    margin: 0;
+    margin: 0 !important;
     box-shadow: var(--c-box-shadow);
     border: 1px solid var(--c-border);
     padding: 5px;
@@ -4408,14 +4413,14 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
 /* TINY深色模式 */
 @media screen and (prefers-color-scheme: dark) {
     .tox.tox-tinymce {
-      -webkit-filter: invert(100%) hue-rotate(180deg);
-      filter: invert(100%) hue-rotate(180deg);
+        -webkit-filter: invert(100%) hue-rotate(180deg);
+        filter: invert(100%) hue-rotate(180deg);
     }
     .tox.tox-tinymce svg {
-      -webkit-filter: invert(100%) hue-rotate(180deg);
-      filter: invert(100%) hue-rotate(180deg);
+        -webkit-filter: invert(100%) hue-rotate(180deg);
+        filter: invert(100%) hue-rotate(180deg);
     }
-    }
+}
 
 /* 作业复查界面 */
 #inlineReceipt_good {
@@ -5166,5 +5171,407 @@ label[for='injectDownloadSwitch']:before {
  * Github: https://github.com/zhuozhiyongde
  * Blog: https://arthals.ink
  */
+
+}
+@-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\/webapps\\/\\S*discussionboard\\S*") {
+    /*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
+#breadcrumbs {
+    /* 中间有一层 <bbdata:constants/> 导致 body 的 flex 布局无法继承 */
+    margin-top: 0;
+}
+
+#containerdiv form table.inventory {
+    background-color: var(--c-card);
+}
+
+#conferenceFormId th,
+#conferenceFormId td {
+    vertical-align: middle !important;
+}
+
+#conferenceFormId th {
+    background-color: var(--c-card);
+}
+
+.inventory > tbody tr {
+    background: var(--c-card) !important;
+}
+
+.inventory > tbody tr td,
+.inventory > tbody tr th,
+.inventory > thead tr th,
+.splashTable thead tr th {
+    border-color: var(--c-border) !important;
+}
+
+table.inventory > tbody tr:last-child td,
+table.inventory > tbody tr:last-child th {
+    border-bottom: 1px solid var(--c-border) !important;
+}
+
+.inventory > tbody .gray td,
+.inventory > tbody .gray th {
+    background-color: var(--c-hover) !important;
+}
+
+table.inventory a.cmimg {
+    display: none;
+}
+
+table.inventory .vtbegenerated tbody tr td,
+table.inventory .vtbegenerated tbody tr th,
+table.reorderable .vtbegenerated tbody tr td,
+table.reorderable .vtbegenerated tbody tr th,
+table.inventory .vtbegenerated tbody tr:hover td,
+table.inventory .vtbegenerated tbody tr:hover th,
+table.reorderable .vtbegenerated tbody tr:hover td,
+table.reorderable .vtbegenerated tbody tr:hover th,
+table.reorderable .vtbegenerated tbody tr:hover {
+    background: transparent !important;
+}
+
+/* table.inventory .gray .vtbegenerated {
+    background-color: var(--c-hover) !important;
+} */
+
+table.inventory .gray .vtbegenerated tbody tr td,
+table.inventory .gray .vtbegenerated tbody tr th,
+table.reorderable .gray .vtbegenerated tbody tr td,
+table.reorderable .gray .vtbegenerated tbody tr th,
+table.inventory .gray .vtbegenerated tbody tr:hover td,
+table.inventory .gray .vtbegenerated tbody tr:hover th,
+table.reorderable .gray .vtbegenerated tbody tr:hover td,
+table.reorderable .gray .vtbegenerated tbody tr:hover th,
+table.reorderable .gray .vtbegenerated tbody tr:hover {
+    background-color: var(--c-hover) !important;
+}
+
+/* table.inventory .vtbegenerated tbody tr, */
+table.inventory .vtbegenerated tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+table.inventory .unread-count:not(.none) {
+    color: #fff !important;
+    background: #e44c47 !important;
+}
+table.inventory .unread-count.none {
+    background: transparent !important;
+    color: var(--c-text) !important;
+}
+
+/* @media (prefers-color-scheme: dark){
+
+} */
+
+#containerdiv.container {
+    border: 1px solid var(--c-border) !important;
+    background-color: var(--c-card);
+}
+
+.inventory > thead tr th.sorted,
+th.sorted,
+.splashTable thead tr th.sorted {
+    background-color: var(--c-card) !important;
+    color: var(--c-text) !important;
+}
+
+.inventory > thead tr th.sorted a {
+    color: var(--c-text) !important;
+}
+
+.genericButton,
+.genericButtonImg,
+input[type='submit'].genericButton,
+.browse,
+.browseIcon,
+.rumble h3 + ul > li > a,
+.rumble h3 + ul > li > a,
+.rumble_top h3 + ul > li > a,
+.rumble_top h3 + ul > li > a,
+.paging a,
+.itemHeaderControl > a,
+.actionMenuButton,
+.button-3,
+.button-3-img,
+.button-4,
+.button-4-img,
+#toolsSearchBox + .button-4,
+.treeContainer .tree li a.button-4-img,
+.rumble a,
+.rumble_top a,
+.rumble .abutton,
+.rumble_top .abutton {
+    background: var(--c-button) !important;
+    box-shadow: none !important;
+}
+
+.nav .sub ul,
+.nav.gb_currView .sub > ul,
+.menumini ul,
+.quickAddPal,
+.keyboardAccess,
+span.currentTags,
+.liveArea,
+.liveArea-slim,
+.previewArea,
+.jumptopage,
+.panelTabs li.active a.edit,
+.panelTabs li.active a.edit:hover,
+.panelTabs li.active a.edit:focus,
+.flyout,
+.bcContent .flyout,
+ul.tree li a + img + a:focus,
+ul.tree li img + img + a:focus,
+div.treeContainer ul.tree li a.itemActive,
+#learningUnitToc ul.tree li a.itemActive,
+ul.tree li a.itemActive,
+#loginLang ul,
+.unread-posts,
+.need-moderation,
+.unread-replies-to-me-posts {
+    background: var(--c-button) !important;
+    border: 1px solid var(--c-border) !important;
+    border-radius: 5px;
+}
+
+.thread-detail-page .contentBox {
+    background: var(--c-background);
+    /* padding-bottom: 30px; */
+}
+.db-message-wrapper {
+    box-shadow: none;
+    background: var(--c-card);
+    border: 1px solid var(--c-border) !important;
+    border-radius: 5px;
+}
+
+.reply-lvl-0 .message-wrapper-inner,
+.db-head-message .message-wrapper-inner {
+    background: var(--c-card);
+    border: none !important;
+    box-shadow: none;
+}
+.db-reply-block,
+.reply-lvl-0 .messageTemplate {
+    /* border: 1px solid var(--c-border); */
+    border: none;
+    /* border-radius: 5px; */
+    box-shadow: none;
+    background: var(--c-card);
+}
+
+.db-collapse-control {
+    display: none;
+}
+
+.reply-lvl-0 .threadButtons .browse,
+.threadButtons .browse,
+.threadButtons .reply {
+    background: var(--c-button) !important;
+    border: 1px solid var(--c-border) !important;
+    border-radius: 5px;
+    width: fit-content;
+    height: 100%;
+    display: block;
+    margin: 0;
+}
+
+.threadButtons {
+    display: flex !important;
+    flex-direction: row;
+    width: fit-content;
+    gap: 5px;
+}
+
+/* 消息内页头像 */
+.db-message .profileCardAvatarThumb img {
+    height: 64px;
+    width: 64px;
+    border: 1px solid var(--c-border) !important;
+    display: inline-block;
+    padding: 1px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 10px;
+    box-shadow: none;
+    background: transparent;
+}
+
+/* 外部 table 头像 */
+.profileCardAvatarThumb img {
+    box-shadow: none;
+    background: transparent;
+    border: 1px solid var(--c-border) !important;
+}
+
+img[src='/images/ci/ng/default_profile_avatar.svg'] {
+    content: var(--i-student) !important;
+}
+
+.msg-fringe.db-message-fringe-show {
+    display: none;
+}
+
+#inlinePost {
+    margin-top: 30px;
+}
+
+.steptitle,
+div[id*='step'],
+div[id*='Step'],
+#dataCollectionContainer,
+.container {
+    background: var(--c-card);
+}
+
+div[id*='stepcontent'] {
+    background: var(--c-card) !important;
+}
+
+input[type='text'],
+input[type='password'],
+select {
+    border: 1px solid var(--c-border) !important;
+    background: var(--c-card) !important;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    .tox.tox-tinymce {
+        -webkit-filter: invert(100%) hue-rotate(180deg);
+        filter: invert(100%) hue-rotate(180deg);
+    }
+    .tox.tox-tinymce svg {
+        -webkit-filter: invert(100%) hue-rotate(180deg);
+        filter: invert(100%) hue-rotate(180deg);
+    }
+}
+
+.taskbuttondiv_wrapper {
+    background: var(--c-card);
+}
+
+#bottom_submitButtonRow {
+    display: flex;
+    gap: 10px;
+}
+
+/* 全局按钮样式更改 */
+form[id='inlineMessageForm'] a#submissionLink,
+form[id='inlineMessageForm'] input[type='file'],
+form[id='inlineMessageForm'] input[type='button'] {
+    border-radius: 5px;
+    background: var(--c-button);
+    box-shadow: none;
+    color: var(--c-text);
+    font-size: 12px;
+}
+
+form[id='inlineMessageForm'] a#submissionLink:hover,
+form[id='inlineMessageForm'] input[type='file']:hover,
+form[id='inlineMessageForm'] input[type='button']:hover {
+    background: var(--gray-2);
+    color: var(--c-title);
+    font-weight: bold;
+}
+
+/* 提交按钮特判 */
+form[id='inlineMessageForm'] input[type='submit'].submit {
+    border-radius: 5px;
+    background: var(--c-primary-light);
+    box-shadow: none;
+    color: var(--c-primary);
+    font-size: 12px;
+}
+
+form[id='inlineMessageForm'] input[type='submit'].submit:hover {
+    background: var(--blue-2);
+    /* box-shadow: none ; */
+    color: var(--blue-7);
+    font-weight: bold;
+}
+
+.nav .sub ul li a,
+.cmdiv a,
+.menumini a,
+#loginLang ul li a {
+    color: var(--c-text);
+}
+
+/* 创建话题 */
+div[id*='step'],
+.submittitle,
+#infoStep,
+#taskStatusStep,
+#linkedContentStep {
+    border: none !important;
+}
+
+div[id*='stepcontent'] {
+    border: none !important;
+}
+
+h3.steptitle,
+span.reqfield {
+    display: none !important;
+}
+
+.submitStepTop:has(span.reqfield:only-child) {
+    height: 20px !important;
+}
+
+input[type='text'][name='title'] {
+    width: 100%;
+}
+
+input[type='checkbox'] {
+    /* 移除默认样式 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* 自定义样式 */
+    width: 16px;
+    height: 16px;
+    background-color: var(--c-card); /* 自定义背景色 */
+    border: 1px solid var(--c-border);
+    border-radius: 3px;
+}
+
+/* 选中状态样式 */
+input[type='checkbox']:checked {
+    background-color: var(--c-accent); /* 选中时的背景色 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 整个滚动条 */
+.vtbegenerated::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* 滚动条轨道 */
+.vtbegenerated::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.vtbegenerated::-webkit-scrollbar {
+    height: 5px;
+}
+
+/* 滚动条滑块 */
+.vtbegenerated::-webkit-scrollbar-thumb {
+    background-color: var(--c-scrollbar);
+    border-radius: 9999px;
+}
 
 }

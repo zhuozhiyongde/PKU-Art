@@ -25,6 +25,7 @@ import courseGlobalAnnouncementStyles from './css/courseGlobalAnnouncement.css?i
 import courseVideoPlayStyles from './css/courseVideoPlay.css?inline';
 import courseVideoPlayFrameStyles from './css/courseVideoPlayFrame.css?inline';
 import courseTaskStyles from './css/courseTask.css?inline';
+import courseDiscussionStyles from './css/courseDiscussion.css?inline';
 
 function injectStyles(styleString, cssFileName) {
     const styleElement = document.createElement('style');
@@ -271,6 +272,15 @@ if (/^https:\/\/onlineroomse\.pku\.edu\.cn\/player\?course_id\S*$/.test(htmlpath
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) {
     injectStyles(courseTaskStyles, 'courseTask.css');
     console.log('[PKU Art] courseTask.css imported');
+}
+
+// 答疑讨论界面
+// courseDiscussion
+// https://course.pku.edu.cn/webapps/discussionboard/do/conference?toggle_mode=read&action=list_forums&course_id=_80087_1&nav=discussion_board_entry&mode=view
+
+if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*discussionboard\S*$/.test(htmlpath)) {
+    injectStyles(courseDiscussionStyles, 'courseDiscussion.css');
+    console.log('[PKU Art] courseDiscussion.css imported');
 }
 
 // Other IIFE
