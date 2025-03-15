@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.58
+// @version      2.3.59
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.css
-// @date         2025/03/13
+// @date         2025/03/15
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/iaaa\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/course\\.pku\\.edu\\.cn\\/\\S*$|^https:\\/\\/onlineroomse\\.pku\\.edu\\.cn\\/\\S*") {
     /*
@@ -4404,6 +4404,18 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
 .defaultSkin .mceMenu .mceMenuItemActive {
     background: var(--c-hover);
 }
+
+/* TINY深色模式 */
+@media screen and (prefers-color-scheme: dark) {
+    .tox.tox-tinymce {
+      -webkit-filter: invert(100%) hue-rotate(180deg);
+      filter: invert(100%) hue-rotate(180deg);
+    }
+    .tox.tox-tinymce svg {
+      -webkit-filter: invert(100%) hue-rotate(180deg);
+      filter: invert(100%) hue-rotate(180deg);
+    }
+    }
 
 /* 作业复查界面 */
 #inlineReceipt_good {
