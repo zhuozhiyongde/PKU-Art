@@ -4,15 +4,15 @@
 
 # 🎨 PKU Art
 
-<p align="left">
+</div>
 
-PKU Art 是一款通过浏览器插件向页面附加的 CSS 样式表 / JavaScript 脚本。它可以完成对于原有样式的覆盖，从而增强教学网视觉体验。
+PKU Art 是一款通过浏览器插件向页面附加的 CSS 样式表 / JavaScript 脚本。它可以完成对于原有样式的覆盖，从而增强教学网视觉体验与功能优化。
 
 PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新的第二版实现了对第一版完整重构，完美支持了暗色模式，并且增加了更多的交互动效和设计改进。
 
-</p>
+<div align="center">
 
-[💫 碎碎念](##-%E7%A2%8E%E7%A2%8E%E5%BF%B5) · [✨ 功能](#-%E5%8A%9F%E8%83%BD) · [📦 安装](#-%E5%AE%89%E8%A3%85) · [🚨 使用须知](#-%E4%BD%BF%E7%94%A8%E9%A1%BB%E7%9F%A5) · [🧑‍💻 贡献](#-%E8%B4%A1%E7%8C%AE) · [📝 更新日志](#-%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97) · [💬 Q&A](#%E9%97%AE%E9%A2%98%E4%B8%8E%E5%8F%8D%E9%A6%88) · [📋 LICENSE](#%E5%90%8E%E8%AE%B0)
+[💫 碎碎念](##-%E7%A2%8E%E7%A2%8E%E5%BF%B5) · [✨ 功能](#-%E5%8A%9F%E8%83%BD) · [📦 安装](#-%E5%AE%89%E8%A3%85) · [🚨 使用须知](#-%E4%BD%BF%E7%94%A8%E9%A1%BB%E7%9F%A5) · [🧑‍💻 贡献](#-%E8%B4%A1%E7%8C%AE) · [📝 更新日志](#-%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97) · [💬 Q&A](#-qa) · [📜 后记](#-%E5%90%8E%E8%AE%B0) · [📋 LICENSE](#-license)
 
 </div>
 
@@ -109,33 +109,33 @@ CSS 安装方式目前已不会在版本更新前确认效果。
 
 1. 克隆本项目：
 
-   ```bash
-   git clone https://github.com/zhuozhiyongde/PKU-Art.git
-   ```
+    ```bash
+    git clone https://github.com/zhuozhiyongde/PKU-Art.git
+    ```
 
 2. 进入工作目录，安装依赖：
 
-   ```bash
-   cd PKU-Art && pnpm install
-   ```
+    ```bash
+    cd PKU-Art && pnpm install
+    ```
 
 3. 启动 Vite 服务器以获得 HMR 热更新开发体验：
 
-   ```bash
-   pnpm dev
-   ```
+    ```bash
+    pnpm dev
+    ```
 
 4. 如果你需要引入新的图标（`src/css/src` 目录），你可能需要在本地额外启动文件服务器：
 
-   ```bash
-   python server.py
-   ```
+    ```bash
+    python server.py
+    ```
 
 5. 编译，随后在本地预览：
 
-   ```bash
-   pnpm build
-   ```
+    ```bash
+    pnpm build
+    ```
 
 6. 而后，你就可以发起 Pull Request，我将在审核代码后进行合并，随后更新 CDN。
 
