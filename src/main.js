@@ -5,6 +5,7 @@ import courseLoginPageStyles from './css/courseLoginPage.css?inline';
 import courseHomePageStyles from './css/courseHomePage.css?inline';
 import courseContentStyles from './css/courseContent.css?inline';
 import courseAnnouncementStyles from './css/courseAnnouncement.css?inline';
+import courseTeachingStaffListStyles from './css/courseTeachingStaffList.css?inline';
 import courseClassinStyles from './css/courseClassin.css?inline';
 import courseBlankPageStyles from './css/courseBlankPage.css?inline';
 import courseVideolistStyles from './css/courseVideolist.css?inline';
@@ -98,6 +99,14 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*$/.test(htmlpath))
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/blackboard\S*announcement\S*$/.test(htmlpath)) {
     injectStyles(courseAnnouncementStyles, 'courseAnnouncement.css');
     console.log('[PKU Art] courseAnnouncement.css imported');
+}
+
+// 课程教参界面
+// courseTeachingStaffList
+// https://course.pku.edu.cn/webapps/bb-teachingBook-BBLEARN/course/getTeachingStaffList.do?course_id=_77032_1&mode=view
+if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*getTeachingStaffList\S*$/.test(htmlpath)) {
+    injectStyles(courseTeachingStaffListStyles, 'courseTeachingStaffList.css');
+    console.log('[PKU Art] courseTeachingStaffList.css imported');
 }
 
 // ClassIn界面，实际和其他界面差不多
