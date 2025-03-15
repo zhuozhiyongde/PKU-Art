@@ -21,7 +21,7 @@ body {
 #quick_links_wrap,
 #global-avatar,
 #global-toggle-img {
-    display: none;
+    display: none !important;
     /* visibility: hidden; */
 }
 
@@ -57,8 +57,8 @@ body {
     background: transparent;
     background-image: var(--i-exit) !important;
     background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
 }
 
 /* 替换背景 */
@@ -89,7 +89,7 @@ body {
 #topTabs {
     /* position: absolute; */
     /* width: fit-content; */
-    background-color: var(--c-navbar);
+    background-color: var(--c-navbar) !important;
 }
 
 #globalNavPageNavArea {
@@ -102,10 +102,7 @@ body {
     justify-content: flex-end;
     flex-direction: row;
     padding-right: 140px;
-    background-image: var(--i-logo);
-    background-repeat: no-repeat;
-    background-size: auto 30px;
-    background-position: 2em center;
+    background: var(--c-navbar) var(--i-logo) no-repeat 2em center / auto 30px !important;
     border-bottom: 1px solid var(--c-border);
     position: fixed;
     width: 100%;
@@ -117,7 +114,7 @@ body {
     width: fit-content;
 }
 
-.global-nav-bar-wrap {
+body .global-nav-bar-wrap {
     position: fixed;
     /* left: 90vw; */
     right: 20px;
@@ -139,8 +136,8 @@ body {
 .global-nav-bar {
     /* margin: 30px 5px; */
     margin: 0;
-    float: none;
-    height: 60px;
+    float: none !important;
+    height: 60px !important;
     display: flex;
     /* display: inline-block; */
     /* background-color: var(--c-navbar); */
@@ -260,11 +257,16 @@ nav.navigationPane {
     margin-left: 0;
 }
 
+/* 侧栏背景 */
 #menuWrap,
 .navPaletteContent,
 #courseMenuPalette_contents li,
 #courseMenuPalette div.navPaletteContent {
-    background-color: var(--c-sidebar);
+    background-color: var(--c-sidebar) !important;
+    border-top: none;
+}
+
+#menuWrap .navPalette.tools {
     border-top: none;
 }
 
@@ -273,7 +275,7 @@ nav.navigationPane {
 li.divider,
 #copyright,
 #menuWrap li > hr {
-    display: none;
+    display: none !important;
 }
 
 /* 选项着色 */
@@ -371,12 +373,13 @@ li.divider,
 }
 
 /* 面板内容样式 */
-.locationPane {
+#globalNavPageContentArea .locationPane {
     background-color: var(--c-background);
 }
 
 .contentPane .shadow {
-    border: none;
+    border: none !important;
+    background-color: var(--c-background);
 }
 
 #pageTitleDiv {
@@ -452,7 +455,7 @@ li.divider,
 }
 
 #global-list-tools {
-    margin: 0;
+    margin: 0 !important;
     box-shadow: var(--c-box-shadow);
     border: 1px solid var(--c-border);
     padding: 5px;

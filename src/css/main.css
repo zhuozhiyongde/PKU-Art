@@ -53,6 +53,7 @@
     --i-clover: url('https://cdn.arthals.ink/css/src/clover.svg');
     --i-sandclock: url('https://cdn.arthals.ink/css/src/sandclock.svg');
     --i-warning: url('https://cdn.arthals.ink/css/src/warning.svg');
+    --i-student: url('https://cdn.arthals.ink/css/src/student.svg');
     /* --i-more: url('http://localhost:3000/more.svg'); */
 }
 
@@ -93,6 +94,7 @@
         --i-check-simple: url('https://cdn.arthals.ink/css/src/check-simple_dark.svg');
         --i-download: url('https://cdn.arthals.ink/css/src/download_dark.svg');
         --i-warning: url('https://cdn.arthals.ink/css/src/warning_dark.svg');
+        --i-student: url('https://cdn.arthals.ink/css/src/student_dark.svg');
         /* --i-more: url('http://localhost:3000/more_dark.svg'); */
     }
 }
