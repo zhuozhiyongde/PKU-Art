@@ -330,17 +330,40 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*discussionboard\S*$/.test(html
     let htmlpath = location.href;
     if (/^https:\/\/(course|autolab|disk)\.pku\.edu\.cn\//.test(htmlpath)) {
         function executeReplaceIcon() {
-            const icons = document.querySelectorAll('link[rel="icon" i], link[rel="shortcut icon" i]');
+            const icons = document.querySelectorAll(
+                'link[rel="icon" i]:not([href^="https://cdn.arthals.ink/"]), link[rel="shortcut icon" i]:not([href^="https://cdn.arthals.ink/"])'
+            );
             if (icons.length > 0) {
-                icons[0].href = 'https://cdn.arthals.ink/css/src/PKU.svg';
-                for (let i = 1; i < icons.length; i++) {
+                for (let i = 0; i < icons.length; i++) {
                     icons[i].parentNode.removeChild(icons[i]);
                 }
-            } else {
                 const newIcon = document.createElement('link');
                 newIcon.rel = 'SHORTCUT ICON';
                 newIcon.href = 'https://cdn.arthals.ink/css/src/PKU.svg';
                 document.head.appendChild(newIcon);
+
+                const appleIcon16 = document.createElement('link');
+                appleIcon16.rel = 'icon';
+                appleIcon16.type = 'image/png';
+                appleIcon16.sizes = '16x16';
+                // appleIcon16.type = 'image/x-icon';
+                appleIcon16.href = 'https://cdn.arthals.ink/css/src/pku_16x16.png';
+                document.head.appendChild(appleIcon16);
+
+                const appleIcon32 = document.createElement('link');
+                appleIcon32.rel = 'icon';
+                appleIcon32.type = 'image/png';
+                appleIcon32.sizes = '32x32';
+                // appleIcon32.type = 'image/x-icon';
+                appleIcon32.href = 'https://cdn.arthals.ink/css/src/pku_32x32.png';
+                document.head.appendChild(appleIcon32);
+
+                const appleIconTouch = document.createElement('link');
+                appleIconTouch.rel = 'apple-touch-icon';
+                appleIconTouch.sizes = '180x180';
+                // appleIconTouch.type = 'image/x-icon';
+                appleIconTouch.href = 'https://cdn.arthals.ink/css/src/pku_180x180.png';
+                document.head.appendChild(appleIconTouch);
             }
         }
 
