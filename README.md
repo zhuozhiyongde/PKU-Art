@@ -84,7 +84,8 @@ PKU Art 目前支持 CSS 安装与 JavaScript 安装两种安装方式，兼容 
 -   [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.user.js)：源代码更新后立即更新
 -   [GreasyFork](https://greasyfork.org/zh-CN/scripts/436323-pku-art)：每天同步上述源一次
 
-注意，由于 Chrome 权限更新，你可能需要在扩展页面打开开发者模式，详见 [这里](https://www.tampermonkey.net/faq.php?locale=en#Q209)。
+> [!WARNING]
+> 注意，由于 Chrome 权限更新，你可能需要在扩展页面打开开发者模式，详见 [这里](https://www.tampermonkey.net/faq.php?locale=en#Q209)。
 
 ### CSS
 
