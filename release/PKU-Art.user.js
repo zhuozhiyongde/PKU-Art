@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.3.65
+// @version      2.3.66
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -15,7 +15,7 @@
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2025/04/26
+// @date         2025/05/12
 // ==/UserScript==
 
 (function () {
@@ -278,7 +278,7 @@
           ".containerPortal > div:not(:first-child) .portlet .portletList-img > li > a"
         );
         courses.forEach((course) => {
-          course.innerHTML = course.innerHTML.replace(/^.*?: /, "").replace(/\(\d+-\d+学年第\d学期\)/, "");
+          course.innerHTML = course.innerHTML.replace(/^.*?: /, "").replace(/\(\d+-\d+学年第\d学期.*?\)/, "");
         });
         console.log("[PKU Art] course serial deleted: " + courses.length + " courses");
       };
