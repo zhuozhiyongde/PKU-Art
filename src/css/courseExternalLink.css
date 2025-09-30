@@ -1,0 +1,39 @@
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
+@import 'main.css';
+
+body {
+    height: auto;
+}
+
+.locationPane {
+    background-color: var(--c-background);
+}
+
+#pageTitleDiv,
+#pageTitleDiv * {
+    color: var(--c-title);
+}
+
+#containerdiv {
+    border: 1px solid var(--c-border);
+    background-color: var(--c-card);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#containerdiv * {
+    color: var(--c-text);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+#containerdiv a {
+    color: var(--blue-5) !important;
+    text-decoration: none;
+}

@@ -124,13 +124,13 @@ CSS 安装方式目前已不会在版本更新前确认效果。
 2. 进入工作目录，安装依赖：
 
     ```bash
-    cd PKU-Art && pnpm install
+    cd PKU-Art && bun install
     ```
 
 3. 启动 Vite 服务器以获得 HMR 热更新开发体验：
 
     ```bash
-    pnpm dev
+    bun dev
     ```
 
 4. 如果你需要引入新的图标（`src/css/src` 目录），你可能需要在本地额外启动文件服务器：
@@ -142,7 +142,7 @@ CSS 安装方式目前已不会在版本更新前确认效果。
 5. 编译，随后在本地预览：
 
     ```bash
-    pnpm build
+    bun run build
     ```
 
 6. 而后，你就可以发起 Pull Request，我将在审核代码后进行合并，随后更新 CDN。

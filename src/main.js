@@ -1,5 +1,6 @@
 import mainStyles from './css/main.css?inline';
 import arcoPaletteStyles from './css/arco-palette.css?inline';
+import themeManager from './theme-manager.js';
 import iaaaOAuthPageStyles from './css/iaaaOAuthPage.css?inline';
 import courseLoginPageStyles from './css/courseLoginPage.css?inline';
 import courseHomePageStyles from './css/courseHomePage.css?inline';
@@ -26,6 +27,7 @@ import courseVideoPlayStyles from './css/courseVideoPlay.css?inline';
 import courseVideoPlayFrameStyles from './css/courseVideoPlayFrame.css?inline';
 import courseTaskStyles from './css/courseTask.css?inline';
 import courseDiscussionStyles from './css/courseDiscussion.css?inline';
+import courseExternalLinkStyles from './css/courseExternalLink.css?inline';
 
 function injectStyles(styleString, cssFileName) {
     const styleElement = document.createElement('style');
@@ -45,6 +47,65 @@ function injectStyles(styleString, cssFileName) {
 }
 
 let htmlpath = location.href;
+
+// 初始化主题管理器
+function initThemeManager() {
+    // 检查用户脚本选项设置
+    let userThemeMode = 'auto';
+    try {
+        if (typeof GM_getValue !== 'undefined') {
+            userThemeMode = GM_getValue('themeMode', 'auto');
+        }
+    } catch (e) {
+        console.log('[PKU Art] GM_getValue not available, using default theme mode');
+    }
+
+    // 设置主题模式
+    themeManager.setTheme(userThemeMode);
+
+    // 注册主题切换菜单命令
+    if (typeof GM_registerMenuCommand !== 'undefined') {
+        // 日间模式
+        GM_registerMenuCommand('🌞 日间模式', () => {
+            themeManager.setTheme('light');
+            try {
+                GM_setValue('themeMode', 'light');
+            } catch (e) {
+                console.log('[PKU Art] GM_setValue not available');
+            }
+            alert('已切换到日间模式');
+        });
+
+        // 黑夜模式
+        GM_registerMenuCommand('🌙 黑夜模式', () => {
+            themeManager.setTheme('dark');
+            try {
+                GM_setValue('themeMode', 'dark');
+            } catch (e) {
+                console.log('[PKU Art] GM_setValue not available');
+            }
+            alert('已切换到黑夜模式');
+        });
+
+        // 跟随系统
+        GM_registerMenuCommand('⚙️ 跟随系统', () => {
+            themeManager.setTheme('auto');
+            try {
+                GM_setValue('themeMode', 'auto');
+            } catch (e) {
+                console.log('[PKU Art] GM_setValue not available');
+            }
+            alert('已设置为跟随系统主题');
+        });
+
+        console.log('[PKU Art] Theme menu commands registered');
+    }
+
+    console.log('[PKU Art] Theme manager initialized with mode:', userThemeMode);
+}
+
+// 初始化主题功能
+initThemeManager();
 
 // 限定全局样式生效路径
 if (
@@ -281,6 +342,14 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) 
 if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*discussionboard\S*$/.test(htmlpath)) {
     injectStyles(courseDiscussionStyles, 'courseDiscussion.css');
     console.log('[PKU Art] courseDiscussion.css imported');
+}
+
+// 外部链接页面
+// courseExternalLink
+// https://course.pku.edu.cn/webapps/blackboard/content/contentWrapperNoFrame.jsp?href=https%3A//oyer359xyx.feishu.cn/docx/HUOldvsKvojKq4xFGGPc8n42nPc%3Ffrom%3Dfrom_copylink&globalNavigation=false
+if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*contentWrapperNoFrame\S*$/.test(htmlpath)) {
+    injectStyles(courseExternalLinkStyles, 'courseExternalLink.css');
+    console.log('[PKU Art] courseExternalLink.css imported');
 }
 
 // Other IIFE
@@ -675,5 +744,68 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*discussionboard\S*$/.test(html
         document.addEventListener('DOMContentLoaded', () => {
             executeReplaceMore();
         });
+    }
+})();
+
+// 直接打开链接功能
+(function directOpenLinks() {
+    let htmlpath = location.href;
+    if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath)) {
+        function executeDirectOpenLinks() {
+            // 查找所有带有onclick属性的a标签，且href指向外部链接
+            const links = document.querySelectorAll('a[onclick][href]');
+
+            links.forEach((link) => {
+                // 检查是否已经处理过这个链接
+                if (link.dataset.pkuArtProcessed) return;
+
+                const href = link.getAttribute('href');
+                const onclick = link.getAttribute('onclick');
+
+                // 检查href是否是外部链接（不是以/webapps/开头的相对路径）
+                if (href && !href.startsWith('/webapps/') && !href.startsWith('#')) {
+                    // 移除onclick属性，防止执行跳转逻辑
+                    link.removeAttribute('onclick');
+
+                    // 标记为已处理
+                    link.dataset.pkuArtProcessed = 'true';
+
+                    console.log('[PKU Art] 直接打开链接:', href);
+                }
+            });
+        }
+
+        // 立即执行一次
+        executeDirectOpenLinks();
+
+        // 监听DOM变化，处理动态添加的链接
+        const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                if (mutation.type === 'childList') {
+                    executeDirectOpenLinks();
+                }
+            });
+        });
+
+        // 开始观察 - 确保 document.body 存在
+        if (document.body) {
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true,
+            });
+        } else {
+            // 如果 body 不存在，等待 DOM 加载完成后再启动观察器
+            document.addEventListener('DOMContentLoaded', () => {
+                if (document.body) {
+                    observer.observe(document.body, {
+                        childList: true,
+                        subtree: true,
+                    });
+                }
+            });
+        }
+
+        // 页面加载完成后也执行一次
+        document.addEventListener('DOMContentLoaded', executeDirectOpenLinks);
     }
 })();

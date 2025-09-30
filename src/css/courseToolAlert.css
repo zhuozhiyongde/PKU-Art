@@ -212,6 +212,7 @@ html,
 #left_stream_alerts > div div.stream_details * {
     font-size: 14px;
     line-height: 1em;
+    max-width: 100%;
 }
 
 span.open_stream_settings {

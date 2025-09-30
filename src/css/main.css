@@ -7,6 +7,7 @@
 @import 'arco-palette.css';
 
 :root {
+    /* 日间模式变量 */
     --c-title: #212121;
     --c-text: #666;
     --c-border: #d0d7de;
@@ -207,4 +208,91 @@ html {
 ::-webkit-scrollbar-thumb {
     background-color: var(--c-scrollbar);
     border-radius: 9999px;
+}
+
+/* 主题切换相关样式 */
+.pku-art-light {
+    /* 日间模式变量 */
+    --c-title: #212121;
+    --c-text: #666;
+    --c-border: #d0d7de;
+    --c-background: #f6f8fa;
+    --c-input-bg: #f6f8fa;
+    --c-card: #fff;
+    --c-hover: rgba(230, 230, 230, 0.5);
+    --c-focus: #fff;
+    --c-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    --c-accent: #9b0000;
+    --c-navbar: #fff;
+    --c-sidebar: #fff;
+    --c-subtitle: #82a3ac;
+    --c-label: #f6f8fa;
+    --c-link: #fcc59f;
+    --c-primary: #165dff;
+    --c-primary-light: #e8f3ff;
+    --c-secondary: #89a2ac;
+    --c-button: #f7f8fa;
+    --c-card-hover: #66ecf331;
+    --c-scrollbar: #c1c1c1;
+    --c-tip: #e5e7eb;
+
+    --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo.svg');
+    --i-remind: url('https://cdn.arthals.ink/css/src/remind.svg');
+    --i-exit: url('https://cdn.arthals.ink/css/src/exit.svg');
+    --i-watch: url('https://cdn.arthals.ink/css/src/stopwatch-start.svg');
+    --i-file: url('https://cdn.arthals.ink/css/src/file.svg');
+    --i-folder: url('https://cdn.arthals.ink/css/src/folder.svg');
+    --i-link: url('https://cdn.arthals.ink/css/src/link.svg');
+    --i-setting: url('https://cdn.arthals.ink/css/src/setting.svg');
+    --i-check: url('https://cdn.arthals.ink/css/src/check.svg');
+    --i-check-simple: url('https://cdn.arthals.ink/css/src/check-simple.svg');
+    --i-download: url('https://cdn.arthals.ink/css/src/download.svg');
+    --i-warning: url('https://cdn.arthals.ink/css/src/warning.svg');
+    --i-student: url('https://cdn.arthals.ink/css/src/student.svg');
+    --i-refresh: url('https://cdn.arthals.ink/css/src//refresh.svg');
+    --i-search: url('https://cdn.arthals.ink/css/src//search.svg');
+    --i-arrow: url('https://cdn.arthals.ink/css/src//arrow.svg');
+}
+
+.pku-art-dark {
+    /* 暗色模式变量 */
+    --c-title: #e2e2e2;
+    --c-text: #bababa;
+    --c-border: #30363d;
+    --c-background: #020409;
+    --c-input-bg: #020409;
+    --c-hover: rgba(29, 33, 41, 0.5);
+    --c-card: #0e1017;
+    --c-focus: #010409;
+    --c-box-shadow: none;
+    --c-accent: #e44c47;
+    --c-navbar: #171a22;
+    --c-sidebar: #0e1017;
+    --c-subtitle: #86909c;
+    --c-label: #22252d;
+    --c-link: #f9925a;
+    --c-primary: #7dc1fc;
+    --c-primary-light: #262947;
+    --c-secondary: #00879d;
+    --c-button: #22262d;
+    --c-card-hover: rgba(23, 231, 242, 0.23);
+    --c-scrollbar: #6b6b6b;
+    --c-tip: #22262d;
+
+    --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg');
+    --i-remind: url('https://cdn.arthals.ink/css/src/remind_dark.svg');
+    --i-exit: url('https://cdn.arthals.ink/css/src/exit_dark.svg');
+    --i-watch: url('https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg');
+    --i-file: url('https://cdn.arthals.ink/css/src/file_dark.svg');
+    --i-folder: url('https://cdn.arthals.ink/css/src/folder_dark.svg');
+    --i-link: url('https://cdn.arthals.ink/css/src/link_dark.svg');
+    --i-setting: url('https://cdn.arthals.ink/css/src/setting_dark.svg');
+    --i-check: url('https://cdn.arthals.ink/css/src/check_dark.svg');
+    --i-check-simple: url('https://cdn.arthals.ink/css/src/check-simple_dark.svg');
+    --i-download: url('https://cdn.arthals.ink/css/src/download_dark.svg');
+    --i-warning: url('https://cdn.arthals.ink/css/src/warning_dark.svg');
+    --i-student: url('https://cdn.arthals.ink/css/src/student_dark.svg');
+    --i-refresh: url('https://cdn.arthals.ink/css/src//refresh_dark.svg');
+    --i-search: url('https://cdn.arthals.ink/css/src//search_dark.svg');
+    --i-arrow: url('https://cdn.arthals.ink/css/src//arrow_dark.svg');
 }
