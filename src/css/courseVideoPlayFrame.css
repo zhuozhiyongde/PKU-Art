@@ -50,6 +50,7 @@ body,
     justify-content: center;
     align-items: center;
     gap: 10px;
+    margin: 0 auto;
 }
 
 .course-info__wrapper .course-info__footer button {
@@ -166,7 +167,7 @@ label[for='injectDownloadSwitch']:before {
     margin-top: 10px;
     /* margin-bottom: -10px; */
     line-height: 1.5rem;
-    grid-column: 1 / 4;
+    grid-column: 1 / 5;
     width: 100%;
 }
 

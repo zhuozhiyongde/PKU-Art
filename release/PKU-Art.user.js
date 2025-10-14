@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.3.68
+// @version      2.3.69
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -18,7 +18,7 @@
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2025/10/14
+// @date         2025/10/15
 // ==/UserScript==
 
 (function () {
@@ -141,7 +141,7 @@
   const courseGlobalPageStyles = ":root{--red-1: #FFECE8;--red-2: #FDCDC5;--red-3: #FBACA3;--red-4: #F98981;--red-5: #F76560;--red-6: #F53F3F;--red-7: #CB272D;--red-8: #A1151E;--red-9: #770813;--red-10: #4D000A;--orangered-1: #FFF3E8;--orangered-2: #FDDDC3;--orangered-3: #FCC59F;--orangered-4: #FAAC7B;--orangered-5: #F99057;--orangered-6: #F77234;--orangered-7: #CC5120;--orangered-8: #A23511;--orangered-9: #771F06;--orangered-10: #4D0E00;--orange-1: #FFF7E8;--orange-2: #FFE4BA;--orange-3: #FFCF8B;--orange-4: #FFB65D;--orange-5: #FF9A2E;--orange-6: #FF7D00;--orange-7: #D25F00;--orange-8: #A64500;--orange-9: #792E00;--orange-10: #4D1B00;--gold-1: #FFFCE8;--gold-2: #FDF4BF;--gold-3: #FCE996;--gold-4: #FADC6D;--gold-5: #F9CC45;--gold-6: #F7BA1E;--gold-7: #CC9213;--gold-8: #A26D0A;--gold-9: #774B04;--gold-10: #4D2D00;--yellow-1: #FEFFE8;--yellow-2: #FEFEBE;--yellow-3: #FDFA94;--yellow-4: #FCF26B;--yellow-5: #FBE842;--yellow-6: #FADC19;--yellow-7: #CFAF0F;--yellow-8: #A38408;--yellow-9: #785D03;--yellow-10: #4D3800;--lime-1: #FCFFE8;--lime-2: #EDF8BB;--lime-3: #DCF190;--lime-4: #C9E968;--lime-5: #B5E241;--lime-6: #9FDB1D;--lime-7: #7EB712;--lime-8: #5F940A;--lime-9: #437004;--lime-10: #2A4D00;--green-1: #E8FFEA;--green-2: #AFF0B5;--green-3: #7BE188;--green-4: #4CD263;--green-5: #23C343;--green-6: #00B42A;--green-7: #009A29;--green-8: #008026;--green-9: #006622;--green-10: #004D1C;--cyan-1: #E8FFFB;--cyan-2: #B7F4EC;--cyan-3: #89E9E0;--cyan-4: #5EDFD6;--cyan-5: #37D4CF;--cyan-6: #14C9C9;--cyan-7: #0DA5AA;--cyan-8: #07828B;--cyan-9: #03616C;--cyan-10: #00424D;--blue-1: #E8F7FF;--blue-2: #C3E7FE;--blue-3: #9FD4FD;--blue-4: #7BC0FC;--blue-5: #57A9FB;--blue-6: #3491FA;--blue-7: #206CCF;--blue-8: #114BA3;--blue-9: #063078;--blue-10: #001A4D;--arcoblue-1: #E8F3FF;--arcoblue-2: #BEDAFF;--arcoblue-3: #94BFFF;--arcoblue-4: #6AA1FF;--arcoblue-5: #4080FF;--arcoblue-6: #165DFF;--arcoblue-7: #0E42D2;--arcoblue-8: #072CA6;--arcoblue-9: #031A79;--arcoblue-10: #000D4D;--purple-1: #F5E8FF;--purple-2: #DDBEF6;--purple-3: #C396ED;--purple-4: #A871E3;--purple-5: #8D4EDA;--purple-6: #722ED1;--purple-7: #551DB0;--purple-8: #3C108F;--purple-9: #27066E;--purple-10: #16004D;--pinkpurple-1: #FFE8FB;--pinkpurple-2: #F7BAEF;--pinkpurple-3: #F08EE6;--pinkpurple-4: #E865DF;--pinkpurple-5: #E13EDB;--pinkpurple-6: #D91AD9;--pinkpurple-7: #B010B6;--pinkpurple-8: #8A0993;--pinkpurple-9: #650370;--pinkpurple-10: #42004D;--magenta-1: #FFE8F1;--magenta-2: #FDC2DB;--magenta-3: #FB9DC7;--magenta-4: #F979B7;--magenta-5: #F754A8;--magenta-6: #F5319D;--magenta-7: #CB1E83;--magenta-8: #A11069;--magenta-9: #77064F;--magenta-10: #4D0034;--gray-1: #f7f8fa;--gray-2: #f2f3f5;--gray-3: #e5e6eb;--gray-4: #c9cdd4;--gray-5: #a9aeb8;--gray-6: #86909c;--gray-7: #6b7785;--gray-8: #4e5969;--gray-9: #272e3b;--gray-10: #1d2129}@media (prefers-color-scheme: dark){:root{--red-1: #4D000A;--red-2: #770611;--red-3: #A1161F;--red-4: #CB2E34;--red-5: #F54E4E;--red-6: #F76965;--red-7: #F98D86;--red-8: #FBB0A7;--red-9: #FDD1CA;--red-10: #FFF0EC;--orangered-1: #4D0E00;--orangered-2: #771E05;--orangered-3: #A23714;--orangered-4: #CC5729;--orangered-5: #F77E45;--orangered-6: #F9925A;--orangered-7: #FAAD7D;--orangered-8: #FCC6A1;--orangered-9: #FDDEC5;--orangered-10: #FFF4EB;--orange-1: #4D1B00;--orange-2: #793004;--orange-3: #A64B0A;--orange-4: #D26913;--orange-5: #FF8D1F;--orange-6: #FF9626;--orange-7: #FFB357;--orange-8: #FFCD87;--orange-9: #FFE3B8;--orange-10: #FFF7E8;--gold-1: #4D2D00;--gold-2: #774B04;--gold-3: #A26F0F;--gold-4: #CC961F;--gold-5: #F7C034;--gold-6: #F9CC44;--gold-7: #FADC6C;--gold-8: #FCE995;--gold-9: #FDF4BE;--gold-10: #FFFCE8;--yellow-1: #4D3800;--yellow-2: #785E07;--yellow-3: #A38614;--yellow-4: #CFB325;--yellow-5: #FAE13C;--yellow-6: #FBE94B;--yellow-7: #FCF374;--yellow-8: #FDFA9D;--yellow-9: #FEFEC6;--yellow-10: #FEFFF0;--lime-1: #2A4D00;--lime-2: #447006;--lime-3: #629412;--lime-4: #84B723;--lime-5: #A8DB39;--lime-6: #B8E24B;--lime-7: #CBE970;--lime-8: #DEF198;--lime-9: #EEF8C2;--lime-10: #FDFFEE;--green-1: #004D1C;--green-2: #046625;--green-3: #0A802D;--green-4: #129A37;--green-5: #1DB440;--green-6: #27C346;--green-7: #50D266;--green-8: #7EE18B;--green-9: #B2F0B7;--green-10: #EBFFEC;--cyan-1: #00424D;--cyan-2: #06616C;--cyan-3: #11838B;--cyan-4: #1FA6AA;--cyan-5: #30C9C9;--cyan-6: #3FD4CF;--cyan-7: #66DFD7;--cyan-8: #90E9E1;--cyan-9: #BEF4ED;--cyan-10: #F0FFFC;--blue-1: #001A4D;--blue-2: #052F78;--blue-3: #134CA3;--blue-4: #2971CF;--blue-5: #469AFA;--blue-6: #5AAAFB;--blue-7: #7DC1FC;--blue-8: #A1D5FD;--blue-9: #C6E8FE;--blue-10: #EAF8FF;--arcoblue-1: #000D4D;--arcoblue-2: #041B79;--arcoblue-3: #0E32A6;--arcoblue-4: #1D4DD2;--arcoblue-5: #306FFF;--arcoblue-6: #3C7EFF;--arcoblue-7: #689FFF;--arcoblue-8: #93BEFF;--arcoblue-9: #BEDAFF;--arcoblue-10: #EAF4FF;--purple-1: #16004D;--purple-2: #27066E;--purple-3: #3E138F;--purple-4: #5A25B0;--purple-5: #7B3DD1;--purple-6: #8E51DA;--purple-7: #A974E3;--purple-8: #C59AED;--purple-9: #DFC2F6;--purple-10: #F7EDFF;--pinkpurple-1: #42004D;--pinkpurple-2: #650370;--pinkpurple-3: #8A0D93;--pinkpurple-4: #B01BB6;--pinkpurple-5: #D92ED9;--pinkpurple-6: #E13DDB;--pinkpurple-7: #E866DF;--pinkpurple-8: #F092E6;--pinkpurple-9: #F7C1F0;--pinkpurple-10: #FFF2FD;--magenta-1: #4D0034;--magenta-2: #770850;--magenta-3: #A1176C;--magenta-4: #CB2B88;--magenta-5: #F545A6;--magenta-6: #F756A9;--magenta-7: #F97AB8;--magenta-8: #FB9EC8;--magenta-9: #FDC3DB;--magenta-10: #FFE8F1;--gray-10: #f7f8fa;--gray-9: #f2f3f5;--gray-8: #e5e6eb;--gray-7: #c9cdd4;--gray-6: #a9aeb8;--gray-5: #86909c;--gray-4: #6b7785;--gray-3: #4e5969;--gray-2: #272e3b;--gray-1: #1d2129}}:root{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg);--c-pku: #9b0000;--i-alarm: url(https://cdn.arthals.ink/css/src/alarm-clock.svg);--i-idcard: url(https://cdn.arthals.ink/css/src/id-card-v.svg);--i-tip: url(https://cdn.arthals.ink/css/src/tip.svg);--i-comment: url(https://cdn.arthals.ink/css/src/comment.svg);--i-clover: url(https://cdn.arthals.ink/css/src/clover.svg);--i-sandclock: url(https://cdn.arthals.ink/css/src/sandclock.svg);--i-verified: url(https://cdn.arthals.ink/css/src/verified.svg)}@media (prefers-color-scheme: dark){:root{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}}body,html{background:var(--c-background)!important}*{outline:none!important}@keyframes fadeInUpTransition{0%{opacity:0;-webkit-transform:translateY(100px);transform:translateY(100px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixel{0%{opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixelForContentBox{0%{margin-left:min(25%,300px);opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{margin-left:min(25%,300px);opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInLeftStablePixel{0%{color:#fff;transform:translate(-72px);-webkit-transform:translateX(-72px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}to{opacity:1}}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background-color:transparent}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background-color:var(--c-scrollbar);border-radius:9999px}.pku-art-light{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg)}.pku-art-dark{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}body{position:relative}.brandingImgWrap,#appTabList>tbody>tr,.hideoff,#quick_links_wrap,#global-avatar,#global-toggle-img{display:none}#global-nav-link>*{display:none}#global-nav-link,#global-nav-link:hover,#global-nav-link:focus{color:transparent;width:32px;height:32px;padding:0;background:transparent;background-image:var(--i-remind)!important;background-size:80%;background-repeat:no-repeat;background-position:center center;border:none;outline:none}.global-nav-bar a.logout-link,.global-nav-bar a.logout-link:hover,.global-nav-bar a.logout-link:focus{color:transparent;width:32px;height:32px;padding:0;background:transparent;background-image:var(--i-exit)!important;background-size:80%;background-repeat:no-repeat;background-position:center center}.container,.locationPane,.contentPane{background-color:var(--c-background)}.tabWrapper-right,#globalNavPageNavArea,#topTabs{background-color:var(--c-navbar)}#globalNavPageNavArea{padding:1em 140px 1em 0;height:60px;top:0!important;box-sizing:border-box;display:flex;text-align:right;justify-content:flex-end;flex-direction:row;background-image:var(--i-logo);background-repeat:no-repeat;background-size:auto 30px;background-position:2em center;border-bottom:1px solid var(--c-border);position:fixed;width:100%;z-index:20}.tabWrapper-right,.bouncer[role=presentation]{width:fit-content}.global-nav-bar-wrap{position:fixed;z-index:30;right:20px;display:flex;justify-content:flex-end;flex-direction:row-reverse;background-color:var(--c-navbar);width:100px;height:60px;box-sizing:border-box;margin:0;padding:0;border-bottom:1px solid var(--c-border)}.global-nav-bar{margin:0;float:none;height:60px;display:flex;flex-direction:row-reverse;justify-content:center;align-items:center}.global-nav-bar:not(:first-child){margin:0 5px}table.bouncer,.appTabs td.active,.appTabs a:hover span,.appTabs a:focus span{border:none}.topTabs .tabWrapper-right{height:fit-content;padding:0}#globalNavPageNavArea a,#globalNavPageNavArea td{padding:0!important}#breadcrumbs{padding:1.2em 1em 1em;box-sizing:border-box;height:80px;margin-bottom:1em;margin-top:60px;z-index:10;color:var(--c-title);background-color:var(--c-background);display:flex;text-align:center;justify-content:center;border:none}#breadcrumbs .coursePath{padding:0;margin:0}#breadcrumbs span{font-size:18pt;color:var(--c-title);-webkit-animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1) both;animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1) both}#globalNavPageContentArea{margin-top:60px}#globalNavPageContentArea,#globalNavPageContentArea .locationPane,#contentPanel,div#content,div.container{height:fit-content!important}.locationPane{background-color:var(--c-background)}.contentPane .shadow{border:none}#pageTitleDiv{margin:0!important}#content{width:min(100%,1200px);margin:0 auto}#contentPanel{-webkit-animation:fadeInUpStablePixel .7s cubic-bezier(.215,.61,.355,1) both;animation-delay:.5s;animation:fadeInUpStablePixel .7s cubic-bezier(.215,.61,.355,1) both}.localViewToggle{display:none}#pageTitleHeader{color:var(--blue-7)!important;background-color:var(--blue-2);padding:.3em 1em;border-radius:5px;font-size:20px!important}#pageTitleHeader *{color:var(--blue-7)!important}#pageTitleText{font-weight:700}#vertical_container,#bottomButtons{display:none}#global-nav-tools{z-index:9999;height:inherit!important}#global-nav-flyout{box-shadow:none;border-radius:5px;width:40px!important;height:100px!important;transform:translateY(34px);background-color:transparent}#global-nav-tools{background-color:var(--c-card)}#global-list-tools{margin:0;box-shadow:var(--c-box-shadow);border:1px solid var(--c-border);padding:5px;border-radius:5px;background-color:var(--c-card)}#global-list-tools>.overview,#global-list-tools>.stream,#global-list-tools>.calendar{display:none}#global-list-tools>.alerts,#global-list-tools>.grade{background-color:var(--c-card)}#global-list-tools>.alerts>a:hover,#global-list-tools>.grades>a:hover{background-color:var(--c-hover)}#global-list-tools>.alerts>a{border-radius:5px;background:var(--i-alarm);background-size:60%;background-repeat:no-repeat;background-position:center center;margin:0 auto}#global-list-tools>.grades>a{border-radius:5px;background:var(--i-idcard);background-size:60%;background-repeat:no-repeat;background-position:center center;margin:0 auto}#global-list-tools>.more-link>a{border-radius:5px;background:var(--i-idcard);background-size:60%;background-repeat:no-repeat;background-position:center center}#global-more-tools{display:none!important}.mybb-tools li a{opacity:1;background-color:var(--c-card)}.mybb-tools li a:focus,.mybb-tools li a:focus img{outline:none}";
   const courseGlobalAnnouncementStyles = ":root{--red-1: #FFECE8;--red-2: #FDCDC5;--red-3: #FBACA3;--red-4: #F98981;--red-5: #F76560;--red-6: #F53F3F;--red-7: #CB272D;--red-8: #A1151E;--red-9: #770813;--red-10: #4D000A;--orangered-1: #FFF3E8;--orangered-2: #FDDDC3;--orangered-3: #FCC59F;--orangered-4: #FAAC7B;--orangered-5: #F99057;--orangered-6: #F77234;--orangered-7: #CC5120;--orangered-8: #A23511;--orangered-9: #771F06;--orangered-10: #4D0E00;--orange-1: #FFF7E8;--orange-2: #FFE4BA;--orange-3: #FFCF8B;--orange-4: #FFB65D;--orange-5: #FF9A2E;--orange-6: #FF7D00;--orange-7: #D25F00;--orange-8: #A64500;--orange-9: #792E00;--orange-10: #4D1B00;--gold-1: #FFFCE8;--gold-2: #FDF4BF;--gold-3: #FCE996;--gold-4: #FADC6D;--gold-5: #F9CC45;--gold-6: #F7BA1E;--gold-7: #CC9213;--gold-8: #A26D0A;--gold-9: #774B04;--gold-10: #4D2D00;--yellow-1: #FEFFE8;--yellow-2: #FEFEBE;--yellow-3: #FDFA94;--yellow-4: #FCF26B;--yellow-5: #FBE842;--yellow-6: #FADC19;--yellow-7: #CFAF0F;--yellow-8: #A38408;--yellow-9: #785D03;--yellow-10: #4D3800;--lime-1: #FCFFE8;--lime-2: #EDF8BB;--lime-3: #DCF190;--lime-4: #C9E968;--lime-5: #B5E241;--lime-6: #9FDB1D;--lime-7: #7EB712;--lime-8: #5F940A;--lime-9: #437004;--lime-10: #2A4D00;--green-1: #E8FFEA;--green-2: #AFF0B5;--green-3: #7BE188;--green-4: #4CD263;--green-5: #23C343;--green-6: #00B42A;--green-7: #009A29;--green-8: #008026;--green-9: #006622;--green-10: #004D1C;--cyan-1: #E8FFFB;--cyan-2: #B7F4EC;--cyan-3: #89E9E0;--cyan-4: #5EDFD6;--cyan-5: #37D4CF;--cyan-6: #14C9C9;--cyan-7: #0DA5AA;--cyan-8: #07828B;--cyan-9: #03616C;--cyan-10: #00424D;--blue-1: #E8F7FF;--blue-2: #C3E7FE;--blue-3: #9FD4FD;--blue-4: #7BC0FC;--blue-5: #57A9FB;--blue-6: #3491FA;--blue-7: #206CCF;--blue-8: #114BA3;--blue-9: #063078;--blue-10: #001A4D;--arcoblue-1: #E8F3FF;--arcoblue-2: #BEDAFF;--arcoblue-3: #94BFFF;--arcoblue-4: #6AA1FF;--arcoblue-5: #4080FF;--arcoblue-6: #165DFF;--arcoblue-7: #0E42D2;--arcoblue-8: #072CA6;--arcoblue-9: #031A79;--arcoblue-10: #000D4D;--purple-1: #F5E8FF;--purple-2: #DDBEF6;--purple-3: #C396ED;--purple-4: #A871E3;--purple-5: #8D4EDA;--purple-6: #722ED1;--purple-7: #551DB0;--purple-8: #3C108F;--purple-9: #27066E;--purple-10: #16004D;--pinkpurple-1: #FFE8FB;--pinkpurple-2: #F7BAEF;--pinkpurple-3: #F08EE6;--pinkpurple-4: #E865DF;--pinkpurple-5: #E13EDB;--pinkpurple-6: #D91AD9;--pinkpurple-7: #B010B6;--pinkpurple-8: #8A0993;--pinkpurple-9: #650370;--pinkpurple-10: #42004D;--magenta-1: #FFE8F1;--magenta-2: #FDC2DB;--magenta-3: #FB9DC7;--magenta-4: #F979B7;--magenta-5: #F754A8;--magenta-6: #F5319D;--magenta-7: #CB1E83;--magenta-8: #A11069;--magenta-9: #77064F;--magenta-10: #4D0034;--gray-1: #f7f8fa;--gray-2: #f2f3f5;--gray-3: #e5e6eb;--gray-4: #c9cdd4;--gray-5: #a9aeb8;--gray-6: #86909c;--gray-7: #6b7785;--gray-8: #4e5969;--gray-9: #272e3b;--gray-10: #1d2129}@media (prefers-color-scheme: dark){:root{--red-1: #4D000A;--red-2: #770611;--red-3: #A1161F;--red-4: #CB2E34;--red-5: #F54E4E;--red-6: #F76965;--red-7: #F98D86;--red-8: #FBB0A7;--red-9: #FDD1CA;--red-10: #FFF0EC;--orangered-1: #4D0E00;--orangered-2: #771E05;--orangered-3: #A23714;--orangered-4: #CC5729;--orangered-5: #F77E45;--orangered-6: #F9925A;--orangered-7: #FAAD7D;--orangered-8: #FCC6A1;--orangered-9: #FDDEC5;--orangered-10: #FFF4EB;--orange-1: #4D1B00;--orange-2: #793004;--orange-3: #A64B0A;--orange-4: #D26913;--orange-5: #FF8D1F;--orange-6: #FF9626;--orange-7: #FFB357;--orange-8: #FFCD87;--orange-9: #FFE3B8;--orange-10: #FFF7E8;--gold-1: #4D2D00;--gold-2: #774B04;--gold-3: #A26F0F;--gold-4: #CC961F;--gold-5: #F7C034;--gold-6: #F9CC44;--gold-7: #FADC6C;--gold-8: #FCE995;--gold-9: #FDF4BE;--gold-10: #FFFCE8;--yellow-1: #4D3800;--yellow-2: #785E07;--yellow-3: #A38614;--yellow-4: #CFB325;--yellow-5: #FAE13C;--yellow-6: #FBE94B;--yellow-7: #FCF374;--yellow-8: #FDFA9D;--yellow-9: #FEFEC6;--yellow-10: #FEFFF0;--lime-1: #2A4D00;--lime-2: #447006;--lime-3: #629412;--lime-4: #84B723;--lime-5: #A8DB39;--lime-6: #B8E24B;--lime-7: #CBE970;--lime-8: #DEF198;--lime-9: #EEF8C2;--lime-10: #FDFFEE;--green-1: #004D1C;--green-2: #046625;--green-3: #0A802D;--green-4: #129A37;--green-5: #1DB440;--green-6: #27C346;--green-7: #50D266;--green-8: #7EE18B;--green-9: #B2F0B7;--green-10: #EBFFEC;--cyan-1: #00424D;--cyan-2: #06616C;--cyan-3: #11838B;--cyan-4: #1FA6AA;--cyan-5: #30C9C9;--cyan-6: #3FD4CF;--cyan-7: #66DFD7;--cyan-8: #90E9E1;--cyan-9: #BEF4ED;--cyan-10: #F0FFFC;--blue-1: #001A4D;--blue-2: #052F78;--blue-3: #134CA3;--blue-4: #2971CF;--blue-5: #469AFA;--blue-6: #5AAAFB;--blue-7: #7DC1FC;--blue-8: #A1D5FD;--blue-9: #C6E8FE;--blue-10: #EAF8FF;--arcoblue-1: #000D4D;--arcoblue-2: #041B79;--arcoblue-3: #0E32A6;--arcoblue-4: #1D4DD2;--arcoblue-5: #306FFF;--arcoblue-6: #3C7EFF;--arcoblue-7: #689FFF;--arcoblue-8: #93BEFF;--arcoblue-9: #BEDAFF;--arcoblue-10: #EAF4FF;--purple-1: #16004D;--purple-2: #27066E;--purple-3: #3E138F;--purple-4: #5A25B0;--purple-5: #7B3DD1;--purple-6: #8E51DA;--purple-7: #A974E3;--purple-8: #C59AED;--purple-9: #DFC2F6;--purple-10: #F7EDFF;--pinkpurple-1: #42004D;--pinkpurple-2: #650370;--pinkpurple-3: #8A0D93;--pinkpurple-4: #B01BB6;--pinkpurple-5: #D92ED9;--pinkpurple-6: #E13DDB;--pinkpurple-7: #E866DF;--pinkpurple-8: #F092E6;--pinkpurple-9: #F7C1F0;--pinkpurple-10: #FFF2FD;--magenta-1: #4D0034;--magenta-2: #770850;--magenta-3: #A1176C;--magenta-4: #CB2B88;--magenta-5: #F545A6;--magenta-6: #F756A9;--magenta-7: #F97AB8;--magenta-8: #FB9EC8;--magenta-9: #FDC3DB;--magenta-10: #FFE8F1;--gray-10: #f7f8fa;--gray-9: #f2f3f5;--gray-8: #e5e6eb;--gray-7: #c9cdd4;--gray-6: #a9aeb8;--gray-5: #86909c;--gray-4: #6b7785;--gray-3: #4e5969;--gray-2: #272e3b;--gray-1: #1d2129}}:root{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg);--c-pku: #9b0000;--i-alarm: url(https://cdn.arthals.ink/css/src/alarm-clock.svg);--i-idcard: url(https://cdn.arthals.ink/css/src/id-card-v.svg);--i-tip: url(https://cdn.arthals.ink/css/src/tip.svg);--i-comment: url(https://cdn.arthals.ink/css/src/comment.svg);--i-clover: url(https://cdn.arthals.ink/css/src/clover.svg);--i-sandclock: url(https://cdn.arthals.ink/css/src/sandclock.svg);--i-verified: url(https://cdn.arthals.ink/css/src/verified.svg)}@media (prefers-color-scheme: dark){:root{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}}body,html{background:var(--c-background)!important}*{outline:none!important}@keyframes fadeInUpTransition{0%{opacity:0;-webkit-transform:translateY(100px);transform:translateY(100px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixel{0%{opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixelForContentBox{0%{margin-left:min(25%,300px);opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{margin-left:min(25%,300px);opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInLeftStablePixel{0%{color:#fff;transform:translate(-72px);-webkit-transform:translateX(-72px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}to{opacity:1}}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background-color:transparent}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background-color:var(--c-scrollbar);border-radius:9999px}.pku-art-light{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg)}.pku-art-dark{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}.announcementFilter,.announcementList{margin:0}#containerdiv{margin-top:0;padding-top:0}.announcementFilter{display:flex;align-items:center;justify-content:center;border-bottom:none;margin-bottom:10px}.announcementFilter select#searchSelectId{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:var(--c-card);color:var(--c-text);border:1px solid var(--c-border);border-right:none;border-radius:5px 0 0 5px;outline:none;padding:3px 10px;box-sizing:border-box;height:30px;margin:0}.announcementFilter a.genericButton{background:var(--c-button);color:var(--c-title);border:1px solid var(--c-border);border-left:none;border-radius:0 5px 5px 0;outline:none;padding:3px 10px;box-sizing:border-box;height:30px;box-shadow:none}.announcementFilter a.genericButton:hover{background:var(--cyan-2);color:var(--cyan-6)}";
   const courseVideoPlayStyles = ":root{--red-1: #FFECE8;--red-2: #FDCDC5;--red-3: #FBACA3;--red-4: #F98981;--red-5: #F76560;--red-6: #F53F3F;--red-7: #CB272D;--red-8: #A1151E;--red-9: #770813;--red-10: #4D000A;--orangered-1: #FFF3E8;--orangered-2: #FDDDC3;--orangered-3: #FCC59F;--orangered-4: #FAAC7B;--orangered-5: #F99057;--orangered-6: #F77234;--orangered-7: #CC5120;--orangered-8: #A23511;--orangered-9: #771F06;--orangered-10: #4D0E00;--orange-1: #FFF7E8;--orange-2: #FFE4BA;--orange-3: #FFCF8B;--orange-4: #FFB65D;--orange-5: #FF9A2E;--orange-6: #FF7D00;--orange-7: #D25F00;--orange-8: #A64500;--orange-9: #792E00;--orange-10: #4D1B00;--gold-1: #FFFCE8;--gold-2: #FDF4BF;--gold-3: #FCE996;--gold-4: #FADC6D;--gold-5: #F9CC45;--gold-6: #F7BA1E;--gold-7: #CC9213;--gold-8: #A26D0A;--gold-9: #774B04;--gold-10: #4D2D00;--yellow-1: #FEFFE8;--yellow-2: #FEFEBE;--yellow-3: #FDFA94;--yellow-4: #FCF26B;--yellow-5: #FBE842;--yellow-6: #FADC19;--yellow-7: #CFAF0F;--yellow-8: #A38408;--yellow-9: #785D03;--yellow-10: #4D3800;--lime-1: #FCFFE8;--lime-2: #EDF8BB;--lime-3: #DCF190;--lime-4: #C9E968;--lime-5: #B5E241;--lime-6: #9FDB1D;--lime-7: #7EB712;--lime-8: #5F940A;--lime-9: #437004;--lime-10: #2A4D00;--green-1: #E8FFEA;--green-2: #AFF0B5;--green-3: #7BE188;--green-4: #4CD263;--green-5: #23C343;--green-6: #00B42A;--green-7: #009A29;--green-8: #008026;--green-9: #006622;--green-10: #004D1C;--cyan-1: #E8FFFB;--cyan-2: #B7F4EC;--cyan-3: #89E9E0;--cyan-4: #5EDFD6;--cyan-5: #37D4CF;--cyan-6: #14C9C9;--cyan-7: #0DA5AA;--cyan-8: #07828B;--cyan-9: #03616C;--cyan-10: #00424D;--blue-1: #E8F7FF;--blue-2: #C3E7FE;--blue-3: #9FD4FD;--blue-4: #7BC0FC;--blue-5: #57A9FB;--blue-6: #3491FA;--blue-7: #206CCF;--blue-8: #114BA3;--blue-9: #063078;--blue-10: #001A4D;--arcoblue-1: #E8F3FF;--arcoblue-2: #BEDAFF;--arcoblue-3: #94BFFF;--arcoblue-4: #6AA1FF;--arcoblue-5: #4080FF;--arcoblue-6: #165DFF;--arcoblue-7: #0E42D2;--arcoblue-8: #072CA6;--arcoblue-9: #031A79;--arcoblue-10: #000D4D;--purple-1: #F5E8FF;--purple-2: #DDBEF6;--purple-3: #C396ED;--purple-4: #A871E3;--purple-5: #8D4EDA;--purple-6: #722ED1;--purple-7: #551DB0;--purple-8: #3C108F;--purple-9: #27066E;--purple-10: #16004D;--pinkpurple-1: #FFE8FB;--pinkpurple-2: #F7BAEF;--pinkpurple-3: #F08EE6;--pinkpurple-4: #E865DF;--pinkpurple-5: #E13EDB;--pinkpurple-6: #D91AD9;--pinkpurple-7: #B010B6;--pinkpurple-8: #8A0993;--pinkpurple-9: #650370;--pinkpurple-10: #42004D;--magenta-1: #FFE8F1;--magenta-2: #FDC2DB;--magenta-3: #FB9DC7;--magenta-4: #F979B7;--magenta-5: #F754A8;--magenta-6: #F5319D;--magenta-7: #CB1E83;--magenta-8: #A11069;--magenta-9: #77064F;--magenta-10: #4D0034;--gray-1: #f7f8fa;--gray-2: #f2f3f5;--gray-3: #e5e6eb;--gray-4: #c9cdd4;--gray-5: #a9aeb8;--gray-6: #86909c;--gray-7: #6b7785;--gray-8: #4e5969;--gray-9: #272e3b;--gray-10: #1d2129}@media (prefers-color-scheme: dark){:root{--red-1: #4D000A;--red-2: #770611;--red-3: #A1161F;--red-4: #CB2E34;--red-5: #F54E4E;--red-6: #F76965;--red-7: #F98D86;--red-8: #FBB0A7;--red-9: #FDD1CA;--red-10: #FFF0EC;--orangered-1: #4D0E00;--orangered-2: #771E05;--orangered-3: #A23714;--orangered-4: #CC5729;--orangered-5: #F77E45;--orangered-6: #F9925A;--orangered-7: #FAAD7D;--orangered-8: #FCC6A1;--orangered-9: #FDDEC5;--orangered-10: #FFF4EB;--orange-1: #4D1B00;--orange-2: #793004;--orange-3: #A64B0A;--orange-4: #D26913;--orange-5: #FF8D1F;--orange-6: #FF9626;--orange-7: #FFB357;--orange-8: #FFCD87;--orange-9: #FFE3B8;--orange-10: #FFF7E8;--gold-1: #4D2D00;--gold-2: #774B04;--gold-3: #A26F0F;--gold-4: #CC961F;--gold-5: #F7C034;--gold-6: #F9CC44;--gold-7: #FADC6C;--gold-8: #FCE995;--gold-9: #FDF4BE;--gold-10: #FFFCE8;--yellow-1: #4D3800;--yellow-2: #785E07;--yellow-3: #A38614;--yellow-4: #CFB325;--yellow-5: #FAE13C;--yellow-6: #FBE94B;--yellow-7: #FCF374;--yellow-8: #FDFA9D;--yellow-9: #FEFEC6;--yellow-10: #FEFFF0;--lime-1: #2A4D00;--lime-2: #447006;--lime-3: #629412;--lime-4: #84B723;--lime-5: #A8DB39;--lime-6: #B8E24B;--lime-7: #CBE970;--lime-8: #DEF198;--lime-9: #EEF8C2;--lime-10: #FDFFEE;--green-1: #004D1C;--green-2: #046625;--green-3: #0A802D;--green-4: #129A37;--green-5: #1DB440;--green-6: #27C346;--green-7: #50D266;--green-8: #7EE18B;--green-9: #B2F0B7;--green-10: #EBFFEC;--cyan-1: #00424D;--cyan-2: #06616C;--cyan-3: #11838B;--cyan-4: #1FA6AA;--cyan-5: #30C9C9;--cyan-6: #3FD4CF;--cyan-7: #66DFD7;--cyan-8: #90E9E1;--cyan-9: #BEF4ED;--cyan-10: #F0FFFC;--blue-1: #001A4D;--blue-2: #052F78;--blue-3: #134CA3;--blue-4: #2971CF;--blue-5: #469AFA;--blue-6: #5AAAFB;--blue-7: #7DC1FC;--blue-8: #A1D5FD;--blue-9: #C6E8FE;--blue-10: #EAF8FF;--arcoblue-1: #000D4D;--arcoblue-2: #041B79;--arcoblue-3: #0E32A6;--arcoblue-4: #1D4DD2;--arcoblue-5: #306FFF;--arcoblue-6: #3C7EFF;--arcoblue-7: #689FFF;--arcoblue-8: #93BEFF;--arcoblue-9: #BEDAFF;--arcoblue-10: #EAF4FF;--purple-1: #16004D;--purple-2: #27066E;--purple-3: #3E138F;--purple-4: #5A25B0;--purple-5: #7B3DD1;--purple-6: #8E51DA;--purple-7: #A974E3;--purple-8: #C59AED;--purple-9: #DFC2F6;--purple-10: #F7EDFF;--pinkpurple-1: #42004D;--pinkpurple-2: #650370;--pinkpurple-3: #8A0D93;--pinkpurple-4: #B01BB6;--pinkpurple-5: #D92ED9;--pinkpurple-6: #E13DDB;--pinkpurple-7: #E866DF;--pinkpurple-8: #F092E6;--pinkpurple-9: #F7C1F0;--pinkpurple-10: #FFF2FD;--magenta-1: #4D0034;--magenta-2: #770850;--magenta-3: #A1176C;--magenta-4: #CB2B88;--magenta-5: #F545A6;--magenta-6: #F756A9;--magenta-7: #F97AB8;--magenta-8: #FB9EC8;--magenta-9: #FDC3DB;--magenta-10: #FFE8F1;--gray-10: #f7f8fa;--gray-9: #f2f3f5;--gray-8: #e5e6eb;--gray-7: #c9cdd4;--gray-6: #a9aeb8;--gray-5: #86909c;--gray-4: #6b7785;--gray-3: #4e5969;--gray-2: #272e3b;--gray-1: #1d2129}}:root{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg);--c-pku: #9b0000;--i-alarm: url(https://cdn.arthals.ink/css/src/alarm-clock.svg);--i-idcard: url(https://cdn.arthals.ink/css/src/id-card-v.svg);--i-tip: url(https://cdn.arthals.ink/css/src/tip.svg);--i-comment: url(https://cdn.arthals.ink/css/src/comment.svg);--i-clover: url(https://cdn.arthals.ink/css/src/clover.svg);--i-sandclock: url(https://cdn.arthals.ink/css/src/sandclock.svg);--i-verified: url(https://cdn.arthals.ink/css/src/verified.svg)}@media (prefers-color-scheme: dark){:root{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}}body,html{background:var(--c-background)!important}*{outline:none!important}@keyframes fadeInUpTransition{0%{opacity:0;-webkit-transform:translateY(100px);transform:translateY(100px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixel{0%{opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixelForContentBox{0%{margin-left:min(25%,300px);opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{margin-left:min(25%,300px);opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInLeftStablePixel{0%{color:#fff;transform:translate(-72px);-webkit-transform:translateX(-72px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}to{opacity:1}}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background-color:transparent}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background-color:var(--c-scrollbar);border-radius:9999px}.pku-art-light{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg)}.pku-art-dark{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}#content,.container{border:none;width:auto!important}iframe{min-height:100vh;height:fit-content}";
-  const courseVideoPlayFrameStyles = ':root{--red-1: #FFECE8;--red-2: #FDCDC5;--red-3: #FBACA3;--red-4: #F98981;--red-5: #F76560;--red-6: #F53F3F;--red-7: #CB272D;--red-8: #A1151E;--red-9: #770813;--red-10: #4D000A;--orangered-1: #FFF3E8;--orangered-2: #FDDDC3;--orangered-3: #FCC59F;--orangered-4: #FAAC7B;--orangered-5: #F99057;--orangered-6: #F77234;--orangered-7: #CC5120;--orangered-8: #A23511;--orangered-9: #771F06;--orangered-10: #4D0E00;--orange-1: #FFF7E8;--orange-2: #FFE4BA;--orange-3: #FFCF8B;--orange-4: #FFB65D;--orange-5: #FF9A2E;--orange-6: #FF7D00;--orange-7: #D25F00;--orange-8: #A64500;--orange-9: #792E00;--orange-10: #4D1B00;--gold-1: #FFFCE8;--gold-2: #FDF4BF;--gold-3: #FCE996;--gold-4: #FADC6D;--gold-5: #F9CC45;--gold-6: #F7BA1E;--gold-7: #CC9213;--gold-8: #A26D0A;--gold-9: #774B04;--gold-10: #4D2D00;--yellow-1: #FEFFE8;--yellow-2: #FEFEBE;--yellow-3: #FDFA94;--yellow-4: #FCF26B;--yellow-5: #FBE842;--yellow-6: #FADC19;--yellow-7: #CFAF0F;--yellow-8: #A38408;--yellow-9: #785D03;--yellow-10: #4D3800;--lime-1: #FCFFE8;--lime-2: #EDF8BB;--lime-3: #DCF190;--lime-4: #C9E968;--lime-5: #B5E241;--lime-6: #9FDB1D;--lime-7: #7EB712;--lime-8: #5F940A;--lime-9: #437004;--lime-10: #2A4D00;--green-1: #E8FFEA;--green-2: #AFF0B5;--green-3: #7BE188;--green-4: #4CD263;--green-5: #23C343;--green-6: #00B42A;--green-7: #009A29;--green-8: #008026;--green-9: #006622;--green-10: #004D1C;--cyan-1: #E8FFFB;--cyan-2: #B7F4EC;--cyan-3: #89E9E0;--cyan-4: #5EDFD6;--cyan-5: #37D4CF;--cyan-6: #14C9C9;--cyan-7: #0DA5AA;--cyan-8: #07828B;--cyan-9: #03616C;--cyan-10: #00424D;--blue-1: #E8F7FF;--blue-2: #C3E7FE;--blue-3: #9FD4FD;--blue-4: #7BC0FC;--blue-5: #57A9FB;--blue-6: #3491FA;--blue-7: #206CCF;--blue-8: #114BA3;--blue-9: #063078;--blue-10: #001A4D;--arcoblue-1: #E8F3FF;--arcoblue-2: #BEDAFF;--arcoblue-3: #94BFFF;--arcoblue-4: #6AA1FF;--arcoblue-5: #4080FF;--arcoblue-6: #165DFF;--arcoblue-7: #0E42D2;--arcoblue-8: #072CA6;--arcoblue-9: #031A79;--arcoblue-10: #000D4D;--purple-1: #F5E8FF;--purple-2: #DDBEF6;--purple-3: #C396ED;--purple-4: #A871E3;--purple-5: #8D4EDA;--purple-6: #722ED1;--purple-7: #551DB0;--purple-8: #3C108F;--purple-9: #27066E;--purple-10: #16004D;--pinkpurple-1: #FFE8FB;--pinkpurple-2: #F7BAEF;--pinkpurple-3: #F08EE6;--pinkpurple-4: #E865DF;--pinkpurple-5: #E13EDB;--pinkpurple-6: #D91AD9;--pinkpurple-7: #B010B6;--pinkpurple-8: #8A0993;--pinkpurple-9: #650370;--pinkpurple-10: #42004D;--magenta-1: #FFE8F1;--magenta-2: #FDC2DB;--magenta-3: #FB9DC7;--magenta-4: #F979B7;--magenta-5: #F754A8;--magenta-6: #F5319D;--magenta-7: #CB1E83;--magenta-8: #A11069;--magenta-9: #77064F;--magenta-10: #4D0034;--gray-1: #f7f8fa;--gray-2: #f2f3f5;--gray-3: #e5e6eb;--gray-4: #c9cdd4;--gray-5: #a9aeb8;--gray-6: #86909c;--gray-7: #6b7785;--gray-8: #4e5969;--gray-9: #272e3b;--gray-10: #1d2129}@media (prefers-color-scheme: dark){:root{--red-1: #4D000A;--red-2: #770611;--red-3: #A1161F;--red-4: #CB2E34;--red-5: #F54E4E;--red-6: #F76965;--red-7: #F98D86;--red-8: #FBB0A7;--red-9: #FDD1CA;--red-10: #FFF0EC;--orangered-1: #4D0E00;--orangered-2: #771E05;--orangered-3: #A23714;--orangered-4: #CC5729;--orangered-5: #F77E45;--orangered-6: #F9925A;--orangered-7: #FAAD7D;--orangered-8: #FCC6A1;--orangered-9: #FDDEC5;--orangered-10: #FFF4EB;--orange-1: #4D1B00;--orange-2: #793004;--orange-3: #A64B0A;--orange-4: #D26913;--orange-5: #FF8D1F;--orange-6: #FF9626;--orange-7: #FFB357;--orange-8: #FFCD87;--orange-9: #FFE3B8;--orange-10: #FFF7E8;--gold-1: #4D2D00;--gold-2: #774B04;--gold-3: #A26F0F;--gold-4: #CC961F;--gold-5: #F7C034;--gold-6: #F9CC44;--gold-7: #FADC6C;--gold-8: #FCE995;--gold-9: #FDF4BE;--gold-10: #FFFCE8;--yellow-1: #4D3800;--yellow-2: #785E07;--yellow-3: #A38614;--yellow-4: #CFB325;--yellow-5: #FAE13C;--yellow-6: #FBE94B;--yellow-7: #FCF374;--yellow-8: #FDFA9D;--yellow-9: #FEFEC6;--yellow-10: #FEFFF0;--lime-1: #2A4D00;--lime-2: #447006;--lime-3: #629412;--lime-4: #84B723;--lime-5: #A8DB39;--lime-6: #B8E24B;--lime-7: #CBE970;--lime-8: #DEF198;--lime-9: #EEF8C2;--lime-10: #FDFFEE;--green-1: #004D1C;--green-2: #046625;--green-3: #0A802D;--green-4: #129A37;--green-5: #1DB440;--green-6: #27C346;--green-7: #50D266;--green-8: #7EE18B;--green-9: #B2F0B7;--green-10: #EBFFEC;--cyan-1: #00424D;--cyan-2: #06616C;--cyan-3: #11838B;--cyan-4: #1FA6AA;--cyan-5: #30C9C9;--cyan-6: #3FD4CF;--cyan-7: #66DFD7;--cyan-8: #90E9E1;--cyan-9: #BEF4ED;--cyan-10: #F0FFFC;--blue-1: #001A4D;--blue-2: #052F78;--blue-3: #134CA3;--blue-4: #2971CF;--blue-5: #469AFA;--blue-6: #5AAAFB;--blue-7: #7DC1FC;--blue-8: #A1D5FD;--blue-9: #C6E8FE;--blue-10: #EAF8FF;--arcoblue-1: #000D4D;--arcoblue-2: #041B79;--arcoblue-3: #0E32A6;--arcoblue-4: #1D4DD2;--arcoblue-5: #306FFF;--arcoblue-6: #3C7EFF;--arcoblue-7: #689FFF;--arcoblue-8: #93BEFF;--arcoblue-9: #BEDAFF;--arcoblue-10: #EAF4FF;--purple-1: #16004D;--purple-2: #27066E;--purple-3: #3E138F;--purple-4: #5A25B0;--purple-5: #7B3DD1;--purple-6: #8E51DA;--purple-7: #A974E3;--purple-8: #C59AED;--purple-9: #DFC2F6;--purple-10: #F7EDFF;--pinkpurple-1: #42004D;--pinkpurple-2: #650370;--pinkpurple-3: #8A0D93;--pinkpurple-4: #B01BB6;--pinkpurple-5: #D92ED9;--pinkpurple-6: #E13DDB;--pinkpurple-7: #E866DF;--pinkpurple-8: #F092E6;--pinkpurple-9: #F7C1F0;--pinkpurple-10: #FFF2FD;--magenta-1: #4D0034;--magenta-2: #770850;--magenta-3: #A1176C;--magenta-4: #CB2B88;--magenta-5: #F545A6;--magenta-6: #F756A9;--magenta-7: #F97AB8;--magenta-8: #FB9EC8;--magenta-9: #FDC3DB;--magenta-10: #FFE8F1;--gray-10: #f7f8fa;--gray-9: #f2f3f5;--gray-8: #e5e6eb;--gray-7: #c9cdd4;--gray-6: #a9aeb8;--gray-5: #86909c;--gray-4: #6b7785;--gray-3: #4e5969;--gray-2: #272e3b;--gray-1: #1d2129}}:root{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg);--c-pku: #9b0000;--i-alarm: url(https://cdn.arthals.ink/css/src/alarm-clock.svg);--i-idcard: url(https://cdn.arthals.ink/css/src/id-card-v.svg);--i-tip: url(https://cdn.arthals.ink/css/src/tip.svg);--i-comment: url(https://cdn.arthals.ink/css/src/comment.svg);--i-clover: url(https://cdn.arthals.ink/css/src/clover.svg);--i-sandclock: url(https://cdn.arthals.ink/css/src/sandclock.svg);--i-verified: url(https://cdn.arthals.ink/css/src/verified.svg)}@media (prefers-color-scheme: dark){:root{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}}body,html{background:var(--c-background)!important}*{outline:none!important}@keyframes fadeInUpTransition{0%{opacity:0;-webkit-transform:translateY(100px);transform:translateY(100px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixel{0%{opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixelForContentBox{0%{margin-left:min(25%,300px);opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{margin-left:min(25%,300px);opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInLeftStablePixel{0%{color:#fff;transform:translate(-72px);-webkit-transform:translateX(-72px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}to{opacity:1}}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background-color:transparent}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background-color:var(--c-scrollbar);border-radius:9999px}.pku-art-light{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg)}.pku-art-dark{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}body{position:relative}html,body,#app{background:var(--c-background)!important}.course-info__wrapper{margin-bottom:0}.course-info__header{display:flex;justify-content:center!important;align-items:center}.course-info__header span{font-weight:700;font-size:18pt;color:var(--c-title);-webkit-animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1) both;animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1) both}.course-info__wrapper .course-info__main{background:var(--c-card);padding:5px;border-radius:5px;border:1px solid var(--c-border)}.course-info__wrapper .course-info__footer{display:grid;width:fit-content;grid-template-columns:1fr 1fr 1fr 1fr;justify-content:center;align-items:center;gap:10px}.course-info__wrapper .course-info__footer button{background:var(--c-tip);border:none;color:var(--c-text);margin-left:0;height:35px}#injectDownloadSwitchArea{background:var(--c-tip);color:var(--c-text);padding:10px 20px;border-radius:4px;display:inline-flex;flex-direction:row;justify-content:center;align-items:center;gap:1rem;height:35px;line-height:14px;font-size:14px;box-sizing:border-box;border:none;font-weight:700;border-image-width:0;transition:.1s;height:35px!important}#injectDownloadSwitchArea.safari{grid-column:span 2}#injectDownloadSwitch{display:none}#injectDownloadSwitch:checked+label{background-color:var(--c-tip);background-image:var(--i-check-simple);background-size:80% 80%;background-position:center;background-repeat:no-repeat}label[for=injectDownloadSwitch]{display:inline-block;width:16px;height:16px;background:var(--c-tip);border:1px solid var(--c-border);border-radius:4px}#injectDownloadSwitchArea.safari label[for=injectDownloadSwitch]{display:inline-block;width:16px;height:16px;background:var(--c-tip);background-image:var(--i-warning);background-size:80% 80%;background-position:center;background-repeat:no-repeat;border:none;border-radius:4px}label[for=injectDownloadSwitch]:before{content:"";transition:.1s}#injectMagicLink{background:var(--c-tip);border:none;color:var(--c-text);margin-left:0;height:35px;font-size:14px;font-weight:700;border-radius:4px;display:flex;align-items:center;justify-content:center;gap:10px}#injectMagicLink .i-magic{width:16px;height:16px;background-size:100% 100%;background-position:center;background-repeat:no-repeat;color:var(--c-text)}#injectDownloadTip{background:var(--c-tip);color:var(--c-text);padding:10px 20px;border-radius:4px;font-size:14px;box-sizing:border-box;border:none;font-weight:700;transition:.1s;width:fit-content;margin-top:10px;line-height:1.5rem;grid-column:1 / 4;width:100%}#injectDownloadTip a{color:var(--c-accent);text-decoration:underline}.course-info__wrapper .course-info__footer button:hover,#injectMagicLink:hover{background:var(--cyan-2);color:var(--cyan-6)}.course-info__wrapper .course-info__footer #injectDownloadUrlInput:hover,#injectMagicLink:hover *{background:var(--cyan-2);color:var(--cyan-6);font-weight:700;transition:.1s}.course-info__wrapper .course-info__footer #injectDownloadUrlInput:hover::placeholder,#injectMagicLink:hover::placeholder{color:var(--cyan-6);transition:.1s}';
+  const courseVideoPlayFrameStyles = ':root{--red-1: #FFECE8;--red-2: #FDCDC5;--red-3: #FBACA3;--red-4: #F98981;--red-5: #F76560;--red-6: #F53F3F;--red-7: #CB272D;--red-8: #A1151E;--red-9: #770813;--red-10: #4D000A;--orangered-1: #FFF3E8;--orangered-2: #FDDDC3;--orangered-3: #FCC59F;--orangered-4: #FAAC7B;--orangered-5: #F99057;--orangered-6: #F77234;--orangered-7: #CC5120;--orangered-8: #A23511;--orangered-9: #771F06;--orangered-10: #4D0E00;--orange-1: #FFF7E8;--orange-2: #FFE4BA;--orange-3: #FFCF8B;--orange-4: #FFB65D;--orange-5: #FF9A2E;--orange-6: #FF7D00;--orange-7: #D25F00;--orange-8: #A64500;--orange-9: #792E00;--orange-10: #4D1B00;--gold-1: #FFFCE8;--gold-2: #FDF4BF;--gold-3: #FCE996;--gold-4: #FADC6D;--gold-5: #F9CC45;--gold-6: #F7BA1E;--gold-7: #CC9213;--gold-8: #A26D0A;--gold-9: #774B04;--gold-10: #4D2D00;--yellow-1: #FEFFE8;--yellow-2: #FEFEBE;--yellow-3: #FDFA94;--yellow-4: #FCF26B;--yellow-5: #FBE842;--yellow-6: #FADC19;--yellow-7: #CFAF0F;--yellow-8: #A38408;--yellow-9: #785D03;--yellow-10: #4D3800;--lime-1: #FCFFE8;--lime-2: #EDF8BB;--lime-3: #DCF190;--lime-4: #C9E968;--lime-5: #B5E241;--lime-6: #9FDB1D;--lime-7: #7EB712;--lime-8: #5F940A;--lime-9: #437004;--lime-10: #2A4D00;--green-1: #E8FFEA;--green-2: #AFF0B5;--green-3: #7BE188;--green-4: #4CD263;--green-5: #23C343;--green-6: #00B42A;--green-7: #009A29;--green-8: #008026;--green-9: #006622;--green-10: #004D1C;--cyan-1: #E8FFFB;--cyan-2: #B7F4EC;--cyan-3: #89E9E0;--cyan-4: #5EDFD6;--cyan-5: #37D4CF;--cyan-6: #14C9C9;--cyan-7: #0DA5AA;--cyan-8: #07828B;--cyan-9: #03616C;--cyan-10: #00424D;--blue-1: #E8F7FF;--blue-2: #C3E7FE;--blue-3: #9FD4FD;--blue-4: #7BC0FC;--blue-5: #57A9FB;--blue-6: #3491FA;--blue-7: #206CCF;--blue-8: #114BA3;--blue-9: #063078;--blue-10: #001A4D;--arcoblue-1: #E8F3FF;--arcoblue-2: #BEDAFF;--arcoblue-3: #94BFFF;--arcoblue-4: #6AA1FF;--arcoblue-5: #4080FF;--arcoblue-6: #165DFF;--arcoblue-7: #0E42D2;--arcoblue-8: #072CA6;--arcoblue-9: #031A79;--arcoblue-10: #000D4D;--purple-1: #F5E8FF;--purple-2: #DDBEF6;--purple-3: #C396ED;--purple-4: #A871E3;--purple-5: #8D4EDA;--purple-6: #722ED1;--purple-7: #551DB0;--purple-8: #3C108F;--purple-9: #27066E;--purple-10: #16004D;--pinkpurple-1: #FFE8FB;--pinkpurple-2: #F7BAEF;--pinkpurple-3: #F08EE6;--pinkpurple-4: #E865DF;--pinkpurple-5: #E13EDB;--pinkpurple-6: #D91AD9;--pinkpurple-7: #B010B6;--pinkpurple-8: #8A0993;--pinkpurple-9: #650370;--pinkpurple-10: #42004D;--magenta-1: #FFE8F1;--magenta-2: #FDC2DB;--magenta-3: #FB9DC7;--magenta-4: #F979B7;--magenta-5: #F754A8;--magenta-6: #F5319D;--magenta-7: #CB1E83;--magenta-8: #A11069;--magenta-9: #77064F;--magenta-10: #4D0034;--gray-1: #f7f8fa;--gray-2: #f2f3f5;--gray-3: #e5e6eb;--gray-4: #c9cdd4;--gray-5: #a9aeb8;--gray-6: #86909c;--gray-7: #6b7785;--gray-8: #4e5969;--gray-9: #272e3b;--gray-10: #1d2129}@media (prefers-color-scheme: dark){:root{--red-1: #4D000A;--red-2: #770611;--red-3: #A1161F;--red-4: #CB2E34;--red-5: #F54E4E;--red-6: #F76965;--red-7: #F98D86;--red-8: #FBB0A7;--red-9: #FDD1CA;--red-10: #FFF0EC;--orangered-1: #4D0E00;--orangered-2: #771E05;--orangered-3: #A23714;--orangered-4: #CC5729;--orangered-5: #F77E45;--orangered-6: #F9925A;--orangered-7: #FAAD7D;--orangered-8: #FCC6A1;--orangered-9: #FDDEC5;--orangered-10: #FFF4EB;--orange-1: #4D1B00;--orange-2: #793004;--orange-3: #A64B0A;--orange-4: #D26913;--orange-5: #FF8D1F;--orange-6: #FF9626;--orange-7: #FFB357;--orange-8: #FFCD87;--orange-9: #FFE3B8;--orange-10: #FFF7E8;--gold-1: #4D2D00;--gold-2: #774B04;--gold-3: #A26F0F;--gold-4: #CC961F;--gold-5: #F7C034;--gold-6: #F9CC44;--gold-7: #FADC6C;--gold-8: #FCE995;--gold-9: #FDF4BE;--gold-10: #FFFCE8;--yellow-1: #4D3800;--yellow-2: #785E07;--yellow-3: #A38614;--yellow-4: #CFB325;--yellow-5: #FAE13C;--yellow-6: #FBE94B;--yellow-7: #FCF374;--yellow-8: #FDFA9D;--yellow-9: #FEFEC6;--yellow-10: #FEFFF0;--lime-1: #2A4D00;--lime-2: #447006;--lime-3: #629412;--lime-4: #84B723;--lime-5: #A8DB39;--lime-6: #B8E24B;--lime-7: #CBE970;--lime-8: #DEF198;--lime-9: #EEF8C2;--lime-10: #FDFFEE;--green-1: #004D1C;--green-2: #046625;--green-3: #0A802D;--green-4: #129A37;--green-5: #1DB440;--green-6: #27C346;--green-7: #50D266;--green-8: #7EE18B;--green-9: #B2F0B7;--green-10: #EBFFEC;--cyan-1: #00424D;--cyan-2: #06616C;--cyan-3: #11838B;--cyan-4: #1FA6AA;--cyan-5: #30C9C9;--cyan-6: #3FD4CF;--cyan-7: #66DFD7;--cyan-8: #90E9E1;--cyan-9: #BEF4ED;--cyan-10: #F0FFFC;--blue-1: #001A4D;--blue-2: #052F78;--blue-3: #134CA3;--blue-4: #2971CF;--blue-5: #469AFA;--blue-6: #5AAAFB;--blue-7: #7DC1FC;--blue-8: #A1D5FD;--blue-9: #C6E8FE;--blue-10: #EAF8FF;--arcoblue-1: #000D4D;--arcoblue-2: #041B79;--arcoblue-3: #0E32A6;--arcoblue-4: #1D4DD2;--arcoblue-5: #306FFF;--arcoblue-6: #3C7EFF;--arcoblue-7: #689FFF;--arcoblue-8: #93BEFF;--arcoblue-9: #BEDAFF;--arcoblue-10: #EAF4FF;--purple-1: #16004D;--purple-2: #27066E;--purple-3: #3E138F;--purple-4: #5A25B0;--purple-5: #7B3DD1;--purple-6: #8E51DA;--purple-7: #A974E3;--purple-8: #C59AED;--purple-9: #DFC2F6;--purple-10: #F7EDFF;--pinkpurple-1: #42004D;--pinkpurple-2: #650370;--pinkpurple-3: #8A0D93;--pinkpurple-4: #B01BB6;--pinkpurple-5: #D92ED9;--pinkpurple-6: #E13DDB;--pinkpurple-7: #E866DF;--pinkpurple-8: #F092E6;--pinkpurple-9: #F7C1F0;--pinkpurple-10: #FFF2FD;--magenta-1: #4D0034;--magenta-2: #770850;--magenta-3: #A1176C;--magenta-4: #CB2B88;--magenta-5: #F545A6;--magenta-6: #F756A9;--magenta-7: #F97AB8;--magenta-8: #FB9EC8;--magenta-9: #FDC3DB;--magenta-10: #FFE8F1;--gray-10: #f7f8fa;--gray-9: #f2f3f5;--gray-8: #e5e6eb;--gray-7: #c9cdd4;--gray-6: #a9aeb8;--gray-5: #86909c;--gray-4: #6b7785;--gray-3: #4e5969;--gray-2: #272e3b;--gray-1: #1d2129}}:root{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg);--c-pku: #9b0000;--i-alarm: url(https://cdn.arthals.ink/css/src/alarm-clock.svg);--i-idcard: url(https://cdn.arthals.ink/css/src/id-card-v.svg);--i-tip: url(https://cdn.arthals.ink/css/src/tip.svg);--i-comment: url(https://cdn.arthals.ink/css/src/comment.svg);--i-clover: url(https://cdn.arthals.ink/css/src/clover.svg);--i-sandclock: url(https://cdn.arthals.ink/css/src/sandclock.svg);--i-verified: url(https://cdn.arthals.ink/css/src/verified.svg)}@media (prefers-color-scheme: dark){:root{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}}body,html{background:var(--c-background)!important}*{outline:none!important}@keyframes fadeInUpTransition{0%{opacity:0;-webkit-transform:translateY(100px);transform:translateY(100px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixel{0%{opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixelForContentBox{0%{margin-left:min(25%,300px);opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{margin-left:min(25%,300px);opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInLeftStablePixel{0%{color:#fff;transform:translate(-72px);-webkit-transform:translateX(-72px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}to{opacity:1}}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background-color:transparent}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background-color:var(--c-scrollbar);border-radius:9999px}.pku-art-light{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg)}.pku-art-dark{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}body{position:relative}html,body,#app{background:var(--c-background)!important}.course-info__wrapper{margin-bottom:0}.course-info__header{display:flex;justify-content:center!important;align-items:center}.course-info__header span{font-weight:700;font-size:18pt;color:var(--c-title);-webkit-animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1) both;animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1) both}.course-info__wrapper .course-info__main{background:var(--c-card);padding:5px;border-radius:5px;border:1px solid var(--c-border)}.course-info__wrapper .course-info__footer{display:grid;width:fit-content;grid-template-columns:1fr 1fr 1fr 1fr;justify-content:center;align-items:center;gap:10px;margin:0 auto}.course-info__wrapper .course-info__footer button{background:var(--c-tip);border:none;color:var(--c-text);margin-left:0;height:35px}#injectDownloadSwitchArea{background:var(--c-tip);color:var(--c-text);padding:10px 20px;border-radius:4px;display:inline-flex;flex-direction:row;justify-content:center;align-items:center;gap:1rem;height:35px;line-height:14px;font-size:14px;box-sizing:border-box;border:none;font-weight:700;border-image-width:0;transition:.1s;height:35px!important}#injectDownloadSwitchArea.safari{grid-column:span 2}#injectDownloadSwitch{display:none}#injectDownloadSwitch:checked+label{background-color:var(--c-tip);background-image:var(--i-check-simple);background-size:80% 80%;background-position:center;background-repeat:no-repeat}label[for=injectDownloadSwitch]{display:inline-block;width:16px;height:16px;background:var(--c-tip);border:1px solid var(--c-border);border-radius:4px}#injectDownloadSwitchArea.safari label[for=injectDownloadSwitch]{display:inline-block;width:16px;height:16px;background:var(--c-tip);background-image:var(--i-warning);background-size:80% 80%;background-position:center;background-repeat:no-repeat;border:none;border-radius:4px}label[for=injectDownloadSwitch]:before{content:"";transition:.1s}#injectMagicLink{background:var(--c-tip);border:none;color:var(--c-text);margin-left:0;height:35px;font-size:14px;font-weight:700;border-radius:4px;display:flex;align-items:center;justify-content:center;gap:10px}#injectMagicLink .i-magic{width:16px;height:16px;background-size:100% 100%;background-position:center;background-repeat:no-repeat;color:var(--c-text)}#injectDownloadTip{background:var(--c-tip);color:var(--c-text);padding:10px 20px;border-radius:4px;font-size:14px;box-sizing:border-box;border:none;font-weight:700;transition:.1s;width:fit-content;margin-top:10px;line-height:1.5rem;grid-column:1 / 5;width:100%}#injectDownloadTip a{color:var(--c-accent);text-decoration:underline}.course-info__wrapper .course-info__footer button:hover,#injectMagicLink:hover{background:var(--cyan-2);color:var(--cyan-6)}.course-info__wrapper .course-info__footer #injectDownloadUrlInput:hover,#injectMagicLink:hover *{background:var(--cyan-2);color:var(--cyan-6);font-weight:700;transition:.1s}.course-info__wrapper .course-info__footer #injectDownloadUrlInput:hover::placeholder,#injectMagicLink:hover::placeholder{color:var(--cyan-6);transition:.1s}';
   const courseTaskStyles = ":root{--red-1: #FFECE8;--red-2: #FDCDC5;--red-3: #FBACA3;--red-4: #F98981;--red-5: #F76560;--red-6: #F53F3F;--red-7: #CB272D;--red-8: #A1151E;--red-9: #770813;--red-10: #4D000A;--orangered-1: #FFF3E8;--orangered-2: #FDDDC3;--orangered-3: #FCC59F;--orangered-4: #FAAC7B;--orangered-5: #F99057;--orangered-6: #F77234;--orangered-7: #CC5120;--orangered-8: #A23511;--orangered-9: #771F06;--orangered-10: #4D0E00;--orange-1: #FFF7E8;--orange-2: #FFE4BA;--orange-3: #FFCF8B;--orange-4: #FFB65D;--orange-5: #FF9A2E;--orange-6: #FF7D00;--orange-7: #D25F00;--orange-8: #A64500;--orange-9: #792E00;--orange-10: #4D1B00;--gold-1: #FFFCE8;--gold-2: #FDF4BF;--gold-3: #FCE996;--gold-4: #FADC6D;--gold-5: #F9CC45;--gold-6: #F7BA1E;--gold-7: #CC9213;--gold-8: #A26D0A;--gold-9: #774B04;--gold-10: #4D2D00;--yellow-1: #FEFFE8;--yellow-2: #FEFEBE;--yellow-3: #FDFA94;--yellow-4: #FCF26B;--yellow-5: #FBE842;--yellow-6: #FADC19;--yellow-7: #CFAF0F;--yellow-8: #A38408;--yellow-9: #785D03;--yellow-10: #4D3800;--lime-1: #FCFFE8;--lime-2: #EDF8BB;--lime-3: #DCF190;--lime-4: #C9E968;--lime-5: #B5E241;--lime-6: #9FDB1D;--lime-7: #7EB712;--lime-8: #5F940A;--lime-9: #437004;--lime-10: #2A4D00;--green-1: #E8FFEA;--green-2: #AFF0B5;--green-3: #7BE188;--green-4: #4CD263;--green-5: #23C343;--green-6: #00B42A;--green-7: #009A29;--green-8: #008026;--green-9: #006622;--green-10: #004D1C;--cyan-1: #E8FFFB;--cyan-2: #B7F4EC;--cyan-3: #89E9E0;--cyan-4: #5EDFD6;--cyan-5: #37D4CF;--cyan-6: #14C9C9;--cyan-7: #0DA5AA;--cyan-8: #07828B;--cyan-9: #03616C;--cyan-10: #00424D;--blue-1: #E8F7FF;--blue-2: #C3E7FE;--blue-3: #9FD4FD;--blue-4: #7BC0FC;--blue-5: #57A9FB;--blue-6: #3491FA;--blue-7: #206CCF;--blue-8: #114BA3;--blue-9: #063078;--blue-10: #001A4D;--arcoblue-1: #E8F3FF;--arcoblue-2: #BEDAFF;--arcoblue-3: #94BFFF;--arcoblue-4: #6AA1FF;--arcoblue-5: #4080FF;--arcoblue-6: #165DFF;--arcoblue-7: #0E42D2;--arcoblue-8: #072CA6;--arcoblue-9: #031A79;--arcoblue-10: #000D4D;--purple-1: #F5E8FF;--purple-2: #DDBEF6;--purple-3: #C396ED;--purple-4: #A871E3;--purple-5: #8D4EDA;--purple-6: #722ED1;--purple-7: #551DB0;--purple-8: #3C108F;--purple-9: #27066E;--purple-10: #16004D;--pinkpurple-1: #FFE8FB;--pinkpurple-2: #F7BAEF;--pinkpurple-3: #F08EE6;--pinkpurple-4: #E865DF;--pinkpurple-5: #E13EDB;--pinkpurple-6: #D91AD9;--pinkpurple-7: #B010B6;--pinkpurple-8: #8A0993;--pinkpurple-9: #650370;--pinkpurple-10: #42004D;--magenta-1: #FFE8F1;--magenta-2: #FDC2DB;--magenta-3: #FB9DC7;--magenta-4: #F979B7;--magenta-5: #F754A8;--magenta-6: #F5319D;--magenta-7: #CB1E83;--magenta-8: #A11069;--magenta-9: #77064F;--magenta-10: #4D0034;--gray-1: #f7f8fa;--gray-2: #f2f3f5;--gray-3: #e5e6eb;--gray-4: #c9cdd4;--gray-5: #a9aeb8;--gray-6: #86909c;--gray-7: #6b7785;--gray-8: #4e5969;--gray-9: #272e3b;--gray-10: #1d2129}@media (prefers-color-scheme: dark){:root{--red-1: #4D000A;--red-2: #770611;--red-3: #A1161F;--red-4: #CB2E34;--red-5: #F54E4E;--red-6: #F76965;--red-7: #F98D86;--red-8: #FBB0A7;--red-9: #FDD1CA;--red-10: #FFF0EC;--orangered-1: #4D0E00;--orangered-2: #771E05;--orangered-3: #A23714;--orangered-4: #CC5729;--orangered-5: #F77E45;--orangered-6: #F9925A;--orangered-7: #FAAD7D;--orangered-8: #FCC6A1;--orangered-9: #FDDEC5;--orangered-10: #FFF4EB;--orange-1: #4D1B00;--orange-2: #793004;--orange-3: #A64B0A;--orange-4: #D26913;--orange-5: #FF8D1F;--orange-6: #FF9626;--orange-7: #FFB357;--orange-8: #FFCD87;--orange-9: #FFE3B8;--orange-10: #FFF7E8;--gold-1: #4D2D00;--gold-2: #774B04;--gold-3: #A26F0F;--gold-4: #CC961F;--gold-5: #F7C034;--gold-6: #F9CC44;--gold-7: #FADC6C;--gold-8: #FCE995;--gold-9: #FDF4BE;--gold-10: #FFFCE8;--yellow-1: #4D3800;--yellow-2: #785E07;--yellow-3: #A38614;--yellow-4: #CFB325;--yellow-5: #FAE13C;--yellow-6: #FBE94B;--yellow-7: #FCF374;--yellow-8: #FDFA9D;--yellow-9: #FEFEC6;--yellow-10: #FEFFF0;--lime-1: #2A4D00;--lime-2: #447006;--lime-3: #629412;--lime-4: #84B723;--lime-5: #A8DB39;--lime-6: #B8E24B;--lime-7: #CBE970;--lime-8: #DEF198;--lime-9: #EEF8C2;--lime-10: #FDFFEE;--green-1: #004D1C;--green-2: #046625;--green-3: #0A802D;--green-4: #129A37;--green-5: #1DB440;--green-6: #27C346;--green-7: #50D266;--green-8: #7EE18B;--green-9: #B2F0B7;--green-10: #EBFFEC;--cyan-1: #00424D;--cyan-2: #06616C;--cyan-3: #11838B;--cyan-4: #1FA6AA;--cyan-5: #30C9C9;--cyan-6: #3FD4CF;--cyan-7: #66DFD7;--cyan-8: #90E9E1;--cyan-9: #BEF4ED;--cyan-10: #F0FFFC;--blue-1: #001A4D;--blue-2: #052F78;--blue-3: #134CA3;--blue-4: #2971CF;--blue-5: #469AFA;--blue-6: #5AAAFB;--blue-7: #7DC1FC;--blue-8: #A1D5FD;--blue-9: #C6E8FE;--blue-10: #EAF8FF;--arcoblue-1: #000D4D;--arcoblue-2: #041B79;--arcoblue-3: #0E32A6;--arcoblue-4: #1D4DD2;--arcoblue-5: #306FFF;--arcoblue-6: #3C7EFF;--arcoblue-7: #689FFF;--arcoblue-8: #93BEFF;--arcoblue-9: #BEDAFF;--arcoblue-10: #EAF4FF;--purple-1: #16004D;--purple-2: #27066E;--purple-3: #3E138F;--purple-4: #5A25B0;--purple-5: #7B3DD1;--purple-6: #8E51DA;--purple-7: #A974E3;--purple-8: #C59AED;--purple-9: #DFC2F6;--purple-10: #F7EDFF;--pinkpurple-1: #42004D;--pinkpurple-2: #650370;--pinkpurple-3: #8A0D93;--pinkpurple-4: #B01BB6;--pinkpurple-5: #D92ED9;--pinkpurple-6: #E13DDB;--pinkpurple-7: #E866DF;--pinkpurple-8: #F092E6;--pinkpurple-9: #F7C1F0;--pinkpurple-10: #FFF2FD;--magenta-1: #4D0034;--magenta-2: #770850;--magenta-3: #A1176C;--magenta-4: #CB2B88;--magenta-5: #F545A6;--magenta-6: #F756A9;--magenta-7: #F97AB8;--magenta-8: #FB9EC8;--magenta-9: #FDC3DB;--magenta-10: #FFE8F1;--gray-10: #f7f8fa;--gray-9: #f2f3f5;--gray-8: #e5e6eb;--gray-7: #c9cdd4;--gray-6: #a9aeb8;--gray-5: #86909c;--gray-4: #6b7785;--gray-3: #4e5969;--gray-2: #272e3b;--gray-1: #1d2129}}:root{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg);--c-pku: #9b0000;--i-alarm: url(https://cdn.arthals.ink/css/src/alarm-clock.svg);--i-idcard: url(https://cdn.arthals.ink/css/src/id-card-v.svg);--i-tip: url(https://cdn.arthals.ink/css/src/tip.svg);--i-comment: url(https://cdn.arthals.ink/css/src/comment.svg);--i-clover: url(https://cdn.arthals.ink/css/src/clover.svg);--i-sandclock: url(https://cdn.arthals.ink/css/src/sandclock.svg);--i-verified: url(https://cdn.arthals.ink/css/src/verified.svg)}@media (prefers-color-scheme: dark){:root{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}}body,html{background:var(--c-background)!important}*{outline:none!important}@keyframes fadeInUpTransition{0%{opacity:0;-webkit-transform:translateY(100px);transform:translateY(100px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixel{0%{opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixelForContentBox{0%{margin-left:min(25%,300px);opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{margin-left:min(25%,300px);opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInLeftStablePixel{0%{color:#fff;transform:translate(-72px);-webkit-transform:translateX(-72px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}to{opacity:1}}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background-color:transparent}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background-color:var(--c-scrollbar);border-radius:9999px}.pku-art-light{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg)}.pku-art-dark{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}";
   const courseDiscussionStyles = `:root{--red-1: #FFECE8;--red-2: #FDCDC5;--red-3: #FBACA3;--red-4: #F98981;--red-5: #F76560;--red-6: #F53F3F;--red-7: #CB272D;--red-8: #A1151E;--red-9: #770813;--red-10: #4D000A;--orangered-1: #FFF3E8;--orangered-2: #FDDDC3;--orangered-3: #FCC59F;--orangered-4: #FAAC7B;--orangered-5: #F99057;--orangered-6: #F77234;--orangered-7: #CC5120;--orangered-8: #A23511;--orangered-9: #771F06;--orangered-10: #4D0E00;--orange-1: #FFF7E8;--orange-2: #FFE4BA;--orange-3: #FFCF8B;--orange-4: #FFB65D;--orange-5: #FF9A2E;--orange-6: #FF7D00;--orange-7: #D25F00;--orange-8: #A64500;--orange-9: #792E00;--orange-10: #4D1B00;--gold-1: #FFFCE8;--gold-2: #FDF4BF;--gold-3: #FCE996;--gold-4: #FADC6D;--gold-5: #F9CC45;--gold-6: #F7BA1E;--gold-7: #CC9213;--gold-8: #A26D0A;--gold-9: #774B04;--gold-10: #4D2D00;--yellow-1: #FEFFE8;--yellow-2: #FEFEBE;--yellow-3: #FDFA94;--yellow-4: #FCF26B;--yellow-5: #FBE842;--yellow-6: #FADC19;--yellow-7: #CFAF0F;--yellow-8: #A38408;--yellow-9: #785D03;--yellow-10: #4D3800;--lime-1: #FCFFE8;--lime-2: #EDF8BB;--lime-3: #DCF190;--lime-4: #C9E968;--lime-5: #B5E241;--lime-6: #9FDB1D;--lime-7: #7EB712;--lime-8: #5F940A;--lime-9: #437004;--lime-10: #2A4D00;--green-1: #E8FFEA;--green-2: #AFF0B5;--green-3: #7BE188;--green-4: #4CD263;--green-5: #23C343;--green-6: #00B42A;--green-7: #009A29;--green-8: #008026;--green-9: #006622;--green-10: #004D1C;--cyan-1: #E8FFFB;--cyan-2: #B7F4EC;--cyan-3: #89E9E0;--cyan-4: #5EDFD6;--cyan-5: #37D4CF;--cyan-6: #14C9C9;--cyan-7: #0DA5AA;--cyan-8: #07828B;--cyan-9: #03616C;--cyan-10: #00424D;--blue-1: #E8F7FF;--blue-2: #C3E7FE;--blue-3: #9FD4FD;--blue-4: #7BC0FC;--blue-5: #57A9FB;--blue-6: #3491FA;--blue-7: #206CCF;--blue-8: #114BA3;--blue-9: #063078;--blue-10: #001A4D;--arcoblue-1: #E8F3FF;--arcoblue-2: #BEDAFF;--arcoblue-3: #94BFFF;--arcoblue-4: #6AA1FF;--arcoblue-5: #4080FF;--arcoblue-6: #165DFF;--arcoblue-7: #0E42D2;--arcoblue-8: #072CA6;--arcoblue-9: #031A79;--arcoblue-10: #000D4D;--purple-1: #F5E8FF;--purple-2: #DDBEF6;--purple-3: #C396ED;--purple-4: #A871E3;--purple-5: #8D4EDA;--purple-6: #722ED1;--purple-7: #551DB0;--purple-8: #3C108F;--purple-9: #27066E;--purple-10: #16004D;--pinkpurple-1: #FFE8FB;--pinkpurple-2: #F7BAEF;--pinkpurple-3: #F08EE6;--pinkpurple-4: #E865DF;--pinkpurple-5: #E13EDB;--pinkpurple-6: #D91AD9;--pinkpurple-7: #B010B6;--pinkpurple-8: #8A0993;--pinkpurple-9: #650370;--pinkpurple-10: #42004D;--magenta-1: #FFE8F1;--magenta-2: #FDC2DB;--magenta-3: #FB9DC7;--magenta-4: #F979B7;--magenta-5: #F754A8;--magenta-6: #F5319D;--magenta-7: #CB1E83;--magenta-8: #A11069;--magenta-9: #77064F;--magenta-10: #4D0034;--gray-1: #f7f8fa;--gray-2: #f2f3f5;--gray-3: #e5e6eb;--gray-4: #c9cdd4;--gray-5: #a9aeb8;--gray-6: #86909c;--gray-7: #6b7785;--gray-8: #4e5969;--gray-9: #272e3b;--gray-10: #1d2129}@media (prefers-color-scheme: dark){:root{--red-1: #4D000A;--red-2: #770611;--red-3: #A1161F;--red-4: #CB2E34;--red-5: #F54E4E;--red-6: #F76965;--red-7: #F98D86;--red-8: #FBB0A7;--red-9: #FDD1CA;--red-10: #FFF0EC;--orangered-1: #4D0E00;--orangered-2: #771E05;--orangered-3: #A23714;--orangered-4: #CC5729;--orangered-5: #F77E45;--orangered-6: #F9925A;--orangered-7: #FAAD7D;--orangered-8: #FCC6A1;--orangered-9: #FDDEC5;--orangered-10: #FFF4EB;--orange-1: #4D1B00;--orange-2: #793004;--orange-3: #A64B0A;--orange-4: #D26913;--orange-5: #FF8D1F;--orange-6: #FF9626;--orange-7: #FFB357;--orange-8: #FFCD87;--orange-9: #FFE3B8;--orange-10: #FFF7E8;--gold-1: #4D2D00;--gold-2: #774B04;--gold-3: #A26F0F;--gold-4: #CC961F;--gold-5: #F7C034;--gold-6: #F9CC44;--gold-7: #FADC6C;--gold-8: #FCE995;--gold-9: #FDF4BE;--gold-10: #FFFCE8;--yellow-1: #4D3800;--yellow-2: #785E07;--yellow-3: #A38614;--yellow-4: #CFB325;--yellow-5: #FAE13C;--yellow-6: #FBE94B;--yellow-7: #FCF374;--yellow-8: #FDFA9D;--yellow-9: #FEFEC6;--yellow-10: #FEFFF0;--lime-1: #2A4D00;--lime-2: #447006;--lime-3: #629412;--lime-4: #84B723;--lime-5: #A8DB39;--lime-6: #B8E24B;--lime-7: #CBE970;--lime-8: #DEF198;--lime-9: #EEF8C2;--lime-10: #FDFFEE;--green-1: #004D1C;--green-2: #046625;--green-3: #0A802D;--green-4: #129A37;--green-5: #1DB440;--green-6: #27C346;--green-7: #50D266;--green-8: #7EE18B;--green-9: #B2F0B7;--green-10: #EBFFEC;--cyan-1: #00424D;--cyan-2: #06616C;--cyan-3: #11838B;--cyan-4: #1FA6AA;--cyan-5: #30C9C9;--cyan-6: #3FD4CF;--cyan-7: #66DFD7;--cyan-8: #90E9E1;--cyan-9: #BEF4ED;--cyan-10: #F0FFFC;--blue-1: #001A4D;--blue-2: #052F78;--blue-3: #134CA3;--blue-4: #2971CF;--blue-5: #469AFA;--blue-6: #5AAAFB;--blue-7: #7DC1FC;--blue-8: #A1D5FD;--blue-9: #C6E8FE;--blue-10: #EAF8FF;--arcoblue-1: #000D4D;--arcoblue-2: #041B79;--arcoblue-3: #0E32A6;--arcoblue-4: #1D4DD2;--arcoblue-5: #306FFF;--arcoblue-6: #3C7EFF;--arcoblue-7: #689FFF;--arcoblue-8: #93BEFF;--arcoblue-9: #BEDAFF;--arcoblue-10: #EAF4FF;--purple-1: #16004D;--purple-2: #27066E;--purple-3: #3E138F;--purple-4: #5A25B0;--purple-5: #7B3DD1;--purple-6: #8E51DA;--purple-7: #A974E3;--purple-8: #C59AED;--purple-9: #DFC2F6;--purple-10: #F7EDFF;--pinkpurple-1: #42004D;--pinkpurple-2: #650370;--pinkpurple-3: #8A0D93;--pinkpurple-4: #B01BB6;--pinkpurple-5: #D92ED9;--pinkpurple-6: #E13DDB;--pinkpurple-7: #E866DF;--pinkpurple-8: #F092E6;--pinkpurple-9: #F7C1F0;--pinkpurple-10: #FFF2FD;--magenta-1: #4D0034;--magenta-2: #770850;--magenta-3: #A1176C;--magenta-4: #CB2B88;--magenta-5: #F545A6;--magenta-6: #F756A9;--magenta-7: #F97AB8;--magenta-8: #FB9EC8;--magenta-9: #FDC3DB;--magenta-10: #FFE8F1;--gray-10: #f7f8fa;--gray-9: #f2f3f5;--gray-8: #e5e6eb;--gray-7: #c9cdd4;--gray-6: #a9aeb8;--gray-5: #86909c;--gray-4: #6b7785;--gray-3: #4e5969;--gray-2: #272e3b;--gray-1: #1d2129}}:root{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg);--c-pku: #9b0000;--i-alarm: url(https://cdn.arthals.ink/css/src/alarm-clock.svg);--i-idcard: url(https://cdn.arthals.ink/css/src/id-card-v.svg);--i-tip: url(https://cdn.arthals.ink/css/src/tip.svg);--i-comment: url(https://cdn.arthals.ink/css/src/comment.svg);--i-clover: url(https://cdn.arthals.ink/css/src/clover.svg);--i-sandclock: url(https://cdn.arthals.ink/css/src/sandclock.svg);--i-verified: url(https://cdn.arthals.ink/css/src/verified.svg)}@media (prefers-color-scheme: dark){:root{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}}body,html{background:var(--c-background)!important}*{outline:none!important}@keyframes fadeInUpTransition{0%{opacity:0;-webkit-transform:translateY(100px);transform:translateY(100px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixel{0%{opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixelForContentBox{0%{margin-left:min(25%,300px);opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{margin-left:min(25%,300px);opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInLeftStablePixel{0%{color:#fff;transform:translate(-72px);-webkit-transform:translateX(-72px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}to{opacity:1}}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background-color:transparent}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background-color:var(--c-scrollbar);border-radius:9999px}.pku-art-light{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg)}.pku-art-dark{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}*[var=nameFormatEnum] #breadcrumbs{margin-top:0}#containerdiv form table.inventory{background-color:var(--c-card)}#conferenceFormId th,#conferenceFormId td{vertical-align:middle!important}#conferenceFormId th{background-color:var(--c-card)}.inventory>tbody tr{background:var(--c-card)!important}.inventory>tbody tr td,.inventory>tbody tr th,.inventory>thead tr th,.splashTable thead tr th{border-color:var(--c-border)!important}table.inventory>tbody tr:last-child td,table.inventory>tbody tr:last-child th{border-bottom:1px solid var(--c-border)!important}.inventory>tbody .gray td,.inventory>tbody .gray th{background-color:var(--c-hover)!important}table.inventory a.cmimg{display:none}table.inventory .vtbegenerated tbody tr td,table.inventory .vtbegenerated tbody tr th,table.reorderable .vtbegenerated tbody tr td,table.reorderable .vtbegenerated tbody tr th,table.inventory .vtbegenerated tbody tr:hover td,table.inventory .vtbegenerated tbody tr:hover th,table.reorderable .vtbegenerated tbody tr:hover td,table.reorderable .vtbegenerated tbody tr:hover th,table.reorderable .vtbegenerated tbody tr:hover{background:transparent!important}table.inventory .gray .vtbegenerated tbody tr td,table.inventory .gray .vtbegenerated tbody tr th,table.reorderable .gray .vtbegenerated tbody tr td,table.reorderable .gray .vtbegenerated tbody tr th,table.inventory .gray .vtbegenerated tbody tr:hover td,table.inventory .gray .vtbegenerated tbody tr:hover th,table.reorderable .gray .vtbegenerated tbody tr:hover td,table.reorderable .gray .vtbegenerated tbody tr:hover th,table.reorderable .gray .vtbegenerated tbody tr:hover{background-color:var(--c-hover)!important}table.inventory .vtbegenerated tbody tr:last-child td{border-bottom:none!important}table.inventory .unread-count:not(.none){color:#fff!important;background:#e44c47!important}table.inventory .unread-count.none{background:transparent!important;color:var(--c-text)!important}#containerdiv.container{border:1px solid var(--c-border)!important;background-color:var(--c-card)}.inventory>thead tr th.sorted,th.sorted,.splashTable thead tr th.sorted{background-color:var(--c-card)!important;color:var(--c-text)!important}.inventory>thead tr th.sorted a{color:var(--c-text)!important}.genericButton,.genericButtonImg,input[type=submit].genericButton,.browse,.browseIcon,.rumble h3+ul>li>a,.rumble_top h3+ul>li>a,.paging a,.itemHeaderControl>a,.actionMenuButton,.button-3,.button-3-img,.button-4,.button-4-img,#toolsSearchBox+.button-4,.treeContainer .tree li a.button-4-img,.rumble a,.rumble_top a,.rumble .abutton,.rumble_top .abutton{background:var(--c-button)!important;box-shadow:none!important}.nav .sub ul,.nav.gb_currView .sub>ul,.menumini ul,.quickAddPal,.keyboardAccess,span.currentTags,.liveArea,.liveArea-slim,.previewArea,.jumptopage,.panelTabs li.active a.edit,.panelTabs li.active a.edit:hover,.panelTabs li.active a.edit:focus,.flyout,.bcContent .flyout,ul.tree li a+img+a:focus,ul.tree li img+img+a:focus,div.treeContainer ul.tree li a.itemActive,#learningUnitToc ul.tree li a.itemActive,ul.tree li a.itemActive,#loginLang ul,.unread-posts,.need-moderation,.unread-replies-to-me-posts{background:var(--c-button)!important;border:1px solid var(--c-border)!important;border-radius:5px}.thread-detail-page .contentBox{background:var(--c-background)}.db-message-wrapper{box-shadow:none;background:var(--c-card);border:1px solid var(--c-border)!important;border-radius:5px}.reply-lvl-0 .message-wrapper-inner,.db-head-message .message-wrapper-inner{background:var(--c-card);border:none!important;box-shadow:none}.db-reply-block,.reply-lvl-0 .messageTemplate{border:none;box-shadow:none;background:var(--c-card)}.db-collapse-control{display:none}.reply-lvl-0 .threadButtons .browse,.threadButtons .browse,.threadButtons .reply{background:var(--c-button)!important;border:1px solid var(--c-border)!important;border-radius:5px!important;width:fit-content;height:100%;display:block;margin:0}.threadButtons{display:flex!important;flex-direction:row;width:fit-content;gap:5px}.db-message .profileCardAvatarThumb img{height:64px;width:64px;border:1px solid var(--c-border)!important;display:inline-block;padding:1px;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:10px;box-shadow:none;background:transparent}.db-message-wrapper .profileCardAvatarThumb{color:var(--c-title)!important}.profileCardAvatarThumb img{box-shadow:none;background:transparent;border:1px solid var(--c-border)!important}img[src="/images/ci/ng/default_profile_avatar.svg"]{content:var(--i-student)!important}.msg-fringe.db-message-fringe-show{display:none}#inlinePost{margin-top:30px}.steptitle,div[id*=step],div[id*=Step],#dataCollectionContainer,.container{background:var(--c-card)}div[id*=stepcontent]{background:var(--c-card)!important}input[type=text],input[type=password],select{border:1px solid var(--c-border)!important;background:var(--c-card)!important}@media screen and (prefers-color-scheme: dark){.tox.tox-tinymce{-webkit-filter:invert(100%) hue-rotate(180deg);filter:invert(100%) hue-rotate(180deg)}.tox.tox-tinymce svg{-webkit-filter:invert(100%) hue-rotate(180deg);filter:invert(100%) hue-rotate(180deg)}}.taskbuttondiv_wrapper{background:var(--c-card)}#bottom_submitButtonRow{display:flex;gap:10px}form[id=inlineMessageForm] a#submissionLink,form[id=inlineMessageForm] input[type=file],form[id=inlineMessageForm] input[type=button]{border-radius:5px;background:var(--c-button);box-shadow:none;color:var(--c-text);font-size:12px}form[id=inlineMessageForm] a#submissionLink:hover,form[id=inlineMessageForm] input[type=file]:hover,form[id=inlineMessageForm] input[type=button]:hover{background:var(--gray-2);color:var(--c-title);font-weight:700}form[id=inlineMessageForm] input[type=submit].submit{border-radius:5px;background:var(--c-primary-light);box-shadow:none;color:var(--c-primary);font-size:12px}form[id=inlineMessageForm] input[type=submit].submit:hover{background:var(--blue-2);color:var(--blue-7);font-weight:700}.nav .sub ul li a,.cmdiv a,.menumini a,#loginLang ul li a{color:var(--c-text)}div[id*=step],.submittitle,#infoStep,#taskStatusStep,#linkedContentStep,div[id*=stepcontent]{border:none!important}h3.steptitle,span.reqfield{display:none!important}.submitStepTop:has(span.reqfield:only-child){height:20px!important}input[type=text][name=title]{width:100%}input[type=checkbox]{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:16px;height:16px;background-color:var(--c-card);border:1px solid var(--c-border);border-radius:3px}input[type=checkbox]:checked{background-color:var(--c-accent);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");background-size:80%;background-position:center;background-repeat:no-repeat}.vtbegenerated::-webkit-scrollbar{width:10px;height:10px}.vtbegenerated::-webkit-scrollbar-track{background-color:transparent}.vtbegenerated::-webkit-scrollbar{height:5px}.vtbegenerated::-webkit-scrollbar-thumb{background-color:var(--c-scrollbar);border-radius:9999px}.author_props .highlight-pop{background:var(--i-verified);background-repeat:no-repeat;background-position:center;background-size:100% 100%;width:20px;height:20px}img[src="../images/paperclip.png"]{display:none}img[src="/images/ci/ng/cal_year_event.gif"]{content:var(--i-file)}.dbAttachment{border:1px solid var(--c-border);border-radius:5px;width:fit-content;padding:3px 5px}.dbAttachment img{width:20px;height:20px}.dbAttachment:hover{background-color:var(--c-hover)}.navigationBar div>button{border:1px solid var(--c-border);display:inline-block;box-shadow:none;background:var(--c-button);border-radius:3px;color:var(--c-text);text-shadow:none;margin:0;padding:0}a.reply-count-link{bottom:3px;position:absolute;background:transparent;display:block;border-radius:3px!important;border:1px solid var(--c-border)!important}.db_msg_metadata,.reply-lvl-0 .db_msg_metadata{border:1px solid var(--c-border)!important;box-shadow:none;background:var(--c-card);border-radius:0 0 0 2px;line-height:1.5;top:3px;right:3px;min-width:140px;text-align:right}#actionbar{top:100px;right:30px;box-shadow:none;opacity:1!important;background:transparent!important;border-bottom:none!important}.collapsedMessage .db-message .profileCardAvatarThumb:after{display:none}.thread-detail-page #actionbar .mainButton>a,.thread-detail-page #actionbar .secondaryButton>a{color:var(--c-text)!important}.thread-detail-page #actionbar .mainButton>a:hover,.thread-detail-page #actionbar .secondaryButton>a:hover{background:var(--c-hover)!important}.thread-detail-page #navsecondary a#refreshTreeActionButtonId:before{content:"";display:inline-block;height:20px;width:20px;background-image:var(--i-refresh);background-size:contain;background-repeat:no-repeat;background-position:center}.thread-detail-page #navsecondary #searchActionButtonId a:before{content:"";display:inline-block;height:20px;width:20px;background-image:var(--i-search);background-size:contain;background-repeat:no-repeat;background-position:center}img[src="/images/ci/actionbar/flag.gif"]{display:none}img[src="/images/ci/ng/sort_on2.gif"]{content:var(--i-arrow);width:16px;height:16px}img[src="/images/ci/ng/sort_on_up2.gif"]{content:var(--i-arrow);transform:rotate(180deg);width:16px;height:16px}`;
   const courseExternalLinkStyles = ":root{--red-1: #FFECE8;--red-2: #FDCDC5;--red-3: #FBACA3;--red-4: #F98981;--red-5: #F76560;--red-6: #F53F3F;--red-7: #CB272D;--red-8: #A1151E;--red-9: #770813;--red-10: #4D000A;--orangered-1: #FFF3E8;--orangered-2: #FDDDC3;--orangered-3: #FCC59F;--orangered-4: #FAAC7B;--orangered-5: #F99057;--orangered-6: #F77234;--orangered-7: #CC5120;--orangered-8: #A23511;--orangered-9: #771F06;--orangered-10: #4D0E00;--orange-1: #FFF7E8;--orange-2: #FFE4BA;--orange-3: #FFCF8B;--orange-4: #FFB65D;--orange-5: #FF9A2E;--orange-6: #FF7D00;--orange-7: #D25F00;--orange-8: #A64500;--orange-9: #792E00;--orange-10: #4D1B00;--gold-1: #FFFCE8;--gold-2: #FDF4BF;--gold-3: #FCE996;--gold-4: #FADC6D;--gold-5: #F9CC45;--gold-6: #F7BA1E;--gold-7: #CC9213;--gold-8: #A26D0A;--gold-9: #774B04;--gold-10: #4D2D00;--yellow-1: #FEFFE8;--yellow-2: #FEFEBE;--yellow-3: #FDFA94;--yellow-4: #FCF26B;--yellow-5: #FBE842;--yellow-6: #FADC19;--yellow-7: #CFAF0F;--yellow-8: #A38408;--yellow-9: #785D03;--yellow-10: #4D3800;--lime-1: #FCFFE8;--lime-2: #EDF8BB;--lime-3: #DCF190;--lime-4: #C9E968;--lime-5: #B5E241;--lime-6: #9FDB1D;--lime-7: #7EB712;--lime-8: #5F940A;--lime-9: #437004;--lime-10: #2A4D00;--green-1: #E8FFEA;--green-2: #AFF0B5;--green-3: #7BE188;--green-4: #4CD263;--green-5: #23C343;--green-6: #00B42A;--green-7: #009A29;--green-8: #008026;--green-9: #006622;--green-10: #004D1C;--cyan-1: #E8FFFB;--cyan-2: #B7F4EC;--cyan-3: #89E9E0;--cyan-4: #5EDFD6;--cyan-5: #37D4CF;--cyan-6: #14C9C9;--cyan-7: #0DA5AA;--cyan-8: #07828B;--cyan-9: #03616C;--cyan-10: #00424D;--blue-1: #E8F7FF;--blue-2: #C3E7FE;--blue-3: #9FD4FD;--blue-4: #7BC0FC;--blue-5: #57A9FB;--blue-6: #3491FA;--blue-7: #206CCF;--blue-8: #114BA3;--blue-9: #063078;--blue-10: #001A4D;--arcoblue-1: #E8F3FF;--arcoblue-2: #BEDAFF;--arcoblue-3: #94BFFF;--arcoblue-4: #6AA1FF;--arcoblue-5: #4080FF;--arcoblue-6: #165DFF;--arcoblue-7: #0E42D2;--arcoblue-8: #072CA6;--arcoblue-9: #031A79;--arcoblue-10: #000D4D;--purple-1: #F5E8FF;--purple-2: #DDBEF6;--purple-3: #C396ED;--purple-4: #A871E3;--purple-5: #8D4EDA;--purple-6: #722ED1;--purple-7: #551DB0;--purple-8: #3C108F;--purple-9: #27066E;--purple-10: #16004D;--pinkpurple-1: #FFE8FB;--pinkpurple-2: #F7BAEF;--pinkpurple-3: #F08EE6;--pinkpurple-4: #E865DF;--pinkpurple-5: #E13EDB;--pinkpurple-6: #D91AD9;--pinkpurple-7: #B010B6;--pinkpurple-8: #8A0993;--pinkpurple-9: #650370;--pinkpurple-10: #42004D;--magenta-1: #FFE8F1;--magenta-2: #FDC2DB;--magenta-3: #FB9DC7;--magenta-4: #F979B7;--magenta-5: #F754A8;--magenta-6: #F5319D;--magenta-7: #CB1E83;--magenta-8: #A11069;--magenta-9: #77064F;--magenta-10: #4D0034;--gray-1: #f7f8fa;--gray-2: #f2f3f5;--gray-3: #e5e6eb;--gray-4: #c9cdd4;--gray-5: #a9aeb8;--gray-6: #86909c;--gray-7: #6b7785;--gray-8: #4e5969;--gray-9: #272e3b;--gray-10: #1d2129}@media (prefers-color-scheme: dark){:root{--red-1: #4D000A;--red-2: #770611;--red-3: #A1161F;--red-4: #CB2E34;--red-5: #F54E4E;--red-6: #F76965;--red-7: #F98D86;--red-8: #FBB0A7;--red-9: #FDD1CA;--red-10: #FFF0EC;--orangered-1: #4D0E00;--orangered-2: #771E05;--orangered-3: #A23714;--orangered-4: #CC5729;--orangered-5: #F77E45;--orangered-6: #F9925A;--orangered-7: #FAAD7D;--orangered-8: #FCC6A1;--orangered-9: #FDDEC5;--orangered-10: #FFF4EB;--orange-1: #4D1B00;--orange-2: #793004;--orange-3: #A64B0A;--orange-4: #D26913;--orange-5: #FF8D1F;--orange-6: #FF9626;--orange-7: #FFB357;--orange-8: #FFCD87;--orange-9: #FFE3B8;--orange-10: #FFF7E8;--gold-1: #4D2D00;--gold-2: #774B04;--gold-3: #A26F0F;--gold-4: #CC961F;--gold-5: #F7C034;--gold-6: #F9CC44;--gold-7: #FADC6C;--gold-8: #FCE995;--gold-9: #FDF4BE;--gold-10: #FFFCE8;--yellow-1: #4D3800;--yellow-2: #785E07;--yellow-3: #A38614;--yellow-4: #CFB325;--yellow-5: #FAE13C;--yellow-6: #FBE94B;--yellow-7: #FCF374;--yellow-8: #FDFA9D;--yellow-9: #FEFEC6;--yellow-10: #FEFFF0;--lime-1: #2A4D00;--lime-2: #447006;--lime-3: #629412;--lime-4: #84B723;--lime-5: #A8DB39;--lime-6: #B8E24B;--lime-7: #CBE970;--lime-8: #DEF198;--lime-9: #EEF8C2;--lime-10: #FDFFEE;--green-1: #004D1C;--green-2: #046625;--green-3: #0A802D;--green-4: #129A37;--green-5: #1DB440;--green-6: #27C346;--green-7: #50D266;--green-8: #7EE18B;--green-9: #B2F0B7;--green-10: #EBFFEC;--cyan-1: #00424D;--cyan-2: #06616C;--cyan-3: #11838B;--cyan-4: #1FA6AA;--cyan-5: #30C9C9;--cyan-6: #3FD4CF;--cyan-7: #66DFD7;--cyan-8: #90E9E1;--cyan-9: #BEF4ED;--cyan-10: #F0FFFC;--blue-1: #001A4D;--blue-2: #052F78;--blue-3: #134CA3;--blue-4: #2971CF;--blue-5: #469AFA;--blue-6: #5AAAFB;--blue-7: #7DC1FC;--blue-8: #A1D5FD;--blue-9: #C6E8FE;--blue-10: #EAF8FF;--arcoblue-1: #000D4D;--arcoblue-2: #041B79;--arcoblue-3: #0E32A6;--arcoblue-4: #1D4DD2;--arcoblue-5: #306FFF;--arcoblue-6: #3C7EFF;--arcoblue-7: #689FFF;--arcoblue-8: #93BEFF;--arcoblue-9: #BEDAFF;--arcoblue-10: #EAF4FF;--purple-1: #16004D;--purple-2: #27066E;--purple-3: #3E138F;--purple-4: #5A25B0;--purple-5: #7B3DD1;--purple-6: #8E51DA;--purple-7: #A974E3;--purple-8: #C59AED;--purple-9: #DFC2F6;--purple-10: #F7EDFF;--pinkpurple-1: #42004D;--pinkpurple-2: #650370;--pinkpurple-3: #8A0D93;--pinkpurple-4: #B01BB6;--pinkpurple-5: #D92ED9;--pinkpurple-6: #E13DDB;--pinkpurple-7: #E866DF;--pinkpurple-8: #F092E6;--pinkpurple-9: #F7C1F0;--pinkpurple-10: #FFF2FD;--magenta-1: #4D0034;--magenta-2: #770850;--magenta-3: #A1176C;--magenta-4: #CB2B88;--magenta-5: #F545A6;--magenta-6: #F756A9;--magenta-7: #F97AB8;--magenta-8: #FB9EC8;--magenta-9: #FDC3DB;--magenta-10: #FFE8F1;--gray-10: #f7f8fa;--gray-9: #f2f3f5;--gray-8: #e5e6eb;--gray-7: #c9cdd4;--gray-6: #a9aeb8;--gray-5: #86909c;--gray-4: #6b7785;--gray-3: #4e5969;--gray-2: #272e3b;--gray-1: #1d2129}}:root{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg);--c-pku: #9b0000;--i-alarm: url(https://cdn.arthals.ink/css/src/alarm-clock.svg);--i-idcard: url(https://cdn.arthals.ink/css/src/id-card-v.svg);--i-tip: url(https://cdn.arthals.ink/css/src/tip.svg);--i-comment: url(https://cdn.arthals.ink/css/src/comment.svg);--i-clover: url(https://cdn.arthals.ink/css/src/clover.svg);--i-sandclock: url(https://cdn.arthals.ink/css/src/sandclock.svg);--i-verified: url(https://cdn.arthals.ink/css/src/verified.svg)}@media (prefers-color-scheme: dark){:root{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}}body,html{background:var(--c-background)!important}*{outline:none!important}@keyframes fadeInUpTransition{0%{opacity:0;-webkit-transform:translateY(100px);transform:translateY(100px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixel{0%{opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixelForContentBox{0%{margin-left:min(25%,300px);opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{margin-left:min(25%,300px);opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInLeftStablePixel{0%{color:#fff;transform:translate(-72px);-webkit-transform:translateX(-72px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}to{opacity:1}}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background-color:transparent}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background-color:var(--c-scrollbar);border-radius:9999px}.pku-art-light{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg)}.pku-art-dark{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg)}body{height:auto}.locationPane{background-color:var(--c-background)}#pageTitleDiv,#pageTitleDiv *{color:var(--c-title)}#containerdiv{border:1px solid var(--c-border);background-color:var(--c-card);border-radius:5px;padding:20px}#containerdiv *{color:var(--c-text);font-size:14px;line-height:1.6}#containerdiv a{color:var(--blue-5)!important;text-decoration:none}";
@@ -159,8 +159,8 @@
       });
     }
   }
-  let htmlpath = location.href;
-  function initThemeManager() {
+  const currentUrl = window.location.href;
+  function initializeThemeManager() {
     let userThemeMode = "auto";
     try {
       if (typeof _GM_getValue !== "undefined") {
@@ -171,7 +171,7 @@
     }
     themeManager.setTheme(userThemeMode);
     if (typeof _GM_registerMenuCommand !== "undefined") {
-      _GM_registerMenuCommand("🌞 日间模式", () => {
+      _GM_registerMenuCommand("☀️ 日间模式", () => {
         themeManager.setTheme("light");
         try {
           _GM_setValue("themeMode", "light");
@@ -202,252 +202,349 @@
     }
     console.log("[PKU Art] Theme manager initialized with mode:", userThemeMode);
   }
-  initThemeManager();
-  if (/^https:\/\/iaaa\.pku\.edu\.cn\/\S*$|^https:\/\/course\.pku\.edu\.cn\/\S*$|^https:\/\/onlineroomse\.pku\.edu\.cn\/\S*$/.test(
-    htmlpath
-  )) {
-    injectStyles(mainStyles, "main.css");
-    console.log("[PKU Art] main.css imported");
-  }
-  if (/^https:\/\/iaaa\.pku\.edu\.cn\/\S*$|^https:\/\/course\.pku\.edu\.cn\/\S*$|^https:\/\/onlineroomse\.pku\.edu\.cn\/\S*$/.test(
-    htmlpath
-  )) {
-    injectStyles(arcoPaletteStyles, "arco-palette.css");
-    console.log("[PKU Art] arco-palette.css imported");
-  }
-  if (/^https:\/\/iaaa\.pku\.edu\.cn\/\S*$/.test(htmlpath)) {
-    injectStyles(iaaaOAuthPageStyles, "iaaaOAuthPage.css");
-    console.log("[PKU Art] iaaaOAuthPage.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/login\S*$|^https:\/\/course\.pku\.edu\.cn[\/]?$/.test(htmlpath)) {
-    injectStyles(courseLoginPageStyles, "courseLoginPage.css");
-    console.log("[PKU Art] courseLoginPage.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/?$|^https:\/\/course\.pku\.edu\.cn\/webapps\/portal\/\S*$/.test(htmlpath)) {
-    injectStyles(courseHomePageStyles, "courseHomePage.css");
-    console.log("[PKU Art] courseHomePage.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*$/.test(htmlpath)) {
-    injectStyles(courseContentStyles, "courseContent.css");
-    console.log("[PKU Art] courseContent.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/blackboard\S*announcement\S*$/.test(htmlpath)) {
-    injectStyles(courseAnnouncementStyles, "courseAnnouncement.css");
-    console.log("[PKU Art] courseAnnouncement.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*getTeachingStaffList\S*$/.test(htmlpath)) {
-    injectStyles(courseTeachingStaffListStyles, "courseTeachingStaffList.css");
-    console.log("[PKU Art] courseTeachingStaffList.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*classinCourseClass\S*$/.test(htmlpath)) {
-    injectStyles(courseClassinStyles, "courseClassin.css");
-    console.log("[PKU Art] courseClassin.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*blankPage\S*$/.test(htmlpath)) {
-    injectStyles(courseBlankPageStyles, "courseBlankPage.css");
-    console.log("[PKU Art] courseBlankPage.css imported");
-  }
-  if (/^https:\/\/course.pku.edu.cn\/webapps\S*videoList\S*$/.test(htmlpath)) {
-    injectStyles(courseVideolistStyles, "courseVideolist.css");
-    console.log("[PKU Art] courseVideolist.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*((discussionboard)|(groupContentList))\S*$/.test(htmlpath)) {
-    injectStyles(courseOtherStyles, "courseOther.css");
-    console.log("[PKU Art] courseOther.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*myGrades\S*course_id\S*is_stream=false\S*$/.test(htmlpath)) {
-    injectStyles(courseClassGradeStyles, "courseClassGrade.css");
-    console.log("[PKU Art] courseClassGrade.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*listContent\S*$/.test(htmlpath)) {
-    injectStyles(courseListContentStyles, "courseListContent.css");
-    console.log("[PKU Art] courseListContent.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*viewAttempts\S*$/.test(htmlpath)) {
-    injectStyles(courseViewAttemptStyles, "courseViewAttempt.css");
-    console.log("[PKU Art] courseViewAttempt.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\S*toolId\S*$/.test(htmlpath)) {
-    injectStyles(courseToolFrameStyles, "courseToolFrame.css");
-    console.log("[PKU Art] courseToolFrame.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*streamName=alerts\S*$/.test(htmlpath)) {
-    injectStyles(courseToolAlertStyles, "courseToolAlert.css");
-    console.log("[PKU Art] courseToolAlert.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*streamName=mygrades\S*$/.test(htmlpath)) {
-    injectStyles(courseToolGradeStyles, "courseToolGrade.css");
-    console.log("[PKU Art] courseToolGrade.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*stream_name=mygrades$/.test(htmlpath)) {
-    injectStyles(courseToolGradeClassStyles, "courseToolGradeClass.css");
-    console.log("[PKU Art] courseToolGradeClass.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*stream_name=mygrades_d\S*gradable_item_id\S*$/.test(
-    htmlpath
-  )) {
-    injectStyles(courseToolGradeItemStyles, "courseToolGradeItem.css");
-    console.log("[PKU Art] courseToolGradeItem.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*content\/file\?cmd=view\S*$/.test(htmlpath)) {
-    injectStyles(courseFileEmbedStyles, "courseFileEmbed.css");
-    console.log("[PKU Art] courseFileEmbed.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*assignment\/uploadAssignment\?\S*$/.test(htmlpath)) {
-    injectStyles(courseAssignmentUploadStyles, "courseAssignmentUpload.css");
-    console.log("[PKU Art] courseAssignmentUpload.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*context=mybb\S*$|^https:\/\/course\.pku\.edu\.cn\/webapps\/blackboard\/execute\/announcement$|^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*playVideo\S*$/.test(
-    htmlpath
-  )) {
-    injectStyles(courseGlobalPageStyles, "courseGlobalPage.css");
-    console.log("[PKU Art] courseGlobalPage.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*announcement\S*context=mybb\S*$|^https:\/\/course\.pku\.edu\.cn\/webapps\/blackboard\/execute\/announcement$/.test(
-    htmlpath
-  )) {
-    injectStyles(courseGlobalAnnouncementStyles, "courseGlobalAnnouncement.css");
-    console.log("[PKU Art] courseGlobalAnnouncement.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*playVideo\S*$/.test(htmlpath)) {
-    injectStyles(courseVideoPlayStyles, "courseVideoPlay.css");
-    console.log("[PKU Art] courseVideoPlay.css imported");
-  }
-  if (/^https:\/\/onlineroomse\.pku\.edu\.cn\/player\?course_id\S*$/.test(htmlpath)) {
-    injectStyles(courseVideoPlayFrameStyles, "courseVideoPlayFrame.css");
-    console.log("[PKU Art] courseVideoPlayFrame.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/.test(htmlpath)) {
-    injectStyles(courseTaskStyles, "courseTask.css");
-    console.log("[PKU Art] courseTask.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*discussionboard\S*$/.test(htmlpath)) {
-    injectStyles(courseDiscussionStyles, "courseDiscussion.css");
-    console.log("[PKU Art] courseDiscussion.css imported");
-  }
-  if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*contentWrapperNoFrame\S*$/.test(htmlpath)) {
-    injectStyles(courseExternalLinkStyles, "courseExternalLink.css");
-    console.log("[PKU Art] courseExternalLink.css imported");
-  }
-  (function logoNavigate() {
-    let htmlpath2 = location.href;
-    if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath2)) {
-      let executeLogoNavigate2 = function() {
-        const navArea = document.getElementById("globalNavPageNavArea");
-        if (navArea) {
-          navArea.addEventListener("click", function(event) {
-            const clickX = event.clientX - navArea.getBoundingClientRect().left;
-            if (clickX <= 150) {
-              window.location.href = "https://course.pku.edu.cn";
-            }
-          });
-        }
-      };
-      executeLogoNavigate2();
-      document.addEventListener("DOMContentLoaded", executeLogoNavigate2);
+  initializeThemeManager();
+  const globalStyleScopes = [
+    /^https:\/\/iaaa\.pku\.edu\.cn\/\S*$/,
+    /^https:\/\/course\.pku\.edu\.cn\/\S*$/,
+    /^https:\/\/onlineroomse\.pku\.edu\.cn\/\S*$/
+  ];
+  const styleRules = [
+    {
+      patterns: globalStyleScopes,
+      styleContent: mainStyles,
+      fileName: "main.css",
+      logMessage: "[PKU Art] main.css imported"
+    },
+    {
+      patterns: globalStyleScopes,
+      styleContent: arcoPaletteStyles,
+      fileName: "arco-palette.css",
+      logMessage: "[PKU Art] arco-palette.css imported"
+    },
+    {
+      patterns: [/^https:\/\/iaaa\.pku\.edu\.cn\/\S*$/],
+      styleContent: iaaaOAuthPageStyles,
+      fileName: "iaaaOAuthPage.css",
+      logMessage: "[PKU Art] iaaaOAuthPage.css imported"
+    },
+    {
+      patterns: [
+        /^https:\/\/course\.pku\.edu\.cn\/webapps\/login\S*$/,
+        /^https:\/\/course\.pku\.edu\.cn[\/]?$/
+      ],
+      styleContent: courseLoginPageStyles,
+      fileName: "courseLoginPage.css",
+      logMessage: "[PKU Art] courseLoginPage.css imported"
+    },
+    {
+      patterns: [
+        /^https:\/\/course\.pku\.edu\.cn\/webapps\/?$/,
+        /^https:\/\/course\.pku\.edu\.cn\/webapps\/portal\/\S*$/
+      ],
+      styleContent: courseHomePageStyles,
+      fileName: "courseHomePage.css",
+      logMessage: "[PKU Art] courseHomePage.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*$/],
+      styleContent: courseContentStyles,
+      fileName: "courseContent.css",
+      logMessage: "[PKU Art] courseContent.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/blackboard\S*announcement\S*$/],
+      styleContent: courseAnnouncementStyles,
+      fileName: "courseAnnouncement.css",
+      logMessage: "[PKU Art] courseAnnouncement.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*getTeachingStaffList\S*$/],
+      styleContent: courseTeachingStaffListStyles,
+      fileName: "courseTeachingStaffList.css",
+      logMessage: "[PKU Art] courseTeachingStaffList.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*classinCourseClass\S*$/],
+      styleContent: courseClassinStyles,
+      fileName: "courseClassin.css",
+      logMessage: "[PKU Art] courseClassin.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*blankPage\S*$/],
+      styleContent: courseBlankPageStyles,
+      fileName: "courseBlankPage.css",
+      logMessage: "[PKU Art] courseBlankPage.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*videoList\S*$/],
+      styleContent: courseVideolistStyles,
+      fileName: "courseVideolist.css",
+      logMessage: "[PKU Art] courseVideolist.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*((discussionboard)|(groupContentList))\S*$/],
+      styleContent: courseOtherStyles,
+      fileName: "courseOther.css",
+      logMessage: "[PKU Art] courseOther.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*myGrades\S*course_id\S*is_stream=false\S*$/],
+      styleContent: courseClassGradeStyles,
+      fileName: "courseClassGrade.css",
+      logMessage: "[PKU Art] courseClassGrade.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*listContent\S*$/],
+      styleContent: courseListContentStyles,
+      fileName: "courseListContent.css",
+      logMessage: "[PKU Art] courseListContent.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*viewAttempts\S*$/],
+      styleContent: courseViewAttemptStyles,
+      fileName: "courseViewAttempt.css",
+      logMessage: "[PKU Art] courseViewAttempt.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*toolId\S*$/],
+      styleContent: courseToolFrameStyles,
+      fileName: "courseToolFrame.css",
+      logMessage: "[PKU Art] courseToolFrame.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*streamName=alerts\S*$/],
+      styleContent: courseToolAlertStyles,
+      fileName: "courseToolAlert.css",
+      logMessage: "[PKU Art] courseToolAlert.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*streamName=mygrades\S*$/],
+      styleContent: courseToolGradeStyles,
+      fileName: "courseToolGrade.css",
+      logMessage: "[PKU Art] courseToolGrade.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*stream_name=mygrades$/],
+      styleContent: courseToolGradeClassStyles,
+      fileName: "courseToolGradeClass.css",
+      logMessage: "[PKU Art] courseToolGradeClass.css imported"
+    },
+    {
+      patterns: [
+        /^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*stream_name=mygrades_d\S*gradable_item_id\S*$/
+      ],
+      styleContent: courseToolGradeItemStyles,
+      fileName: "courseToolGradeItem.css",
+      logMessage: "[PKU Art] courseToolGradeItem.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*content\/file\?cmd=view\S*$/],
+      styleContent: courseFileEmbedStyles,
+      fileName: "courseFileEmbed.css",
+      logMessage: "[PKU Art] courseFileEmbed.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*assignment\/uploadAssignment\?\S*$/],
+      styleContent: courseAssignmentUploadStyles,
+      fileName: "courseAssignmentUpload.css",
+      logMessage: "[PKU Art] courseAssignmentUpload.css imported"
+    },
+    {
+      patterns: [
+        /^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*context=mybb\S*$/,
+        /^https:\/\/course\.pku\.edu\.cn\/webapps\/blackboard\/execute\/announcement$/,
+        /^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*playVideo\S*$/
+      ],
+      styleContent: courseGlobalPageStyles,
+      fileName: "courseGlobalPage.css",
+      logMessage: "[PKU Art] courseGlobalPage.css imported"
+    },
+    {
+      patterns: [
+        /^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*announcement\S*context=mybb\S*$/,
+        /^https:\/\/course\.pku\.edu\.cn\/webapps\/blackboard\/execute\/announcement$/
+      ],
+      styleContent: courseGlobalAnnouncementStyles,
+      fileName: "courseGlobalAnnouncement.css",
+      logMessage: "[PKU Art] courseGlobalAnnouncement.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*playVideo\S*$/],
+      styleContent: courseVideoPlayStyles,
+      fileName: "courseVideoPlay.css",
+      logMessage: "[PKU Art] courseVideoPlay.css imported"
+    },
+    {
+      patterns: [/^https:\/\/onlineroomse\.pku\.edu\.cn\/player\?course_id\S*$/],
+      styleContent: courseVideoPlayFrameStyles,
+      fileName: "courseVideoPlayFrame.css",
+      logMessage: "[PKU Art] courseVideoPlayFrame.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/],
+      styleContent: courseTaskStyles,
+      fileName: "courseTask.css",
+      logMessage: "[PKU Art] courseTask.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*discussionboard\S*$/],
+      styleContent: courseDiscussionStyles,
+      fileName: "courseDiscussion.css",
+      logMessage: "[PKU Art] courseDiscussion.css imported"
+    },
+    {
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*contentWrapperNoFrame\S*$/],
+      styleContent: courseExternalLinkStyles,
+      fileName: "courseExternalLink.css",
+      logMessage: "[PKU Art] courseExternalLink.css imported"
     }
-  })();
-  (function preventHideSidebar() {
-    let htmlpath2 = location.href;
-    if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath2)) {
-      let resetNavigationPane2 = function() {
-        let navigationPane = document.getElementById("navigationPane");
-        if (navigationPane && navigationPane.classList.contains("navcollapsed")) {
-          const puller = document.getElementById("menuPuller");
+  ];
+  function matchesAnyPattern(patterns, url) {
+    return patterns.some((pattern) => pattern.test(url));
+  }
+  function applyStylesForCurrentPage(url = currentUrl) {
+    styleRules.forEach(({ patterns, styleContent, fileName, logMessage }) => {
+      if (matchesAnyPattern(patterns, url)) {
+        injectStyles(styleContent, fileName);
+        console.log(logMessage);
+      }
+    });
+  }
+  applyStylesForCurrentPage();
+  function initializeLogoNavigation() {
+    if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
+      return;
+    }
+    const handleLogoClick = (event) => {
+      const navArea = event.currentTarget;
+      const clickOffsetX = event.clientX - navArea.getBoundingClientRect().left;
+      if (clickOffsetX <= 150) {
+        window.location.href = "https://course.pku.edu.cn";
+      }
+    };
+    const bindLogoNavigation = () => {
+      const navArea = document.getElementById("globalNavPageNavArea");
+      if (navArea && !navArea.dataset.pkuArtLogoBound) {
+        navArea.addEventListener("click", handleLogoClick);
+        navArea.dataset.pkuArtLogoBound = "true";
+      }
+    };
+    bindLogoNavigation();
+    document.addEventListener("DOMContentLoaded", bindLogoNavigation);
+  }
+  initializeLogoNavigation();
+  function ensureSidebarVisible() {
+    if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
+      return;
+    }
+    const resetNavigationPane = () => {
+      const navigationPane = document.getElementById("navigationPane");
+      if (navigationPane && navigationPane.classList.contains("navcollapsed")) {
+        const puller = document.getElementById("menuPuller");
+        if (puller) {
           puller.click();
           console.log("[PKU Art] sidebar reseted by auto click at " + (/* @__PURE__ */ new Date()).toLocaleString());
         }
-      };
-      resetNavigationPane2();
-      window.addEventListener("resize", resetNavigationPane2);
+      }
+    };
+    resetNavigationPane();
+    window.addEventListener("resize", resetNavigationPane);
+  }
+  ensureSidebarVisible();
+  function overrideSiteIcons() {
+    if (!/^https:\/\/(course|autolab|disk)\.pku\.edu\.cn\//.test(window.location.href)) {
+      return;
     }
-  })();
-  (function replaceIcon() {
-    let htmlpath2 = location.href;
-    if (/^https:\/\/(course|autolab|disk)\.pku\.edu\.cn\//.test(htmlpath2)) {
-      let executeReplaceIcon2 = function() {
-        const icons = document.querySelectorAll(
-          'link[rel="icon" i]:not([href^="https://cdn.arthals.ink/"]), link[rel="shortcut icon" i]:not([href^="https://cdn.arthals.ink/"])'
-        );
-        if (icons.length > 0) {
-          for (let i = 0; i < icons.length; i++) {
-            icons[i].parentNode.removeChild(icons[i]);
-          }
-          const newIcon = document.createElement("link");
-          newIcon.rel = "SHORTCUT ICON";
-          newIcon.href = "https://cdn.arthals.ink/css/src/PKU.svg";
-          document.head.appendChild(newIcon);
-          const appleIcon16 = document.createElement("link");
-          appleIcon16.rel = "icon";
-          appleIcon16.type = "image/png";
-          appleIcon16.sizes = "16x16";
-          appleIcon16.href = "https://cdn.arthals.ink/css/src/pku_16x16.png";
-          document.head.appendChild(appleIcon16);
-          const appleIcon32 = document.createElement("link");
-          appleIcon32.rel = "icon";
-          appleIcon32.type = "image/png";
-          appleIcon32.sizes = "32x32";
-          appleIcon32.href = "https://cdn.arthals.ink/css/src/pku_32x32.png";
-          document.head.appendChild(appleIcon32);
-          const appleIconTouch = document.createElement("link");
-          appleIconTouch.rel = "apple-touch-icon";
-          appleIconTouch.sizes = "180x180";
-          appleIconTouch.href = "https://cdn.arthals.ink/css/src/pku_180x180.png";
-          document.head.appendChild(appleIconTouch);
-        }
-      };
-      executeReplaceIcon2();
-      document.addEventListener("DOMContentLoaded", executeReplaceIcon2);
-      const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-          if (mutation.type === "childList") {
-            executeReplaceIcon2();
-          }
+    const replaceIcons = () => {
+      const icons = document.querySelectorAll(
+        'link[rel="icon" i]:not([href^="https://cdn.arthals.ink/"]), link[rel="shortcut icon" i]:not([href^="https://cdn.arthals.ink/"])'
+      );
+      if (icons.length > 0) {
+        icons.forEach((icon) => {
+          icon.parentNode.removeChild(icon);
         });
+        const newIcon = document.createElement("link");
+        newIcon.rel = "SHORTCUT ICON";
+        newIcon.href = "https://cdn.arthals.ink/css/src/PKU.svg";
+        document.head.appendChild(newIcon);
+        const appleIcon16 = document.createElement("link");
+        appleIcon16.rel = "icon";
+        appleIcon16.type = "image/png";
+        appleIcon16.sizes = "16x16";
+        appleIcon16.href = "https://cdn.arthals.ink/css/src/pku_16x16.png";
+        document.head.appendChild(appleIcon16);
+        const appleIcon32 = document.createElement("link");
+        appleIcon32.rel = "icon";
+        appleIcon32.type = "image/png";
+        appleIcon32.sizes = "32x32";
+        appleIcon32.href = "https://cdn.arthals.ink/css/src/pku_32x32.png";
+        document.head.appendChild(appleIcon32);
+        const appleIconTouch = document.createElement("link");
+        appleIconTouch.rel = "apple-touch-icon";
+        appleIconTouch.sizes = "180x180";
+        appleIconTouch.href = "https://cdn.arthals.ink/css/src/pku_180x180.png";
+        document.head.appendChild(appleIconTouch);
+      }
+    };
+    replaceIcons();
+    document.addEventListener("DOMContentLoaded", replaceIcons);
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "childList") {
+          replaceIcons();
+        }
       });
-      const config = { childList: true, subtree: true };
-      observer.observe(document.head, config);
-    }
-  })();
-  (function deleteCourseSerial() {
-    let htmlpath2 = location.href;
-    if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/?$|^https:\/\/course\.pku\.edu\.cn\/webapps\/portal\/\S*$/.test(
-      htmlpath2
-    )) {
-      let executeDeleteCourseSerical2 = function() {
-        const courses = document.querySelectorAll(
+    });
+    const observeHead = () => {
+      if (document.head) {
+        observer.observe(document.head, { childList: true, subtree: true });
+      }
+    };
+    observeHead();
+    document.addEventListener("DOMContentLoaded", observeHead);
+  }
+  overrideSiteIcons();
+  function removeCourseSerialNumbers() {
+    const url = window.location.href;
+    const isPortalPage = /^https:\/\/course\.pku\.edu\.cn\/webapps\/?$|^https:\/\/course\.pku\.edu\.cn\/webapps\/portal\/\S*$/.test(url);
+    const isAlertsStreamPage = /^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*streamName=alerts\S*$/.test(url);
+    if (isPortalPage) {
+      const stripPortalSerials = () => {
+        const courseLinks = document.querySelectorAll(
           ".containerPortal > div:not(:first-child) .portlet .portletList-img > li > a"
         );
-        courses.forEach((course) => {
-          course.innerHTML = course.innerHTML.replace(/^.*?: /, "").replace(/\(\d+-\d+学年第\d学期.*?\)/, "");
+        courseLinks.forEach((courseLink) => {
+          courseLink.innerHTML = courseLink.innerHTML.replace(/^.*?: /, "").replace(/\(\d+-\d+学年第\d学期.*?\)/, "");
         });
-        console.log("[PKU Art] course serial deleted: " + courses.length + " courses");
+        console.log("[PKU Art] course serial deleted: " + courseLinks.length + " courses");
       };
-      executeDeleteCourseSerical2();
-      document.addEventListener("DOMContentLoaded", executeDeleteCourseSerical2);
+      stripPortalSerials();
+      document.addEventListener("DOMContentLoaded", stripPortalSerials);
     }
-    if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*streamName=alerts\S*$/.test(htmlpath2)) {
-      let executeDeleteCourseSerical2 = function() {
-        const courses = document.querySelectorAll("#streamHeader_alerts a");
-        courses.forEach((course) => {
-          course.innerHTML = course.innerHTML.replace(/\(\d+-\d+学年第\d学期\)/, "");
+    if (isAlertsStreamPage) {
+      let alertCleanupTimer;
+      const stripAlertSerials = () => {
+        const courseLinks = document.querySelectorAll("#streamHeader_alerts a");
+        courseLinks.forEach((courseLink) => {
+          courseLink.innerHTML = courseLink.innerHTML.replace(/\(\d+-\d+学年第\d学期\)/, "");
         });
-        if (courses.length !== 0) {
-          clearInterval(timerId);
+        if (courseLinks.length !== 0 && alertCleanupTimer) {
+          clearInterval(alertCleanupTimer);
         }
       };
-      executeDeleteCourseSerical2();
-      const timerId = setInterval(() => {
-        const courses = document.querySelectorAll("#streamHeader_alerts a");
-        if (courses.length !== 0) {
-          executeDeleteCourseSerical2();
+      stripAlertSerials();
+      alertCleanupTimer = setInterval(() => {
+        const courseLinks = document.querySelectorAll("#streamHeader_alerts a");
+        if (courseLinks.length !== 0) {
+          stripAlertSerials();
         }
       }, 50);
     }
-  })();
-  (async function directDownload() {
-    let htmlpath2 = location.href;
-    if (!/^https:\/\/onlineroomse\.pku\.edu\.cn\/player\?course_id\S*$/.test(htmlpath2)) return;
+  }
+  removeCourseSerialNumbers();
+  async function initializeDirectDownload() {
+    const url = window.location.href;
+    if (!/^https:\/\/onlineroomse\.pku\.edu\.cn\/player\?course_id\S*$/.test(url)) return;
     console.log("[PKU Art] Injected directDownload() at " + (/* @__PURE__ */ new Date()).toLocaleString());
     let downloadUrl = "";
     let downloadJson = "";
@@ -455,7 +552,7 @@
     let subTitle = "";
     let lecturerName = "";
     let fileName = "";
-    const originSend = XMLHttpRequest.prototype.send;
+    const originalSend = XMLHttpRequest.prototype.send;
     XMLHttpRequest.prototype.send = function() {
       this.addEventListener("load", function() {
         if (this.responseURL.includes("get-sub-info-by-auth-data")) {
@@ -465,27 +562,27 @@
           subTitle = downloadJson.list[0].sub_title;
           lecturerName = downloadJson.list[0].lecturer_name;
           fileName = `${courseName} - ${subTitle} - ${lecturerName}.mp4`;
-          let filmContent = JSON.parse(downloadJson.list[0].sub_content);
-          let is_m3u8 = filmContent.save_playback.is_m3u8;
-          let trueDownloadUrl = "";
-          if (is_m3u8 == "yes") {
-            let m3u8 = filmContent.save_playback.contents;
-            let m3u8Pattern = /https:\/\/resourcese\.pku\.edu\.cn\/play\/0\/harpocrates\/\d+\/\d+\/\d+\/([a-zA-Z0-9]+)(\/.+)\/playlist\.m3u8.*/;
-            let hash = m3u8.match(m3u8Pattern)[1];
-            trueDownloadUrl = `https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=${hash}`;
-            console.log("[PKU Art] m3u8 下载链接转换成功：\n", trueDownloadUrl);
+          const filmContent = JSON.parse(downloadJson.list[0].sub_content);
+          const isM3u8 = filmContent.save_playback.is_m3u8;
+          let resolvedDownloadUrl = "";
+          if (isM3u8 == "yes") {
+            const m3u8 = filmContent.save_playback.contents;
+            const m3u8Pattern = /https:\/\/resourcese\.pku\.edu\.cn\/play\/0\/harpocrates\/\d+\/\d+\/\d+\/([a-zA-Z0-9]+)(\/.+)\/playlist\.m3u8.*/;
+            const hash = m3u8.match(m3u8Pattern)[1];
+            resolvedDownloadUrl = `https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=${hash}`;
+            console.log("[PKU Art] m3u8 下载链接转换成功：\n", resolvedDownloadUrl);
           } else {
-            trueDownloadUrl = filmContent.save_playback.contents;
+            resolvedDownloadUrl = filmContent.save_playback.contents;
           }
-          downloadUrl = trueDownloadUrl;
+          downloadUrl = resolvedDownloadUrl;
           console.log("[PKU Art] 下载链接解析成功：\n", downloadUrl);
         }
       });
-      originSend.apply(this, arguments);
+      originalSend.apply(this, arguments);
     };
     await new Promise((resolve) => {
       const checkExist = setInterval(() => {
-        let downloadButton2 = document.querySelector(
+        const downloadButton2 = document.querySelector(
           "#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(1)"
         );
         if (downloadButton2 && downloadJson) {
@@ -501,10 +598,12 @@
     let copyDownloadUrlButton = document.querySelector(
       "#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(2)"
     );
-    let replayTitle = document.querySelector(
+    const replayTitle = document.querySelector(
       "#app > div.container > div > div > div.course-info__wrap > div.course-info__header > span"
     );
-    replayTitle.innerText = `${courseName} - ${subTitle} - ${lecturerName}`;
+    if (replayTitle) {
+      replayTitle.innerText = `${courseName} - ${subTitle} - ${lecturerName}`;
+    }
     downloadButton.children[1].innerText = "下载视频";
     downloadButton.replaceWith(downloadButton.cloneNode(true));
     copyDownloadUrlButton.replaceWith(copyDownloadUrlButton.cloneNode(true));
@@ -514,8 +613,7 @@
     copyDownloadUrlButton = document.querySelector(
       "#app > div.container > div > div > div.course-info__wrap > div.course-info__footer > button:nth-child(2)"
     );
-    document.querySelector("#app > div.container > div > div > div.course-info__wrap");
-    let downloadAreaFooter = document.querySelector(
+    const downloadAreaFooter = document.querySelector(
       "#app > div.container > div > div > div.course-info__wrap > div.course-info__footer"
     );
     const downloadSwitchArea = document.createElement("div");
@@ -554,8 +652,9 @@
 文件名：${fileName}
 源地址：${downloadUrl}`);
       const downloadSwitch = document.getElementById("injectDownloadSwitch");
+      const renameEnabled = downloadSwitch ? downloadSwitch.checked : false;
       let downloadInfo = `下载文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
-      if (!downloadSwitch.checked) {
+      if (!renameEnabled) {
         downloadInfo = `正常文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
       }
       if (document.getElementById("injectDownloadTip")) {
@@ -567,13 +666,13 @@
       const downloadTip = document.createElement("div");
       downloadTip.id = "injectDownloadTip";
       downloadTip.className = "PKU-Art";
-      if (!downloadSwitch.checked) {
+      if (!renameEnabled) {
         downloadTip.innerHTML = `已在新窗口启动下载<br/>${downloadInfo}`;
       } else {
         downloadTip.innerHTML = `已在后台启动下载，请勿刷新页面<br/>${downloadInfo}`;
       }
       downloadAreaFooter.insertBefore(downloadTip, downloadAreaFooter.firstElementChild);
-      if (!downloadSwitch.checked) {
+      if (!renameEnabled) {
         window.open(downloadUrl, "_blank");
       } else {
         try {
@@ -586,19 +685,19 @@
             url: downloadUrl,
             name: fileName,
             saveAs: true,
-            onerror: function(err) {
+            onerror: function() {
               alert("下载失败，请重试");
             },
             onprogress: function(event) {
               const currentTime = Date.now();
               if (event.total && currentTime - lastPrintTime >= 100) {
-                let percentComplete = event.loaded / event.total * 100;
-                let currentProgress = percentComplete.toFixed(2);
+                const percentComplete = event.loaded / event.total * 100;
+                const currentProgress = percentComplete.toFixed(2);
                 bytesDownloadedInLast100ms = event.loaded - lastBytesLoaded;
-                let lastSpeed = bytesDownloadedInLast100ms / (currentTime - lastPrintTime);
+                const lastSpeed = bytesDownloadedInLast100ms / (currentTime - lastPrintTime);
                 averageSpeed = SMOOTHING_FACTOR * lastSpeed + (1 - SMOOTHING_FACTOR) * averageSpeed;
-                let bytesRemaining = event.total - event.loaded;
-                let estimatedTimeRemaining = bytesRemaining / averageSpeed;
+                const bytesRemaining = event.total - event.loaded;
+                const estimatedTimeRemaining = bytesRemaining / averageSpeed;
                 let estimatedTimeRemainingSeconds = Math.round(estimatedTimeRemaining / 1e3);
                 if (estimatedTimeRemainingSeconds > 9999) {
                   estimatedTimeRemainingSeconds = "inf";
@@ -622,7 +721,7 @@
               downloadTip.innerHTML = `下载完成<br/>${downloadInfo}`;
             }
           });
-          window.addEventListener("beforeunload", function(event) {
+          window.addEventListener("beforeunload", function() {
             download.abort();
           });
         } catch {
@@ -633,71 +732,73 @@
         }
       }
     });
-    copyDownloadUrlButton.addEventListener("click", async () => {
-      console.log(`[PKU Art] 已复制下载链接：
+    if (copyDownloadUrlButton) {
+      copyDownloadUrlButton.addEventListener("click", async () => {
+        console.log(`[PKU Art] 已复制下载链接：
 ${downloadUrl}`);
-      _GM_setClipboard(downloadUrl);
-      alert("下载链接已复制到剪贴板，但是因为存在鉴权，可能依旧无法使用 FDM 之类的工具下载，请在浏览器中打开后下载");
-    });
-  })();
-  (function replaceMore() {
-    let htmlpath2 = location.href;
-    if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath2)) {
-      let executeReplaceMore2 = function() {
-        const moreLink = document.querySelector("#global-more-link > a");
-        if (moreLink) {
-          console.log("[PKU Art] replaceMore() has been used at " + (/* @__PURE__ */ new Date()).toLocaleString());
-          moreLink.href = "/webapps/bb-social-learning-BBLEARN/execute/mybb?cmd=display&toolId=MyGradesOnMyBb_____MyGradesTool";
-          clearInterval(intervalId);
-        }
-      };
-      const intervalId = setInterval(executeReplaceMore2, 50);
-      document.addEventListener("DOMContentLoaded", () => {
-        executeReplaceMore2();
+        _GM_setClipboard(downloadUrl);
+        alert("下载链接已复制到剪贴板，但是因为存在鉴权，可能依旧无法使用 FDM 之类的工具下载，请在浏览器中打开后下载");
       });
     }
-  })();
-  (function directOpenLinks() {
-    let htmlpath2 = location.href;
-    if (/^https:\/\/course\.pku\.edu\.cn\//.test(htmlpath2)) {
-      let executeDirectOpenLinks2 = function() {
-        const links = document.querySelectorAll("a[onclick][href]");
-        links.forEach((link) => {
-          if (link.dataset.pkuArtProcessed) return;
-          const href = link.getAttribute("href");
-          link.getAttribute("onclick");
-          if (href && !href.startsWith("/webapps/") && !href.startsWith("#")) {
-            link.removeAttribute("onclick");
-            link.dataset.pkuArtProcessed = "true";
-            console.log("[PKU Art] 直接打开链接:", href);
-          }
-        });
-      };
-      executeDirectOpenLinks2();
-      const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-          if (mutation.type === "childList") {
-            executeDirectOpenLinks2();
-          }
-        });
+  }
+  initializeDirectDownload();
+  function redirectGlobalMoreLink() {
+    if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
+      return;
+    }
+    let intervalId;
+    const updateMoreLink = () => {
+      const moreLink = document.querySelector("#global-more-link > a");
+      if (moreLink) {
+        console.log("[PKU Art] replaceMore() has been used at " + (/* @__PURE__ */ new Date()).toLocaleString());
+        moreLink.href = "/webapps/bb-social-learning-BBLEARN/execute/mybb?cmd=display&toolId=MyGradesOnMyBb_____MyGradesTool";
+        if (intervalId) {
+          clearInterval(intervalId);
+        }
+      }
+    };
+    intervalId = setInterval(updateMoreLink, 50);
+    document.addEventListener("DOMContentLoaded", updateMoreLink);
+  }
+  redirectGlobalMoreLink();
+  function enableDirectOpenLinks() {
+    if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
+      return;
+    }
+    const stripOnclickHandlers = () => {
+      const links = document.querySelectorAll("a[onclick][href]");
+      links.forEach((link) => {
+        if (link.dataset.pkuArtProcessed) return;
+        const href = link.getAttribute("href");
+        if (href && !href.startsWith("/webapps/") && !href.startsWith("#")) {
+          link.removeAttribute("onclick");
+          link.dataset.pkuArtProcessed = "true";
+          console.log("[PKU Art] 直接打开链接:", href);
+        }
       });
+    };
+    stripOnclickHandlers();
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "childList") {
+          stripOnclickHandlers();
+        }
+      });
+    });
+    const observeBody = () => {
       if (document.body) {
         observer.observe(document.body, {
           childList: true,
           subtree: true
         });
-      } else {
-        document.addEventListener("DOMContentLoaded", () => {
-          if (document.body) {
-            observer.observe(document.body, {
-              childList: true,
-              subtree: true
-            });
-          }
-        });
       }
-      document.addEventListener("DOMContentLoaded", executeDirectOpenLinks2);
+    };
+    observeBody();
+    if (!document.body) {
+      document.addEventListener("DOMContentLoaded", observeBody);
     }
-  })();
+    document.addEventListener("DOMContentLoaded", stripOnclickHandlers);
+  }
+  enableDirectOpenLinks();
 
 })();
