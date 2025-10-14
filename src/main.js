@@ -610,7 +610,23 @@ if (/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*contentWrapperNoFrame\S*$/.tes
         copyDownloadUrlButton.remove();
     }
 
+    const magicLink = document.createElement('button');
+    magicLink.id = 'injectMagicLink';
+    magicLink.className = 'PKU-Art';
+    magicLink.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" class="PKU-Art i-magic" viewBox="0 0 24 24"><!-- Icon from MingCute Icon by MingCute Design - https://github.com/Richard9394/MingCute/blob/main/LICENSE --><g fill="none" fill-rule="evenodd"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M5.497 3.997A1.225 1.225 0 0 0 4 5.494l1.264 4.79L2.58 14.45c-.508.79.024 1.834.962 1.887l4.946.278l3.132 3.838a1.225 1.225 0 0 0 2.091-.331l1.397-3.6l4.608 4.608a1 1 0 0 0 1.415-1.414l-4.608-4.608l3.599-1.397a1.225 1.225 0 0 0 .331-2.091l-3.838-3.133l-.278-4.946a1.225 1.225 0 0 0-1.886-.96L10.287 5.26l-4.79-1.264Zm1.788 6.107L6.273 6.271l3.834 1.011c.332.088.686.032.976-.154l3.333-2.147l.223 3.959c.019.343.182.662.448.88l3.072 2.507l-3.696 1.435c-.32.124-.574.378-.699.698l-1.435 3.697l-2.507-3.072a1.23 1.23 0 0 0-.88-.449l-3.959-.222L7.13 11.08a1.23 1.23 0 0 0 .155-.976"/></g></svg>
+    <span class="PKU-Art">妙妙小工具</span>
+    `;
+    magicLink.href = 'https://course.huh.moe';
+    magicLink.target = '_blank';
+    magicLink.rel = 'noopener noreferrer';
+
     downloadAreaFooter.appendChild(downloadSwitchArea);
+    downloadAreaFooter.appendChild(magicLink);
+
+    magicLink.addEventListener('click', () => {
+        window.open('https://course.huh.moe', '_blank');
+    });
 
     // 添加一个点击事件
     downloadButton.addEventListener('click', async () => {

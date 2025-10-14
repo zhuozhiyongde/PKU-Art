@@ -46,7 +46,7 @@ body,
 .course-info__wrapper .course-info__footer {
     display: grid;
     width: fit-content;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -126,7 +126,32 @@ label[for='injectDownloadSwitch']:before {
     transition: 0.1s;
 }
 
-#injectDownloadTip {
+#injectMagicLink{
+    background: var(--c-tip);
+    border: none;
+    color: var(--c-text);
+    margin-left: 0;
+    height: 35px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#injectMagicLink .i-magic{
+    /* background-image: var(--i-magic); */
+    width: 16px;
+    height: 16px;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--c-text);
+}
+
+#injectDownloadTip{
     background: var(--c-tip);
     border: none;
     color: var(--c-text);
@@ -150,19 +175,22 @@ label[for='injectDownloadSwitch']:before {
     text-decoration: underline;
 }
 
-.course-info__wrapper .course-info__footer button:hover {
+.course-info__wrapper .course-info__footer button:hover,
+#injectMagicLink:hover {
     background: var(--cyan-2);
     color: var(--cyan-6);
 }
 
-.course-info__wrapper .course-info__footer #injectDownloadUrlInput:hover {
+.course-info__wrapper .course-info__footer #injectDownloadUrlInput:hover,
+#injectMagicLink:hover * {
     background: var(--cyan-2);
     color: var(--cyan-6);
     font-weight: bold;
     transition: 0.1s;
 }
 
-.course-info__wrapper .course-info__footer #injectDownloadUrlInput:hover::placeholder {
+.course-info__wrapper .course-info__footer #injectDownloadUrlInput:hover::placeholder,
+#injectMagicLink:hover::placeholder {
     color: var(--cyan-6);
     transition: 0.1s;
 }

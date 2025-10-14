@@ -45,9 +45,9 @@
     --i-download: url('https://cdn.arthals.ink/css/src/download.svg');
     --i-warning: url('https://cdn.arthals.ink/css/src/warning.svg');
     --i-student: url('https://cdn.arthals.ink/css/src/student.svg');
-    --i-refresh: url('https://cdn.arthals.ink/css/src//refresh.svg');
-    --i-search: url('https://cdn.arthals.ink/css/src//search.svg');
-    --i-arrow: url('https://cdn.arthals.ink/css/src//arrow.svg');
+    --i-refresh: url('https://cdn.arthals.ink/css/src/refresh.svg');
+    --i-search: url('https://cdn.arthals.ink/css/src/search.svg');
+    --i-arrow: url('https://cdn.arthals.ink/css/src/arrow.svg');
 
     /* 不需要根据黑暗模式改编的变量 */
     --c-pku: #9b0000;
@@ -58,8 +58,8 @@
     --i-comment: url('https://cdn.arthals.ink/css/src/comment.svg');
     --i-clover: url('https://cdn.arthals.ink/css/src/clover.svg');
     --i-sandclock: url('https://cdn.arthals.ink/css/src/sandclock.svg');
-    --i-verified: url('https://cdn.arthals.ink/css/src//verified.svg');
-    /* --i-more: url('https://cdn.arthals.ink/css/src//more.svg'); */
+    --i-verified: url('https://cdn.arthals.ink/css/src/verified.svg');
+    /* --i-more: url('https://cdn.arthals.ink/css/src/more.svg'); */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -100,10 +100,10 @@
         --i-download: url('https://cdn.arthals.ink/css/src/download_dark.svg');
         --i-warning: url('https://cdn.arthals.ink/css/src/warning_dark.svg');
         --i-student: url('https://cdn.arthals.ink/css/src/student_dark.svg');
-        --i-refresh: url('https://cdn.arthals.ink/css/src//refresh_dark.svg');
-        --i-search: url('https://cdn.arthals.ink/css/src//search_dark.svg');
-        --i-arrow: url('https://cdn.arthals.ink/css/src//arrow_dark.svg');
-        /* --i-more: url('https://cdn.arthals.ink/css/src//more_dark.svg'); */
+        --i-refresh: url('https://cdn.arthals.ink/css/src/refresh_dark.svg');
+        --i-search: url('https://cdn.arthals.ink/css/src/search_dark.svg');
+        --i-arrow: url('https://cdn.arthals.ink/css/src/arrow_dark.svg');
+        /* --i-more: url('https://cdn.arthals.ink/css/src/more_dark.svg'); */
     }
 }
 
@@ -249,9 +249,9 @@ html {
     --i-download: url('https://cdn.arthals.ink/css/src/download.svg');
     --i-warning: url('https://cdn.arthals.ink/css/src/warning.svg');
     --i-student: url('https://cdn.arthals.ink/css/src/student.svg');
-    --i-refresh: url('https://cdn.arthals.ink/css/src//refresh.svg');
-    --i-search: url('https://cdn.arthals.ink/css/src//search.svg');
-    --i-arrow: url('https://cdn.arthals.ink/css/src//arrow.svg');
+    --i-refresh: url('https://cdn.arthals.ink/css/src/refresh.svg');
+    --i-search: url('https://cdn.arthals.ink/css/src/search.svg');
+    --i-arrow: url('https://cdn.arthals.ink/css/src/arrow.svg');
 }
 
 .pku-art-dark {
@@ -292,7 +292,7 @@ html {
     --i-download: url('https://cdn.arthals.ink/css/src/download_dark.svg');
     --i-warning: url('https://cdn.arthals.ink/css/src/warning_dark.svg');
     --i-student: url('https://cdn.arthals.ink/css/src/student_dark.svg');
-    --i-refresh: url('https://cdn.arthals.ink/css/src//refresh_dark.svg');
-    --i-search: url('https://cdn.arthals.ink/css/src//search_dark.svg');
-    --i-arrow: url('https://cdn.arthals.ink/css/src//arrow_dark.svg');
+    --i-refresh: url('https://cdn.arthals.ink/css/src/refresh_dark.svg');
+    --i-search: url('https://cdn.arthals.ink/css/src/search_dark.svg');
+    --i-arrow: url('https://cdn.arthals.ink/css/src/arrow_dark.svg');
 }
