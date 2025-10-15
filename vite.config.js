@@ -33,6 +33,7 @@ export default defineConfig({
                 'inject-into': 'page',
                 version: envConfig.VERSION,
                 updateURL: 'https://cdn.arthals.ink/release/PKU-Art.user.js',
+                downloadURL: 'https://cdn.arthals.ink/release/PKU-Art.user.js',
                 supportURL: 'https://github.com/zhuozhiyongde/PKU-Art/issues',
                 connect: ['pku.edu.cn'],
                 license: 'GPL-3.0 license',
