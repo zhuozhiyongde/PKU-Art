@@ -1,6 +1,5 @@
 import mainStyles from './css/main.css?inline';
 import arcoPaletteStyles from './css/arco-palette.css?inline';
-import themeManager from './theme-manager.js';
 import iaaaOAuthPageStyles from './css/iaaaOAuthPage.css?inline';
 import courseLoginPageStyles from './css/courseLoginPage.css?inline';
 import courseHomePageStyles from './css/courseHomePage.css?inline';
@@ -28,6 +27,9 @@ import courseVideoPlayFrameStyles from './css/courseVideoPlayFrame.css?inline';
 import courseTaskStyles from './css/courseTask.css?inline';
 import courseDiscussionStyles from './css/courseDiscussion.css?inline';
 import courseExternalLinkStyles from './css/courseExternalLink.css?inline';
+
+import themeManager from './theme-manager.js';
+import { sunIcon, moonIcon, autoIcon, sparkIcon } from './icon.js';
 
 function injectStyles(styleString, cssFileName) {
     const styleElement = document.createElement('style');
@@ -62,44 +64,6 @@ function initializeThemeManager() {
 
     // 设置主题模式
     themeManager.setTheme(userThemeMode);
-
-    // 注册主题切换菜单命令
-    if (typeof GM_registerMenuCommand !== 'undefined') {
-        // 日间模式
-        GM_registerMenuCommand('☀️ 日间模式', () => {
-            themeManager.setTheme('light');
-            try {
-                GM_setValue('themeMode', 'light');
-            } catch (e) {
-                console.log('[PKU Art] GM_setValue not available');
-            }
-            alert('已切换到日间模式');
-        });
-
-        // 黑夜模式
-        GM_registerMenuCommand('🌙 黑夜模式', () => {
-            themeManager.setTheme('dark');
-            try {
-                GM_setValue('themeMode', 'dark');
-            } catch (e) {
-                console.log('[PKU Art] GM_setValue not available');
-            }
-            alert('已切换到黑夜模式');
-        });
-
-        // 跟随系统
-        GM_registerMenuCommand('⚙️ 跟随系统', () => {
-            themeManager.setTheme('auto');
-            try {
-                GM_setValue('themeMode', 'auto');
-            } catch (e) {
-                console.log('[PKU Art] GM_setValue not available');
-            }
-            alert('已设置为跟随系统主题');
-        });
-
-        console.log('[PKU Art] Theme menu commands registered');
-    }
 
     console.log('[PKU Art] Theme manager initialized with mode:', userThemeMode);
 }
@@ -305,6 +269,12 @@ const styleRules = [
     },
 ];
 
+const themeToggleIcons = {
+    light: sunIcon,
+    dark: moonIcon,
+    auto: autoIcon,
+};
+
 function matchesAnyPattern(patterns, url) {
     return patterns.some((pattern) => pattern.test(url));
 }
@@ -319,6 +289,130 @@ function applyStylesForCurrentPage(url = currentUrl) {
 }
 
 applyStylesForCurrentPage();
+
+function initializeThemeToggleButton() {
+    if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
+        return;
+    }
+
+    let attempts = 0;
+    const maxAttempts = 20;
+
+    const attachToggle = () => {
+        if (document.querySelector('.pku-art-theme-toggle')) {
+            return;
+        }
+
+        const remindLink = document.querySelector('#global-nav-link');
+        const navWrap = document.querySelector('.global-nav-bar-wrap');
+        if (!remindLink || !navWrap) {
+            if (attempts < maxAttempts) {
+                attempts += 1;
+                setTimeout(attachToggle, 300);
+            }
+            return;
+        }
+
+        const navBarItem = remindLink.closest('.global-nav-bar');
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'global-nav-bar pku-art-theme-toggle-bar';
+
+        const toggleButton = document.createElement('button');
+        toggleButton.type = 'button';
+        toggleButton.className = 'pku-art-theme-toggle';
+        toggleButton.setAttribute('aria-label', '切换日夜模式');
+
+        const setIconMarkup = (mode) => {
+            const normalizedMode = themeToggleIcons[mode] ? mode : 'auto';
+            if (toggleButton.dataset.icon !== normalizedMode) {
+                toggleButton.innerHTML = themeToggleIcons[normalizedMode];
+                toggleButton.dataset.icon = normalizedMode;
+            }
+        };
+
+        const updateButtonState = () => {
+            const currentMode = themeManager.getCurrentMode();
+            const isDark = themeManager.isDarkMode();
+            let tooltipText = '切换主题';
+
+            if (currentMode === 'auto') {
+                toggleButton.dataset.mode = 'auto';
+                toggleButton.dataset.state = isDark ? 'dark' : 'light';
+                tooltipText = isDark ? '跟随系统（当前：黑夜模式）' : '跟随系统（当前：日间模式）';
+                setIconMarkup('auto');
+            } else if (currentMode === 'dark') {
+                tooltipText = '黑夜模式';
+                toggleButton.dataset.mode = 'dark';
+                toggleButton.removeAttribute('data-state');
+                setIconMarkup('dark');
+            } else {
+                tooltipText = '日间模式';
+                toggleButton.dataset.mode = 'light';
+                toggleButton.removeAttribute('data-state');
+                setIconMarkup('light');
+            }
+
+            toggleButton.setAttribute('title', tooltipText);
+        };
+
+        const persistThemeMode = (mode) => {
+            try {
+                if (typeof GM_setValue !== 'undefined') {
+                    GM_setValue('themeMode', mode);
+                    return;
+                }
+            } catch (error) {
+                console.warn('[PKU Art] GM_setValue unavailable for themeMode persistence:', error);
+            }
+
+            try {
+                localStorage.setItem('themeMode', mode);
+            } catch (storageError) {
+                console.warn('[PKU Art] localStorage unavailable for themeMode persistence:', storageError);
+            }
+        };
+
+        const cycleThemeMode = () => {
+            const currentMode = themeManager.getCurrentMode();
+            let nextMode = 'light';
+
+            if (currentMode === 'light') {
+                nextMode = 'dark';
+            } else if (currentMode === 'dark') {
+                nextMode = 'auto';
+            }
+
+            themeManager.setTheme(nextMode);
+            persistThemeMode(nextMode);
+            updateButtonState();
+        };
+
+        toggleButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            cycleThemeMode();
+        });
+
+        wrapper.appendChild(toggleButton);
+
+        if (navBarItem && navBarItem.parentElement) {
+            navBarItem.parentElement.insertBefore(wrapper, navBarItem.nextSibling);
+        } else {
+            navWrap.appendChild(wrapper);
+        }
+
+        updateButtonState();
+
+        window.addEventListener('pku-art-theme-change', updateButtonState);
+    };
+
+    attachToggle();
+    document.addEventListener('DOMContentLoaded', attachToggle);
+    window.addEventListener('load', attachToggle);
+}
+
+initializeThemeToggleButton();
 
 // Other utilities
 function initializeLogoNavigation() {
@@ -596,10 +690,7 @@ async function initializeDirectDownload() {
     const magicLink = document.createElement('button');
     magicLink.id = 'injectMagicLink';
     magicLink.className = 'PKU-Art';
-    magicLink.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" class="PKU-Art i-magic" viewBox="0 0 24 24"><!-- Icon from MingCute Icon by MingCute Design - https://github.com/Richard9394/MingCute/blob/main/LICENSE --><g fill="none" fill-rule="evenodd"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M5.497 3.997A1.225 1.225 0 0 0 4 5.494l1.264 4.79L2.58 14.45c-.508.79.024 1.834.962 1.887l4.946.278l3.132 3.838a1.225 1.225 0 0 0 2.091-.331l1.397-3.6l4.608 4.608a1 1 0 0 0 1.415-1.414l-4.608-4.608l3.599-1.397a1.225 1.225 0 0 0 .331-2.091l-3.838-3.133l-.278-4.946a1.225 1.225 0 0 0-1.886-.96L10.287 5.26l-4.79-1.264Zm1.788 6.107L6.273 6.271l3.834 1.011c.332.088.686.032.976-.154l3.333-2.147l.223 3.959c.019.343.182.662.448.88l3.072 2.507l-3.696 1.435c-.32.124-.574.378-.699.698l-1.435 3.697l-2.507-3.072a1.23 1.23 0 0 0-.88-.449l-3.959-.222L7.13 11.08a1.23 1.23 0 0 0 .155-.976"/></g></svg>
-    <span class="PKU-Art">妙妙小工具</span>
-    `;
+    magicLink.innerHTML = sparkIcon;
     magicLink.href = 'https://course.huh.moe';
     magicLink.target = '_blank';
     magicLink.rel = 'noopener noreferrer';

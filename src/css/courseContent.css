@@ -117,7 +117,7 @@ body {
 body .global-nav-bar-wrap {
     position: fixed;
     /* left: 90vw; */
-    right: 20px;
+    right: 50px;
     display: flex;
     /* height: fit-content; */
     justify-content: flex-end;

@@ -112,7 +112,7 @@ body {
     position: fixed;
     z-index: 30;
     /* left: 90vw; */
-    right: 20px;
+    right: 50px;
     display: flex;
     /* height: fit-content; */
     justify-content: flex-end;
