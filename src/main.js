@@ -97,10 +97,7 @@ const styleRules = [
         logMessage: '[PKU Art] iaaaOAuthPage.css imported',
     },
     {
-        patterns: [
-            /^https:\/\/course\.pku\.edu\.cn\/webapps\/login\S*$/,
-            /^https:\/\/course\.pku\.edu\.cn[\/]?$/,
-        ],
+        patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/login\S*$/, /^https:\/\/course\.pku\.edu\.cn[\/]?$/],
         styleContent: courseLoginPageStyles,
         fileName: 'courseLoginPage.css',
         logMessage: '[PKU Art] courseLoginPage.css imported',
@@ -677,14 +674,17 @@ async function initializeDirectDownload() {
     <span  id="injectDownloadSwitchDesc" class="PKU-Art"> 是否重命名文件</span>
     `;
     if (navigator.userAgent.indexOf('Safari') > -1 && !(navigator.userAgent.indexOf('Chrome') > -1)) {
-        downloadSwitchArea.innerHTML = `
+        // 判断 GM_download 是否可用
+        if (!(typeof GM_download === 'function')) {
+            downloadSwitchArea.innerHTML = `
     <input type="checkbox" id="injectDownloadSwitch" class="PKU-Art" disabled>
     <label for="injectDownloadSwitch"></label>
-    <span  id="injectDownloadSwitchDesc" class="PKU-Art"> Safari 不支持复制下载链接、重命名文件 </span>`;
-        // add class safari to downloadSwitchArea
-        downloadSwitchArea.classList.add('safari');
-        // remove copyDownloadUrlButton;
-        copyDownloadUrlButton.remove();
+    <span  id="injectDownloadSwitchDesc" class="PKU-Art"> Safari + UserScripts 不支持复制下载链接、重命名文件 </span>`;
+            // add class safari to downloadSwitchArea
+            downloadSwitchArea.classList.add('safari');
+            // remove copyDownloadUrlButton;
+            copyDownloadUrlButton.remove();
+        }
     }
 
     const magicLink = document.createElement('button');
@@ -750,8 +750,9 @@ async function initializeDirectDownload() {
                     url: downloadUrl,
                     name: fileName,
                     saveAs: true,
-                    onerror: function () {
-                        alert('下载失败，请重试');
+                    onerror: function (event) {
+                        console.error('[PKU Art] 下载失败：', event);
+                        alert('下载失败\n原因：' + event.error);
                     },
                     onprogress: function (event) {
                         const currentTime = Date.now(); // 获取当前时间
@@ -801,7 +802,9 @@ async function initializeDirectDownload() {
                 window.open(downloadUrl, '_blank');
                 downloadInfo = `正常文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
                 downloadTip.innerHTML = `已在新窗口启动下载<br/>${downloadInfo}`;
-                alert('看上去你的浏览器（如 Safari）不支持自动重命名功能，已尝试使用新标签页下载');
+                alert(
+                    '看上去你的浏览器与插件搭配（如 Safari + UserScripts）不支持自动重命名功能，已尝试使用新标签页下载'
+                );
             }
         }
     });
@@ -809,7 +812,9 @@ async function initializeDirectDownload() {
         copyDownloadUrlButton.addEventListener('click', async () => {
             console.log(`[PKU Art] 已复制下载链接：\n${downloadUrl}`);
             GM_setClipboard(downloadUrl);
-            alert('下载链接已复制到剪贴板，但是因为存在鉴权，可能依旧无法使用 FDM 之类的工具下载，请在浏览器中打开后下载');
+            alert(
+                '下载链接已复制到剪贴板，但是因为存在鉴权，可能依旧无法使用 FDM 之类的工具下载，请在浏览器中打开后下载'
+            );
         });
     }
 }

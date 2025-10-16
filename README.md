@@ -28,32 +28,23 @@ PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新
 
 ## ✨ 功能
 
-### `1` 界面美化、深色模式
+### `1` 界面美化、日夜模式随心切换
 
 <details>
 <summary>点击展开</summary>
 
-![IAAA 登录界面](https://cdn.arthals.ink/bed/2023/09/3073959894d62a0044d8b8b1ebb3d0a8.png)
+![1](./README.assets/1.png)
 
-![课程网首页](https://cdn.arthals.ink/bed/2023/09/a1a55c7889ee532f526471938bca84bf.png)
+![2](./README.assets/2.png)
 
-![作业上传界面](https://cdn.arthals.ink/bed/2023/09/fda9cfc9e1d8d857eef2ae86a8290e45.png)
+![3](./README.assets/3.png)
 
-![课程成绩页面](https://cdn.arthals.ink/bed/2023/09/368159ac183a1a86f78397db3313803f.png)
+![4](./README.assets/4.png)
 
-![课程公告页面](https://cdn.arthals.ink/bed/2023/09/7fd8b750fafe7a7655c46f75e2e7b668.png)
+![5](./README.assets/5.png)
 
-![课程作业复核页面](https://cdn.arthals.ink/bed/2023/09/588818b8557f967f6fdcd7342e809adf.png)
+![6](./README.assets/6.png)
 
-![课程教学内容页面](https://cdn.arthals.ink/bed/2023/09/28d039f6d0a546c10dba9fb3ddfef43a.png)
-
-![全局通知页面](https://cdn.arthals.ink/bed/2023/09/c960ab13b295396b89974b1e5aecf824.png)
-
-![全局成绩页面](https://cdn.arthals.ink/bed/2023/09/afd7c19dc08d7020a8ed7521718c29f6.png)
-
-![全局公告页面](https://cdn.arthals.ink/bed/2023/09/b63c155e7ce13eef5f2185ea5212e5f7.png)
-
-![全局课程成绩页面](https://cdn.arthals.ink/bed/2023/09/62b77db88f0222d5ec6632a186cbdaa1.png)
 
 </details>
 
@@ -62,7 +53,12 @@ PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新
 <details>
 <summary>点击展开</summary>
 
-![download](https://cdn.arthals.ink/bed/2025/03/download-cf6787897a09ef8b607b3c375f899a38.png)
+![7](./README.assets/7.png)
+
+注：重命名功能已知在 Safari 下不可用。
+
+- 对于 UserScripts 插件：原因是功能支持有限，为了规避 CSP 限制启用了 `@inject-into page`，导致 GM API 完全不可用，且即使可用也未提供 `GM_download` API。
+- 对于 TamperMonkey 插件：支持 `GM_download` API，但实测会出现 `out of memory` Bug，但在 Chrome 下工作良好，原因未知。
 
 </details>
 
@@ -77,7 +73,16 @@ PKU Art 目前支持 CSS 安装与 JavaScript 安装两种安装方式，兼容 
 前置插件需求：
 
 -   Chrome/Edge/Arc 需安装浏览器插件 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)，点开脚本页面后自动触发安装页面，跟随指引即可。
--   Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/userscripts/id1463298887)，安装好后点击工具栏图标，启用并授权后再在脚本页面点击图标，再点击 Click to install 即可安装。
+
+-   Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/userscripts/id1463298887) 或者插件 [TamperMonkey](https://apps.apple.com/cn/app/tampermonkey/id6738342400)（售价 15￥，但是功能更全）：
+    -   UserScripts：安装好后点击工具栏图标，启用并授权后再在脚本页面点击图标，再点击 Click to install 即可安装。
+    -   TamperMonkey：点击链接会自动跳转到安装界面。
+
+    对比：TamperMonkey 相较 UserScripts 有着更宽松的权限管理，所以可以实现如下功能：
+
+    1. 无缝切换日夜模式，可穿透 `iframe`，在录播、课堂实录等页面会有感知，不过 UserScripts 也只需要刷新一下页面即可应用更改。
+    2. 理论上支持下载重命名，但实测报错。
+
 
 安装渠道：
 

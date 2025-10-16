@@ -12,7 +12,7 @@ const date = new Date().toLocaleDateString('zh-CN', {
 });
 
 // 读取并解析 version.env 文件
-const envConfig = dotenv.parse(fs.readFileSync('./version.env'));
+const envConfig = dotenv.parse(fs.readFileSync('.env'));
 
 // https://vitejs.dev/config/
 export default defineConfig({

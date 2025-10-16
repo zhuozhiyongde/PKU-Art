@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.3.73
+// @version      2.3.74
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -299,10 +299,7 @@
       logMessage: "[PKU Art] iaaaOAuthPage.css imported"
     },
     {
-      patterns: [
-        /^https:\/\/course\.pku\.edu\.cn\/webapps\/login\S*$/,
-        /^https:\/\/course\.pku\.edu\.cn[\/]?$/
-      ],
+      patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/login\S*$/, /^https:\/\/course\.pku\.edu\.cn[\/]?$/],
       styleContent: courseLoginPageStyles,
       fileName: "courseLoginPage.css",
       logMessage: "[PKU Art] courseLoginPage.css imported"
@@ -802,12 +799,14 @@
     <span  id="injectDownloadSwitchDesc" class="PKU-Art"> 是否重命名文件</span>
     `;
     if (navigator.userAgent.indexOf("Safari") > -1 && !(navigator.userAgent.indexOf("Chrome") > -1)) {
-      downloadSwitchArea.innerHTML = `
+      if (!(typeof _GM_download === "function")) {
+        downloadSwitchArea.innerHTML = `
     <input type="checkbox" id="injectDownloadSwitch" class="PKU-Art" disabled>
     <label for="injectDownloadSwitch"></label>
-    <span  id="injectDownloadSwitchDesc" class="PKU-Art"> Safari 不支持复制下载链接、重命名文件 </span>`;
-      downloadSwitchArea.classList.add("safari");
-      copyDownloadUrlButton.remove();
+    <span  id="injectDownloadSwitchDesc" class="PKU-Art"> Safari + UserScripts 不支持复制下载链接、重命名文件 </span>`;
+        downloadSwitchArea.classList.add("safari");
+        copyDownloadUrlButton.remove();
+      }
     }
     const magicLink = document.createElement("button");
     magicLink.id = "injectMagicLink";
@@ -859,8 +858,9 @@
             url: downloadUrl,
             name: fileName,
             saveAs: true,
-            onerror: function() {
-              alert("下载失败，请重试");
+            onerror: function(event) {
+              console.error("[PKU Art] 下载失败：", event);
+              alert("下载失败\n原因：" + event.error);
             },
             onprogress: function(event) {
               const currentTime = Date.now();
@@ -902,7 +902,9 @@
           window.open(downloadUrl, "_blank");
           downloadInfo = `正常文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
           downloadTip.innerHTML = `已在新窗口启动下载<br/>${downloadInfo}`;
-          alert("看上去你的浏览器（如 Safari）不支持自动重命名功能，已尝试使用新标签页下载");
+          alert(
+            "看上去你的浏览器与插件搭配（如 Safari + UserScripts）不支持自动重命名功能，已尝试使用新标签页下载"
+          );
         }
       }
     });
@@ -911,7 +913,9 @@
         console.log(`[PKU Art] 已复制下载链接：
 ${downloadUrl}`);
         _GM_setClipboard(downloadUrl);
-        alert("下载链接已复制到剪贴板，但是因为存在鉴权，可能依旧无法使用 FDM 之类的工具下载，请在浏览器中打开后下载");
+        alert(
+          "下载链接已复制到剪贴板，但是因为存在鉴权，可能依旧无法使用 FDM 之类的工具下载，请在浏览器中打开后下载"
+        );
       });
     }
   }
