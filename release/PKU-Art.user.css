@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.71
+// @version      2.3.72
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.css
-// @date         2025/10/15
+// @date         2025/10/16
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\") {
     /*
@@ -19,6 +19,20 @@
  * Github: https://github.com/zhuozhiyongde
  * Blog: https://arthals.ink
  */
+
+:root {
+    /* 不需要根据黑暗模式改编的变量 */
+    --c-pku: #9b0000;
+
+    --i-alarm: url('https://cdn.arthals.ink/css/src/alarm-clock.svg');
+    --i-idcard: url('https://cdn.arthals.ink/css/src/id-card-v.svg');
+    --i-tip: url('https://cdn.arthals.ink/css/src/tip.svg');
+    --i-comment: url('https://cdn.arthals.ink/css/src/comment.svg');
+    --i-clover: url('https://cdn.arthals.ink/css/src/clover.svg');
+    --i-sandclock: url('https://cdn.arthals.ink/css/src/sandclock.svg');
+    --i-verified: url('https://cdn.arthals.ink/css/src/verified.svg');
+    /* --i-more: url('https://cdn.arthals.ink/css/src/more.svg'); */
+}
 
 :root.pku-art-light {
     /* 日间模式变量 */
@@ -63,18 +77,6 @@
     --i-refresh: url('https://cdn.arthals.ink/css/src/refresh.svg');
     --i-search: url('https://cdn.arthals.ink/css/src/search.svg');
     --i-arrow: url('https://cdn.arthals.ink/css/src/arrow.svg');
-
-    /* 不需要根据黑暗模式改编的变量 */
-    --c-pku: #9b0000;
-
-    --i-alarm: url('https://cdn.arthals.ink/css/src/alarm-clock.svg');
-    --i-idcard: url('https://cdn.arthals.ink/css/src/id-card-v.svg');
-    --i-tip: url('https://cdn.arthals.ink/css/src/tip.svg');
-    --i-comment: url('https://cdn.arthals.ink/css/src/comment.svg');
-    --i-clover: url('https://cdn.arthals.ink/css/src/clover.svg');
-    --i-sandclock: url('https://cdn.arthals.ink/css/src/sandclock.svg');
-    --i-verified: url('https://cdn.arthals.ink/css/src/verified.svg');
-    /* --i-more: url('https://cdn.arthals.ink/css/src/more.svg'); */
 }
 
 :root.pku-art-dark {

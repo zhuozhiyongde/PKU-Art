@@ -6,6 +6,20 @@
  */
 @import 'arco-palette.css';
 
+:root {
+    /* 不需要根据黑暗模式改编的变量 */
+    --c-pku: #9b0000;
+
+    --i-alarm: url('https://cdn.arthals.ink/css/src/alarm-clock.svg');
+    --i-idcard: url('https://cdn.arthals.ink/css/src/id-card-v.svg');
+    --i-tip: url('https://cdn.arthals.ink/css/src/tip.svg');
+    --i-comment: url('https://cdn.arthals.ink/css/src/comment.svg');
+    --i-clover: url('https://cdn.arthals.ink/css/src/clover.svg');
+    --i-sandclock: url('https://cdn.arthals.ink/css/src/sandclock.svg');
+    --i-verified: url('https://cdn.arthals.ink/css/src/verified.svg');
+    /* --i-more: url('https://cdn.arthals.ink/css/src/more.svg'); */
+}
+
 :root.pku-art-light {
     /* 日间模式变量 */
     --c-title: #212121;
@@ -49,18 +63,6 @@
     --i-refresh: url('https://cdn.arthals.ink/css/src/refresh.svg');
     --i-search: url('https://cdn.arthals.ink/css/src/search.svg');
     --i-arrow: url('https://cdn.arthals.ink/css/src/arrow.svg');
-
-    /* 不需要根据黑暗模式改编的变量 */
-    --c-pku: #9b0000;
-
-    --i-alarm: url('https://cdn.arthals.ink/css/src/alarm-clock.svg');
-    --i-idcard: url('https://cdn.arthals.ink/css/src/id-card-v.svg');
-    --i-tip: url('https://cdn.arthals.ink/css/src/tip.svg');
-    --i-comment: url('https://cdn.arthals.ink/css/src/comment.svg');
-    --i-clover: url('https://cdn.arthals.ink/css/src/clover.svg');
-    --i-sandclock: url('https://cdn.arthals.ink/css/src/sandclock.svg');
-    --i-verified: url('https://cdn.arthals.ink/css/src/verified.svg');
-    /* --i-more: url('https://cdn.arthals.ink/css/src/more.svg'); */
 }
 
 :root.pku-art-dark {
