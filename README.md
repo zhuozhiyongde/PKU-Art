@@ -1,6 +1,6 @@
 <div align="center">
 
-![PKU Art](https://cdn.arthals.ink/bed/2023/09/320e0710b11ef734ec11feb2b8e2a061.jpeg)
+![cover](./README.assets/cover.png)
 
 # 🎨 PKU Art
 
@@ -55,12 +55,14 @@ PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新
 
 ![7](./README.assets/7.png)
 
-注：重命名功能已知在 Safari 下不可用。
-
-- 对于 UserScripts 插件：原因是功能支持有限，为了规避 CSP 限制启用了 `@inject-into page`，导致 GM API 完全不可用，且即使可用也未提供 `GM_download` API。
-- 对于 TamperMonkey 插件：支持 `GM_download` API，但实测会出现 `out of memory` Bug，但在 Chrome 下工作良好，原因未知。
-
 </details>
+
+注：重命名功能已知在 Safari + UserScripts 插件时不可用。原因是 UserScripts 插件功能支持有限，为了规避 CSP 限制启用了 `@inject-into page`，导致 GM API 完全不可用，且即使可用也未提供 `GM_download` API。
+
+对于 TamperMonkey 插件：
+
+- Chrome 版本无需操作即可正常运行
+- Safari 版本需要在设置中的 `通用` 面板首先选择 `配置模式` 为 `高级`，随后找到 `下载 BETA` 中的 `下载模式` 选项，修改为 `浏览器 API` 才可以正常工作，否则会出现 `Out of memory` 的 Bug。不过此时无法正常使用 `onprogress` 回调，所以无法实时显示进度，但只要保持页面不关闭即可正常下载并重命名。
 
 ## 📦 安装
 
@@ -74,14 +76,14 @@ PKU Art 目前支持 CSS 安装与 JavaScript 安装两种安装方式，兼容 
 
 -   Chrome/Edge/Arc 需安装浏览器插件 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)，点开脚本页面后自动触发安装页面，跟随指引即可。
 
--   Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/userscripts/id1463298887) 或者插件 [TamperMonkey](https://apps.apple.com/cn/app/tampermonkey/id6738342400)（售价 15￥，但是功能更全）：
+-   Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/userscripts/id1463298887) 或者插件 [TamperMonkey](https://apps.apple.com/cn/app/tampermonkey/id6738342400)（售价 15￥，但是功能更全，推荐）：
     -   UserScripts：安装好后点击工具栏图标，启用并授权后再在脚本页面点击图标，再点击 Click to install 即可安装。
     -   TamperMonkey：点击链接会自动跳转到安装界面。
 
     对比：TamperMonkey 相较 UserScripts 有着更宽松的权限管理，所以可以实现如下功能：
 
     1. 无缝切换日夜模式，可穿透 `iframe`，在录播、课堂实录等页面会有感知，不过 UserScripts 也只需要刷新一下页面即可应用更改。
-    2. 理论上支持下载重命名，但实测报错。
+    2. 支持下载重命名，但需要一定的额外配置，详见前文说明。
 
 
 安装渠道：
