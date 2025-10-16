@@ -13,6 +13,10 @@ class ThemeManager {
             DARK: 'dark',
             AUTO: 'auto',
         };
+        this.storageKeys = {
+            primary: 'pku-art-theme-mode',
+            legacy: 'themeMode',
+        };
 
         this.currentMode = this.getStoredTheme() || this.themeModes.AUTO;
         this.isDark = false;
@@ -31,6 +35,8 @@ class ThemeManager {
             });
         }
 
+        this.setupSyncListeners();
+
         // 应用初始主题
         this.updateTheme();
 
@@ -38,18 +44,66 @@ class ThemeManager {
     }
 
     getStoredTheme() {
-        try {
-            return GM_getValue('pku-art-theme-mode', null);
-        } catch (e) {
-            return localStorage.getItem('pku-art-theme-mode');
+        const keys = [this.storageKeys.primary, this.storageKeys.legacy];
+
+        if (typeof GM_getValue === 'function') {
+            for (const key of keys) {
+                try {
+                    const value = GM_getValue(key, null);
+                    if (this.isValidMode(value)) {
+                        return value;
+                    }
+                } catch (error) {
+                    // Tampermonkey GM_getValue unavailable in this context; fall back to localStorage
+                }
+            }
         }
+
+        try {
+            for (const key of keys) {
+                const value = localStorage.getItem(key);
+                if (this.isValidMode(value)) {
+                    return value;
+                }
+            }
+        } catch (error) {
+            console.warn('[PKU Art] localStorage unavailable when reading theme mode:', error);
+        }
+
+        return null;
     }
 
     setStoredTheme(mode) {
-        try {
-            GM_setValue('pku-art-theme-mode', mode);
-        } catch (e) {
-            localStorage.setItem('pku-art-theme-mode', mode);
+        if (!this.isValidMode(mode)) {
+            return;
+        }
+
+        const keys = [this.storageKeys.primary, this.storageKeys.legacy];
+
+        let gmStored = false;
+        if (typeof GM_setValue === 'function') {
+            for (const key of keys) {
+                try {
+                    GM_setValue(key, mode);
+                    gmStored = true;
+                } catch (error) {
+                    // Ignore individual GM_setValue failures; we'll fall back to localStorage below.
+                }
+            }
+        }
+
+        let localStored = false;
+        for (const key of keys) {
+            try {
+                localStorage.setItem(key, mode);
+                localStored = true;
+            } catch (error) {
+                // Some contexts (e.g., privacy mode) might block localStorage writes.
+            }
+        }
+
+        if (!gmStored && !localStored) {
+            console.warn('[PKU Art] Failed to persist theme mode. Manual sync may not propagate to other frames.');
         }
     }
 
@@ -67,20 +121,7 @@ class ThemeManager {
     }
 
     updateTheme() {
-        let shouldBeDark = false;
-
-        switch (this.currentMode) {
-            case this.themeModes.LIGHT:
-                shouldBeDark = false;
-                break;
-            case this.themeModes.DARK:
-                shouldBeDark = true;
-                break;
-            case this.themeModes.AUTO:
-                shouldBeDark = this.mediaQuery ? this.mediaQuery.matches : false;
-                break;
-        }
-
+        const shouldBeDark = this.resolveShouldBeDark(this.currentMode);
         this.isDark = shouldBeDark;
         this.applyTheme(shouldBeDark);
     }
@@ -110,6 +151,78 @@ class ThemeManager {
 
     isDarkMode() {
         return this.isDark;
+    }
+
+    resolveShouldBeDark(mode) {
+        switch (mode) {
+            case this.themeModes.LIGHT:
+                return false;
+            case this.themeModes.DARK:
+                return true;
+            case this.themeModes.AUTO:
+                return this.mediaQuery ? this.mediaQuery.matches : false;
+            default:
+                return false;
+        }
+    }
+
+    isValidMode(mode) {
+        return Object.values(this.themeModes).includes(mode);
+    }
+
+    setupSyncListeners() {
+        this.setupGMValueListeners();
+        this.setupLocalStorageListener();
+    }
+
+    setupLocalStorageListener() {
+        window.addEventListener('storage', (event) => {
+            if (!event || !event.key) {
+                return;
+            }
+
+            if (![this.storageKeys.primary, this.storageKeys.legacy].includes(event.key)) {
+                return;
+            }
+
+            this.handleExternalThemeChange(event.newValue);
+        });
+    }
+
+    setupGMValueListeners() {
+        if (typeof GM_addValueChangeListener !== 'function') {
+            return;
+        }
+
+        const keys = [this.storageKeys.primary, this.storageKeys.legacy];
+        keys.forEach((key) => {
+            try {
+                GM_addValueChangeListener(key, (_name, _oldValue, newValue, remote) => {
+                    if (!remote) {
+                        return;
+                    }
+                    this.handleExternalThemeChange(newValue);
+                });
+            } catch (error) {
+                console.warn('[PKU Art] GM_addValueChangeListener unavailable for key:', key, error);
+            }
+        });
+    }
+
+    handleExternalThemeChange(rawValue) {
+        const incomingMode = this.isValidMode(rawValue) ? rawValue : this.themeModes.AUTO;
+
+        if (incomingMode !== this.currentMode) {
+            this.currentMode = incomingMode;
+            this.updateTheme();
+            return;
+        }
+
+        const shouldBeDark = this.resolveShouldBeDark(incomingMode);
+        if (shouldBeDark !== this.isDark) {
+            this.isDark = shouldBeDark;
+            this.applyTheme(shouldBeDark);
+        }
     }
 }
 
