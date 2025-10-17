@@ -1,0 +1,418 @@
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
+@import 'main.css';
+
+/* 背景着色，移除box-shadow,text-shadow*/
+html,
+#outer_left_stream_calendar {
+    background: var(--c-card);
+}
+
+* {
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+html,
+.locationPane,
+#contentPanel {
+    padding: 0;
+    height: fit-content;
+}
+
+#streamHeader_calendar {
+    background: var(--c-card);
+    text-shadow: none;
+}
+
+#streamHeader_calendar a {
+    color: var(--c-text);
+    line-height: 1.6;
+    text-decoration: none;
+    border-radius: 0;
+    border: none;
+    border-left: 4px solid transparent;
+}
+
+#streamHeader_calendar a.active {
+    box-shadow: none;
+    border-left: 4px solid var(--c-accent);
+}
+
+#streamHeader_calendar a:hover {
+    color: var(--red-5);
+    background: var(--c-hover);
+}
+
+#calendar_content {
+    border: none;
+    background: var(--c-card);
+}
+
+#streamHeader_calendar {
+    padding-bottom: 0;
+    height: inherit !important;
+    /* border-right: 1px solid var(--c-border); */
+    border: none;
+}
+
+#streamHeader_calendar span.current-page,
+#streamHeader_calendar span.icon {
+    display: none;
+}
+
+#streamHeader_calendar .title-text {
+    color: var(--c-title);
+    font-weight: bold;
+    text-shadow: none;
+    padding-left: 12px;
+}
+
+#calendar_content {
+    border: none;
+}
+
+#streamHeader_calendar ul.cal-nav li#agendaDay {
+    background-image: var(--i-calendar-day);
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: center center;
+}
+
+#streamHeader_calendar ul.cal-nav li#agendaWeek {
+    background-image: var(--i-calendar-week);
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: center center;
+}
+
+#streamHeader_calendar ul.cal-nav li#month {
+    background-image: var(--i-calendar-month);
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: center center;
+}
+
+#streamHeader_calendar ul.cal-nav li.active,
+#streamHeader_calendar ul.cal-nav a {
+    border-radius: 5px;
+}
+
+#streamHeader_calendar ul.cal-nav li.active {
+    border: 1px solid var(--c-border);
+}
+
+#streamHeader_calendar ul.cal-nav a:hover {
+    background: none;
+}
+
+#streamHeader_calendar ul.cal-nav li:hover {
+    background-color: var(--c-hover);
+}
+
+#streamHeader_calendar div.filter-content-wrapper a[data-handler='prev'] span {
+    background: var(--i-arrow);
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: center center;
+    rotate: 90deg;
+}
+
+#streamHeader_calendar div.filter-content-wrapper a[data-handler='next'] span {
+    background: var(--i-arrow);
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: center center;
+    rotate: 270deg;
+}
+
+#streamHeader_calendar div.filter-content-wrapper div.ui-datepicker-title {
+    color: var(--c-text);
+    transform: translateY(-2px);
+}
+
+#datepicker td[data-handler='selectDay'] a {
+    background: var(--c-button);
+}
+
+#datepicker th {
+    font-size: 8px;
+    color: var(--c-text);
+}
+
+#calendarList,
+#calendarList * {
+    color: var(--c-text);
+}
+
+#calendarsForm {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+#calendarsForm #checkUncheckAll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+    /* sticky */
+    position: sticky;
+    top: 0;
+    background: var(--c-card);
+    z-index: 100;
+}
+
+#calendarsForm #checkUncheckAll a {
+    width: fit-content;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#calendars {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+#calendars div.calendar-item.calendar-name {
+    width: 100%;
+}
+
+#calendars div.calendar-item.calendar-name label {
+    border: 1px solid var(--c-border);
+    border-radius: 5px;
+}
+
+#calendars div.calendar-item.calendar-name label:hover {
+    background: var(--c-hover);
+    color: var(--c-accent);
+}
+
+#calendars div.calendar-item.calendar-name span.colorPicker-picker {
+    display: none;
+}
+
+#streamHeader_calendar h3 {
+    color: var(--c-subtitle);
+    font-weight: bold;
+}
+
+#ical {
+    background: var(--c-button);
+    border: 1px solid var(--c-border);
+    border-radius: 5px;
+    padding: 5px 15px;
+    color: var(--c-text);
+    font-weight: bold;
+}
+
+#ical:hover {
+    background: var(--c-hover);
+    color: var(--c-accent);
+}
+
+/* 右侧 */
+
+#outer_left_stream_alerts {
+    display: flex;
+    /* gap: 20px; */
+    /* width: calc(100% - 20px); */
+    background: var(--c-card);
+    border: none;
+}
+
+#calendar_content {
+    flex: 1;
+    margin: 0;
+}
+
+#calendar {
+    background: var(--c-card);
+}
+
+#calendar,
+#calendar * {
+    font-weight: normal;
+    border-color: var(--c-border);
+}
+
+#calendar thead *,
+#calendar .fc-day-number {
+    color: var(--c-text);
+}
+
+#calendar td.fc-header-left {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#calendar td.fc-header-left button {
+    background: var(--c-button);
+    border: 1px solid var(--c-border);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: var(--c-text);
+    font-weight: bold;
+}
+
+#calendar td.fc-header-left button:hover {
+    background: var(--cyan-2);
+    color: var(--cyan-7);
+}
+
+#calendar td.fc-header-left button[title='上一个时段'] span {
+    background: var(--i-arrow);
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: center center;
+    rotate: 90deg;
+}
+
+#calendar td.fc-header-left button[title='下一个时段'] span {
+    background: var(--i-arrow);
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: center center;
+    rotate: 270deg;
+}
+
+#calendar td.fc-header-left .fc-header-title h2 {
+    margin: 0;
+    color: var(--cyan-8);
+    font-weight: bold;
+}
+
+#calendar td.fc-header-right {
+    text-align: right;
+}
+
+#calendar td.fc-header-right button {
+    float: right;
+    background: var(--c-button);
+    border: 1px solid var(--c-border);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: var(--c-text);
+    font-weight: bold;
+}
+
+#calendar td.fc-header-right button span {
+    background: var(--i-add);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center center;
+}
+
+#calendar td.fc-header-right button:hover {
+    background: var(--cyan-2);
+    color: var(--cyan-7);
+}
+
+#calendar .fc-state-highlight {
+    background: var(--cyan-2);
+}
+
+#calendar .fc-event * {
+    color: normal !important;
+}
+
+#calendar .fc-agenda-divider-inner {
+    background: var(--c-subtitle);
+}
+
+/* 隐藏那个不知道有啥用的打钩图片 */
+#calendar .fc-event-inner img {
+    display: none;
+}
+
+/* 遮罩 */
+
+div.ui-widget-overlay.ui-front {
+    background: var(--c-card);
+}
+
+div[role='dialog'] {
+    background: var(--c-card) !important;
+    border: 1px solid var(--c-border) !important;
+    border-radius: 10px !important;
+    color: var(--c-text);
+}
+
+div[role='dialog'] * {
+    color: var(--c-text);
+}
+
+div.ui-dialog > div.ui-resizable-handle.ui-resizable-se.ui-icon.ui-icon-gripsmall-diagonal-se {
+    background: var(--i-resize);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center center;
+}
+
+div.ui-dialog-titlebar span.ui-dialog-title {
+    color: var(--c-title);
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+#eventtitle,
+#eventdesc {
+    background: var(--c-input-bg);
+    border: 1px solid var(--c-border);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: var(--c-text);
+    font-weight: bold;
+}
+
+#eventdesc {
+    margin-top: 10px;
+}
+
+div[role='dialog'] label {
+    color: var(--c-text);
+    font-weight: bold;
+}
+
+div[role='dialog'] .ui-dialog-buttonset button {
+    background: var(--c-button);
+    border: 1px solid var(--c-border);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: var(--c-text);
+    font-weight: bold;
+}
+
+div[role='dialog'] .ui-dialog-buttonset button:hover {
+    background: var(--cyan-2);
+    color: var(--cyan-7);
+}
+
+select[disabled] {
+    display: none;
+}
+
+#create-new-event fieldset {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+div[role='dialog'] input[type='datetime'] {
+    background: var(--c-input-bg);
+    border: 1px solid var(--c-border);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: var(--c-text);
+    font-weight: bold;
+}

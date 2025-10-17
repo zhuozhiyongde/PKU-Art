@@ -26,6 +26,7 @@
 #global-nav-link:hover,
 #global-nav-link:focus {
     color: transparent;
+    overflow: hidden;
     width: 32px;
     height: 32px;
     padding: 0;
@@ -226,7 +227,7 @@ nav.navigationPane {
     box-shadow: none;
     border-radius: 5px;
     width: 40px !important;
-    height: 100px !important;
+    height: 150px !important;
     transform: translateY(34px);
     background-color: transparent;
     /*background-color: #000;*/
@@ -247,18 +248,19 @@ nav.navigationPane {
 }
 
 #global-list-tools > .overview,
-#global-list-tools > .stream,
-#global-list-tools > .calendar {
+#global-list-tools > .stream {
     display: none;
 }
 
 #global-list-tools > .alerts,
-#global-list-tools > .grade {
+#global-list-tools > .grade,
+#global-list-tools > .calendar {
     background-color: var(--c-card);
 }
 
 #global-list-tools > .alerts > a:hover,
-#global-list-tools > .grades > a:hover {
+#global-list-tools > .grades > a:hover,
+#global-list-tools > .calendar > a:hover {
     background-color: var(--c-hover);
 }
 
@@ -276,6 +278,17 @@ nav.navigationPane {
 #global-list-tools > .grades > a {
     border-radius: 5px;
     background: var(--i-idcard);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0 auto;
+    /* transition: 350ms opacity; */
+}
+
+#global-list-tools > .calendar > a {
+    border-radius: 5px;
+    background: var(--i-calendar-tab);
     /* background-color: var(--c-card) !important; */
     background-size: 60%;
     background-repeat: no-repeat;
@@ -378,7 +391,8 @@ nav.navigationPane {
 }
 
 #side_nav #mybbListTools li[id*='Alerts'],
-#side_nav #mybbListTools li[id*='MyGrades'] {
+#side_nav #mybbListTools li[id*='MyGrades'],
+#side_nav #mybbListTools li[id*='calendar'] {
     display: block;
 }
 
@@ -434,6 +448,22 @@ nav.navigationPane {
 
 #side_nav #mybbListTools li[id*='MyGrades'] span.menu-icon:after {
     content: '绩点高高';
+    color: var(--c-text);
+    display: block;
+    font-size: 16px;
+    /* text-decoration: none !important; */
+}
+
+#side_nav #mybbListTools li[id*='calendar'] span.menu-icon {
+    background: var(--i-calendar);
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: 10px;
+    transition: all ease-in-out 0.15s;
+}
+
+#side_nav #mybbListTools li[id*='calendar'] span.menu-icon:after {
+    content: '晨钟暮鼓';
     color: var(--c-text);
     display: block;
     font-size: 16px;

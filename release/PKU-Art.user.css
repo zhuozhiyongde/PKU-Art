@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.3.74
+// @version      2.4.0
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -10,7 +10,7 @@
 // @namespace    https://github.com/zhuozhiyongde/PKU-Art
 // @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.css
-// @date         2025/10/16
+// @date         2025/10/17
 ==/UserStyle== */
 @-moz-document regexp("^https:\\/\\/course\\.pku\\.edu\\.cn\\") {
     /*
@@ -30,6 +30,8 @@
     --i-comment: url('https://cdn.arthals.ink/css/src/comment.svg');
     --i-clover: url('https://cdn.arthals.ink/css/src/clover.svg');
     --i-sandclock: url('https://cdn.arthals.ink/css/src/sandclock.svg');
+    --i-calendar: url('https://cdn.arthals.ink/css/src/calendar.svg');
+    --i-calendar-tab: url('https://cdn.arthals.ink/css/src/calendar-tab.svg');
     --i-verified: url('https://cdn.arthals.ink/css/src/verified.svg');
     /* --i-more: url('https://cdn.arthals.ink/css/src/more.svg'); */
 }
@@ -77,6 +79,11 @@
     --i-refresh: url('https://cdn.arthals.ink/css/src/refresh.svg');
     --i-search: url('https://cdn.arthals.ink/css/src/search.svg');
     --i-arrow: url('https://cdn.arthals.ink/css/src/arrow.svg');
+    --i-calendar-day: url('https://cdn.arthals.ink/css/src/calendar-day.svg');
+    --i-calendar-week: url('https://cdn.arthals.ink/css/src/calendar-week.svg');
+    --i-calendar-month: url('https://cdn.arthals.ink/css/src/calendar-month.svg');
+    --i-add: url('https://cdn.arthals.ink/css/src/add.svg');
+    --i-resize: url('https://cdn.arthals.ink/css/src/resize.svg');
 }
 
 :root.pku-art-dark {
@@ -120,6 +127,11 @@
     --i-refresh: url('https://cdn.arthals.ink/css/src/refresh_dark.svg');
     --i-search: url('https://cdn.arthals.ink/css/src/search_dark.svg');
     --i-arrow: url('https://cdn.arthals.ink/css/src/arrow_dark.svg');
+    --i-calendar-day: url('https://cdn.arthals.ink/css/src/calendar-day_dark.svg');
+    --i-calendar-week: url('https://cdn.arthals.ink/css/src/calendar-week_dark.svg');
+    --i-calendar-month: url('https://cdn.arthals.ink/css/src/calendar-month_dark.svg');   
+    --i-add: url('https://cdn.arthals.ink/css/src/add_dark.svg');
+    --i-resize: url('https://cdn.arthals.ink/css/src/resize_dark.svg');
     /* --i-more: url('https://cdn.arthals.ink/css/src/more_dark.svg'); */
 }
 
@@ -1264,7 +1276,7 @@ html #global-nav-bar-wrap {
     box-shadow: none;
     border-radius: 5px;
     width: 40px !important;
-    height: 100px !important;
+    height: 150px !important;
     transform: translateY(34px);
     background-color: transparent;
     /*background-color: #000;*/
@@ -1285,18 +1297,19 @@ html #global-nav-bar-wrap {
 }
 
 #global-list-tools > .overview,
-#global-list-tools > .stream,
-#global-list-tools > .calendar {
+#global-list-tools > .stream {
     display: none;
 }
 
 #global-list-tools > .alerts,
-#global-list-tools > .grade {
+#global-list-tools > .grade,
+#global-list-tools > .calendar {
     background-color: var(--c-card);
 }
 
 #global-list-tools > .alerts > a:hover,
 #global-list-tools > .grades > a:hover,
+#global-list-tools > .calendar > a:hover,
 #global-list-tools > .more-link a:hover {
     background-color: var(--c-hover);
 }
@@ -1315,6 +1328,17 @@ html #global-nav-bar-wrap {
 #global-list-tools > .grades > a {
     border-radius: 5px;
     background: var(--i-idcard);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0 auto;
+    /* transition: 350ms opacity; */
+}
+
+#global-list-tools > .calendar > a {
+    border-radius: 5px;
+    background: var(--i-calendar-tab);
     /* background-color: var(--c-card) !important; */
     background-size: 60%;
     background-repeat: no-repeat;
@@ -1392,6 +1416,7 @@ body {
 #global-nav-link:hover,
 #global-nav-link:focus {
     color: transparent;
+    overflow: hidden;
     width: 32px;
     height: 32px;
     padding: 0;
@@ -1817,7 +1842,7 @@ li.divider,
     box-shadow: none;
     border-radius: 5px;
     width: 40px !important;
-    height: 100px !important;
+    height: 150px !important;
     transform: translateY(34px);
     background-color: transparent;
     /*background-color: #000;*/
@@ -1838,18 +1863,19 @@ li.divider,
 }
 
 #global-list-tools > .overview,
-#global-list-tools > .stream,
-#global-list-tools > .calendar {
+#global-list-tools > .stream{
     display: none;
 }
 
 #global-list-tools > .alerts,
-#global-list-tools > .grade {
+#global-list-tools > .grade,
+#global-list-tools > .calendar {
     background-color: var(--c-card);
 }
 
 #global-list-tools > .alerts > a:hover,
-#global-list-tools > .grades > a:hover {
+    #global-list-tools > .grades > a:hover,
+#global-list-tools > .calendar > a:hover {
     background-color: var(--c-hover);
 }
 
@@ -1867,6 +1893,17 @@ li.divider,
 #global-list-tools > .grades > a {
     border-radius: 5px;
     background: var(--i-idcard);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0 auto;
+    /* transition: 350ms opacity; */
+}
+
+#global-list-tools > .calendar > a {
+    border-radius: 5px;
+    background: var(--i-calendar-tab);
     /* background-color: var(--c-card) !important; */
     background-size: 60%;
     background-repeat: no-repeat;

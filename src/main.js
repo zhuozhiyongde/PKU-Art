@@ -27,6 +27,7 @@ import courseVideoPlayFrameStyles from './css/courseVideoPlayFrame.css?inline';
 import courseTaskStyles from './css/courseTask.css?inline';
 import courseDiscussionStyles from './css/courseDiscussion.css?inline';
 import courseExternalLinkStyles from './css/courseExternalLink.css?inline';
+import courseToolCalendarStyles from './css/courseToolCalendar.css?inline';
 
 import themeManager from './theme-manager.js';
 import { sunIcon, moonIcon, autoIcon, sparkIcon } from './icon.js';
@@ -263,6 +264,13 @@ const styleRules = [
         styleContent: courseExternalLinkStyles,
         fileName: 'courseExternalLink.css',
         logMessage: '[PKU Art] courseExternalLink.css imported',
+    },
+    // https://course.pku.edu.cn/webapps/calendar/viewMyBb?globalNavigation=false
+    {
+        patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/calendar\/\S*$/],
+        styleContent: courseToolCalendarStyles,
+        fileName: 'courseToolCalendar.css',
+        logMessage: '[PKU Art] courseToolCalendar.css imported',
     },
 ];
 

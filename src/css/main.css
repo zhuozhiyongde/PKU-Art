@@ -16,6 +16,8 @@
     --i-comment: url('https://cdn.arthals.ink/css/src/comment.svg');
     --i-clover: url('https://cdn.arthals.ink/css/src/clover.svg');
     --i-sandclock: url('https://cdn.arthals.ink/css/src/sandclock.svg');
+    --i-calendar: url('https://cdn.arthals.ink/css/src/calendar.svg');
+    --i-calendar-tab: url('https://cdn.arthals.ink/css/src/calendar-tab.svg');
     --i-verified: url('https://cdn.arthals.ink/css/src/verified.svg');
     /* --i-more: url('https://cdn.arthals.ink/css/src/more.svg'); */
 }
@@ -63,6 +65,11 @@
     --i-refresh: url('https://cdn.arthals.ink/css/src/refresh.svg');
     --i-search: url('https://cdn.arthals.ink/css/src/search.svg');
     --i-arrow: url('https://cdn.arthals.ink/css/src/arrow.svg');
+    --i-calendar-day: url('https://cdn.arthals.ink/css/src/calendar-day.svg');
+    --i-calendar-week: url('https://cdn.arthals.ink/css/src/calendar-week.svg');
+    --i-calendar-month: url('https://cdn.arthals.ink/css/src/calendar-month.svg');
+    --i-add: url('https://cdn.arthals.ink/css/src/add.svg');
+    --i-resize: url('https://cdn.arthals.ink/css/src/resize.svg');
 }
 
 :root.pku-art-dark {
@@ -106,6 +113,11 @@
     --i-refresh: url('https://cdn.arthals.ink/css/src/refresh_dark.svg');
     --i-search: url('https://cdn.arthals.ink/css/src/search_dark.svg');
     --i-arrow: url('https://cdn.arthals.ink/css/src/arrow_dark.svg');
+    --i-calendar-day: url('https://cdn.arthals.ink/css/src/calendar-day_dark.svg');
+    --i-calendar-week: url('https://cdn.arthals.ink/css/src/calendar-week_dark.svg');
+    --i-calendar-month: url('https://cdn.arthals.ink/css/src/calendar-month_dark.svg');   
+    --i-add: url('https://cdn.arthals.ink/css/src/add_dark.svg');
+    --i-resize: url('https://cdn.arthals.ink/css/src/resize_dark.svg');
     /* --i-more: url('https://cdn.arthals.ink/css/src/more_dark.svg'); */
 }
 
