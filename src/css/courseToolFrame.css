@@ -248,7 +248,8 @@ nav.navigationPane {
 }
 
 #global-list-tools > .overview,
-#global-list-tools > .stream {
+#global-list-tools > .stream,
+#global-list-tools > .risktracker  {
     display: none;
 }
 

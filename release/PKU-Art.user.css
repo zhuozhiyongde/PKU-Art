@@ -1,7 +1,7 @@
 /* ==UserStyle==
 // @name         PKU-Art
 // @description  给你一个足够好看的教学网
-// @version      2.4.0
+// @version      2.4.1
 // @match        *://*.pku.edu.cn/*
 // @run-at       document-start
 // @author       Arthals
@@ -1297,7 +1297,8 @@ html #global-nav-bar-wrap {
 }
 
 #global-list-tools > .overview,
-#global-list-tools > .stream {
+#global-list-tools > .stream,
+#global-list-tools > .risktracker {
     display: none;
 }
 
@@ -1863,7 +1864,8 @@ li.divider,
 }
 
 #global-list-tools > .overview,
-#global-list-tools > .stream{
+#global-list-tools > .stream,
+#global-list-tools > .risktracker {
     display: none;
 }
 
