@@ -1,0 +1,190 @@
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
+@import 'main.css';
+
+body > table:not(:first-of-type),
+body > table:last-of-type {
+    width: min(1180px, calc(100vw - 64px)) !important;
+    margin: 0 auto;
+    border-spacing: 0;
+}
+
+body > table:nth-of-type(2) {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 28px;
+}
+
+body > table:nth-of-type(2):before {
+    content: '选课计划列表';
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--c-title);
+    margin-bottom: 12px;
+}
+
+body > table:nth-of-type(2) td {
+    padding: 0;
+    border: none;
+}
+
+/* 网上选课 >> 选课计划 */
+
+p.pkuportal-remark {
+    margin: 0 0 10px 0;
+    padding: 0;
+    border-radius: 14px;
+    /* background: var(--c-card);
+    border: 1px solid var(--c-border); */
+    color: var(--gray-7);
+    /* font-weight: bold; */
+}
+
+p.pkuportal-remark b,
+p.pkuportal-remark span {
+    color: var(--c-title);
+}
+
+/* 提示：添加其他课程 / 双学位不支持添加 */
+
+body > table:nth-of-type(2) > tbody > tr:nth-of-type(2) td > div:first-child {
+    display: none !important;
+}
+
+body > table:nth-of-type(2) > tbody > tr:nth-of-type(2) td > div:last-child {
+    float: none !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px !important;
+    margin: 0 0 10px;
+    border-radius: 999px;
+    background: var(--blue-1);
+    border: 1px solid var(--blue-4);
+    color: var(--blue-6);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+body > table:nth-of-type(2) > tbody > tr:nth-of-type(2) td > div:last-child:hover {
+    float: none !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px !important;
+    margin: 0 0 12px;
+    border-radius: 999px;
+    background: var(--blue-2);
+    border: 1px solid var(--blue-5);
+    color: var(--blue-7);
+    transition: all 0.3s ease-in-out;
+}
+
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+img[src*='arrow_red'] {
+    display: none !important;
+}
+
+.subTitle {
+    display: none;
+}
+
+.errmsg {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px !important;
+    border-radius: 999px;
+    border: 1px solid var(--red-4);
+    background: var(--red-1);
+    color: var(--red-6);
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.errmsg::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    mask-image: var(--i-warning);
+    -webkit-mask-image: var(--i-warning);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: var(--red-6);
+}
+
+table.datagrid {
+    border: none;
+    border-collapse: collapse;
+    margin-top: 10px;
+    color: var(--c-text);
+}
+
+table.datagrid tr.datagrid-header {
+    color: var(--c-title);
+    font-weight: bold;
+    padding-left: 12px;
+    background: transparent;
+    border: none;
+}
+
+table.datagrid tr.datagrid-header th.datagrid {
+    border-width: 2px 0px 1px 0px;
+    border-style: solid;
+    border-color: var(--c-border);
+    background: transparent !important;
+    padding: 5px 0px;
+}
+
+table.datagrid tr.datagrid-header th.datagrid {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/*斑马纹表格*/
+table.datagrid > tbody > tr.datagrid-even,
+table.datagrid > tbody > tr.datagrid-even:hover,
+table.datagrid > tbody > tr:nth-child(2n):not(.datagrid-header):not(:last-of-type) {
+    background: var(--c-card) !important;
+}
+
+table.datagrid > tbody > tr.datagrid-odd,
+table.datagrid > tbody > tr.datagrid-odd:hover,
+table.datagrid > tbody > tr:nth-child(2n + 1):not(.datagrid-header):not(:last-of-type) {
+    background: var(--gray-1) !important;
+}
+
+table.datagrid > tbody td.datagrid {
+    padding: 5px;
+}
+
+table.datagrid > tbody > tr.datagrid-footer {
+    /* display: none; */
+    border: 1px solid var(--c-border);
+    height: 1px;
+}
+
+table.datagrid > tbody > tr:last-of-type td {
+    padding-top: 10px;
+}
+
+table.datagrid > tbody > tr a {
+    color: var(--blue-5);
+}

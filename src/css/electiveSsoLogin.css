@@ -1,0 +1,58 @@
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
+@import 'main.css';
+
+body {
+    background: var(--c-background) !important;
+    display: flex !important;
+    flex-direction: column;
+    height: 100svh;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+body #div {
+    background-image: var(--i-logo) !important;
+    background-color: var(--c-card) !important;
+    background-size: 150px 42px !important;
+    background-repeat: no-repeat !important;
+    background-position: 50% 20px !important;
+    padding-top: 90px !important;
+    border-radius: 10px !important;
+    border: 1px solid var(--c-border) !important;
+    left: inherit;
+    margin: 0 !important;
+    height: fit-content;
+    position: relative;
+    overflow: visible;
+}
+
+body #div > div {
+    background: var(--c-button);
+    color: var(--c-text);
+    font-weight: bold;
+    border-radius: 10px;
+    bottom: inherit !important;
+}
+
+.overClass {
+    border: none;
+    color: var(--c-accent) !important;
+    background: var(--c-button-hover) !important;
+}
+
+body #div3 {
+    position: absolute;
+    margin: 0 !important;
+    left: 50%;
+    transform: translateX(-50%) translateY(-40px);
+    transition: none !important;
+    animation: none !important;
+}

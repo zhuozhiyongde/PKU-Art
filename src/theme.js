@@ -6,6 +6,8 @@
  * Blog: https://arthals.ink
  */
 
+import { sunIcon, moonIcon, autoIcon } from './icon.js';
+
 class ThemeManager {
     constructor() {
         this.themeModes = {
@@ -226,7 +228,154 @@ class ThemeManager {
     }
 }
 
+const themeToggleIcons = {
+    light: sunIcon,
+    dark: moonIcon,
+    auto: autoIcon,
+};
+
+// 初始化主题管理器
+function initializeThemeManager() {
+    // 检查用户脚本选项设置
+    let userThemeMode = 'auto';
+    try {
+        if (typeof GM_getValue !== 'undefined') {
+            userThemeMode = GM_getValue('themeMode', 'auto');
+        }
+    } catch (e) {
+        console.log('[PKU Art] GM_getValue not available, using default theme mode');
+    }
+
+    // 设置主题模式
+    themeManager.setTheme(userThemeMode);
+
+    console.log('[PKU Art] Theme manager initialized with mode:', userThemeMode);
+}
+
+function initializeThemeToggleButton() {
+    if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
+        return;
+    }
+
+    let attempts = 0;
+    const maxAttempts = 20;
+
+    const attachToggle = () => {
+        if (document.querySelector('.pku-art-theme-toggle')) {
+            return;
+        }
+
+        const remindLink = document.querySelector('#global-nav-link');
+        const navWrap = document.querySelector('.global-nav-bar-wrap');
+        if (!remindLink || !navWrap) {
+            if (attempts < maxAttempts) {
+                attempts += 1;
+                setTimeout(attachToggle, 300);
+            }
+            return;
+        }
+
+        const navBarItem = remindLink.closest('.global-nav-bar');
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'global-nav-bar pku-art-theme-toggle-bar';
+
+        const toggleButton = document.createElement('button');
+        toggleButton.type = 'button';
+        toggleButton.className = 'pku-art-theme-toggle';
+        toggleButton.setAttribute('aria-label', '切换日夜模式');
+
+        const setIconMarkup = (mode) => {
+            const normalizedMode = themeToggleIcons[mode] ? mode : 'auto';
+            if (toggleButton.dataset.icon !== normalizedMode) {
+                toggleButton.innerHTML = themeToggleIcons[normalizedMode];
+                toggleButton.dataset.icon = normalizedMode;
+            }
+        };
+
+        const updateButtonState = () => {
+            const currentMode = themeManager.getCurrentMode();
+            const isDark = themeManager.isDarkMode();
+            let tooltipText = '切换主题';
+
+            if (currentMode === 'auto') {
+                toggleButton.dataset.mode = 'auto';
+                toggleButton.dataset.state = isDark ? 'dark' : 'light';
+                tooltipText = isDark ? '跟随系统（当前：黑夜模式）' : '跟随系统（当前：日间模式）';
+                setIconMarkup('auto');
+            } else if (currentMode === 'dark') {
+                tooltipText = '黑夜模式';
+                toggleButton.dataset.mode = 'dark';
+                toggleButton.removeAttribute('data-state');
+                setIconMarkup('dark');
+            } else {
+                tooltipText = '日间模式';
+                toggleButton.dataset.mode = 'light';
+                toggleButton.removeAttribute('data-state');
+                setIconMarkup('light');
+            }
+
+            toggleButton.setAttribute('title', tooltipText);
+        };
+
+        const persistThemeMode = (mode) => {
+            try {
+                if (typeof GM_setValue !== 'undefined') {
+                    GM_setValue('themeMode', mode);
+                    return;
+                }
+            } catch (error) {
+                console.warn('[PKU Art] GM_setValue unavailable for themeMode persistence:', error);
+            }
+
+            try {
+                localStorage.setItem('themeMode', mode);
+            } catch (storageError) {
+                console.warn('[PKU Art] localStorage unavailable for themeMode persistence:', storageError);
+            }
+        };
+
+        const cycleThemeMode = () => {
+            const currentMode = themeManager.getCurrentMode();
+            let nextMode = 'light';
+
+            if (currentMode === 'light') {
+                nextMode = 'dark';
+            } else if (currentMode === 'dark') {
+                nextMode = 'auto';
+            }
+
+            themeManager.setTheme(nextMode);
+            persistThemeMode(nextMode);
+            updateButtonState();
+        };
+
+        toggleButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            cycleThemeMode();
+        });
+
+        wrapper.appendChild(toggleButton);
+
+        if (navBarItem && navBarItem.parentElement) {
+            navBarItem.parentElement.insertBefore(wrapper, navBarItem.nextSibling);
+        } else {
+            navWrap.appendChild(wrapper);
+        }
+
+        updateButtonState();
+
+        window.addEventListener('pku-art-theme-change', updateButtonState);
+    };
+
+    attachToggle();
+    document.addEventListener('DOMContentLoaded', attachToggle);
+    window.addEventListener('load', attachToggle);
+}
+
 // 创建全局主题管理器实例
 window.PKUArtThemeManager = new ThemeManager();
+const themeManager = window.PKUArtThemeManager;
 
-export default window.PKUArtThemeManager;
+export { initializeThemeManager, initializeThemeToggleButton };

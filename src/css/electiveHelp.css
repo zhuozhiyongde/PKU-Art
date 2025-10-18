@@ -1,0 +1,243 @@
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
+@import 'main.css';
+
+body > table:not(:first-of-type),
+body > table:last-of-type {
+    width: min(1180px, calc(100vw - 64px)) !important;
+    margin: 0 auto;
+    border-spacing: 0;
+}
+
+body > table:not(:first-of-type):not(:last-of-type) {
+    background: var(--c-card);
+    border-width: 0px 1px 0px 1px;
+    border-style: solid;
+    border-color: var(--c-border);
+    padding: 20px;
+}
+
+body > table:nth-of-type(2) {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 14px 14px 0 0;
+    padding: 20px;
+    margin-top: 28px;
+    border-bottom: 0;
+    border-top: 1px solid var(--c-border) !important;
+}
+
+body > table:nth-of-type(2):before {
+    content: '帮助页面';
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--c-title);
+    margin-bottom: 12px;
+}
+
+body > table:nth-of-type(2) td {
+    padding: 0;
+    border: none;
+}
+
+body > table:nth-last-of-type(2) {
+    border-radius: 0 0 14px 14px;
+    border-bottom: 1px solid var(--c-border) !important;
+}
+
+/* 内容 */
+
+tbody {
+    position: relative;
+}
+
+tr:has(.red) {
+    position: relative;
+}
+
+.red {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px !important;
+    border-radius: 999px;
+    border: 1px solid var(--red-4);
+    background: var(--red-1);
+    color: var(--red-6);
+    font-size: 12px;
+    width: fit-content !important;
+    white-space: nowrap;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.red::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    mask-image: var(--i-warning);
+    -webkit-mask-image: var(--i-warning);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: var(--red-6);
+}
+
+td:has(+ .red) {
+    display: none;
+}
+
+.red + td {
+    display: none;
+}
+
+td.pkuportal-important {
+    color: var(--c-title) !important;
+    font-weight: bold;
+    font-size: 1.2rem !important;
+    text-indent: -0.5ch;
+    padding: 10px 0;
+}
+
+td.pkuportal-important img {
+    display: none;
+}
+
+/* 分割线 */
+
+td:has(> img[src='/elective2008/resources/images/s.jpg']):not(:has(> *:nth-of-type(2))) {
+    padding: 10px 0px;
+    color: transparent;
+    height: 0px;
+    overflow: hidden;
+}
+
+td:has(> img[src='/elective2008/resources/images/s.jpg']):not(:has(> *:nth-of-type(2))) > img {
+    display: none;
+}
+
+td:has(> img[src='/elective2008/resources/images/s.jpg']):not(:has(> *:nth-of-type(2))):before {
+    content: '';
+    display: block;
+    width: 100%;
+    color: transparent;
+    border-bottom: 1px solid var(--c-border);
+}
+
+/* 文字信息 */
+
+.pkuportal-remark {
+    color: var(--gray-7) !important;
+}
+
+a.titlelink2:link,
+a.titlelink2:visited,
+a.titlelink2:active {
+    color: var(--blue-6) !important;
+    text-decoration: none;
+}
+
+a.titlelink2:hover {
+    color: var(--blue-7) !important;
+    text-decoration: none;
+    top: 0px !important;
+    left: 0px !important;
+}
+
+img[src*='/elective2008/resources/images/1-4.jpg'] {
+    display: none;
+}
+
+.pkuportal-table-portlet td,
+span,
+div,
+input {
+    font-size: 14px;
+}
+
+.pkuportal-important {
+    color: var(--red-6) !important;
+}
+
+/* 时间表 */
+
+table.datagrid {
+    border: none;
+    border-collapse: collapse;
+    margin-top: 10px;
+    color: var(--c-text);
+    border-width: 2px 0px 2px 0px;
+    border-style: solid;
+    border-color: var(--c-border);
+}
+
+table.datagrid tr.datagrid-header {
+    color: var(--c-title);
+    font-weight: bold;
+    padding-left: 12px;
+    background: transparent;
+    border: none;
+}
+
+table.datagrid tr.datagrid-header th.datagrid {
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    border-color: var(--c-border);
+    background: transparent !important;
+    padding: 5px 0px;
+}
+
+table.datagrid tr.datagrid-header th.datagrid {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/*斑马纹表格*/
+table.datagrid > tbody > tr.datagrid-even,
+table.datagrid > tbody > tr.datagrid-even:hover,
+table.datagrid > tbody > tr:nth-child(2n):not(.datagrid-header):not(:last-of-type) {
+    background: var(--c-card) !important;
+}
+
+table.datagrid > tbody > tr.datagrid-odd,
+table.datagrid > tbody > tr.datagrid-odd:hover,
+table.datagrid > tbody > tr:nth-child(2n + 1):not(.datagrid-header):not(:last-of-type) {
+    background: var(--gray-1) !important;
+}
+
+table.datagrid > tbody td.datagrid {
+    padding: 5px;
+    border: none;
+}
+
+table.datagrid > tbody > tr.datagrid-footer {
+    /* display: none; */
+    border: 1px solid var(--c-border);
+    height: 1px;
+}
+
+table.datagrid > tbody > tr:last-of-type td {
+    padding-top: 10px;
+}
+
+table.datagrid > tbody > tr a {
+    color: var(--blue-5);
+}
+
+table.datagrid > tbody > tr span[style='color:red'] {
+    color: var(--red-6) !important;
+}
+
+/* :root.pku-art-dark {
+    img[usemap*='#Map_'] {
+        filter: invert(1);
+    }
+} */

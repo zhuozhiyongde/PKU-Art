@@ -1,0 +1,182 @@
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
+@import 'main.css';
+
+body {
+    background: var(--c-background) !important;
+    color: var(--c-text);
+    font-size: 14px;
+    line-height: 1.6;
+    padding-bottom: 48px;
+}
+
+*,
+*::before,
+*::after {
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+body {
+    position: relative;
+}
+/* 标题 */
+body > table:first-of-type {
+    margin: 0 !important;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    height: 60px !important;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+body > table:first-of-type td {
+    position: relative;
+    background-image: var(--i-logo) !important;
+    background-size: auto 30px !important;
+    background-repeat: no-repeat !important;
+    background-position: 2em center !important;
+    background-color: var(--c-card) !important;
+    border-bottom: 1px solid var(--c-border);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 1em 2em;
+    height: 100% !important;
+    box-sizing: border-box;
+}
+
+body > table:first-of-type td img {
+    display: none;
+}
+
+#menu {
+    margin: 0;
+    padding: 0 42px 0 0 !important;
+    list-style: none;
+    display: flex !important;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    gap: 10px;
+    justify-content: flex-start;
+    float: right;
+    width: fit-content !important;
+    position: relative;
+}
+
+#menu li:first-of-type {
+    position: absolute;
+    right: 0px !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+    height: fit-content;
+    width: fit-content;
+}
+
+#menu li:first-of-type a {
+    color: transparent;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    background-image: var(--i-exit);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: none;
+    display: block;
+}
+
+#menu li a {
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--c-border);
+    background: var(--c-button);
+    color: var(--c-text);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: none;
+    float: none;
+}
+
+#menu li:not(:first-child) a:hover {
+    background: var(--cyan-2);
+    color: var(--cyan-7);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 错误页面 */
+body div[style*='pku_view.jpg'] {
+    background: transparent !important;
+}
+
+td[background*='/elective2008/resources/images/11-1.png'] {
+    /* display: none; */
+    background: var(--c-card) !important;
+    border: 1px solid var(--c-border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 28px;
+    position: relative;
+}
+
+td[background*='/elective2008/resources/images/11-1.png']:before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    mask-image: var(--i-warning);
+    -webkit-mask-image: var(--i-warning);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: var(--red-6);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 50px;
+}
+
+td[background*='/elective2008/resources/images/11-1.png'] * {
+    color: var(--c-text);
+}
+
+.errmsg {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px !important;
+    border-radius: 999px;
+    border: 1px solid var(--red-4);
+    background: var(--red-1);
+    color: var(--red-6) !important;
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+/* 版权标识 */
+body > table:last-of-type {
+    margin: 10px auto;
+}
+
+body > table:last-of-type td {
+    background: transparent;
+    color: var(--c-text) !important;
+}
+
+body > table:last-of-type td:after {
+    content: 'PKU Art @ Arthals';
+    display: block;
+    color: var(--c-text);
+    padding-top: 5px;
+    height: 20px;
+    visibility: visible !important;
+}

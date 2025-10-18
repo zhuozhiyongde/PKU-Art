@@ -47,6 +47,7 @@
     --c-scrollbar: #c1c1c1;
     --c-tip: #e5e7eb;
     --c-title-icon: #333;
+    --c-button-hover: #ffece8;
 
     /* 图片 */
     --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo.svg');
@@ -96,6 +97,7 @@
     --c-scrollbar: #6b6b6b;
     --c-tip: #22262d;
     --c-title-icon: #e2e2e2;
+    --c-button-hover: #54121c;
 
     --i-logo: url('https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg');
     --i-remind: url('https://cdn.arthals.ink/css/src/remind_dark.svg');
@@ -115,7 +117,7 @@
     --i-arrow: url('https://cdn.arthals.ink/css/src/arrow_dark.svg');
     --i-calendar-day: url('https://cdn.arthals.ink/css/src/calendar-day_dark.svg');
     --i-calendar-week: url('https://cdn.arthals.ink/css/src/calendar-week_dark.svg');
-    --i-calendar-month: url('https://cdn.arthals.ink/css/src/calendar-month_dark.svg');   
+    --i-calendar-month: url('https://cdn.arthals.ink/css/src/calendar-month_dark.svg');
     --i-add: url('https://cdn.arthals.ink/css/src/add_dark.svg');
     --i-resize: url('https://cdn.arthals.ink/css/src/resize_dark.svg');
     /* --i-more: url('https://cdn.arthals.ink/css/src/more_dark.svg'); */
