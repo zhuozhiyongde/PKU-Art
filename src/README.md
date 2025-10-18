@@ -1,27 +1,26 @@
 # README
 
-Dev folder of PKU-Art.
-Use [vite-plugin-monkey](https://github.com/lisonge/vite-plugin-monkey) to build in vite.
+开发目录。
+
+使用 [vite-plugin-monkey](https://github.com/lisonge/vite-plugin-monkey) 在 vite 中构建。
 
 > [!WARNING]
-> Since I've set `inject-into` to `page`, the `GM` API is not available for Safari.
+> 由于我将 `inject-into` 设置为 `page`，所以 Safari + UserScripts 插件的 `GM` API 不可用（TamperMonkey 插件正常）。
 
 ## install
 
 ```bash
-pnpm install
+bun install
 ```
 
 ## run
 
 ```bash
-pnpm dev
+bun dev
 ```
 
 ## build
 
 ```bash
-pnpm build
+bun build
 ```
-
-Then, you can find the built file in `dist` folder.

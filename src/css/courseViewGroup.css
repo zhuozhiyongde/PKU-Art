@@ -1,0 +1,51 @@
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
+@import 'main.css';
+
+#column0 div.portlet {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 5px;
+    padding: 16px;
+}
+
+#column0 div.portlet h2 {
+    color: var(--c-title);
+    background: transparent;
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--c-border);
+}
+
+#column0 div.portlet div.collapsible {
+    border: none;
+    color: var(--c-text);
+}
+
+#column0 div.portlet div.collapsible ul.userEmailLabel {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    list-style: none;
+    row-gap: 10px;
+}
+
+#column0 div.portlet div.collapsible ul.userEmailLabel li span img {
+    display: none;
+}
+
+#column0 div.portlet div.collapsible h3 {
+    color: var(--c-title);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#column0 div.portlet div.collapsible h3:not(:first-child) {
+    margin-top: 15px;
+}

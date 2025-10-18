@@ -7,186 +7,55 @@
 @import 'arco-palette.css';
 @import 'main.css';
 
-/*container向上*/
-
-.container {
-    margin-top: 0;
-    padding-top: 0;
-}
-
-/* 调整按钮样式 */
-#nav {
-    display: flex;
-}
-
-#actionbar {
-    border-top: none;
-    padding-left: 30px;
-}
-
-.mainButton > a {
-    border-radius: 5px;
-    background: var(--gray-1);
-    color: var(--c-text);
-}
-
-.pagingprefs > a {
-    background: var(--gray-1);
-    color: var(--c-text);
-    box-shadow: none;
-    border-radius: 5px;
-}
-
-/* 调整列表样式 */
-#listContainer {
-    border: 1px solid var(--c-border);
-    background: var(--c-card);
-    border-radius: 5px;
-    padding: 5px 0;
-}
-
-#listContainer_datatable {
-    padding: 0 10px;
-    background: var(--c-card);
-    /*border-collapse: separate;*/
-    /*border-spacing: 0 4px;*/
-}
-
-/*顶部标题栏样式*/
-#listContainer_datatable .inventoryListHead * {
-    color: var(--c-title);
-    font-weight: bold;
-    padding-left: 12px;
-}
-
-/*标题栏底部边框*/
-#listContainer_datatable > .inventoryListHead * {
-    border-bottom: 1px solid var(--c-border) !important;
-}
-
-#listContainer_databody {
-    border-bottom: none;
-}
-
-/*斑马纹表格*/
-#listContainer_databody > tr {
-    background: var(--c-card);
-}
-
-#listContainer_databody > tr:nth-child(2n) {
-    background: var(--gray-1);
-}
-
-/* 录播表格限宽 */
-#containerdiv {
-    width: inherit;
-}
-
-/*感觉hover用不太到*/
-/*#listContainer_databody>tr:hover {*/
-/*	background: var(--c-hover);*/
-/*}*/
-
-/*每行行首行尾圆角*/
-#listContainer_databody > tr > *:first-child {
-    border-radius: 5px 0 0 5px;
-}
-
-#listContainer_databody > tr > *:last-child {
-    border-radius: 0 5px 5px 0;
-    border-bottom: none !important;
-}
-
-/*表格底部边框*/
-#listContainer_databody > tr:last-child > * {
-    border-bottom: none !important;
-}
-
-#listContainer_databody > tr > * {
-    line-height: 24px;
-    margin-top: 5px;
-    /*padding-top:100px!important;*/
-    border: none;
-
-    /*border-top: 1px solid var(--c-border);*/
-    /*border-bottom: 1px solid var(--c-border);*/
-}
-
-#listContainer_databody > tr * {
-    color: var(--c-text);
-}
-
-#listContainer_databody > tr .table-data-cell-value > a {
-    color: var(--cyan-7);
-    border-radius: 3px;
-    padding: 0 1em;
-}
-
-#listContainer_databody > tr .table-data-cell-value > a:hover {
-    text-decoration: none;
-    background: var(--cyan-2);
-}
-
-/*导航栏*/
-#listContainer > .rumble_top {
+#pageTitleDiv > *:not([id='pageTitleBar']) {
     display: none;
 }
 
-#listContainer_nav_batch_bot {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0 0 0;
+#pageTitleDiv {
+    color: transparent;
 }
 
-#listContainer_nav_batch_bot > .inventory_paging {
-    margin: 0;
-    padding: 0;
-}
-
-#listContainer_navpaging_bot .jumpToLinkContainer,
-#listContainer_navpaging_bot .jumpToLinkContainer * {
-    background: var(--c-primary-light);
-    color: var(--c-primary);
+#actionbar {
     border: none;
-    box-shadow: none;
+    border-bottom: 1px solid var(--c-border);
 }
 
-#listContainer_navpaging_bot .jumpToLinkContainer {
-    border-radius: 5px;
-    padding: 5px 8px;
-    display: inline-flex;
-    justify-content: center;
-}
-
-#listContainer_navpaging_bot > a {
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-}
-
-#listContainer_pagingcontrols {
-    display: flex;
-    /*margin:0 auto;*/
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 5px;
-}
-
-#listContainer_pagingcontrols #listContainer_itemcount > span {
-    border: none;
-    padding: 0;
-    margin: 0;
+#actionbar .mainButton > a,
+#actionbar .secondaryButton > a {
     color: var(--c-text);
+    border-radius: 5px 5px 0 0;
+    border-bottom: 2px solid transparent !important;
 }
 
-#listContainer_pagingcontrols #listContainer_itemcount > span > strong {
-    color: var(--c-title);
-    display: inline;
-    padding: 0 5px;
+#actionbar .mainButton > a:hover,
+#actionbar .secondaryButton > a:hover {
+    background: var(--c-hover);
+    border-bottom: 2px solid var(--c-accent) !important;
 }
 
-#listContainer_pagingcontrols #listContainer_itemcount > span > strong:last-child {
-    padding-right: 0;
+#searchForm {
+    display: none;
 }
 
-/*#listContainer_navpaging_bot #listContainer_currentpage_bot*/
+.container {
+    border: 1px solid var(--c-border);
+    background: var(--c-card);
+    border-radius: 5px;
+}
+
+.container * {
+    font-family: inherit !important;
+    color: var(--c-text) !important;
+    text-decoration: none !important;
+    font-style: normal !important;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.container .backLink a {
+    background: var(--c-card);
+}
+
+.container .backLink a:hover {
+    background-color: var(--c-hover);
+}

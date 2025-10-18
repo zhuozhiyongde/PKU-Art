@@ -28,6 +28,8 @@ import courseTaskStyles from './css/courseTask.css?inline';
 import courseDiscussionStyles from './css/courseDiscussion.css?inline';
 import courseExternalLinkStyles from './css/courseExternalLink.css?inline';
 import courseToolCalendarStyles from './css/courseToolCalendar.css?inline';
+import courseOralTrainingStyles from './css/courseOralTraining.css?inline';
+import courseViewGroupStyles from './css/courseViewGroup.css?inline';
 
 import themeManager from './theme-manager.js';
 import { sunIcon, moonIcon, autoIcon, sparkIcon } from './icon.js';
@@ -83,25 +85,21 @@ const styleRules = [
         patterns: globalStyleScopes,
         styleContent: mainStyles,
         fileName: 'main.css',
-        logMessage: '[PKU Art] main.css imported',
     },
     {
         patterns: globalStyleScopes,
         styleContent: arcoPaletteStyles,
         fileName: 'arco-palette.css',
-        logMessage: '[PKU Art] arco-palette.css imported',
     },
     {
         patterns: [/^https:\/\/iaaa\.pku\.edu\.cn\/\S*$/],
         styleContent: iaaaOAuthPageStyles,
         fileName: 'iaaaOAuthPage.css',
-        logMessage: '[PKU Art] iaaaOAuthPage.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/login\S*$/, /^https:\/\/course\.pku\.edu\.cn[\/]?$/],
         styleContent: courseLoginPageStyles,
         fileName: 'courseLoginPage.css',
-        logMessage: '[PKU Art] courseLoginPage.css imported',
     },
     {
         patterns: [
@@ -110,91 +108,76 @@ const styleRules = [
         ],
         styleContent: courseHomePageStyles,
         fileName: 'courseHomePage.css',
-        logMessage: '[PKU Art] courseHomePage.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*$/],
         styleContent: courseContentStyles,
         fileName: 'courseContent.css',
-        logMessage: '[PKU Art] courseContent.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/blackboard\S*announcement\S*$/],
         styleContent: courseAnnouncementStyles,
         fileName: 'courseAnnouncement.css',
-        logMessage: '[PKU Art] courseAnnouncement.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*getTeachingStaffList\S*$/],
         styleContent: courseTeachingStaffListStyles,
         fileName: 'courseTeachingStaffList.css',
-        logMessage: '[PKU Art] courseTeachingStaffList.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*classinCourseClass\S*$/],
         styleContent: courseClassinStyles,
         fileName: 'courseClassin.css',
-        logMessage: '[PKU Art] courseClassin.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*blankPage\S*$/],
         styleContent: courseBlankPageStyles,
         fileName: 'courseBlankPage.css',
-        logMessage: '[PKU Art] courseBlankPage.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*videoList\S*$/],
         styleContent: courseVideolistStyles,
         fileName: 'courseVideolist.css',
-        logMessage: '[PKU Art] courseVideolist.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*((discussionboard)|(groupContentList))\S*$/],
         styleContent: courseOtherStyles,
         fileName: 'courseOther.css',
-        logMessage: '[PKU Art] courseOther.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*myGrades\S*course_id\S*is_stream=false\S*$/],
         styleContent: courseClassGradeStyles,
         fileName: 'courseClassGrade.css',
-        logMessage: '[PKU Art] courseClassGrade.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*listContent\S*$/],
         styleContent: courseListContentStyles,
         fileName: 'courseListContent.css',
-        logMessage: '[PKU Art] courseListContent.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*viewAttempts\S*$/],
         styleContent: courseViewAttemptStyles,
         fileName: 'courseViewAttempt.css',
-        logMessage: '[PKU Art] courseViewAttempt.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*toolId\S*$/],
         styleContent: courseToolFrameStyles,
         fileName: 'courseToolFrame.css',
-        logMessage: '[PKU Art] courseToolFrame.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*streamName=alerts\S*$/],
         styleContent: courseToolAlertStyles,
         fileName: 'courseToolAlert.css',
-        logMessage: '[PKU Art] courseToolAlert.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/streamViewer\/streamViewer\S*streamName=mygrades\S*$/],
         styleContent: courseToolGradeStyles,
         fileName: 'courseToolGrade.css',
-        logMessage: '[PKU Art] courseToolGrade.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*stream_name=mygrades$/],
         styleContent: courseToolGradeClassStyles,
         fileName: 'courseToolGradeClass.css',
-        logMessage: '[PKU Art] courseToolGradeClass.css imported',
     },
     {
         patterns: [
@@ -202,19 +185,16 @@ const styleRules = [
         ],
         styleContent: courseToolGradeItemStyles,
         fileName: 'courseToolGradeItem.css',
-        logMessage: '[PKU Art] courseToolGradeItem.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*content\/file\?cmd=view\S*$/],
         styleContent: courseFileEmbedStyles,
         fileName: 'courseFileEmbed.css',
-        logMessage: '[PKU Art] courseFileEmbed.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*assignment\/uploadAssignment\?\S*$/],
         styleContent: courseAssignmentUploadStyles,
         fileName: 'courseAssignmentUpload.css',
-        logMessage: '[PKU Art] courseAssignmentUpload.css imported',
     },
     {
         patterns: [
@@ -224,7 +204,6 @@ const styleRules = [
         ],
         styleContent: courseGlobalPageStyles,
         fileName: 'courseGlobalPage.css',
-        logMessage: '[PKU Art] courseGlobalPage.css imported',
     },
     {
         patterns: [
@@ -233,44 +212,47 @@ const styleRules = [
         ],
         styleContent: courseGlobalAnnouncementStyles,
         fileName: 'courseGlobalAnnouncement.css',
-        logMessage: '[PKU Art] courseGlobalAnnouncement.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*playVideo\S*$/],
         styleContent: courseVideoPlayStyles,
         fileName: 'courseVideoPlay.css',
-        logMessage: '[PKU Art] courseVideoPlay.css imported',
     },
     {
         patterns: [/^https:\/\/onlineroomse\.pku\.edu\.cn\/player\?course_id\S*$/],
         styleContent: courseVideoPlayFrameStyles,
         fileName: 'courseVideoPlayFrame.css',
-        logMessage: '[PKU Art] courseVideoPlayFrame.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*taskView\S*$/],
         styleContent: courseTaskStyles,
         fileName: 'courseTask.css',
-        logMessage: '[PKU Art] courseTask.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*discussionboard\S*$/],
         styleContent: courseDiscussionStyles,
         fileName: 'courseDiscussion.css',
-        logMessage: '[PKU Art] courseDiscussion.css imported',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*contentWrapperNoFrame\S*$/],
         styleContent: courseExternalLinkStyles,
         fileName: 'courseExternalLink.css',
-        logMessage: '[PKU Art] courseExternalLink.css imported',
     },
     // https://course.pku.edu.cn/webapps/calendar/viewMyBb?globalNavigation=false
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/calendar\/\S*$/],
         styleContent: courseToolCalendarStyles,
         fileName: 'courseToolCalendar.css',
-        logMessage: '[PKU Art] courseToolCalendar.css imported',
+    },
+    {
+        patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*oralTraining\S*$/],
+        styleContent: courseOralTrainingStyles,
+        fileName: 'courseOralTraining.css',
+    },
+    {
+        patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*viewGroup\S*$/],
+        styleContent: courseViewGroupStyles,
+        fileName: 'courseViewGroup.css',
     },
 ];
 
@@ -285,10 +267,10 @@ function matchesAnyPattern(patterns, url) {
 }
 
 function applyStylesForCurrentPage(url = currentUrl) {
-    styleRules.forEach(({ patterns, styleContent, fileName, logMessage }) => {
+    styleRules.forEach(({ patterns, styleContent, fileName }) => {
         if (matchesAnyPattern(patterns, url)) {
             injectStyles(styleContent, fileName);
-            console.log(logMessage);
+            console.log(`[PKU Art] ${fileName} imported`);
         }
     });
 }
