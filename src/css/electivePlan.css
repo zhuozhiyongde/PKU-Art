@@ -14,7 +14,7 @@ body > table:last-of-type {
     border-spacing: 0;
 }
 
-body > table:nth-of-type(2) {
+body:not(:has(*[background='/elective2008/resources/images/11-1.png'])) > table:nth-of-type(2) {
     background: var(--c-card);
     border: 1px solid var(--c-border);
     border-radius: 14px;
@@ -22,13 +22,13 @@ body > table:nth-of-type(2) {
     margin-top: 28px;
 }
 
-body > table:nth-of-type(2):before {
+body:not(:has(*[background='/elective2008/resources/images/11-1.png'])) > table:nth-of-type(2):before {
     content: '选课计划列表';
     display: block;
     font-size: 24px;
     font-weight: bold;
     color: var(--c-title);
-    margin-bottom: 12px;
+    margin: 12px 0 24px 0;
 }
 
 body > table:nth-of-type(2) td {
@@ -36,37 +36,66 @@ body > table:nth-of-type(2) td {
     border: none;
 }
 
+/* 删除成功 lable */
+tr:has(> td > img[src='/elective2008/resources/images/success.gif']) {
+    float: none !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px !important;
+    margin: 0;
+    border-radius: 999px;
+    background: var(--green-1);
+    border: 1px solid var(--green-4);
+    color: var(--green-6);
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+tr:has(> td > img[src='/elective2008/resources/images/success.gif']) img {
+    display: none;
+}
+
+tr:has(> td > img[src='/elective2008/resources/images/success.gif']) td {
+    width: fit-content !important;
+}
+
+tr:has(> td > img[src='/elective2008/resources/images/success.gif'])::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    mask-image: var(--i-check-simple);
+    -webkit-mask-image: var(--i-check-simple);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: var(--green-6);
+}
+
 /* 网上选课 >> 选课计划 */
 
 p.pkuportal-remark {
-    margin: 0 0 10px 0;
-    padding: 0;
-    border-radius: 14px;
-    /* background: var(--c-card);
-    border: 1px solid var(--c-border); */
-    color: var(--gray-7);
-    /* font-weight: bold; */
-}
-
-p.pkuportal-remark b,
-p.pkuportal-remark span {
-    color: var(--c-title);
+    display: none;
 }
 
 /* 提示：添加其他课程 / 双学位不支持添加 */
 
-body > table:nth-of-type(2) > tbody > tr:nth-of-type(2) td > div:first-child {
+td:has(img[src='/elective2008/resources/images/attention.jpg'])
+    img[src='/elective2008/resources/images/attention.jpg'] {
     display: none !important;
 }
 
-body > table:nth-of-type(2) > tbody > tr:nth-of-type(2) td > div:last-child {
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child {
     float: none !important;
     width: auto !important;
     display: inline-flex !important;
     align-items: center;
     gap: 10px;
     padding: 4px 12px !important;
-    margin: 0 0 10px;
+    margin: 0;
     border-radius: 999px;
     background: var(--blue-1);
     border: 1px solid var(--blue-4);
@@ -75,15 +104,20 @@ body > table:nth-of-type(2) > tbody > tr:nth-of-type(2) td > div:last-child {
     font-weight: 500;
 }
 
-body > table:nth-of-type(2) > tbody > tr:nth-of-type(2) td > div:last-child:hover {
-    float: none !important;
-    width: auto !important;
-    display: inline-flex !important;
-    align-items: center;
-    gap: 10px;
-    padding: 4px 12px !important;
-    margin: 0 0 12px;
-    border-radius: 999px;
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    mask-image: var(--i-tip);
+    -webkit-mask-image: var(--i-tip);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: var(--blue-6);
+}
+
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child:hover {
     background: var(--blue-2);
     border: 1px solid var(--blue-5);
     color: var(--blue-7);

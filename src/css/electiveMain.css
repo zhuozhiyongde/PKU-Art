@@ -20,6 +20,7 @@ body {
 *::after {
     text-shadow: none !important;
     box-shadow: none !important;
+    line-height: 1.5;
 }
 body {
     position: relative;
@@ -59,12 +60,12 @@ body > table:first-of-type td img {
 
 #menu {
     margin: 0;
-    padding: 0 42px 0 0 !important;
+    padding: 0 90px 0 0 !important;
     list-style: none;
     display: flex !important;
     flex-wrap: wrap;
     flex-direction: row-reverse;
-    gap: 10px;
+    gap: 28px;
     justify-content: flex-start;
     float: right;
     width: fit-content !important;
@@ -94,23 +95,56 @@ body > table:first-of-type td img {
     display: block;
 }
 
+.pku-art-theme-toggle-bar {
+    position: absolute;
+    right: 42px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 #menu li a {
-    padding: 5px 10px;
+    padding: 5px 2px;
     border-radius: 8px;
-    border: 1px solid var(--c-border);
-    background: var(--c-button);
+    border: none;
+    background: transparent;
     color: var(--c-text);
     font-size: 13px;
     font-weight: 500;
     text-decoration: none;
     transition: none;
     float: none;
+    position: relative;
 }
 
 #menu li:not(:first-child) a:hover {
-    background: var(--cyan-2);
-    color: var(--cyan-7);
+    background: transparent;
+    color: var(--c-accent);
     transition: all 0.3s ease-in-out;
+}
+
+#menu li:not(:first-child) a:after {
+    content: '';
+    color: transparent;
+    visibility: visible !important;
+    position: absolute;
+    border-bottom: 2px solid var(--red-5);
+    border-radius: 2px;
+    bottom: -2px;
+    /*向左偏移隐藏*/
+    left: 100%;
+    width: 0;
+    -webkit-transition: width 350ms, left 350ms;
+    -moz-transition: width 350ms, left 350ms;
+    transition: width 350ms, left 350ms;
+}
+
+#menu li:not(:first-child) a:hover:after {
+    visibility: visible !important;
+    left: 0;
+    width: 100%;
+    -webkit-transition: width 350ms;
+    -moz-transition: width 350ms;
+    transition: width 350ms;
 }
 
 /* 错误页面 */
@@ -164,7 +198,7 @@ td[background*='/elective2008/resources/images/11-1.png'] * {
 
 /* 版权标识 */
 body > table:last-of-type {
-    margin: 10px auto;
+    margin: 10px auto !important;
 }
 
 body > table:last-of-type td {
@@ -178,5 +212,4 @@ body > table:last-of-type td:after {
     color: var(--c-text);
     padding-top: 5px;
     height: 20px;
-    visibility: visible !important;
 }

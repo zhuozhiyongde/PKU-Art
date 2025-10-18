@@ -32,6 +32,8 @@ body #div {
     height: fit-content;
     position: relative;
     overflow: visible;
+    transition: none !important;
+    animation: none !important;
 }
 
 body #div > div {

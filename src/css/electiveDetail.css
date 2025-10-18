@@ -1,0 +1,95 @@
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
+@import 'main.css';
+
+body {
+    position: relative;
+}
+
+body:before {
+    position: sticky;
+    content: '';
+    background-image: var(--i-logo);
+    background-size: auto 30px;
+    background-repeat: no-repeat;
+    background-position: 2em center;
+    background-color: var(--c-card);
+    border-bottom: 1px solid var(--c-border);
+    overflow: hidden;
+    padding: 1em 2em;
+    height: 60px;
+    box-sizing: border-box;
+    display: block;
+}
+
+p[style*='color: #39961D'] {
+    color: var(--c-title) !important;
+    font-size: 24px !important;
+    font-weight: bold;
+    margin: 10px auto;
+}
+
+body > table:has(.pkuportal-table-portlet) {
+    width: min(1180px, calc(100vw - 64px)) !important;
+}
+
+td:has(> .pkuportal-table-portlet) {
+    background: var(--c-card);
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid var(--c-border);
+}
+
+.pkuportal-table-portlet {
+    border-collapse: collapse;
+    border-width: 2px 0px 2px 0px;
+    border-style: solid;
+    border-color: var(--c-border);
+    margin: 0 auto;
+}
+
+.pkuportal-table-portlet th,
+.pkuportal-table-portlet td {
+    padding: 5px;
+    color: var(--c-text);
+    font-size: 14px;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    border-color: var(--c-border);
+}
+
+.pkuportal-table-portlet .pkuportal-td-title {
+    color: var(--c-title);
+    background: transparent;
+    font-weight: bold;
+    margin: 10px auto;
+}
+
+/*斑马纹表格*/
+.pkuportal-table-portlet > tbody > tr.datagrid-even,
+.pkuportal-table-portlet > tbody > tr.datagrid-even:hover,
+.pkuportal-table-portlet > tbody > tr:nth-child(2n):not(.datagrid-header):not(:last-of-type) {
+    background: var(--c-card) !important;
+}
+
+.pkuportal-table-portlet > tbody > tr.datagrid-odd,
+.pkuportal-table-portlet > tbody > tr.datagrid-odd:hover,
+.pkuportal-table-portlet > tbody > tr:nth-child(2n + 1):not(.datagrid-header):not(:last-of-type) {
+    background: var(--gray-1) !important;
+}
+
+body:after {
+    content: 'PKU Art @ Arthals';
+    display: block;
+    color: var(--c-text);
+    padding-top: 5px;
+    height: 20px;
+    visibility: visible !important;
+    margin: 10px auto;
+    width: fit-content;
+}

@@ -253,7 +253,7 @@ function initializeThemeManager() {
 }
 
 function initializeThemeToggleButton() {
-    if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
+    if (!/^https:\/\/(course|elective)\.pku\.edu\.cn\//.test(window.location.href)) {
         return;
     }
 
@@ -267,18 +267,31 @@ function initializeThemeToggleButton() {
 
         const remindLink = document.querySelector('#global-nav-link');
         const navWrap = document.querySelector('.global-nav-bar-wrap');
-        if (!remindLink || !navWrap) {
-            if (attempts < maxAttempts) {
-                attempts += 1;
-                setTimeout(attachToggle, 300);
+
+        if (/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
+            if (!remindLink || !navWrap) {
+                if (attempts < maxAttempts) {
+                    attempts += 1;
+                    setTimeout(attachToggle, 300);
+                }
+                return;
             }
-            return;
         }
 
-        const navBarItem = remindLink.closest('.global-nav-bar');
+        const menuExit = document.querySelector('#menu li:first-of-type:has(a[href="/elective2008/logout.do"])');
+
+        if (/^https:\/\/elective\.pku\.edu\.cn\//.test(window.location.href)) {
+            if (!menuExit) {
+                if (attempts < maxAttempts) {
+                    attempts += 1;
+                    setTimeout(attachToggle, 300);
+                }
+                return;
+            }
+        }
 
         const wrapper = document.createElement('div');
-        wrapper.className = 'global-nav-bar pku-art-theme-toggle-bar';
+        wrapper.className = 'pku-art-theme-toggle-bar';
 
         const toggleButton = document.createElement('button');
         toggleButton.type = 'button';
@@ -358,10 +371,21 @@ function initializeThemeToggleButton() {
 
         wrapper.appendChild(toggleButton);
 
-        if (navBarItem && navBarItem.parentElement) {
-            navBarItem.parentElement.insertBefore(wrapper, navBarItem.nextSibling);
-        } else {
-            navWrap.appendChild(wrapper);
+        if (/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
+            const navBarItem = remindLink.closest('.global-nav-bar');
+            wrapper.classList.add('global-nav-bar');
+
+            if (navBarItem && navBarItem.parentElement) {
+                navBarItem.parentElement.insertBefore(wrapper, navBarItem.nextSibling);
+            } else {
+                navWrap.appendChild(wrapper);
+            }
+        }
+
+        if (/^https:\/\/elective\.pku\.edu\.cn\//.test(window.location.href)) {
+            if (menuExit && menuExit.parentElement) {
+                menuExit.parentElement.insertBefore(wrapper, menuExit.nextSibling);
+            }
         }
 
         updateButtonState();

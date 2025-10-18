@@ -14,7 +14,7 @@ body > table:last-of-type {
     border-spacing: 0;
 }
 
-body > table:nth-of-type(2) {
+body:not(:has(*[background='/elective2008/resources/images/11-1.png'])) > table:nth-of-type(2) {
     background: var(--c-card);
     border: 1px solid var(--c-border);
     border-radius: 14px;
@@ -22,20 +22,20 @@ body > table:nth-of-type(2) {
     margin-top: 28px;
 }
 
-body > table:nth-of-type(2) td {
+body:not(:has(*[background='/elective2008/resources/images/11-1.png'])) > table:nth-of-type(2) td {
     padding: 0;
     border: none;
 }
 
 /* 网上选课 >> 选课结果 */
 
-body > table:nth-of-type(2):before {
+body:not(:has(*[background='/elective2008/resources/images/11-1.png'])) > table:nth-of-type(2):before {
     content: '选课结果';
     display: block;
     font-size: 24px;
     font-weight: bold;
     color: var(--c-title);
-    margin-bottom: 12px;
+    margin: 12px 0 24px 0;
 }
 
 /* 选课已经结束提示 */
@@ -74,18 +74,7 @@ body > table:nth-of-type(2) td[colspan='0'] .message_success {
 }
 
 .pkuportal-remark {
-    margin: 0 0 10px 0;
-    padding: 0;
-    border-radius: 14px;
-    /* background: var(--c-card);
-    border: 1px solid var(--c-border); */
-    color: var(--gray-7) !important;
-    /* font-weight: bold; */
-}
-
-.pkuportal-remark b,
-.pkuportal-remark span {
-    color: var(--c-title);
+    display: none;
 }
 
 a:link,

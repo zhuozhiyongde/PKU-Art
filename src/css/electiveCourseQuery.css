@@ -1,0 +1,995 @@
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
+@import 'main.css';
+
+body {
+    background: var(--c-background) !important;
+    color: var(--c-text);
+    font-size: 14px;
+    line-height: 1.6;
+    padding-bottom: 48px;
+}
+
+*,
+*::before,
+*::after {
+    text-shadow: none !important;
+    box-shadow: none !important;
+    line-height: 1.2rem;
+}
+body {
+    position: relative;
+}
+/* 标题 */
+body > table:first-of-type {
+    margin: 0 !important;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    height: 60px !important;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+body > table:first-of-type td {
+    position: relative;
+    background-image: var(--i-logo) !important;
+    background-size: auto 30px !important;
+    background-repeat: no-repeat !important;
+    background-position: 2em center !important;
+    background-color: var(--c-card) !important;
+    border-bottom: 1px solid var(--c-border);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 1em 2em;
+    height: 100% !important;
+    box-sizing: border-box;
+}
+
+body > table:first-of-type td img {
+    display: none;
+}
+
+#menu {
+    margin: 0;
+    padding: 0 90px 0 0 !important;
+    list-style: none;
+    display: flex !important;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    gap: 28px;
+    justify-content: flex-start;
+    float: right;
+    width: fit-content !important;
+    position: relative;
+}
+
+#menu li:first-of-type {
+    position: absolute;
+    right: 0px !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+    height: fit-content;
+    width: fit-content;
+}
+
+#menu li:first-of-type a {
+    color: transparent;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    background-image: var(--i-exit);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: none;
+    display: block;
+}
+
+.pku-art-theme-toggle-bar {
+    position: absolute;
+    right: 42px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#menu li a {
+    padding: 5px 2px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    color: var(--c-text);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: none;
+    float: none;
+    position: relative;
+}
+
+#menu li:not(:first-child) a:hover {
+    background: transparent;
+    color: var(--c-accent);
+    transition: all 0.3s ease-in-out;
+}
+
+#menu li:not(:first-child) a:after {
+    content: '';
+    color: transparent;
+    visibility: visible !important;
+    position: absolute;
+    border-bottom: 2px solid var(--red-5);
+    border-radius: 2px;
+    bottom: -2px;
+    /*向左偏移隐藏*/
+    left: 100%;
+    width: 0;
+    -webkit-transition: width 350ms, left 350ms;
+    -moz-transition: width 350ms, left 350ms;
+    transition: width 350ms, left 350ms;
+}
+
+#menu li:not(:first-child) a:hover:after {
+    visibility: visible !important;
+    left: 0;
+    width: 100%;
+    -webkit-transition: width 350ms;
+    -moz-transition: width 350ms;
+    transition: width 350ms;
+}
+
+/* 错误页面 */
+body div[style*='pku_view.jpg'] {
+    background: transparent !important;
+}
+
+td[background*='/elective2008/resources/images/11-1.png'] {
+    /* display: none; */
+    background: var(--c-card) !important;
+    border: 1px solid var(--c-border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 28px;
+    position: relative;
+}
+
+td[background*='/elective2008/resources/images/11-1.png']:before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    mask-image: var(--i-warning);
+    -webkit-mask-image: var(--i-warning);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: var(--red-6);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 50px;
+}
+
+td[background*='/elective2008/resources/images/11-1.png'] * {
+    color: var(--c-text);
+}
+
+.errmsg {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px !important;
+    border-radius: 999px;
+    border: 1px solid var(--red-4);
+    background: var(--red-1);
+    color: var(--red-6) !important;
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+body > table:not(:first-of-type),
+body > table:last-of-type {
+    /* width: min(1180px, calc(100vw - 64px)) !important; */
+    margin: 0 auto;
+    border-spacing: 0;
+}
+
+body:not(:has(*[background='/elective2008/resources/images/11-1.png'])) > table:nth-of-type(2) {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 28px;
+}
+
+body:not(:has(*[background='/elective2008/resources/images/11-1.png'])) > table:nth-of-type(2):before {
+    content: '添加选课计划课程';
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--c-title);
+    margin: 12px 0 24px 0;
+}
+
+body > table:nth-of-type(2) td {
+    padding: 0;
+    border: none;
+}
+
+.pkuportal-remark {
+    display: none;
+}
+
+/* 提示：添加操作成功,请查看选课计划确认,之后请继续选课或者补选。 */
+
+tr:has(> td > img[src='/elective2008/resources/images/success.gif']) {
+    float: none !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px !important;
+    margin: 0;
+    border-radius: 999px;
+    background: var(--green-1);
+    border: 1px solid var(--green-4);
+    color: var(--green-6);
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+tr:has(> td > img[src='/elective2008/resources/images/success.gif']) img {
+    display: none;
+}
+
+tr:has(> td > img[src='/elective2008/resources/images/success.gif']) td {
+    width: fit-content !important;
+}
+
+tr:has(> td > img[src='/elective2008/resources/images/success.gif'])::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    mask-image: var(--i-check-simple);
+    -webkit-mask-image: var(--i-check-simple);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: var(--green-6);
+}
+
+/* 提示：查看选课计划 */
+
+td:has(img[src='/elective2008/resources/images/attention.jpg'])
+    img[src='/elective2008/resources/images/attention.jpg'] {
+    display: none !important;
+}
+
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child {
+    float: none !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px !important;
+    margin: 0;
+    border-radius: 999px;
+    background: var(--blue-1);
+    border: 1px solid var(--blue-4);
+    color: var(--blue-6);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    mask-image: var(--i-tip);
+    -webkit-mask-image: var(--i-tip);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: var(--blue-6);
+}
+
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child:hover {
+    background: var(--blue-2);
+    border: 1px solid var(--blue-5);
+    color: var(--blue-7);
+    transition: all 0.3s ease-in-out;
+}
+
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* 搜索区域 */
+
+#qyForm tr:has(> #kcfl) {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#qyForm tr:has(> #kcfl) * {
+    font-size: 14px;
+    color: var(--c-text);
+    width: fit-content;
+}
+
+/* 容器 */
+#kcfl {
+    gap: 12px !important;
+    flex-wrap: wrap;
+}
+
+#kcfl span {
+    display: none;
+}
+
+#kcfl input[type='radio'] {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--c-button);
+    border: 1px solid var(--c-border);
+    color: var(--ui-text);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    /* transition: all .2s ease; */
+    position: relative;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ::before 做左侧圆点 */
+#kcfl input[type='radio']::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--c-border);
+    border-radius: 50%;
+    background: var(--gray-4);
+    margin-right: 8px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+/* ::after 做文字标签 */
+#kcfl input[type='radio']::after {
+    color: var(--c-text);
+    transition: color 0.2s ease;
+}
+
+/* 根据 id 设置不同文字 */
+#kcfl input[type='radio']#speciality::after {
+    content: '专业课';
+}
+
+#kcfl input[type='radio']#tsk_choice::after {
+    content: '通识课';
+}
+
+#kcfl input[type='radio']#pub_choice::after {
+    content: '公选课';
+}
+#kcfl input[type='radio']:hover {
+    border-color: var(--red-4);
+    background: var(--red-1);
+}
+
+#kcfl input[type='radio']:hover::before {
+    border-color: var(--red-4);
+    background-color: var(--red-4);
+}
+#kcfl input[type='radio']:checked {
+    background: var(--red-5);
+    border-color: var(--red-5);
+}
+
+#kcfl input[type='radio']:checked::before {
+    background-size: 11px 11px;
+    mask-image: var(--i-check-simple);
+    -webkit-mask-image: var(--i-check-simple);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: white;
+}
+
+#kcfl input[type='radio']:checked::after {
+    color: #fff;
+}
+#kcfl input[type='radio']:focus-visible {
+    outline: 2px solid var(--ui-primary);
+    outline-offset: 2px;
+}
+#kcfl input[type='radio']:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 课程列表 */
+
+table.datagrid {
+    border: none;
+    border-collapse: collapse;
+    margin-top: 10px;
+    color: var(--c-text);
+}
+
+table.datagrid tr.datagrid-header {
+    color: var(--c-title);
+    font-weight: bold;
+    padding-left: 12px;
+    background: transparent;
+    border: none;
+}
+
+table.datagrid tr.datagrid-header th.datagrid {
+    border-width: 2px 0px 1px 0px;
+    border-style: solid;
+    border-color: var(--c-border);
+    background: transparent !important;
+    padding: 5px 0px;
+}
+
+table.datagrid tr.datagrid-header th.datagrid {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/*斑马纹表格*/
+table.datagrid > tbody > tr.datagrid-even,
+table.datagrid > tbody > tr.datagrid-even:hover,
+table.datagrid > tbody > tr:nth-child(2n):not(.datagrid-header):not(:last-of-type) {
+    background: var(--c-card) !important;
+}
+
+table.datagrid > tbody > tr.datagrid-odd,
+table.datagrid > tbody > tr.datagrid-odd:hover,
+table.datagrid > tbody > tr:nth-child(2n + 1):not(.datagrid-header):not(:last-of-type) {
+    background: var(--gray-1) !important;
+}
+
+table.datagrid > tbody td.datagrid {
+    padding: 5px;
+}
+
+table.datagrid > tbody > tr.datagrid-footer {
+    /* display: none; */
+    border: 1px solid var(--c-border);
+    height: 1px;
+}
+
+table.datagrid > tbody > tr:last-of-type td {
+    padding-top: 10px;
+}
+
+table.datagrid > tbody > tr a {
+    color: var(--blue-5);
+}
+
+table.datagrid > tbody > tr span[style='color:red'] {
+    color: var(--red-6) !important;
+}
+
+/* ==================== 课程查询表单美化 ==================== */
+
+tr[valign='left'] {
+    display: grid;
+    grid-template-columns: repeat(3, 80px 1fr);
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0px;
+    border-radius: 12px;
+    align-items: center;
+}
+
+tr[valign='left'] > td:nth-child(2),
+tr[valign='left'] > td:nth-child(4),
+tr[valign='left'] > td:nth-child(6),
+tr[valign='left'] > td:nth-child(2) > *[style*='width:'],
+tr[valign='left'] > td:nth-child(4) > *[style*='width:'],
+tr[valign='left'] > td:nth-child(6) > *[style*='width:'] {
+    box-sizing: border-box;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+tr[valign='left'] > td:nth-child(8) {
+    /* 跨 3 列 */
+    grid-column: span 3;
+    display: block;
+    width: 100%;
+    /* visibility: hidden; */
+}
+
+tr[valign='left'] > td:nth-child(8) tr {
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+}
+
+tr[valign='left'] > td:nth-child(8) tr td {
+    padding: 0;
+}
+
+tr[valign='left'] > td {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+/* 标签文字样式 */
+tr[valign='left'] > td:not(:has(input)):not(:has(select)):not(:has(table)) {
+    color: var(--c-title);
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* 必填标记 * */
+tr[valign='left'] div[style*='font-size:15px'] {
+    color: var(--red-5);
+    font-size: 16px;
+    font-weight: 600;
+    float: none;
+    margin: 0 2px 0 0;
+}
+
+/* ==================== 输入框样式 ==================== */
+
+/* 文本输入框 */
+tr[valign='left'] input[type='text'].selectize-input {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 8px 12px;
+    border: 1px solid var(--c-border);
+    border-radius: 8px;
+    background: var(--c-input-bg);
+    color: var(--c-title);
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+tr[valign='left'] input[type='text'].selectize-input:hover {
+    border-color: var(--red-4);
+    background: var(--c-focus);
+}
+
+tr[valign='left'] input[type='text'].selectize-input:focus {
+    background: var(--c-focus);
+}
+
+/* ==================== 下拉选择框样式 ==================== */
+
+/* 隐藏原生 select */
+tr[valign='left'] select.selectized {
+    display: none;
+}
+
+/* Selectize 容器 */
+tr[valign='left'] .selectize-control {
+    min-width: 150px;
+}
+
+tr[valign='left'] .selectize-input::before {
+    display: none;
+}
+
+/* Selectize 输入框 */
+tr[valign='left'] .selectize-input {
+    padding: 8px 12px;
+    border: 1px solid var(--c-border) !important;
+    border-radius: 8px;
+    background: var(--c-input-bg) !important;
+    color: var(--c-title);
+    font-size: 14px;
+    box-shadow: none;
+    min-height: auto;
+    line-height: 1.5;
+}
+
+tr[valign='left'] .selectize-input:hover {
+    border-color: var(--red-4);
+    background: var(--c-focus);
+}
+
+tr[valign='left'] .selectize-input.focus,
+tr[valign='left'] .selectize-input.dropdown-active {
+    border-color: var(--red-5);
+    background: var(--c-focus);
+}
+
+/* 选中项样式 */
+tr[valign='left'] .selectize-input .item {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    color: var(--c-title);
+    font-size: 14px;
+}
+
+/* 下拉菜单 */
+tr[valign='left'] .selectize-dropdown {
+    border: 1px solid var(--c-border);
+    border-radius: 8px;
+    background: var(--c-card);
+    margin-top: 4px;
+    padding: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+/* 下拉选项 */
+tr[valign='left'] .selectize-dropdown .option {
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: var(--c-text);
+    font-size: 14px;
+    cursor: pointer;
+    margin: 2px 0;
+}
+
+tr[valign='left'] .selectize-dropdown .option:hover,
+tr[valign='left'] .selectize-dropdown .option.active {
+    background: var(--red-1);
+    color: var(--red-6);
+}
+
+tr[valign='left'] .selectize-dropdown .option.selected {
+    background: var(--red-5);
+    color: #fff;
+    font-weight: 500;
+}
+
+/* ==================== 上课时间复合组件 ==================== */
+
+/* 上课时间容器 */
+tr[valign='left'] td:has(> table[width='90%']) {
+    flex: 1;
+    min-width: 300px;
+}
+
+tr[valign='left'] td table[width='90%'] {
+    width: 100% !important;
+    border-collapse: collapse;
+}
+
+/* 时间反查复选框 */
+tr[valign='left'] input[type='checkbox'] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--c-border);
+    border-radius: 4px;
+    background: var(--c-input-bg);
+    cursor: pointer;
+    position: relative;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+tr[valign='left'] input[type='checkbox']:hover {
+    border-color: var(--red-4);
+    background: var(--red-1);
+}
+
+tr[valign='left'] input[type='checkbox']:checked {
+    background: var(--red-5);
+    border-color: var(--red-5);
+}
+
+tr[valign='left'] input[type='checkbox']:checked::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: white;
+    mask-image: var(--i-check-simple);
+    -webkit-mask-image: var(--i-check-simple);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+/* 时间反查文字 */
+tr[valign='left'] td:has(input[type='checkbox']) + td {
+    font-size: 13px !important;
+    color: var(--c-text) !important;
+}
+
+/* ==================== 按钮样式 ==================== */
+
+/* 查询和清空按钮 */
+tr[valign='left'] input[type='button'].selectize-input {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 8px 20px;
+    border: none !important;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    white-space: nowrap;
+}
+
+/* 查询按钮 */
+tr[valign='left'] input[type='button']#b_query {
+    background: var(--red-5) !important;
+    color: #fff !important;
+    box-sizing: border-box;
+    height: 38px;
+}
+
+tr[valign='left'] input[type='button']#b_query:hover {
+    background: var(--red-6) !important;
+}
+
+/* 清空条件按钮 */
+tr[valign='left'] input[type='button']#b_cancel {
+    width: fit-content;
+    background: var(--c-button) !important;
+    color: var(--c-text) !important;
+    border: 1px solid var(--c-border) !important;
+    box-sizing: border-box;
+    height: 38px;
+}
+
+tr[valign='left'] input[type='button']#b_cancel:hover {
+    background: var(--c-button-hover) !important;
+    border-color: var(--red-4) !important;
+    color: var(--red-5) !important;
+}
+
+tr[valign='left'] input[type='button']#b_cancel:active {
+    border: 1px solid var(--c-border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    white-space: nowrap;
+    padding: 8px 20px;
+    box-sizing: border-box;
+    background: var(--c-button);
+}
+
+/* ==================== 响应式布局 ==================== */
+/* 
+@media (max-width: 1200px) {
+    tr[valign='left'] {
+        gap: 12px;
+        padding: 16px;
+    }
+
+    tr[valign='left'] > td {
+        min-width: calc(50% - 6px);
+    }
+}
+
+@media (max-width: 768px) {
+    tr[valign='left'] {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    tr[valign='left'] > td {
+        width: 100% !important;
+        min-width: 100%;
+    }
+
+    tr[valign='left'] .selectize-control,
+    tr[valign='left'] input[type='text'].selectize-input {
+        width: 100% !important;
+    }
+} */
+
+/* ==================== 隐藏的辅助输入框 ==================== */
+
+tr[valign='left'] input[type='hidden'] {
+    display: none !important;
+}
+
+/* ==================== 焦点可访问性 ==================== */
+
+tr[valign='left'] input:focus-visible,
+tr[valign='left'] .selectize-input.focus {
+    outline: none;
+}
+
+/* ==================== 禁用状态 ==================== */
+
+tr[valign='left'] input:disabled,
+tr[valign='left'] .selectize-input.disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+}
+
+/* ==================== 分页器美化 ==================== */
+
+/* 分页器容器 */
+.navigation-area {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    background: var(--c-card) !important;
+    border-radius: 12px !important;
+    margin-top: 16px;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100% !important;
+    font-size: 0 !important;
+}
+
+/* 分页信息容器 */
+.navigation-area > *:not(form) {
+    font-size: 14px !important;
+    color: var(--c-text) !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 分页链接样式 */
+.navigation-area a,
+.navigation-area span:not(:has(select)) {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 6px;
+    font-size: 14px !important;
+    font-weight: 500;
+    text-decoration: none !important;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+/* 可点击的链接 */
+.navigation-area a {
+    background: var(--c-button) !important;
+    color: var(--c-text) !important;
+    border: 1px solid var(--c-border);
+}
+
+.navigation-area a:hover {
+    background: var(--red-1) !important;
+    color: var(--red-5) !important;
+    border-color: var(--red-4);
+}
+
+/* 不可点击的文本（当前页、禁用状态） */
+.navigation-area span:not(:has(select)) {
+    background: transparent !important;
+    color: var(--c-subtitle) !important;
+    cursor: default;
+    border: 1px solid transparent;
+}
+
+/* 分隔符 */
+.navigation-area::after {
+    content: '';
+    width: 1px;
+    height: 20px;
+    background: var(--c-border);
+    margin: 0 4px;
+}
+
+/* 表单容器 */
+.navigation-area form[name='pageForm'] {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* "跳转到:" 文字 */
+.navigation-area form::before {
+    content: '跳转到:';
+    color: var(--c-text);
+    font-size: 14px !important;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* 隐藏原始文字节点 */
+.navigation-area form {
+    font-size: 0 !important;
+}
+
+.navigation-area script {
+    display: none !important;
+}
+
+/* 页码选择下拉框 */
+.navigation-area select[name='netui_row'] {
+    appearance: none;
+    -webkit-appearance: none;
+    min-width: 80px;
+    height: 32px;
+    padding: 0 32px 0 12px;
+    border: 1px solid var(--c-border);
+    border-radius: 6px;
+    background: var(--c-input-bg);
+    color: var(--c-title);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    background-image: var(--i-arrow) !important;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+}
+
+.navigation-area select[name='netui_row']:hover {
+    border-color: var(--red-4) !important;
+    background-color: var(--c-focus) !important;
+}
+
+.navigation-area select[name='netui_row']:focus {
+    border-color: var(--red-5) !important;
+    box-shadow: 0 0 0 3px var(--red-1) !important;
+    background-color: var(--c-focus) !important;
+}
+
+/* 下拉选项 */
+.navigation-area select[name='netui_row'] option {
+    padding: 8px 12px;
+    background: var(--c-card);
+    color: var(--c-title);
+    font-size: 14px;
+}
+
+.navigation-area select[name='netui_row'] option:hover,
+.navigation-area select[name='netui_row'] option:checked {
+    background: var(--red-1);
+    color: var(--red-5);
+}
+
+.navigation-area::after {
+    content: none;
+}

@@ -22,7 +22,7 @@ body > table:not(:first-of-type):not(:last-of-type) {
     padding: 20px;
 }
 
-body > table:nth-of-type(2) {
+body:not(:has(*[background='/elective2008/resources/images/11-1.png'])) > table:nth-of-type(2) {
     background: var(--c-card);
     border: 1px solid var(--c-border);
     border-radius: 14px 14px 0 0;
@@ -32,13 +32,13 @@ body > table:nth-of-type(2) {
     border-top: 1px solid var(--c-border) !important;
 }
 
-body > table:nth-of-type(2):before {
+body:not(:has(*[background='/elective2008/resources/images/11-1.png'])) > table:nth-of-type(2):before {
     content: '帮助页面';
     display: block;
     font-size: 24px;
     font-weight: bold;
     color: var(--c-title);
-    margin-bottom: 12px;
+    margin: 12px 0 24px 0;
 }
 
 body > table:nth-of-type(2) td {

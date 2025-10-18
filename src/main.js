@@ -8,6 +8,10 @@ import {
     initializeDirectDownload,
     redirectGlobalMoreLink,
     enableDirectOpenLinks,
+    restoreCourseQueryValues,
+    refactorCourseQueryPagination,
+    formValueStorage,
+    insertHTMLForDebug,
 } from './utils.js';
 
 initializeThemeManager();
@@ -20,3 +24,7 @@ removeCourseSerialNumbers();
 initializeDirectDownload();
 redirectGlobalMoreLink();
 enableDirectOpenLinks();
+restoreCourseQueryValues();
+refactorCourseQueryPagination();
+formValueStorage();
+// insertHTMLForDebug();
