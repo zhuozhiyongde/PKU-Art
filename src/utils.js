@@ -656,6 +656,31 @@ function formValueStorage() {
     }
 }
 
+function removeEmptyTableRows() {
+    if (
+        !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/help\/faqForUnderGrad\.jsp\S*$/.test(
+            window.location.href
+        )
+    ) {
+        return;
+    }
+
+    const removeFunc = () => {
+        const rows = document.querySelectorAll('table.datagrid tr');
+        rows.forEach(function (tr) {
+            if (tr.children.length === 1 && tr.firstElementChild.tagName === 'TD') {
+                // 将非断行空格（NBSP）替换掉，再 trim
+                const text = tr.firstElementChild.textContent.replace(/\u00A0/g, '').trim();
+                if (text === '') {
+                    tr.remove();
+                }
+            }
+        });
+    };
+    removeFunc();
+    document.addEventListener('DOMContentLoaded', removeFunc);
+}
+
 function insertHTMLForDebug() {
     const html_str = `<tr><td colspan="0"><table width="100%"><tbody><tr><td width="52px" valign="middle" class="message_success"><img src="/elective2008/resources/images/success.gif"></td><td width="100%" valign="middle">添加操作成功,请查看选课计划确认,之后请继续选课或者补选。</td></tr></tbody></table></td></tr>`;
     const url = `https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/courseQuery/CourseQueryController.jpf`;
@@ -689,4 +714,5 @@ export {
     refactorCourseQueryPagination,
     formValueStorage,
     insertHTMLForDebug,
+    removeEmptyTableRows,
 };

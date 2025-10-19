@@ -37,6 +37,7 @@ import electiveResultsStyles from './css/electiveResults.css?inline';
 import electiveHelpStyles from './css/electiveHelp.css?inline';
 import electiveDetailStyles from './css/electiveDetail.css?inline';
 import electiveCourseQueryStyles from './css/electiveCourseQuery.css?inline';
+import electiveFaqStyles from './css/electiveFaq.css?inline';
 
 function injectStyles(styleString, cssFileName) {
     const styleElement = document.createElement('style');
@@ -325,6 +326,15 @@ const styleRules = [
         excludePatterns: [/^\S*goNested\.do\S*$/],
         styleContent: electiveCourseQueryStyles,
         fileName: 'electiveCourseQuery.css',
+    },
+    {
+        // https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/help/faqForUnderGrad.jsp
+        patterns: [
+            /^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/help\/faqForUnderGrad\.jsp\S*$/,
+        ],
+        excludePatterns: [],
+        styleContent: electiveFaqStyles,
+        fileName: 'electiveFaq.css',
     },
 ];
 

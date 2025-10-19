@@ -11,6 +11,7 @@ import {
     restoreCourseQueryValues,
     refactorCourseQueryPagination,
     formValueStorage,
+    removeEmptyTableRows,
     insertHTMLForDebug,
 } from './utils.js';
 
@@ -27,4 +28,5 @@ enableDirectOpenLinks();
 restoreCourseQueryValues();
 refactorCourseQueryPagination();
 formValueStorage();
+removeEmptyTableRows();
 // insertHTMLForDebug();

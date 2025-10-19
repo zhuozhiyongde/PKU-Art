@@ -1,0 +1,71 @@
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+@import 'arco-palette.css';
+@import 'main.css';
+
+body > table:not(:first-of-type),
+body > table:last-of-type {
+    width: min(1180px, calc(100vw - 64px)) !important;
+    margin: 0 auto;
+    border-spacing: 0;
+}
+
+body:not(:has(*[background='/elective2008/resources/images/11-1.png'])) > table.datagrid {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 28px;
+}
+
+body:not(:has(*[background='/elective2008/resources/images/11-1.png'])) > table.datagrid td {
+    padding: 0;
+    border: none;
+}
+
+/* 网上选课 >> 选课结果 */
+
+body:not(:has(*[background='/elective2008/resources/images/11-1.png'])) > table.datagrid:before {
+    content: '选课 FAQ';
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--c-title);
+    margin: 12px 0 24px 0;
+}
+
+table.datagrid {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+table.datagrid td {
+    font-size: 14px;
+}
+
+table.datagrid tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pagehead,
+.datagrid-header {
+    display: none;
+}
+
+table.datagrid tr.datagrid-even {
+    background: var(--c-card) !important;
+}
+
+table.datagrid tr.datagrid-even td {
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
+    color: var(--c-title) !important;
+}

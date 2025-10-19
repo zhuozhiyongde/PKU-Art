@@ -42,12 +42,16 @@ body #div > div {
     font-weight: bold;
     border-radius: 10px;
     bottom: inherit !important;
+    transition: none !important;
+    animation: none !important;
 }
 
 .overClass {
-    border: none;
+    border: none !important;
     color: var(--c-accent) !important;
     background: var(--c-button-hover) !important;
+    transition: none !important;
+    animation: none !important;
 }
 
 body #div3 {
@@ -57,4 +61,27 @@ body #div3 {
     transform: translateX(-50%) translateY(-40px);
     transition: none !important;
     animation: none !important;
+    border: 1px solid var(--red-4) !important;
+    background: var(--red-1) !important;
+    color: var(--red-6) !important;
+    border-radius: 999px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 4px 12px !important;
+    width: fit-content !important;
+    font-size: 18px !important;
+}
+body #div3::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 28px;
+    mask-image: var(--i-warning);
+    -webkit-mask-image: var(--i-warning);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: var(--red-6);
 }

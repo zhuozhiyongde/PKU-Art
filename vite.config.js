@@ -29,6 +29,8 @@ export default defineConfig({
                 name: 'PKU-Art',
                 description: '给你一个足够好看的教学网。',
                 match: ['*://*.pku.edu.cn/*'],
+                // local development
+                // match: ['*://*.pku.edu.cn/*', 'http://localhost:8000/*'],
                 'run-at': 'document-start',
                 'inject-into': 'page',
                 version: envConfig.VERSION,
