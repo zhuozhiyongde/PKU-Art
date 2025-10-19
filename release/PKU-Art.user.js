@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.5.1
+// @version      2.5.2
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -71,11 +71,11 @@
     styleElement.dataset.cssFileName = cssFileName;
     styleElement.dataset.author = "Arthals";
     styleElement.className = "PKU-Art";
-    if (document.head) {
-      document.head.appendChild(styleElement);
+    if (document.body) {
+      document.body.appendChild(styleElement);
     } else {
       document.addEventListener("DOMContentLoaded", () => {
-        document.head.appendChild(styleElement);
+        document.body.appendChild(styleElement);
       });
     }
   }

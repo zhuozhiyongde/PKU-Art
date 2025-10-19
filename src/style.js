@@ -46,12 +46,12 @@ function injectStyles(styleString, cssFileName) {
     styleElement.dataset.author = 'Arthals';
     styleElement.className = 'PKU-Art';
 
-    if (document.head) {
-        document.head.appendChild(styleElement);
+    if (document.body) {
+        document.body.appendChild(styleElement);
     } else {
-        // 等待 head 加载完成
+        // 等待 body 加载完成
         document.addEventListener('DOMContentLoaded', () => {
-            document.head.appendChild(styleElement);
+            document.body.appendChild(styleElement);
         });
     }
 }
