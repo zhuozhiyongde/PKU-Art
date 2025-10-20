@@ -4,8 +4,6 @@
  * Github: https://github.com/zhuozhiyongde
  * Blog: https://arthals.ink
  */
-@import 'arco-palette.css';
-@import 'main.css';
 
 body {
     position: relative;
@@ -298,7 +296,7 @@ div.container {
 
 #global-list-tools > .overview,
 #global-list-tools > .stream,
-#global-list-tools > .risktracker  {
+#global-list-tools > .risktracker {
     display: none;
 }
 

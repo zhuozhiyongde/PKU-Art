@@ -45,7 +45,6 @@ PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新
 
 ![6](./README.assets/6.png)
 
-
 </details>
 
 ### `2` 录播下载、重命名
@@ -57,61 +56,41 @@ PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新
 
 </details>
 
-注：重命名功能已知在 Safari + UserScripts 插件时不可用。原因是 UserScripts 插件功能支持有限，为了规避 CSP 限制启用了 `@inject-into page`，导致 GM API 完全不可用，且即使可用也未提供 `GM_download` API。
-
-对于 TamperMonkey 插件：
-
-- Chrome 版本无需操作即可正常运行
-- Safari 版本需要在设置中的 `通用` 面板首先选择 `配置模式` 为 `高级`，随后找到 `下载 BETA` 中的 `下载模式` 选项，修改为 `浏览器 API` 才可以正常工作，否则会出现 `Out of memory` 的 Bug。不过此时无法正常使用 `onprogress` 回调，所以无法实时显示进度，但只要保持页面不关闭即可正常下载并重命名。
-
 ## 📦 安装
 
-PKU Art 目前支持 CSS 安装与 JavaScript 安装两种安装方式，兼容 Safari 与 Chrome（Edge/Arc）两大浏览器。
+> [!WARNING]
+> CSS 安装方式自 v2.6.0 版本更新后被完全移除，不再提供支持。请改用 JavaScript 安装方式。
 
-### JavaScript [推荐]
+PKU Art 目前只支持 JavaScript 安装方式，兼容 Safari 与 Chrome（Edge/Arc）两大浏览器。
 
-请注意，Safari 下部分 JavaScript 功能无法使用，如录播下载重命名（但仍然可以下载 mp4 文件！）、复制视频下载链接等。
+### 前置插件需求
 
-前置插件需求：
-
--   Chrome/Edge/Arc 需安装浏览器插件 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)，点开脚本页面后自动触发安装页面，跟随指引即可。
-
--   Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/userscripts/id1463298887) 或者插件 [TamperMonkey](https://apps.apple.com/cn/app/tampermonkey/id6738342400)（售价 15￥，但是功能更全，推荐）：
-    -   UserScripts：安装好后点击工具栏图标，启用并授权后再在脚本页面点击图标，再点击 Click to install 即可安装。
-    -   TamperMonkey：点击链接会自动跳转到安装界面。
-
-    对比：TamperMonkey 相较 UserScripts 有着更宽松的权限管理，所以可以实现如下功能：
-
-    1. 无缝切换日夜模式，可穿透 `iframe`，在录播、课堂实录等页面会有感知，不过 UserScripts 也只需要刷新一下页面即可应用更改。
-    2. 支持下载重命名，但需要一定的额外配置，详见前文说明。
-
-
-安装渠道：
-
--   [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.user.js)：源代码更新后立即更新
--   [GreasyFork](https://greasyfork.org/zh-CN/scripts/436323-pku-art)：每天同步上述源一次
+#### Chrome/Edge/Arc
 
 > [!WARNING]
 > 注意，由于 Chrome 权限更新，你可能需要在扩展页面打开开发者模式，详见 [这里](https://www.tampermonkey.net/faq.php?locale=en#Q209)。
 
-### CSS
+需安装浏览器插件 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)，点开脚本页面后自动触发安装页面，跟随指引即可。
 
-> [!WARNING]
-> 我们预期 CSS 安装方式会在近期的版本更新中被完全移除，不再提供支持。请尽量使用 JavaScript 安装方式。
+#### Safari
 
-CSS 安装方式只提供了非侵入式样式修改，不支持 JavaScript 版本功能（如首页自动隐去课程号、录播下载等）。
+> [!IMPORTANT]  
+> Safari 下推荐使用 TamperMonkey 插件，因为 UserScripts 插件在 Safari 下存在一些已知问题（插件功能支持有限，为了规避 CSP 限制启用了 `@inject-into page`，导致 GM API 完全不可用，且即使可用也未提供 `GM_download` API），导致不能实现录播下载重命名（但仍然可以下载 mp4 文件！）、复制视频下载链接等。
 
-CSS 安装方式目前已不会在版本更新前确认效果。
+Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/userscripts/id1463298887) 或者插件 [TamperMonkey](https://apps.apple.com/cn/app/tampermonkey/id6738342400)（售价 15 ￥，但是功能更全，推荐）：
 
-前置插件要求：
+-   UserScripts：安装好后点击工具栏图标，启用并授权后再在脚本页面点击图标，再点击 Click to install 即可安装。
+-   TamperMonkey：点击链接会自动跳转到安装界面。
 
--   Chrome/Edge/Arc 需安装浏览器插件 [xStyle](https://chrome.google.com/webstore/detail/xstyle/hncgkmhphmncjohllpoleelnibpmccpj)/[Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe)
--   Safari 需安装浏览器插件 [Cascadea](https://apps.apple.com/cn/app/cascadea/id1432182561)（售价 18 ￥）
+对比：TamperMonkey 相较 UserScripts 有着更宽松的权限管理，所以可以实现如下功能：
 
-安装渠道：
+1. 无缝切换日夜模式，可穿透 `iframe`，在录播、课堂实录等页面会有感知，不过 UserScripts 也只需要刷新一下页面即可应用更改。
+2. 支持下载重命名，但需要额外配置如下：在 TamperMonkey 的设置中的 `通用` 面板首先选择 `配置模式` 为 `高级`，随后找到 `下载 BETA` 中的 `下载模式` 选项，修改为 `浏览器 API` 才可以正常工作，否则会出现 `Out of memory` 的 Bug。不过此时无法正常使用 `onprogress` 回调，所以无法实时显示进度，但只要保持页面不关闭即可正常下载并重命名。
 
--   [CDN for CSS](https://cdn.arthals.ink/release/PKU-Art.user.css)：源代码更新后立即更新
--   [Stylish](https://userstyles.org/styles/220453/pku-art)：每天同步上述源一次
+### 安装渠道
+
+-   [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.user.js)：源代码更新后立即更新
+-   [GreasyFork](https://greasyfork.org/zh-CN/scripts/436323-pku-art)：每天同步上述源一次
 
 ## 🚨 使用须知
 

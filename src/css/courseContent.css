@@ -4,8 +4,6 @@
  * Github: https://github.com/zhuozhiyongde
  * Blog: https://arthals.ink
  */
-@import 'arco-palette.css';
-@import 'main.css';
 
 /* 限制页面最低高度 */
 body {
@@ -493,7 +491,7 @@ li.divider,
 }
 
 #global-list-tools > .alerts > a:hover,
-    #global-list-tools > .grades > a:hover,
+#global-list-tools > .grades > a:hover,
 #global-list-tools > .calendar > a:hover {
     background-color: var(--c-hover);
 }
