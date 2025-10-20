@@ -4,8 +4,6 @@
  * Github: https://github.com/zhuozhiyongde
  * Blog: https://arthals.ink
  */
-@import 'arco-palette.css';
-@import 'main.css';
 
 #containerdiv {
     border: 1px solid var(--c-border);

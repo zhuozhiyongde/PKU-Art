@@ -4,8 +4,6 @@
  * Github: https://github.com/zhuozhiyongde
  * Blog: https://arthals.ink
  */
-@import 'arco-palette.css';
-@import 'main.css';
 
 body {
     position: relative;
@@ -127,7 +125,7 @@ label[for='injectDownloadSwitch']:before {
     transition: 0.1s;
 }
 
-#injectMagicLink{
+#injectMagicLink {
     background: var(--c-tip);
     border: none;
     color: var(--c-text);
@@ -142,7 +140,7 @@ label[for='injectDownloadSwitch']:before {
     gap: 10px;
 }
 
-#injectMagicLink .i-magic{
+#injectMagicLink .i-magic {
     /* background-image: var(--i-magic); */
     width: 16px;
     height: 16px;
@@ -152,7 +150,7 @@ label[for='injectDownloadSwitch']:before {
     color: var(--c-text);
 }
 
-#injectDownloadTip{
+#injectDownloadTip {
     background: var(--c-tip);
     border: none;
     color: var(--c-text);
