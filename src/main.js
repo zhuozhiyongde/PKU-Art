@@ -15,8 +15,8 @@ import {
     insertHTMLForDebug,
 } from './utils.js';
 
-initializeThemeManager();
 applyStylesForCurrentPage();
+initializeThemeManager();
 initializeThemeToggleButton();
 initializeLogoNavigation();
 ensureSidebarVisible();

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.5.2
+// @version      2.5.3
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -19,7 +19,7 @@
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2025/10/19
+// @date         2025/10/20
 // ==/UserScript==
 
 (function () {
@@ -71,13 +71,7 @@
     styleElement.dataset.cssFileName = cssFileName;
     styleElement.dataset.author = "Arthals";
     styleElement.className = "PKU-Art";
-    if (document.body) {
-      document.body.appendChild(styleElement);
-    } else {
-      document.addEventListener("DOMContentLoaded", () => {
-        document.body.appendChild(styleElement);
-      });
-    }
+    document.documentElement.appendChild(styleElement);
   }
   const currentUrl = window.location.href;
   const globalStyleScopes = [
@@ -1241,8 +1235,8 @@ ${downloadUrl}`);
     removeFunc();
     document.addEventListener("DOMContentLoaded", removeFunc);
   }
-  initializeThemeManager();
   applyStylesForCurrentPage();
+  initializeThemeManager();
   initializeThemeToggleButton();
   initializeLogoNavigation();
   ensureSidebarVisible();
