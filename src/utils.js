@@ -437,11 +437,12 @@ function enableDirectOpenLinks() {
             if (link.dataset.pkuArtProcessed) return;
 
             const href = link.getAttribute('href');
-            if (href && !href.startsWith('/webapps/') && !href.startsWith('#')) {
+            // 只打开外链，不打开内链
+            if (href && !href.startsWith('/') && !href.startsWith('#')) {
                 link.removeAttribute('onclick');
-                link.dataset.pkuArtProcessed = 'true';
                 console.log('[PKU Art] 直接打开链接:', href);
             }
+            link.dataset.pkuArtProcessed = 'true';
         });
     };
 

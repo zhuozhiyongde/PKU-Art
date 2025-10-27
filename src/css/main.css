@@ -22,6 +22,7 @@
     /* --i-more: url('https://cdn.arthals.ink/css/src/more.svg'); */
 }
 
+:root,
 :root.pku-art-light {
     /* 日间模式变量 */
     --c-title: #212121;
