@@ -61,7 +61,6 @@ body,
 
 #injectDownloadSwitchArea {
     background: var(--c-tip);
-    border: none;
     color: var(--c-text);
     padding: 10px 20px;
     border-radius: 4px;
@@ -125,6 +124,8 @@ label[for='injectDownloadSwitch']:before {
     transition: 0.1s;
 }
 
+#injectDownloadButton,
+#injectCopyDownloadUrlButton,
 #injectMagicLink {
     background: var(--c-tip);
     border: none;
@@ -140,6 +141,8 @@ label[for='injectDownloadSwitch']:before {
     gap: 10px;
 }
 
+#injectDownloadButton .i-download,
+#injectCopyDownloadUrlButton .i-link,
 #injectMagicLink .i-magic {
     /* background-image: var(--i-magic); */
     width: 16px;
@@ -174,21 +177,23 @@ label[for='injectDownloadSwitch']:before {
     text-decoration: underline;
 }
 
-.course-info__wrapper .course-info__footer button:hover,
+#injectDownloadButton:hover,
+#injectCopyDownloadUrlButton:hover,
 #injectMagicLink:hover {
     background: var(--cyan-2);
     color: var(--cyan-6);
 }
 
-.course-info__wrapper .course-info__footer #injectDownloadUrlInput:hover,
-#injectMagicLink:hover * {
+#injectMagicLink:hover *,
+#injectDownloadButton:hover *,
+#injectCopyDownloadUrlButton:hover * {
     background: var(--cyan-2);
     color: var(--cyan-6);
     font-weight: bold;
     transition: 0.1s;
 }
 
-.course-info__wrapper .course-info__footer #injectDownloadUrlInput:hover::placeholder,
+#injectDownloadUrlInput:hover::placeholder,
 #injectMagicLink:hover::placeholder {
     color: var(--cyan-6);
     transition: 0.1s;
