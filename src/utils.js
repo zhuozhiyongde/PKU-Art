@@ -471,22 +471,27 @@ async function initializeSparkDownloadRename() {
         return;
     }
 
-    // 找到所有带有 download 属性且 href 以 http://resourcese.pku.edu.cn 开头的 a 标签
-    const downloadLinks = document.querySelectorAll('a[download][href^="http://resourcese.pku.edu.cn"]');
-    downloadLinks.forEach((link) => {
-        const href = link.getAttribute('href');
-        const downloadUrl = href.replace('http://resourcese.pku.edu.cn', 'https://resourcese.pku.edu.cn');
-        const fileName = link.getAttribute('data-filename');
-        link.setAttribute('href', downloadUrl);
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            GM_download({
-                url: downloadUrl,
-                name: fileName,
-                saveAs: true,
+    const updateDownloadLinks = () => {
+        // 找到所有带有 download 属性且 href 以 http://resourcese.pku.edu.cn 开头的 a 标签
+        const downloadLinks = document.querySelectorAll('a[download][href^="http://resourcese.pku.edu.cn"]');
+        downloadLinks.forEach((link) => {
+            const href = link.getAttribute('href');
+            const downloadUrl = href.replace('http://resourcese.pku.edu.cn', 'https://resourcese.pku.edu.cn');
+            const fileName = link.getAttribute('data-filename');
+            link.setAttribute('href', downloadUrl);
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                alert("即将下载文件：" + fileName);
+                GM_download({
+                    url: downloadUrl,
+                    name: fileName,
+                    saveAs: true,
+                });
             });
         });
-    });
+    };
+    updateDownloadLinks();
+    document.addEventListener('DOMContentLoaded', updateDownloadLinks);
 }
 
 function redirectGlobalMoreLink() {

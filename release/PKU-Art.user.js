@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.6.5
+// @version      2.6.6
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -1094,21 +1094,26 @@ ${downloadUrl}`);
     if (!/^https:\/\/course\.huh\.moe\/course\/\d+$/.test(window.location.href)) {
       return;
     }
-    const downloadLinks = document.querySelectorAll('a[download][href^="http://resourcese.pku.edu.cn"]');
-    downloadLinks.forEach((link) => {
-      const href = link.getAttribute("href");
-      const downloadUrl = href.replace("http://resourcese.pku.edu.cn", "https://resourcese.pku.edu.cn");
-      const fileName = link.getAttribute("data-filename");
-      link.setAttribute("href", downloadUrl);
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        _GM_download({
-          url: downloadUrl,
-          name: fileName,
-          saveAs: true
+    const updateDownloadLinks = () => {
+      const downloadLinks = document.querySelectorAll('a[download][href^="http://resourcese.pku.edu.cn"]');
+      downloadLinks.forEach((link) => {
+        const href = link.getAttribute("href");
+        const downloadUrl = href.replace("http://resourcese.pku.edu.cn", "https://resourcese.pku.edu.cn");
+        const fileName = link.getAttribute("data-filename");
+        link.setAttribute("href", downloadUrl);
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          alert("即将下载文件：" + fileName);
+          _GM_download({
+            url: downloadUrl,
+            name: fileName,
+            saveAs: true
+          });
         });
       });
-    });
+    };
+    updateDownloadLinks();
+    document.addEventListener("DOMContentLoaded", updateDownloadLinks);
   }
   function redirectGlobalMoreLink() {
     if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
