@@ -28,7 +28,7 @@ export default defineConfig({
                 namespace: 'arthals/pku-art',
                 name: 'PKU-Art',
                 description: '给你一个足够好看的教学网。',
-                match: ['*://*.pku.edu.cn/*'],
+                match: ['*://*.pku.edu.cn/*', '*://course.huh.moe/*'],
                 // local development
                 // match: ['*://*.pku.edu.cn/*', 'http://localhost:8000/*'],
                 'run-at': 'document-start',
