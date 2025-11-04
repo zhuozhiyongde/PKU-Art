@@ -323,7 +323,7 @@ async function initializeDirectDownload() {
     downloadAreaFooter.appendChild(magicLink);
 
     magicLink.addEventListener('click', () => {
-        alert(JWT);
+        // alert(JWT);
         window.open('https://course.huh.moe', '_blank');
     });
 

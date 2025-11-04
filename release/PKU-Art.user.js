@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.6.3
+// @version      2.6.4
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -962,7 +962,6 @@
     downloadAreaFooter.appendChild(downloadSwitchArea);
     downloadAreaFooter.appendChild(magicLink);
     magicLink.addEventListener("click", () => {
-      alert(JWT);
       window.open("https://course.huh.moe", "_blank");
     });
     const switchInput = downloadSwitchArea.querySelector("#injectDownloadSwitch");
