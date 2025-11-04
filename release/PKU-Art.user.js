@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.6.2
+// @version      2.6.3
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -19,7 +19,7 @@
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2025/11/02
+// @date         2025/11/04
 // ==/UserScript==
 
 (function () {
@@ -830,11 +830,40 @@
     let subTitle = "";
     let lecturerName = "";
     let fileName = "";
+    let JWT = "";
+    const RELOAD_ATTEMPTS_KEY = "PKU_ART_DIRECT_DOWNLOAD_RELOAD_ATTEMPTS";
+    const MAX_RELOAD_ATTEMPTS = 3;
     const originalSend = XMLHttpRequest.prototype.send;
+    const originalSetRequestHeader = XMLHttpRequest.prototype.setRequestHeader;
+    XMLHttpRequest.prototype.setRequestHeader = function(header, value) {
+      if (!this._headers) {
+        this._headers = {};
+      }
+      this._headers[header] = value;
+      originalSetRequestHeader.apply(this, arguments);
+    };
     XMLHttpRequest.prototype.send = function() {
       this.addEventListener("load", function() {
         if (this.responseURL.includes("get-sub-info-by-auth-data")) {
           downloadJson = JSON.parse(this.response);
+          try {
+            sessionStorage.removeItem(RELOAD_ATTEMPTS_KEY);
+          } catch (error) {
+            console.warn("[PKU Art] 无法清除重载计数", error);
+          }
+          if (this._headers) {
+            for (const headerName in this._headers) {
+              if (headerName.toLowerCase() === "authorization") {
+                JWT = this._headers[headerName].split(" ")[1];
+                break;
+              }
+            }
+          }
+          if (JWT) {
+            console.log("[PKU Art] 成功捕获到 JWT:\n", JWT);
+          } else {
+            console.log("[PKU Art] 未在此请求中找到 JWT。");
+          }
           console.log("[PKU Art] XHR 响应结果：\n", downloadJson);
           courseName = downloadJson.list[0].title;
           subTitle = downloadJson.list[0].sub_title;
@@ -858,16 +887,45 @@
       });
       originalSend.apply(this, arguments);
     };
-    await new Promise((resolve) => {
+    const INJECTION_OBSERVATION_MS = 3e3;
+    const didCaptureDownloadInfo = await new Promise((resolve) => {
+      const injectionStartTime = Date.now();
       const checkExist = setInterval(() => {
         const footer = document.querySelector(".course-info__wrap .course-info__footer");
         if (downloadJson && footer) {
           console.log("[PKU Art] 页面加载完成，下载链接解析成功\n", downloadJson);
           clearInterval(checkExist);
-          resolve();
+          resolve(true);
+          return;
+        }
+        if (footer && !downloadJson && Date.now() - injectionStartTime >= INJECTION_OBSERVATION_MS) {
+          clearInterval(checkExist);
+          let shouldContinue = true;
+          try {
+            let currentAttempts = Number(sessionStorage.getItem(RELOAD_ATTEMPTS_KEY) || "0");
+            if (Number.isNaN(currentAttempts) || currentAttempts < 0) {
+              currentAttempts = 0;
+            }
+            if (currentAttempts >= MAX_RELOAD_ATTEMPTS) {
+              console.warn(`[PKU Art] 已尝试强制重载 ${currentAttempts} 次，停止自动重载`);
+            } else {
+              sessionStorage.setItem(RELOAD_ATTEMPTS_KEY, String(currentAttempts + 1));
+              console.warn("[PKU Art] 未能及时截获课程数据，即将刷新页面重试");
+              shouldContinue = false;
+              window.location.reload();
+            }
+          } catch (error) {
+            console.warn("[PKU Art] 记录重载次数失败，尝试通过刷新页面恢复", error);
+            shouldContinue = false;
+            window.location.reload();
+          }
+          resolve(shouldContinue);
         }
       }, 100);
     });
+    if (!didCaptureDownloadInfo || !downloadJson) {
+      return;
+    }
     const downloadAreaFooter = document.querySelector(".course-info__wrap .course-info__footer");
     if (!downloadAreaFooter) {
       console.warn("[PKU Art] 未找到 course-info__footer，无法注入下载功能");
@@ -904,6 +962,7 @@
     downloadAreaFooter.appendChild(downloadSwitchArea);
     downloadAreaFooter.appendChild(magicLink);
     magicLink.addEventListener("click", () => {
+      alert(JWT);
       window.open("https://course.huh.moe", "_blank");
     });
     const switchInput = downloadSwitchArea.querySelector("#injectDownloadSwitch");
