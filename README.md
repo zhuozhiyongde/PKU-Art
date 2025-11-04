@@ -69,6 +69,12 @@ PKU Art 目前只支持 JavaScript 安装方式，兼容 Safari 与 Chrome（Edg
 
 > [!WARNING]
 > 注意，由于 Chrome 权限更新，你可能需要在扩展页面打开开发者模式，详见 [这里](https://www.tampermonkey.net/faq.php?locale=en#Q209)。
+>
+> 同时，请确保你在扩展页面里，对于 篡改猴 扩展，打开了：
+>
+> 1. 允许此扩展程序读取和更改您访问网站时留存的所有数据：在所有网站上
+> 2. 允许运行用户脚本
+> 3. 允许访问文件网址
 
 需安装浏览器插件 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)，点开脚本页面后自动触发安装页面，跟随指引即可。
 
