@@ -273,5 +273,5 @@ html {
 }
 
 .pku-art-theme-toggle[data-mode='auto']:hover {
-    color: var(--c-secondary);
+    color: var(--gray-5);
 }
