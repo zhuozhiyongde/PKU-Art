@@ -322,8 +322,20 @@ async function initializeDirectDownload() {
     downloadAreaFooter.appendChild(downloadSwitchArea);
     downloadAreaFooter.appendChild(magicLink);
 
-    magicLink.addEventListener('click', () => {
+    magicLink.addEventListener('click', async () => {
         // alert(JWT);
+        try {
+            if (typeof GM_setClipboard === 'function') {
+                GM_setClipboard(JWT);
+            } else if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(JWT);
+            } else {
+                throw new Error('clipboard unsupported');
+            }
+        } catch (error) {
+            console.warn('[PKU Art] 复制 JWT 失败，仅在控制台输出', error);
+            console.log('[PKU Art] JWT:', JWT);
+        }
         window.open('https://course.huh.moe', '_blank');
     });
 

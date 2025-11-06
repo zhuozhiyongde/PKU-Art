@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.6.7
+// @version      2.6.8
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -20,7 +20,7 @@
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2025/11/05
+// @date         2025/11/06
 // ==/UserScript==
 
 (function () {
@@ -962,7 +962,19 @@
     downloadAreaFooter.appendChild(copyDownloadUrlButton);
     downloadAreaFooter.appendChild(downloadSwitchArea);
     downloadAreaFooter.appendChild(magicLink);
-    magicLink.addEventListener("click", () => {
+    magicLink.addEventListener("click", async () => {
+      try {
+        if (typeof _GM_setClipboard === "function") {
+          _GM_setClipboard(JWT);
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(JWT);
+        } else {
+          throw new Error("clipboard unsupported");
+        }
+      } catch (error) {
+        console.warn("[PKU Art] 复制 JWT 失败，仅在控制台输出", error);
+        console.log("[PKU Art] JWT:", JWT);
+      }
       window.open("https://course.huh.moe", "_blank");
     });
     const switchInput = downloadSwitchArea.querySelector("#injectDownloadSwitch");
