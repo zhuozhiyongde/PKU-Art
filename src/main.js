@@ -14,6 +14,7 @@ import {
     formValueStorage,
     removeEmptyTableRows,
     insertHTMLForDebug,
+    customizeIaaaRememberCheckbox,
 } from './utils.js';
 
 applyStylesForCurrentPage();
@@ -31,4 +32,5 @@ restoreCourseQueryValues();
 refactorCourseQueryPagination();
 formValueStorage();
 removeEmptyTableRows();
+customizeIaaaRememberCheckbox();
 // insertHTMLForDebug();

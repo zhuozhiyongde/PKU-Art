@@ -78,24 +78,76 @@ input[type='submit'] {
     color: var(--c-text);
 }
 
-#passwd_area:before {
-    content: '密码';
-    display: block;
-    /*font-weight: 800;*/
-    /*font-size:16p;*/
-    font: bold 13pt arial, sans-serif;
-    text-align: left;
-    margin-left: 5px;
-    margin-bottom: 3px;
-    color: var(--c-title);
+#remember_text.pku-art-remember-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 13px;
 }
 
-#login_panel > div:nth-child(1):before {
+#remember_text.pku-art-remember-toggle > i {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+#remember_text.pku-art-remember-toggle .pku-art-remember-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    border: 1px solid var(--c-border);
+    background: var(--c-input-bg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.08s ease, background-color 0.08s ease;
+    flex-shrink: 0;
+}
+
+#remember_text.pku-art-remember-toggle .pku-art-remember-icon::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    mask-image: var(--i-check-simple);
+    -webkit-mask-image: var(--i-check-simple);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: #fff;
+    opacity: 0;
+    transition: opacity 0.08s ease;
+}
+
+#remember_text.pku-art-remember-toggle.is-checked .pku-art-remember-icon {
+    border-color: var(--c-accent);
+    background: var(--c-accent);
+}
+
+#remember_text.pku-art-remember-toggle.is-checked .pku-art-remember-icon::after {
+    opacity: 1;
+}
+
+.pku-art-remember-checkbox {
+    position: absolute !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+div:has(>input#user_name):before {
     content: '账号';
     display: block;
     height: 25px;
-    /*font-weight: 800;*/
-    /*font-size:16p;*/
+    position: absolute;
+    top: -30px;
+    left: 0;
     font: bold 13pt arial, sans-serif;
     text-align: left;
     margin-left: 5px;
@@ -103,11 +155,35 @@ input[type='submit'] {
     color: var(--c-title);
 }
 
-.fa.fa-times-circle,
-.pad-tip {
-    transform: translate(0, 25px);
+div:has(>input#password):before {
+    content: '密码';
+    display: block;
+    position: absolute;
+    top: -30px;
+    left: 0;
+    font: bold 13pt arial, sans-serif;
+    text-align: left;
+    margin-left: 5px;
+    margin-bottom: 3px;
     color: var(--c-title);
-    font-weight: 100;
+}
+
+div:has(>input#user_name),
+div:has(>input#password) {
+    position: relative;
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa.fa-times-circle{
+    display: none;
+}
+
+.pad-tip {
+    color: var(--c-title);
+    font-weight: normal;
 }
 
 input[type='password']::placeholder,

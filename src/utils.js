@@ -807,6 +807,142 @@ function insertHTMLForDebug() {
     document.addEventListener('DOMContentLoaded', debugFunc);
 }
 
+function customizeIaaaRememberCheckbox() {
+    if (!/^https:\/\/iaaa\.pku\.edu\.cn\/iaaa\/oauth\.jsp/.test(window.location.href)) {
+        return;
+    }
+
+    const checkboxSelectors = [
+        '#remember',
+        '#remember_checkbox',
+        '#rememberMe',
+        'input[type="checkbox"][name="remember"]',
+        'input[type="checkbox"][name="rememberMe"]',
+    ];
+
+    const findCheckbox = () => checkboxSelectors.map((selector) => document.querySelector(selector)).find(Boolean);
+
+    const setupRememberToggle = () => {
+        const rememberText = document.getElementById('remember_text');
+        if (!rememberText) {
+            return false;
+        }
+
+        const getNativeIcon = () => rememberText.querySelector('i');
+        const ensureCustomIcon = () => {
+            if (!rememberText.querySelector('.pku-art-remember-icon')) {
+                const customIcon = document.createElement('span');
+                customIcon.className = 'PKU-Art pku-art-remember-icon';
+                customIcon.setAttribute('aria-hidden', 'true');
+                rememberText.insertBefore(customIcon, rememberText.firstChild);
+            }
+        };
+
+        const getCheckedState = () => {
+            const checkbox = findCheckbox();
+            if (checkbox) {
+                return !!checkbox.checked;
+            }
+            const nativeIcon = getNativeIcon();
+            if (nativeIcon) {
+                return nativeIcon.classList.contains('fa-check-square-o');
+            }
+            return rememberText.classList.contains('is-checked');
+        };
+
+        const updateAppearance = () => {
+            const checked = getCheckedState();
+            rememberText.classList.toggle('is-checked', checked);
+            rememberText.setAttribute('aria-checked', checked ? 'true' : 'false');
+        };
+
+        if (rememberText.dataset.pkuArtRememberBound !== 'true') {
+            rememberText.dataset.pkuArtRememberBound = 'true';
+            rememberText.classList.add('PKU-Art', 'pku-art-remember-toggle');
+            rememberText.setAttribute('role', 'checkbox');
+            rememberText.setAttribute('tabindex', '0');
+
+            ensureCustomIcon();
+
+            rememberText.addEventListener('click', () => {
+                requestAnimationFrame(updateAppearance);
+            });
+
+            rememberText.addEventListener('keydown', (event) => {
+                const isActivateKey = event.key === ' ' || event.key === 'Spacebar' || event.key === 'Enter';
+                if (!isActivateKey) return;
+                event.preventDefault();
+                const checkbox = findCheckbox();
+                if (checkbox) {
+                    checkbox.click();
+                } else {
+                    rememberText.click();
+                }
+            });
+        } else {
+            ensureCustomIcon();
+        }
+
+        const rememberCheckbox = findCheckbox();
+        if (rememberCheckbox) {
+            rememberCheckbox.classList.add('PKU-Art', 'pku-art-remember-checkbox');
+            if (rememberCheckbox.dataset.pkuArtRememberChangeBound !== 'true') {
+                rememberCheckbox.addEventListener('change', updateAppearance);
+                rememberCheckbox.dataset.pkuArtRememberChangeBound = 'true';
+            }
+            if (!rememberCheckbox._pkuArtRememberObserver) {
+                const attributeObserver = new MutationObserver(updateAppearance);
+                attributeObserver.observe(rememberCheckbox, {
+                    attributes: true,
+                    attributeFilter: ['checked'],
+                });
+                rememberCheckbox._pkuArtRememberObserver = attributeObserver;
+            }
+        } else {
+            const nativeIcon = getNativeIcon();
+            if (nativeIcon && !nativeIcon._pkuArtRememberObserver) {
+                const iconObserver = new MutationObserver(updateAppearance);
+                iconObserver.observe(nativeIcon, {
+                    attributes: true,
+                    attributeFilter: ['class'],
+                });
+                nativeIcon._pkuArtRememberObserver = iconObserver;
+            }
+        }
+
+        updateAppearance();
+        return true;
+    };
+
+    const ensureToggle = () => setupRememberToggle();
+
+    if (!ensureToggle()) {
+        const observer = new MutationObserver(() => {
+            if (ensureToggle()) {
+                observer.disconnect();
+            }
+        });
+
+        const startObserver = () => {
+            if (document.body) {
+                observer.observe(document.body, { childList: true, subtree: true });
+            }
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                if (!ensureToggle()) {
+                    startObserver();
+                } else {
+                    observer.disconnect();
+                }
+            });
+        } else {
+            startObserver();
+        }
+    }
+}
+
 export {
     initializeLogoNavigation,
     ensureSidebarVisible,
@@ -821,4 +957,5 @@ export {
     formValueStorage,
     insertHTMLForDebug,
     removeEmptyTableRows,
+    customizeIaaaRememberCheckbox,
 };
