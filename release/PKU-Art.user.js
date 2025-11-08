@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.6.8
+// @version      2.6.9
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -20,7 +20,7 @@
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2025/11/06
+// @date         2025/11/08
 // ==/UserScript==
 
 (function () {
@@ -922,7 +922,7 @@
           }
           resolve(shouldContinue);
         }
-      }, 100);
+      }, 500);
     });
     if (!didCaptureDownloadInfo || !downloadJson) {
       return;

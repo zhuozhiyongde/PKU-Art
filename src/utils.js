@@ -274,7 +274,7 @@ async function initializeDirectDownload() {
                 }
                 resolve(shouldContinue);
             }
-        }, 100);
+        }, 500);
     });
     if (!didCaptureDownloadInfo || !downloadJson) {
         return;
