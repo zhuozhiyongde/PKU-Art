@@ -82,6 +82,8 @@ PKU Art 目前只支持 JavaScript 安装方式，兼容 Safari 与 Chrome（Edg
 
 > [!IMPORTANT]  
 > Safari 下推荐使用 TamperMonkey 插件，因为 UserScripts 插件在 Safari 下存在一些已知问题（插件功能支持有限，为了规避 CSP 限制启用了 `@inject-into page`，导致 GM API 完全不可用，且即使可用也未提供 `GM_download` API），导致不能实现录播下载重命名（但仍然可以下载 mp4 文件！）、复制视频下载链接等。
+>
+> **注意，无论你选择 UserScripts 还是 TamperMonkey，请都在设置里对扩展的「编辑网站」打开「在每个网站上始终允许」，从而确保一定能对页面完成修改。**
 
 Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/userscripts/id1463298887) 或者插件 [TamperMonkey](https://apps.apple.com/cn/app/tampermonkey/id6738342400)（售价 15 ￥，但是功能更全，推荐）：
 
