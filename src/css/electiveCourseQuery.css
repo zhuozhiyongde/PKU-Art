@@ -381,17 +381,44 @@ a:visited {
 }
 
 /* 根据 id 设置不同文字 */
-#kcfl input[type='radio']#speciality::after {
+#education_plan_bk::after {
+    content: '培养方案';
+}
+
+#speciality::after {
     content: '专业课';
 }
 
-#kcfl input[type='radio']#tsk_choice::after {
+#politics::after {
+    content: '政治课';
+}
+#english::after {
+    content: '英语课';
+}
+#gym::after {
+    content: '体育课';
+}
+
+#tsk_choice::after {
     content: '通识课';
 }
 
-#kcfl input[type='radio']#pub_choice::after {
+#pub_choice::after {
     content: '公选课';
 }
+
+#liberal_computer::after {
+    content: '计算机基础课';
+}
+
+#ldjyk::after {
+    content: '劳动教育课';
+}
+
+#szxzxbx::after {
+    content: '思政选择性必修课';
+}
+
 #kcfl input[type='radio']:hover {
     border-color: var(--red-4);
     background: var(--red-1);
