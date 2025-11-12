@@ -232,7 +232,7 @@ nav.navigationPane {
 }
 
 #global-nav-tools {
-    background-color: var(--c-card);
+    background-color: transparent;
 }
 
 #global-list-tools {

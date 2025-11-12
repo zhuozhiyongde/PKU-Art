@@ -276,7 +276,7 @@ const styleRules = [
     },
     {
         patterns: [/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\S*$/],
-        excludePatterns: [/^\S*goNested\.do\S*$/, /^\S*courseQuery\S*$/],
+        excludePatterns: [/^\S*goNested\.do\S*$/, /^\S*courseQuery\S*$/, /^\S*getCourseDetail\.do\S*$/],
         styleContent: electiveMainStyles,
         fileName: 'electiveMain.css',
     },
@@ -307,6 +307,7 @@ const styleRules = [
     {
         patterns: [
             /^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/\S*\/goNested\.do\S*$/,
+            /^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/\S*\/getCourseDetail.do\S*$/,
         ],
         excludePatterns: [],
         styleContent: electiveDetailStyles,
@@ -316,7 +317,7 @@ const styleRules = [
         patterns: [
             /^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/courseQuery\/\S*$/,
         ],
-        excludePatterns: [/^\S*goNested\.do\S*$/],
+        excludePatterns: [/^\S*goNested\.do\S*$/, /^\S*getCourseDetail\.do\S*$/],
         styleContent: electiveCourseQueryStyles,
         fileName: 'electiveCourseQuery.css',
     },

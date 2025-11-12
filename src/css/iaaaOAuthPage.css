@@ -75,7 +75,7 @@ input[type='submit'] {
 
 #remember_text {
     margin-top: 4px;
-    color: var(--c-text);
+    color: var(--c-text)!important;
 }
 
 #remember_text.pku-art-remember-toggle {
@@ -203,4 +203,5 @@ input {
     justify-content: center;
     text-align: center;
     width: 100%;
+    color: var(--c-accent);
 }
