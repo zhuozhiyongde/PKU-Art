@@ -598,3 +598,8 @@ li.divider,
 .ineditmode div.listCm ul.courseMenu li {
     border: none !important;
 }
+
+#pageList {
+    color: var(--c-text);
+    line-height: 1.6rem;
+}

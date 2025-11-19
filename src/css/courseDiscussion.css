@@ -472,8 +472,8 @@ a.reply-count-link {
 }
 
 #actionbar {
-    top: 100px;
-    right: 30px;
+    position: relative;
+    padding-right: 60px;
     box-shadow: none;
     opacity: 1 !important;
     background: transparent !important;
