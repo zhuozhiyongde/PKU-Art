@@ -75,6 +75,8 @@ PKU Art 目前只支持 JavaScript 安装方式，兼容 Safari 与 Chrome（Edg
 > 1. 允许此扩展程序读取和更改您访问网站时留存的所有数据：在所有网站上
 > 2. 允许运行用户脚本
 > 3. 允许访问文件网址
+>
+> 此外，出于稳定性的考虑，你还需要在 TamperMonkey 的设置中的 `通用` 面板首先选择 `配置模式` 为 `高级`，随后找到 `下载 BETA` 中的 `下载模式` 选项，修改为 `浏览器 API` 并在弹出窗口中给予授权。
 
 需安装浏览器插件 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)，安装完成后点开 [脚本页面](https://cdn.arthals.ink/release/PKU-Art.user.js) 后自动触发安装页面，跟随指引即可。
 
