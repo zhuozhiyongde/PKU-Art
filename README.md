@@ -1,6 +1,6 @@
 <div align="center">
 
-![cover](./README.assets/cover.png)
+![cover](./README.assets/cover.jpg)
 
 # 🎨 PKU Art
 
@@ -22,7 +22,7 @@ PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新
 
 这种不满终于入学考完第一个期中后的某个周四爆发了。我看着又土又老的编程网格，再也忍不下去了，正好周五加周末没啥事，于是开始快乐地在图书馆摸鱼（其实只有最后看到成果的时候才快乐，期间调各种样式啊选择器啊的时候让我简直要吐血，好多知识和语法还是边用边学的），爆肝出了编程网格、IAAA 登录页、教学网大部分页面的 CSS。
 
-我真的很想吐槽那用 Table 搭出来的编程网格、大黑框顶头上的教学网，还有那设计简直离天下之大谱、让我甚至真的想问“就这还注册专利吗？”的成绩页面（它居然还用 iframe 套娃套了两层！），但最终，我还是完成了这个略显稚嫩的作品。而这，就是 PKU Art 的诞生了。
+我真的很想吐槽那用 Table 搭出来的编程网格、大黑框顶头上的教学网，还有那设计简直离天下之大谱、让我甚至真的想问 “就这还注册专利吗？” 的成绩页面（它居然还用 iframe 套娃套了两层！），但最终，我还是完成了这个略显稚嫩的作品。而这，就是 PKU Art 的诞生了。
 
 现在想想，两三天的时间换未来几年的视觉快感，也算是值辽！
 
@@ -31,28 +31,28 @@ PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新
 ### `1` 界面美化、日夜模式随心切换
 
 <details>
-<summary>点击展开</summary>
+<summary> 点击展开 </summary>
 
-![1](./README.assets/1.png)
+![1](./README.assets/1.jpg)
 
-![2](./README.assets/2.png)
+![2](./README.assets/2.jpg)
 
-![3](./README.assets/3.png)
+![3](./README.assets/3.jpg)
 
-![4](./README.assets/4.png)
+![4](./README.assets/4.jpg)
 
-![5](./README.assets/5.png)
+![5](./README.assets/5.jpg)
 
-![6](./README.assets/6.png)
+![6](./README.assets/6.jpg)
 
 </details>
 
 ### `2` 录播下载、重命名
 
 <details>
-<summary>点击展开</summary>
+<summary> 点击展开 </summary>
 
-![7](./README.assets/7.png)
+![7](./README.assets/7.jpg)
 
 </details>
 
@@ -70,32 +70,62 @@ PKU Art 目前只支持 JavaScript 安装方式，兼容 Safari 与 Chrome（Edg
 > [!WARNING]
 > 注意，由于 Chrome 权限更新，你可能需要在 [扩展页面](chrome://extensions/) 打开开发者模式，详见 [这里](https://www.tampermonkey.net/faq.php?locale=en#Q209)。
 >
-> 同时，扩展后插件安装完成后，请确保你在扩展页面里，对于 [其扩展设置](chrome://extensions/?id=dhdgffkkebhmkfjojejmpbldmpobfkfo)，打开了：
+> ![dev1](./README.assets/dev1.jpg)
 >
-> 1. 允许此扩展程序读取和更改您访问网站时留存的所有数据：在所有网站上
-> 2. 允许运行用户脚本
-> 3. 允许访问文件网址
->
-> 此外，出于稳定性的考虑，你还需要在 TamperMonkey 的设置中的 `通用` 面板首先选择 `配置模式` 为 `高级`，随后找到 `下载 BETA` 中的 `下载模式` 选项，修改为 `浏览器 API` 并在弹出窗口中给予授权。
+> ![dev2](./README.assets/dev2.jpg)
 
-需安装浏览器插件 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)，安装完成后点开 [脚本页面](https://cdn.arthals.ink/release/PKU-Art.user.js) 后自动触发安装页面，跟随指引即可。
+需安装浏览器插件 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)，安装完成后点开 [脚本页面](https://cdn.arthals.ink/release/PKU-Art.user.js) 后自动触发安装页面，跟随指引即可完成安装。
+
+扩展后插件安装完成后，还需要额外进行一些设置如下。
+
+首先，请确保你在扩展页面里，对于 [其扩展设置](chrome://extensions/?id=dhdgffkkebhmkfjojejmpbldmpobfkfo)，打开了：
+
+1. 允许此扩展程序读取和更改您访问网站时留存的所有数据：在所有网站上
+2. 固定到工作栏
+3. 允许运行用户脚本
+4. 在无痕模式下启用
+5. 允许访问文件网址
+
+![dev1](./README.assets/dev1.jpg)
+
+![ext1](./README.assets/ext1.jpg)
+
+![ext2](./README.assets/ext2.jpg)
+
+此外，出于稳定性的考虑，你还需要在 TamperMonkey 的设置中的 `通用` 面板首先选择 `配置模式` 为 `高级`，随后找到 `下载 BETA` 中的 `下载模式` 选项，修改为 `浏览器 API` 并在弹出窗口中给予授权。
+
+![ext3](./README.assets/ext3.jpg)
+
+![ext4](./README.assets/ext4.jpg)
+
+![ext5](./README.assets/ext5.jpg)
+
+![ext6](./README.assets/ext6.jpg)
 
 #### Safari
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
+>
 > Safari 下推荐使用 TamperMonkey 插件，因为 UserScripts 插件在 Safari 下存在一些已知问题（插件功能支持有限，为了规避 CSP 限制启用了 `@inject-into page`，导致 GM API 完全不可用，且即使可用也未提供 `GM_download` API），导致不能实现录播下载重命名（但仍然可以下载 mp4 文件！）、复制视频下载链接等。
 >
 > **注意，无论你选择 UserScripts 还是 TamperMonkey，请都在设置里对扩展的「编辑网站」打开「在每个网站上始终允许」，从而确保一定能对页面完成修改。**
+>
+> ![safari-ext1](./README.assets/safari-ext1.jpg)
+>
+> ![safari-ext2](./README.assets/safari-ext2.jpg)
 
 Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/userscripts/id1463298887) 或者插件 [TamperMonkey](https://apps.apple.com/cn/app/tampermonkey/id6738342400)（售价 15 ￥，但是功能更全，推荐）：
 
 -   UserScripts：安装好后点击工具栏图标，启用并授权后再在脚本页面点击图标，再点击 Click to install 即可安装。
+
+    ![userscript-install](./README.assets/userscript-install.jpg)
+
 -   TamperMonkey：点击链接会自动跳转到安装界面。
 
 对比：TamperMonkey 相较 UserScripts 有着更宽松的权限管理，所以可以实现如下功能：
 
 1. 无缝切换日夜模式，可穿透 `iframe`，在录播、课堂实录等页面会有感知，不过 UserScripts 也只需要刷新一下页面即可应用更改。
-2. 支持下载重命名，但需要额外配置如下：在 TamperMonkey 的设置中的 `通用` 面板首先选择 `配置模式` 为 `高级`，随后找到 `下载 BETA` 中的 `下载模式` 选项，修改为 `浏览器 API` 才可以正常工作，否则会出现 `Out of memory` 的 Bug。不过此时无法正常使用 `onprogress` 回调，所以无法实时显示进度，但只要保持页面不关闭即可正常下载并重命名。
+2. 支持下载重命名，但需要额外配置如下（操作步骤类似前文 Chrome 一节，可参考附图）：在 TamperMonkey 的设置中的 `通用` 面板首先选择 `配置模式` 为 `高级`，随后找到 `下载 BETA` 中的 `下载模式` 选项，修改为 `浏览器 API` 才可以正常工作，否则会出现 `Out of memory` 的 Bug。不过此时无法正常使用 `onprogress` 回调，所以无法实时显示进度，但只要保持页面不关闭即可正常下载并重命名。
 
 ### 安装渠道
 
@@ -154,7 +184,7 @@ Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/user
   <div>
     <picture>
       <source
-        media="(prefers-color-scheme: dark)"
+        media="(prefers-color-scheme：dark)"
         srcset="https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark"
         width="800"
         height="auto"
@@ -170,7 +200,7 @@ Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/user
   &nbsp;
   <div>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-pushes-and-commits-per-month/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark" width="800" height="auto">
+    <source media="(prefers-color-scheme：dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-pushes-and-commits-per-month/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark" width="800" height="auto">
     <img alt="Pushes and Commits of zhuozhiyongde/PKU-Art" src="https://next.ossinsight.io/widgets/official/analyze-repo-pushes-and-commits-per-month/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light" width="800" height="auto">
   </picture>
   </div>
@@ -178,7 +208,7 @@ Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/user
   <div>
     <picture>
       <source
-        media="(prefers-color-scheme: dark)"
+        media="(prefers-color-scheme：dark)"
         srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark"
         width="800"
         height="auto"
