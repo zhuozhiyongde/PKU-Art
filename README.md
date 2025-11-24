@@ -1,6 +1,6 @@
 <div align="center">
 
-![cover](./README.assets/cover.jpg)
+![cover](https://cdn.arthals.ink/bed/2025/11/cover-1b32229620764c46a2717d2b6291d93b.jpg)
 
 # 🎨 PKU Art
 
@@ -33,17 +33,17 @@ PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新
 <details>
 <summary> 点击展开 </summary>
 
-![1](./README.assets/1.jpg)
+![1](https://cdn.arthals.ink/bed/2025/11/1-c7c2501d0dc21ae06d95378d73259709.jpg)
 
-![2](./README.assets/2.jpg)
+![2](https://cdn.arthals.ink/bed/2025/11/2-86d49b0f42b363292e70cf0385332011.jpg)
 
-![3](./README.assets/3.jpg)
+![3](https://cdn.arthals.ink/bed/2025/11/3-a6afff934e6b62349d77dee09d749589.jpg)
 
-![4](./README.assets/4.jpg)
+![4](https://cdn.arthals.ink/bed/2025/11/4-6de0f0ff3700e959edf315e5f77fcaa9.jpg)
 
-![5](./README.assets/5.jpg)
+![5](https://cdn.arthals.ink/bed/2025/11/5-3bfc4a18c240245fecbbc20068a35c3f.jpg)
 
-![6](./README.assets/6.jpg)
+![6](https://cdn.arthals.ink/bed/2025/11/6-7278087b80a5444cb8743bbe01e9171a.jpg)
 
 </details>
 
@@ -52,7 +52,7 @@ PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新
 <details>
 <summary> 点击展开 </summary>
 
-![7](./README.assets/7.jpg)
+![7](https://cdn.arthals.ink/bed/2025/11/7-04e26f6488aa1ea63f5929ccc5654e93.jpg)
 
 </details>
 
@@ -70,9 +70,9 @@ PKU Art 目前只支持 JavaScript 安装方式，兼容 Safari 与 Chrome（Edg
 > [!WARNING]
 > 注意，由于 Chrome 权限更新，你可能需要在 [扩展页面](chrome://extensions/) 打开开发者模式，详见 [这里](https://www.tampermonkey.net/faq.php?locale=en#Q209)。
 >
-> ![dev1](./README.assets/dev1.jpg)
+> ![dev1](https://cdn.arthals.ink/bed/2025/11/dev1-ff3b7de53ddfcbaaa4da31a77a0dfa42.jpg)
 >
-> ![dev2](./README.assets/dev2.jpg)
+> ![dev2](https://cdn.arthals.ink/bed/2025/11/dev2-3a8db595639040a8382c93c581521bd1.jpg)
 
 需安装浏览器插件 [TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)，安装完成后点开 [脚本页面](https://cdn.arthals.ink/release/PKU-Art.user.js) 后自动触发安装页面，跟随指引即可完成安装。
 
@@ -86,21 +86,21 @@ PKU Art 目前只支持 JavaScript 安装方式，兼容 Safari 与 Chrome（Edg
 4. 在无痕模式下启用
 5. 允许访问文件网址
 
-![dev1](./README.assets/dev1.jpg)
+![dev1](https://cdn.arthals.ink/bed/2025/11/dev1-ff3b7de53ddfcbaaa4da31a77a0dfa42.jpg)
 
-![ext1](./README.assets/ext1.jpg)
+![ext1](https://cdn.arthals.ink/bed/2025/11/ext1-e29c00e4e81af2efef11099d4c9a36a3.jpg)
 
-![ext2](./README.assets/ext2.jpg)
+![ext2](https://cdn.arthals.ink/bed/2025/11/ext2-5e7fd2cc934f5acfb325557212234c44.jpg)
 
 此外，出于稳定性的考虑，你还需要在 TamperMonkey 的设置中的 `通用` 面板首先选择 `配置模式` 为 `高级`，随后找到 `下载 BETA` 中的 `下载模式` 选项，修改为 `浏览器 API` 并在弹出窗口中给予授权。
 
-![ext3](./README.assets/ext3.jpg)
+![ext3](https://cdn.arthals.ink/bed/2025/11/ext3-177a91cd1e83e9c7786d078fc21c284a.jpg)
 
-![ext4](./README.assets/ext4.jpg)
+![ext4](https://cdn.arthals.ink/bed/2025/11/ext4-8dcf4549648896d3b161a1e662210d57.jpg)
 
-![ext5](./README.assets/ext5.jpg)
+![ext5](https://cdn.arthals.ink/bed/2025/11/ext5-c505771fef3cb0d32e0a3d0a89b980db.jpg)
 
-![ext6](./README.assets/ext6.jpg)
+![ext6](https://cdn.arthals.ink/bed/2025/11/ext6-7aa880f4b8d772810b3ae1113eb1c32f.jpg)
 
 #### Safari
 
@@ -110,15 +110,15 @@ PKU Art 目前只支持 JavaScript 安装方式，兼容 Safari 与 Chrome（Edg
 >
 > **注意，无论你选择 UserScripts 还是 TamperMonkey，请都在设置里对扩展的「编辑网站」打开「在每个网站上始终允许」，从而确保一定能对页面完成修改。**
 >
-> ![safari-ext1](./README.assets/safari-ext1.jpg)
+> ![safari-ext1](https://cdn.arthals.ink/bed/2025/11/safari-ext1-7726e1ca10e705cca5355e44d3713f22.jpg)
 >
-> ![safari-ext2](./README.assets/safari-ext2.jpg)
+> ![safari-ext2](https://cdn.arthals.ink/bed/2025/11/safari-ext2-116f09a88c5d3d14bd10827556b3ddd4.jpg)
 
 Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/userscripts/id1463298887) 或者插件 [TamperMonkey](https://apps.apple.com/cn/app/tampermonkey/id6738342400)（售价 15 ￥，但是功能更全，推荐）：
 
 -   UserScripts：安装好后点击工具栏图标，启用并授权后再在脚本页面点击图标，再点击 Click to install 即可安装。
 
-    ![userscript-install](./README.assets/userscript-install.jpg)
+    ![userscript-install](https://cdn.arthals.ink/bed/2025/11/userscript-install-b2b264b28c4fce3c48325ea9de3eab23.jpg)
 
 -   TamperMonkey：点击链接会自动跳转到安装界面。
 
@@ -184,7 +184,7 @@ Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/user
   <div>
     <picture>
       <source
-        media="(prefers-color-scheme：dark)"
+        media="(prefers-color-scheme:dark)"
         srcset="https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark"
         width="800"
         height="auto"
@@ -200,7 +200,7 @@ Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/user
   &nbsp;
   <div>
   <picture>
-    <source media="(prefers-color-scheme：dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-pushes-and-commits-per-month/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark" width="800" height="auto">
+    <source media="(prefers-color-scheme:dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-pushes-and-commits-per-month/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark" width="800" height="auto">
     <img alt="Pushes and Commits of zhuozhiyongde/PKU-Art" src="https://next.ossinsight.io/widgets/official/analyze-repo-pushes-and-commits-per-month/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=light" width="800" height="auto">
   </picture>
   </div>
@@ -208,7 +208,7 @@ Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/user
   <div>
     <picture>
       <source
-        media="(prefers-color-scheme：dark)"
+        media="(prefers-color-scheme:dark)"
         srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=432452371&image_size=auto&color_scheme=dark"
         width="800"
         height="auto"
