@@ -319,8 +319,9 @@ async function initializeDirectDownload() {
 
     // 点击整个区域切换 checkbox 状态
     downloadSwitchArea.addEventListener('click', (e) => {
-        // 如果点击的不是 checkbox 本身，则切换状态
-        if (e.target.id !== 'injectDownloadSwitch') {
+        // 如果点击的是 checkbox 或关联的 label，浏览器会自动处理切换
+        const isCheckboxOrLabel = e.target.id === 'injectDownloadSwitch' || e.target.htmlFor === 'injectDownloadSwitch';
+        if (!isCheckboxOrLabel) {
             const checkbox = downloadSwitchArea.querySelector('#injectDownloadSwitch');
             checkbox.checked = !checkbox.checked;
         }

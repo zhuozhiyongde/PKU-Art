@@ -122,10 +122,7 @@ Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/user
 
 -   TamperMonkey：点击链接会自动跳转到安装界面。
 
-对比：TamperMonkey 相较 UserScripts 有着更宽松的权限管理，所以可以实现如下功能：
-
-1. 无缝切换日夜模式，可穿透 `iframe`，在录播、课堂实录等页面会有感知，不过 UserScripts 也只需要刷新一下页面即可应用更改。
-2. 支持下载重命名，但需要额外配置如下（操作步骤类似前文 Chrome 一节，可参考附图）：在 TamperMonkey 的设置中的 `通用` 面板首先选择 `配置模式` 为 `高级`，随后找到 `下载 BETA` 中的 `下载模式` 选项，修改为 `浏览器 API` 才可以正常工作，否则会出现 `Out of memory` 的 Bug。不过此时无法正常使用 `onprogress` 回调，所以无法实时显示进度，但只要保持页面不关闭即可正常下载并重命名。
+对比：TamperMonkey 相较 UserScripts 有着更宽松的权限管理，所以可以实现下载重命名，但需要额外配置如下（操作步骤类似前文 Chrome 一节，可参考附图）：在 TamperMonkey 的设置中的 `通用` 面板首先选择 `配置模式` 为 `高级`，随后找到 `下载 BETA` 中的 `下载模式` 选项，修改为 `浏览器 API` 才可以正常工作，否则会出现 `Out of memory` 的 Bug。不过此时无法正常使用 `onprogress` 回调，所以无法实时显示进度，但只要保持页面不关闭即可正常下载并重命名。
 
 ### 安装渠道
 

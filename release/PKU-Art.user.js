@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.6.14
+// @version      2.6.15
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -473,7 +473,7 @@
       this.isDark = shouldBeDark;
       this.applyTheme(shouldBeDark);
     }
-    applyTheme(isDark) {
+    applyTheme(isDark, broadcast = true) {
       const root = document.documentElement;
       if (isDark) {
         root.classList.add("pku-art-dark");
@@ -487,6 +487,9 @@
           detail: { isDark, mode: this.currentMode }
         })
       );
+      if (broadcast) {
+        this.broadcastThemeToIframes();
+      }
     }
     getCurrentMode() {
       return this.currentMode;
@@ -512,6 +515,7 @@
     setupSyncListeners() {
       this.setupGMValueListeners();
       this.setupLocalStorageListener();
+      this.setupPostMessageListener();
     }
     setupLocalStorageListener() {
       window.addEventListener("storage", (event) => {
@@ -555,6 +559,61 @@
         this.applyTheme(shouldBeDark);
       }
     }
+    setupPostMessageListener() {
+      window.addEventListener("message", (event) => {
+        var _a;
+        if (!event.data || typeof event.data !== "object") {
+          return;
+        }
+        if (event.data.type === "pku-art-theme-request") {
+          (_a = event.source) == null ? void 0 : _a.postMessage(
+            {
+              type: "pku-art-theme-sync",
+              mode: this.currentMode,
+              isDark: this.isDark
+            },
+            "*"
+          );
+          return;
+        }
+        if (event.data.type === "pku-art-theme-sync") {
+          const { mode, isDark } = event.data;
+          if (this.isValidMode(mode) && mode !== this.currentMode) {
+            this.currentMode = mode;
+            this.isDark = isDark;
+            this.applyTheme(isDark, false);
+            if (window.parent === window) {
+              this.broadcastThemeToIframes(event.source);
+            }
+          }
+        }
+      });
+      this.requestThemeFromParent();
+    }
+    broadcastThemeToIframes(excludeSource = null) {
+      const message = {
+        type: "pku-art-theme-sync",
+        mode: this.currentMode,
+        isDark: this.isDark
+      };
+      const iframes = document.querySelectorAll("iframe");
+      iframes.forEach((iframe) => {
+        try {
+          if (iframe.contentWindow && iframe.contentWindow !== excludeSource) {
+            iframe.contentWindow.postMessage(message, "*");
+          }
+        } catch (e) {
+        }
+      });
+    }
+    requestThemeFromParent() {
+      if (window.parent !== window) {
+        try {
+          window.parent.postMessage({ type: "pku-art-theme-request" }, "*");
+        } catch (e) {
+        }
+      }
+    }
   }
   const themeToggleIcons = {
     light: sunIcon,
@@ -562,14 +621,7 @@
     auto: autoIcon
   };
   function initializeThemeManager() {
-    let userThemeMode = "auto";
-    try {
-      if (typeof _GM_getValue !== "undefined") {
-        userThemeMode = _GM_getValue("themeMode", "auto");
-      }
-    } catch (e) {
-      console.log("[PKU Art] GM_getValue not available, using default theme mode");
-    }
+    const userThemeMode = themeManager.getStoredTheme() || "auto";
     themeManager.setTheme(userThemeMode);
     console.log("[PKU Art] Theme manager initialized with mode:", userThemeMode);
   }
@@ -962,7 +1014,8 @@
 <span id="injectDownloadSwitchDesc" class="PKU-Art"> 重命名文件</span>
 `;
     downloadSwitchArea.addEventListener("click", (e) => {
-      if (e.target.id !== "injectDownloadSwitch") {
+      const isCheckboxOrLabel = e.target.id === "injectDownloadSwitch" || e.target.htmlFor === "injectDownloadSwitch";
+      if (!isCheckboxOrLabel) {
         const checkbox = downloadSwitchArea.querySelector("#injectDownloadSwitch");
         checkbox.checked = !checkbox.checked;
       }

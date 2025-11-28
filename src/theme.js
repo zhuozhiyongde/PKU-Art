@@ -128,7 +128,7 @@ class ThemeManager {
         this.applyTheme(shouldBeDark);
     }
 
-    applyTheme(isDark) {
+    applyTheme(isDark, broadcast = true) {
         const root = document.documentElement;
 
         if (isDark) {
@@ -145,6 +145,11 @@ class ThemeManager {
                 detail: { isDark, mode: this.currentMode },
             })
         );
+
+        // 向所有 iframe 广播主题变化（仅在主动切换时广播，避免循环）
+        if (broadcast) {
+            this.broadcastThemeToIframes();
+        }
     }
 
     getCurrentMode() {
@@ -175,6 +180,7 @@ class ThemeManager {
     setupSyncListeners() {
         this.setupGMValueListeners();
         this.setupLocalStorageListener();
+        this.setupPostMessageListener();
     }
 
     setupLocalStorageListener() {
@@ -226,6 +232,76 @@ class ThemeManager {
             this.applyTheme(shouldBeDark);
         }
     }
+
+    setupPostMessageListener() {
+        window.addEventListener('message', (event) => {
+            if (!event.data || typeof event.data !== 'object') {
+                return;
+            }
+
+            // 处理主题请求（来自 iframe 请求父页面的主题）
+            if (event.data.type === 'pku-art-theme-request') {
+                event.source?.postMessage(
+                    {
+                        type: 'pku-art-theme-sync',
+                        mode: this.currentMode,
+                        isDark: this.isDark,
+                    },
+                    '*'
+                );
+                return;
+            }
+
+            // 处理主题同步消息
+            if (event.data.type === 'pku-art-theme-sync') {
+                const { mode, isDark } = event.data;
+
+                if (this.isValidMode(mode) && mode !== this.currentMode) {
+                    this.currentMode = mode;
+                    this.isDark = isDark;
+                    // 不广播，避免循环
+                    this.applyTheme(isDark, false);
+                    // 如果是父页面收到消息，继续向其他 iframe 广播
+                    if (window.parent === window) {
+                        this.broadcastThemeToIframes(event.source);
+                    }
+                }
+            }
+        });
+
+        // 如果当前是 iframe，向父页面请求主题
+        this.requestThemeFromParent();
+    }
+
+    broadcastThemeToIframes(excludeSource = null) {
+        const message = {
+            type: 'pku-art-theme-sync',
+            mode: this.currentMode,
+            isDark: this.isDark,
+        };
+
+        // 向所有 iframe 发送
+        const iframes = document.querySelectorAll('iframe');
+        iframes.forEach((iframe) => {
+            try {
+                if (iframe.contentWindow && iframe.contentWindow !== excludeSource) {
+                    iframe.contentWindow.postMessage(message, '*');
+                }
+            } catch (e) {
+                // 跨域 iframe 可能抛出异常，忽略
+            }
+        });
+    }
+
+    requestThemeFromParent() {
+        if (window.parent !== window) {
+            try {
+                window.parent.postMessage({ type: 'pku-art-theme-request' }, '*');
+            } catch (e) {
+                // 父页面不可访问，忽略
+            }
+        }
+    }
 }
 
 const themeToggleIcons = {
@@ -236,15 +312,8 @@ const themeToggleIcons = {
 
 // 初始化主题管理器
 function initializeThemeManager() {
-    // 检查用户脚本选项设置
-    let userThemeMode = 'auto';
-    try {
-        if (typeof GM_getValue !== 'undefined') {
-            userThemeMode = GM_getValue('themeMode', 'auto');
-        }
-    } catch (e) {
-        console.log('[PKU Art] GM_getValue not available, using default theme mode');
-    }
+    // 使用 ThemeManager 已有的 getStoredTheme 方法，它已经包含了从 GM 和 localStorage 的回退逻辑
+    const userThemeMode = themeManager.getStoredTheme() || 'auto';
 
     // 设置主题模式
     themeManager.setTheme(userThemeMode);
