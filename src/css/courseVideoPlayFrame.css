@@ -44,11 +44,15 @@ body,
 .course-info__wrapper .course-info__footer {
     display: grid;
     width: fit-content;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 180px);
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin: 0 auto;
+    margin: 10px auto;
+}
+
+.course-info__wrapper .course-info__footer.rename-unsupported {
+    grid-template-columns: repeat(3, 200px);
 }
 
 .course-info__wrapper .course-info__footer button {
@@ -80,9 +84,33 @@ body,
     height: 35px !important;
 }
 
-#injectDownloadSwitchArea.safari {
-    /* 占据父亲 grid 的 2 列 */
-    grid-column: span 2;
+#injectDownloadRenameUnsupported {
+    background: var(--c-tip);
+    color: var(--c-text);
+    padding: 10px 20px;
+    border-radius: 4px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    height: 35px;
+    line-height: 14px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border: none;
+    font-weight: bold;
+    grid-column: span 3;
+}
+
+#injectDownloadRenameUnsupported .i-warning {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: var(--i-warning);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #injectDownloadSwitch {
@@ -90,11 +118,15 @@ body,
 }
 
 #injectDownloadSwitch:checked + label {
-    background-color: var(--c-tip);
-    background-image: var(--i-check-simple);
-    background-size: 80% 80%;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: var(--c-text);
+    mask-image: var(--i-check-simple);
+    -webkit-mask-image: var(--i-check-simple);
+    mask-size: 80% 80%;
+    -webkit-mask-size: 80% 80%;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
 }
 
 label[for='injectDownloadSwitch'] {
@@ -103,19 +135,6 @@ label[for='injectDownloadSwitch'] {
     height: 16px;
     background: var(--c-tip);
     border: 1px solid var(--c-border);
-    border-radius: 4px;
-}
-
-#injectDownloadSwitchArea.safari label[for='injectDownloadSwitch'] {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    background: var(--c-tip);
-    background-image: var(--i-warning);
-    background-size: 80% 80%;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: none;
     border-radius: 4px;
 }
 
@@ -163,12 +182,23 @@ label[for='injectDownloadSwitch']:before {
     border: none;
     font-weight: bold;
     transition: 0.1s;
-    width: fit-content;
-    margin-top: 10px;
-    /* margin-bottom: -10px; */
     line-height: 1.5rem;
     grid-column: 1 / 5;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.rename-unsupported #injectDownloadTip {
+    grid-column: 1 / 4;
+}
+
+#injectDownloadTipText {
+    flex: 1;
+    user-select: text;
 }
 
 #injectDownloadTip a {
@@ -176,20 +206,77 @@ label[for='injectDownloadSwitch']:before {
     text-decoration: underline;
 }
 
-#injectDownloadButton:hover,
-#injectCopyDownloadUrlButton:hover,
-#injectMagicLink:hover {
+#injectDownloadTipActions {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+#injectDownloadTipActions button {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    color: var(--c-text);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.1s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#injectDownloadTipActions button svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+#injectDownloadTipActions button:hover {
     background: var(--cyan-2);
     color: var(--cyan-6);
+    border-color: var(--cyan-6);
+}
+
+#injectDownloadTipActions button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#injectDownloadTipActions button:disabled:hover {
+    background: var(--c-card);
+    color: var(--c-text);
+    border-color: var(--c-border);
+}
+
+#injectDownloadButton:hover,
+#injectCopyDownloadUrlButton:hover,
+#injectMagicLink:hover,
+#injectDownloadSwitchArea:hover {
+    background: var(--cyan-2);
+    color: var(--cyan-6);
+    cursor: pointer;
 }
 
 #injectMagicLink:hover *,
 #injectDownloadButton:hover *,
-#injectCopyDownloadUrlButton:hover * {
+#injectCopyDownloadUrlButton:hover *,
+#injectDownloadSwitchArea:hover * {
     background: var(--cyan-2);
     color: var(--cyan-6);
     font-weight: bold;
     transition: 0.1s;
+}
+
+#injectDownloadSwitchArea:has(#injectDownloadSwitch:checked):hover label[for='injectDownloadSwitch'] {
+    background-color: var(--cyan-6);
+}
+
+#injectDownloadSwitchArea:hover label[for='injectDownloadSwitch'] {
+    border-color: var(--cyan-6);
 }
 
 #injectDownloadUrlInput:hover::placeholder,

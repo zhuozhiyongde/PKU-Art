@@ -1,4 +1,4 @@
-import { downloadIcon, linkIcon, sparkIcon } from './icon.js';
+import { downloadIcon, linkIcon, sparkIcon, refreshIcon, closeIcon } from './icon.js';
 // Other utilities
 function initializeLogoNavigation() {
     if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
@@ -314,8 +314,17 @@ async function initializeDirectDownload() {
     downloadSwitchArea.innerHTML = `
 <input type="checkbox" id="injectDownloadSwitch" class="PKU-Art" checked>
 <label for="injectDownloadSwitch"></label>
-<span id="injectDownloadSwitchDesc" class="PKU-Art"> 是否重命名文件</span>
+<span id="injectDownloadSwitchDesc" class="PKU-Art"> 重命名文件</span>
 `;
+
+    // 点击整个区域切换 checkbox 状态
+    downloadSwitchArea.addEventListener('click', (e) => {
+        // 如果点击的不是 checkbox 本身，则切换状态
+        if (e.target.id !== 'injectDownloadSwitch') {
+            const checkbox = downloadSwitchArea.querySelector('#injectDownloadSwitch');
+            checkbox.checked = !checkbox.checked;
+        }
+    });
 
     downloadAreaFooter.appendChild(downloadButton);
     downloadAreaFooter.appendChild(copyDownloadUrlButton);
@@ -340,16 +349,19 @@ async function initializeDirectDownload() {
     });
 
     const switchInput = downloadSwitchArea.querySelector('#injectDownloadSwitch');
-    const switchDesc = downloadSwitchArea.querySelector('#injectDownloadSwitchDesc');
     const isSafari = navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome');
     const renameSupported = typeof GM_download === 'function';
     if (!renameSupported) {
-        switchInput.checked = false;
-        switchInput.disabled = true;
-        switchDesc.textContent = isSafari ? 'Safari + UserScripts 不支持重命名文件' : '当前环境不支持自动重命名文件';
-        if (isSafari) {
-            downloadSwitchArea.classList.add('safari');
-        }
+        // 删除原有的 switchArea，创建新的提示元素追加到末尾，并切换为 3 列布局
+        downloadSwitchArea.remove();
+        downloadAreaFooter.classList.add('rename-unsupported');
+        const renameUnsupportedTip = document.createElement('div');
+        renameUnsupportedTip.id = 'injectDownloadRenameUnsupported';
+        renameUnsupportedTip.className = 'PKU-Art';
+        const warningIcon = isSafari ? '<span class="PKU-Art i-warning"></span>' : '';
+        const tipText = isSafari ? 'Safari + UserScripts 不支持重命名文件' : '当前环境不支持自动重命名文件';
+        renameUnsupportedTip.innerHTML = `${warningIcon}<span class="PKU-Art">${tipText}</span>`;
+        downloadAreaFooter.appendChild(renameUnsupportedTip);
     }
 
     const copySupported =
@@ -359,48 +371,50 @@ async function initializeDirectDownload() {
         copyDownloadUrlButton.querySelector('span').textContent = '复制链接不可用';
     }
 
-    downloadButton.addEventListener('click', async () => {
-        console.log(`[PKU Art] 已启动下载：\n文件名：${fileName}\n源地址：${downloadUrl}`);
-        const renameEnabled = renameSupported && switchInput && switchInput.checked;
+    // 下载状态管理
+    let currentDownload = null;
+    let isDownloading = false;
+
+    const startDownload = (renameEnabled) => {
+        const downloadTipText = document.getElementById('injectDownloadTipText');
+        const cancelBtn = document.getElementById('injectCancelDownload');
+        const restartBtn = document.getElementById('injectRestartDownload');
+
         let downloadInfo = `下载文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
         if (!renameEnabled) {
             downloadInfo = `正常文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
         }
 
-        const existingTip = document.getElementById('injectDownloadTip');
-        if (existingTip) {
-            existingTip.innerHTML = `正在下载中，请勿重新启动/刷新页面<br/>${downloadInfo}`;
-            return;
-        }
-
-        const downloadTip = document.createElement('div');
-        downloadTip.id = 'injectDownloadTip';
-        downloadTip.className = 'PKU-Art';
-        downloadTip.innerHTML = renameEnabled
-            ? `已在后台启动下载，请勿刷新页面<br/>${downloadInfo}`
-            : `已在新窗口启动下载<br/>${downloadInfo}`;
-
-        downloadAreaFooter.insertBefore(downloadTip, downloadAreaFooter.firstElementChild);
-
         if (!renameEnabled) {
             window.open(downloadUrl, '_blank');
+            downloadTipText.innerHTML = `已在新窗口启动下载<br/>${downloadInfo}`;
+            cancelBtn.disabled = true;
+            restartBtn.disabled = false;
+            isDownloading = false;
             return;
         }
+
+        isDownloading = true;
+        cancelBtn.disabled = false;
+        restartBtn.disabled = true;
+        downloadTipText.innerHTML = `已在后台启动下载，请勿刷新页面<br/>${downloadInfo}`;
 
         try {
             let lastPrintTime = 0;
-            let bytesDownloadedInLast100ms = 0;
             let lastBytesLoaded = 0;
             let averageSpeed = 0;
             const SMOOTHING_FACTOR = 0.02;
 
-            const download = GM_download({
+            currentDownload = GM_download({
                 url: downloadUrl,
                 name: fileName,
                 saveAs: true,
                 onerror(event) {
                     console.error('[PKU Art] 下载失败：', event);
-                    alert('下载失败\n原因：' + event.error);
+                    isDownloading = false;
+                    cancelBtn.disabled = true;
+                    restartBtn.disabled = false;
+                    downloadTipText.innerHTML = `下载失败：${event.error}<br/>${downloadInfo}`;
                 },
                 onprogress(event) {
                     const currentTime = Date.now();
@@ -408,7 +422,7 @@ async function initializeDirectDownload() {
                         const percentComplete = (event.loaded / event.total) * 100;
                         const currentProgress = percentComplete.toFixed(2);
 
-                        bytesDownloadedInLast100ms = event.loaded - lastBytesLoaded;
+                        const bytesDownloadedInLast100ms = event.loaded - lastBytesLoaded;
                         const lastSpeed = bytesDownloadedInLast100ms / (currentTime - lastPrintTime);
                         averageSpeed = SMOOTHING_FACTOR * lastSpeed + (1 - SMOOTHING_FACTOR) * averageSpeed;
 
@@ -419,39 +433,102 @@ async function initializeDirectDownload() {
                             estimatedTimeRemainingSeconds = 'inf';
                         }
 
-                        if (!downloadTip.innerHTML.includes('下载进度')) {
-                            downloadTip.innerHTML = downloadTip.innerHTML.replace(
-                                /刷新页面/,
-                                `刷新页面。下载进度：${currentProgress}%，预计剩余时间：${estimatedTimeRemainingSeconds}秒`
-                            );
-                        } else {
-                            downloadTip.innerHTML = downloadTip.innerHTML.replace(
-                                /下载进度：.*秒/,
-                                `下载进度：${currentProgress}%，预计剩余时间：${estimatedTimeRemainingSeconds}秒`
-                            );
-                        }
+                        downloadTipText.innerHTML = `已在后台启动下载，请勿刷新页面。下载进度：${currentProgress}%，预计剩余时间：${estimatedTimeRemainingSeconds}秒<br/>${downloadInfo}`;
                         lastPrintTime = currentTime;
                         lastBytesLoaded = event.loaded;
                     }
                 },
                 onload() {
-                    downloadTip.innerHTML = `下载完成<br/>${downloadInfo}`;
+                    isDownloading = false;
+                    cancelBtn.disabled = true;
+                    restartBtn.disabled = false;
+                    downloadTipText.innerHTML = `下载完成<br/>${downloadInfo}`;
                 },
             });
 
             window.addEventListener(
                 'beforeunload',
                 () => {
-                    download.abort();
+                    if (currentDownload) {
+                        currentDownload.abort();
+                    }
                 },
                 { once: true }
             );
         } catch (error) {
             console.warn('[PKU Art] GM_download 调用失败，回退到新窗口下载', error);
             window.open(downloadUrl, '_blank');
-            downloadTip.innerHTML = `已在新窗口启动下载<br/>正常文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
+            isDownloading = false;
+            cancelBtn.disabled = true;
+            restartBtn.disabled = false;
+            downloadTipText.innerHTML = `已在新窗口启动下载<br/>正常文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
             alert('看上去当前环境不支持自动重命名功能，已尝试使用新标签页下载');
         }
+    };
+
+    downloadButton.addEventListener('click', async () => {
+        console.log(`[PKU Art] 已启动下载：\n文件名：${fileName}\n源地址：${downloadUrl}`);
+        const renameEnabled = renameSupported && switchInput && switchInput.checked;
+
+        const existingTip = document.getElementById('injectDownloadTip');
+        if (existingTip) {
+            if (isDownloading) {
+                alert('正在下载中，请先取消当前下载');
+                return;
+            }
+            // 已有提示框但不在下载中，直接开始新下载
+            startDownload(renameEnabled);
+            return;
+        }
+
+        // 创建下载提示框
+        const downloadTip = document.createElement('div');
+        downloadTip.id = 'injectDownloadTip';
+        downloadTip.className = 'PKU-Art';
+
+        const downloadTipText = document.createElement('div');
+        downloadTipText.id = 'injectDownloadTipText';
+        downloadTipText.className = 'PKU-Art';
+
+        const downloadTipActions = document.createElement('div');
+        downloadTipActions.id = 'injectDownloadTipActions';
+        downloadTipActions.className = 'PKU-Art';
+
+        const cancelBtn = document.createElement('button');
+        cancelBtn.id = 'injectCancelDownload';
+        cancelBtn.className = 'PKU-Art';
+        cancelBtn.innerHTML = `${closeIcon}<span>取消下载</span>`;
+        cancelBtn.disabled = true;
+
+        const restartBtn = document.createElement('button');
+        restartBtn.id = 'injectRestartDownload';
+        restartBtn.className = 'PKU-Art';
+        restartBtn.innerHTML = `${refreshIcon}<span>重新下载</span>`;
+        restartBtn.disabled = true;
+
+        cancelBtn.addEventListener('click', () => {
+            if (currentDownload && isDownloading) {
+                currentDownload.abort();
+                currentDownload = null;
+                isDownloading = false;
+                cancelBtn.disabled = true;
+                restartBtn.disabled = false;
+                downloadTipText.innerHTML = `下载已取消<br/>下载文件名：${fileName}<br/>下载地址：<a target="_blank" href="${downloadUrl}">文件源地址</a>`;
+            }
+        });
+
+        restartBtn.addEventListener('click', () => {
+            const renameEnabled = renameSupported && switchInput && switchInput.checked;
+            startDownload(renameEnabled);
+        });
+
+        downloadTipActions.appendChild(cancelBtn);
+        downloadTipActions.appendChild(restartBtn);
+        downloadTip.appendChild(downloadTipText);
+        downloadTip.appendChild(downloadTipActions);
+        downloadAreaFooter.insertBefore(downloadTip, downloadAreaFooter.firstElementChild);
+
+        startDownload(renameEnabled);
     });
 
     copyDownloadUrlButton.addEventListener('click', async () => {
@@ -493,7 +570,7 @@ async function initializeSparkDownloadRename() {
             link.setAttribute('href', downloadUrl);
             link.addEventListener('click', (event) => {
                 event.preventDefault();
-                alert("即将下载文件：" + fileName);
+                alert('即将下载文件：' + fileName);
                 GM_download({
                     url: downloadUrl,
                     name: fileName,
