@@ -434,7 +434,7 @@ async function initializeDirectDownload() {
                             estimatedTimeRemainingSeconds = 'inf';
                         }
 
-                        downloadTipText.innerHTML = `已在后台启动下载，请勿刷新页面。下载进度：${currentProgress}%，预计剩余时间：${estimatedTimeRemainingSeconds}秒<br/>${downloadInfo}`;
+                        downloadTipText.innerHTML = `已在后台启动下载，请勿刷新页面。<br/>下载进度：${currentProgress}%，预计剩余时间：${estimatedTimeRemainingSeconds}秒<br/>${downloadInfo}`;
                         lastPrintTime = currentTime;
                         lastBytesLoaded = event.loaded;
                     }
