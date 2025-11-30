@@ -190,15 +190,69 @@ table.bouncer,
     border: none;
 }
 
-/*跳转到其他课程的链接删除*/
-#breadcrumbs .coursePath *:not(:first-child) {
-    display: none;
-}
-
 #breadcrumbs .coursePath {
     padding: 0;
     margin: 0;
     border-right: none;
+}
+
+#breadcrumbs .coursePath .courseArrow a {
+    height: 0.6em;
+    width: 0.6em;
+    background: var(--i-arrow) no-repeat center center;
+}
+
+body > div.cmdiv {
+    border-color: var(--c-border);
+    background: var(--c-card);
+    max-height: 30em;
+    width: 20em;
+    overflow: hidden auto;
+    border-radius: 0.6em;
+    padding: 0.5em;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 
+                0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* 每个小的 section（最近访问...） */
+body > div.cmdiv ul {
+    width: 100%;
+    padding: 0.6em 0;
+    margin: 0;
+    border-top: var(--c-border) solid 1px;
+}
+
+/* close btn */
+body > div.cmdiv ul:first-child {
+    display: none;
+}
+
+body > div.cmdiv ul:nth-child(2) {
+    border-top: none;
+    padding-top: 0;
+}
+
+body > div.cmdiv ul:last-child {
+    padding-bottom: 0;
+}
+
+/* 小标题（最近访问...） */
+body > div.cmdiv ul li span.labelMenuItem {
+    margin-left: 0.6em;
+    color: var(--c-title);
+}
+
+/* 课程 entry */
+body > div.cmdiv ul li a {
+    padding: 0.6em;
+    color: var(--c-subtitle);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+body > div.cmdiv ul li a:hover {
+    color: var(--blue-5);
+    background-color: var(--c-hover);
 }
 
 #breadcrumb_controls_id,

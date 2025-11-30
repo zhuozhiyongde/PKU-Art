@@ -154,6 +154,39 @@ function removeCourseSerialNumbers() {
             }
         }, 50);
     }
+
+    const removeContextMenuSerials = () => {
+        const contextMenuOpenLink = document.querySelector("#breadcrumbs .coursePath .courseArrow a")
+        const doRemoveContextMenuSerials = () => {
+            contextMenuOpenLink.removeEventListener('mouseover', doRemoveContextMenuSerials)
+            contextMenuOpenLink.removeEventListener('click', doRemoveContextMenuSerials)
+            const waitForContextMenuReadyInterval = setInterval(() => {
+                console.log("[PKU Art] Waiting for context menu ready...")
+                if (contextMenuOpenLink.savedDiv.querySelector('li[id^="最近访问"]')) {
+                    clearInterval(waitForContextMenuReadyInterval)
+                    contextMenuOpenLink.savedDiv.innerHTML = contextMenuOpenLink.savedDiv.innerHTML.replace(/\(\d+-\d+学年第\d学期\)/g, '')
+                    const emptyMenu = contextMenuOpenLink.savedDiv.querySelector('ul[role="presentation"]:has(.contextmenu_empty)')
+                    if (emptyMenu) {
+                        contextMenuOpenLink.savedDiv.removeChild(emptyMenu)
+                        console.log("[PKU Art] Removed empty context menu")
+                    } 
+                }
+            }, 100)
+        }
+        if (contextMenuOpenLink) {
+            contextMenuOpenLink.addEventListener('mouseover', doRemoveContextMenuSerials)
+            // if somehow the user clicks before mouseover :(
+            contextMenuOpenLink.addEventListener('click', doRemoveContextMenuSerials)
+            contextMenuOpenLink.addEventListener('click', registerCloseContextMenuOnPage)
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', removeContextMenuSerials);
+    }
+    else { 
+        removeContextMenuSerials();
+    }
 }
 
 async function initializeDirectDownload() {
@@ -1019,6 +1052,14 @@ function customizeIaaaRememberCheckbox() {
             startObserver();
         }
     }
+}
+
+function registerCloseContextMenuOnPage() {
+    const closeContextMenu = () => {
+        page.ContextMenu.closeAllContextMenus()
+        document.removeEventListener("click", closeContextMenu)
+    }
+    document.addEventListener("click", closeContextMenu);
 }
 
 export {
