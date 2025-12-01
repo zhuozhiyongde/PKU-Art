@@ -197,9 +197,10 @@ table.bouncer,
 }
 
 #breadcrumbs .coursePath .courseArrow a {
-    height: 0.6em;
-    width: 0.6em;
+    height: 1em;
+    width: 1em;
     background: var(--i-arrow) no-repeat center center;
+    background-size: 100%;
 }
 
 body > div.cmdiv {
