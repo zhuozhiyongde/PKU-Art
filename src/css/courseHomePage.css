@@ -4,7 +4,7 @@
  * Github: https://github.com/zhuozhiyongde
  * Blog: https://arthals.ink
  */
-
+/*@import './components/courseHeader.css';*/
 /* 固定 body 作为 relative */
 body {
     position: relative;
@@ -19,55 +19,6 @@ body {
 #global-toggle-img {
     display: none;
     /* visibility: hidden; */
-}
-
-/* 个人界面面板 */
-/* #global-nav-link > * {
-    display: none;
-} */
-
-#global-nav-link,
-#global-nav-link:hover,
-#global-nav-link:focus {
-    overflow: hidden;
-    color: transparent;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    background: transparent;
-    background-image: var(--i-remind);
-    background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    border: none;
-    outline: none;
-}
-
-/* #global-nav-link > * {
-    display: none !important;
-} */
-
-#global-nav-link > #badgeTotal > .badge {
-    top: 0 !important;
-    right: 0 !important;
-    border-radius: 3px;
-    background-color: var(--c-accent);
-    color: #fff;
-}
-
-/* 退出按键 */
-.global-nav-bar.logout a.logout-link,
-.global-nav-bar.logout a.logout-link:hover,
-.global-nav-bar.logout a.logout-link:focus {
-    color: transparent;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    background: transparent;
-    background-image: var(--i-exit);
-    background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center center;
 }
 
 /* 替换背景 */
@@ -114,42 +65,6 @@ body {
 .tabWrapper-right,
 .bouncer[role='presentation'] {
     width: fit-content;
-}
-
-.global-nav-bar-wrap {
-    position: fixed;
-    /* left: 90vw; */
-    right: 50px;
-    display: flex;
-    /* height: fit-content; */
-    justify-content: flex-end;
-    flex-direction: row-reverse;
-    background-color: var(--c-navbar);
-    width: 100px;
-    height: 60px;
-    box-sizing: border-box;
-    /* margin-right: 10px; */
-    /* transform: translateX(calc(90vw - 120px)); */
-    margin: 0;
-    padding: 0;
-    border-bottom: 1px solid var(--c-border);
-}
-
-.global-nav-bar {
-    /* margin: 30px 5px; */
-    margin: 0;
-    float: none;
-    height: 60px;
-    display: flex;
-    /* display: inline-block; */
-    /* background-color: var(--c-navbar); */
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: center;
-}
-
-.global-nav-bar:not(:first-child) {
-    margin: 0 5px;
 }
 
 /* .nav-link {
@@ -215,10 +130,18 @@ body {
     margin: 0;
     margin-top: 60px;
     background-color: var(--c-sidebar);
-    border-right: 1px solid var(--c-border);
-    width: min(25%, 300px) !important;
-    position: fixed;
-    height: 100%;
+}
+
+@media (min-width: 1037px) { 
+    #column0 {
+        /* height: 200%; */
+        /* margin-bottom: 1000px; */
+        /* padding-bottom: 1000px; */
+        border-right: 1px solid var(--c-border);
+        width: min(25%, 300px) !important;
+        position: fixed;
+        height: 100%;
+    }
 }
 
 #column0:after {
@@ -234,6 +157,16 @@ body {
     z-index: 99999;
     opacity: 0.3;
     visibility: visible !important;
+}
+
+@media (max-width: 1036px) { 
+    #column0 {
+        border: 1px solid var(--c-border);
+    }
+
+    #column0::after {
+        bottom: 20px;
+    }
 }
 
 html #global-nav-bar-wrap {
@@ -332,28 +265,32 @@ html #global-nav-bar-wrap {
 }
 
 /* 浮现动画 */
-#column0 {
-    -webkit-animation: fadeInLeftStablePixel 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    animation: fadeInLeftStablePixel 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
+#column0,
 #column1,
 #column2 {
     -webkit-animation: fadeInUpStablePixel 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     animation: fadeInUpStablePixel 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-/* 右侧卡片样式 */
-
-#column1 {
-    margin-left: calc(min(25%, 300px) + 1rem) !important;
+@media (min-width: 1037px) { 
+    #column0 {
+        -webkit-animation: fadeInLeftStablePixel 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        animation: fadeInLeftStablePixel 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
 }
 
-#column1,
-#column2 {
-    margin-top: 60px;
-    margin-left: 1em;
-    height: fit-content;
+/* 右侧卡片样式 */
+@media (min-width: 1037px) { 
+    #column1 {
+        margin-left: calc(min(25%, 300px) + 1rem) !important;
+    }
+
+    #column1,
+    #column2 {
+        margin-top: 60px;
+        margin-left: 1em;
+        height: fit-content;
+    }
 }
 
 #column1 .portlet,
@@ -362,6 +299,14 @@ html #global-nav-bar-wrap {
     border-radius: 5px;
     background-color: var(--c-card);
     margin-top: 1em;
+}
+
+@media (max-width: 1036px) { 
+    #column0 {
+        border: 1px solid var(--c-border);
+        border-radius: 5px;
+        background-color: var(--c-card);
+    }
 }
 
 /* 卡片标题 */
@@ -530,4 +475,10 @@ div.edit_controls > a:hover::before {
     background-repeat: no-repeat;
     background-size: contain;
     color: transparent;
+}
+
+@media (max-width: 1037px) {
+    .containerPortal {
+        flex-direction: column;
+    }
 }

@@ -17,25 +17,26 @@
     margin-bottom: 2em;
     border-radius: 5px;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 #announcementList > li > h3:first-child {
     color: var(--c-title) !important;
     font-size: 18px;
+    order: 1;
 }
 
 #announcementList > li > .announcementInfo {
-    position: absolute;
-    top: 50px;
-    left: 30px;
-    height: 60px;
+    position: static;
+    order: 2;
     border: none;
     display: flex;
     flex-direction: row;
     width: fit-content;
     justify-content: flex-start;
     padding: 0;
-    margin-top: 5px;
+    margin: 10px 0;
 }
 
 #announcementList > li > .announcementInfo > p {
@@ -55,8 +56,8 @@
 }
 
 #announcementList > li > .details {
+    order: 3;
     margin: 0;
-    margin-top: 40px;
 }
 
 #announcementList > li > .details * {
@@ -126,4 +127,14 @@
     width: 20px;
     height: 20px;
     background-repeat: no-repeat;
+}
+
+@media (max-width: 400px) { 
+    #announcementList > li > .announcementInfo {
+        flex-direction: column;
+    }
+
+    #announcementList > li > .announcementInfo > p {
+        margin: 5px 0;
+    }
 }

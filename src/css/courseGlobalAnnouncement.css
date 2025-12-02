@@ -58,3 +58,25 @@
     background: var(--cyan-2);
     color: var(--cyan-6);
 }
+
+.path li.root {
+    padding: 0;
+    margin: 0;
+}
+
+@media (max-width: 1036px) {
+    .breadcrumbs {
+        position: relative;
+        top: 0;
+    }
+
+    .breadcrumbs ol li {
+        height: auto;
+        width: auto;
+        overflow-x: auto;
+    }
+
+    .announcementFilter select#searchSelectId {
+        width: 100%;
+    }
+}

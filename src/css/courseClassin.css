@@ -4,7 +4,10 @@
  * Github: https://github.com/zhuozhiyongde
  * Blog: https://arthals.ink
  */
-
+/*
+@import './components/courseTabs.css';
+@import './components/courseList.css';
+*/
 #pageTitleDiv > *:not([id='pageTitleBar']) {
     display: none;
 }
@@ -13,28 +16,11 @@
     color: transparent;
 }
 
-#actionbar {
-    border: none;
-    border-bottom: 1px solid var(--c-border);
-}
-
-#actionbar .mainButton > a,
-#actionbar .secondaryButton > a {
-    color: var(--c-text);
-    border-radius: 5px 5px 0 0;
-    border-bottom: 2px solid transparent !important;
-}
-
-#actionbar .mainButton > a:hover,
-#actionbar .secondaryButton > a:hover {
-    background: var(--c-hover);
-    border-bottom: 2px solid var(--c-accent) !important;
-}
-
+/*
 #searchForm {
     display: none;
 }
-
+*/
 .container {
     border: 1px solid var(--c-border);
     background: var(--c-card);
@@ -56,4 +42,26 @@
 
 .container .backLink a:hover {
     background-color: var(--c-hover);
+}
+
+.containerOptions {
+    font-family: inherit !important;
+    color: var(--c-text) !important;
+    text-decoration: none !important;
+    font-style: normal !important;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+form#searchForm .col-sm-1{
+    width: 100%;
+}
+
+input:disabled {
+    background: var(--c-card);
+    color: var(--gray-4);
+}
+
+input {
+    background: var(--c-card);
 }

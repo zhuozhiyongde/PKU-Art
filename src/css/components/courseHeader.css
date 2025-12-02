@@ -1,0 +1,98 @@
+/* 个人界面面板 */
+#global-nav-link > * {
+    display: none;
+}
+
+#global-nav-link,
+#global-nav-link:hover,
+#global-nav-link:focus {
+    overflow: hidden;
+    color: transparent;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    background-image: var(--i-remind);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: none;
+    outline: none;
+}
+
+#global-nav-link > #badgeTotal > .badge {
+    top: 0 !important;
+    right: 0 !important;
+    border-radius: 3px;
+    background-color: var(--c-accent);
+    color: #fff;
+}
+
+/* 退出按键 */
+.global-nav-bar a.logout-link,
+.global-nav-bar a.logout-link:hover,
+.global-nav-bar a.logout-link:focus {
+    color: transparent;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    background-image: var(--i-exit) !important;
+    background-size: 80%;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+}
+
+body .global-nav-bar-wrap {
+    position: fixed;
+    /* left: 90vw; */
+    right: 50px;
+    display: flex;
+    /* height: fit-content; */
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    background-color: transparent !important;
+    width: 100px;
+    height: 60px;
+    box-sizing: border-box;
+    /* margin-right: 10px; */
+    /* transform: translateX(calc(90vw - 120px)); */
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--c-border);
+    z-index: 1001;
+}
+
+.global-nav-bar {
+    /* margin: 30px 5px; */
+    margin: 0;
+    float: none !important;
+    height: 60px !important;
+    display: flex;
+    /* display: inline-block; */
+    /* background-color: var(--c-navbar); */
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.global-nav-bar:not(:first-child) {
+    margin: 0 5px;
+}
+
+@media (max-width: 1037px) {
+    body .global-nav-bar-wrap {
+        right: 0;
+        justify-content: normal;
+    }
+
+    .global-nav-bar-wrap-mobile-nav {
+        visibility: hidden;
+    }
+
+    .global-nav-bar.logout {
+        position: static !important;
+        height: 60px;
+        width: 60px;
+    }
+}

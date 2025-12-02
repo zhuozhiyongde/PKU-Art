@@ -1,6 +1,9 @@
 import mainStyles from './css/main.css?inline';
 import arcoPaletteStyles from './css/arco-palette.css?inline';
 import iaaaOAuthPageStyles from './css/iaaaOAuthPage.css?inline';
+import courseHeaderStyles from './css/components/courseHeader.css?inline';
+import courseListStyles from './css/components/courseList.css?inline';
+import courseTabsStyles from './css/components/courseTabs.css?inline';
 import courseLoginPageStyles from './css/courseLoginPage.css?inline';
 import courseHomePageStyles from './css/courseHomePage.css?inline';
 import courseContentStyles from './css/courseContent.css?inline';
@@ -40,13 +43,17 @@ import electiveCourseQueryStyles from './css/electiveCourseQuery.css?inline';
 import electiveFaqStyles from './css/electiveFaq.css?inline';
 
 function injectStyles(styleString, cssFileName) {
-    const styleElement = document.createElement('style');
-    styleElement.textContent = styleString;
-    styleElement.dataset.cssFileName = cssFileName;
-    styleElement.dataset.author = 'Arthals';
-    styleElement.className = 'PKU-Art';
+    const isString = typeof styleString === 'string';
+    const styles = isString ? [styleString] : styleString;
+    styles.forEach((styleString) => { 
+        const styleElement = document.createElement('style');
+        styleElement.textContent = styleString;
+        styleElement.dataset.cssFileName = cssFileName;
+        styleElement.dataset.author = 'Arthals';
+        styleElement.className = 'PKU-Art';
 
-    document.documentElement.appendChild(styleElement);
+        document.documentElement.appendChild(styleElement);
+    });
 }
 
 const currentUrl = window.location.href;
@@ -92,13 +99,13 @@ const styleRules = [
             /^https:\/\/course\.pku\.edu\.cn\/webapps\/portal\/\S*$/,
         ],
         excludePatterns: [],
-        styleContent: courseHomePageStyles,
+        styleContent: [courseHomePageStyles, courseHeaderStyles],
         fileName: 'courseHomePage.css',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*$/],
         excludePatterns: [],
-        styleContent: courseContentStyles,
+        styleContent: [courseContentStyles, courseHeaderStyles],
         fileName: 'courseContent.css',
     },
     {
@@ -110,13 +117,13 @@ const styleRules = [
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*getTeachingStaffList\S*$/],
         excludePatterns: [],
-        styleContent: courseTeachingStaffListStyles,
+        styleContent: [courseTeachingStaffListStyles, courseListStyles, courseTabsStyles],
         fileName: 'courseTeachingStaffList.css',
     },
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*classinCourseClass\S*$/],
         excludePatterns: [],
-        styleContent: courseClassinStyles,
+        styleContent: [courseClassinStyles, courseListStyles, courseTabsStyles],
         fileName: 'courseClassin.css',
     },
     {
@@ -128,7 +135,7 @@ const styleRules = [
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*videoList\S*$/],
         excludePatterns: [],
-        styleContent: courseVideolistStyles,
+        styleContent: [courseVideolistStyles, courseListStyles],
         fileName: 'courseVideolist.css',
     },
     {
@@ -140,7 +147,7 @@ const styleRules = [
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*myGrades\S*course_id\S*is_stream=false\S*$/],
         excludePatterns: [],
-        styleContent: courseClassGradeStyles,
+        styleContent: [courseClassGradeStyles, courseTabsStyles],
         fileName: 'courseClassGrade.css',
     },
     {
@@ -158,7 +165,7 @@ const styleRules = [
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*toolId\S*$/],
         excludePatterns: [],
-        styleContent: courseToolFrameStyles,
+        styleContent: [courseToolFrameStyles, courseHeaderStyles],
         fileName: 'courseToolFrame.css',
     },
     {
@@ -176,7 +183,7 @@ const styleRules = [
     {
         patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*course_id\S*stream_name=mygrades$/],
         excludePatterns: [],
-        styleContent: courseToolGradeClassStyles,
+        styleContent: [courseTabsStyles, courseToolGradeClassStyles],
         fileName: 'courseToolGradeClass.css',
     },
     {
@@ -206,7 +213,7 @@ const styleRules = [
             /^https:\/\/course\.pku\.edu\.cn\/webapps\/\S*playVideo\S*$/,
         ],
         excludePatterns: [],
-        styleContent: courseGlobalPageStyles,
+        styleContent: [courseGlobalPageStyles, courseHeaderStyles],
         fileName: 'courseGlobalPage.css',
     },
     {

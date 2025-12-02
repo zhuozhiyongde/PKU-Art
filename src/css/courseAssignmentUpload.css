@@ -114,13 +114,16 @@ form[name='uploadAssignmentForm'] input[type='submit'].submit:hover {
 }
 
 /* 步骤布局 */
-form[name='uploadAssignmentForm'] ol[role='presentation'] > li {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-left: 20px;
-    border: 2px solid transparent;
-    margin: 10px;
+@media (min-width: 736px) {
+    /* 宽度小的时候改为竖排 */
+    form[name='uploadAssignmentForm'] ol[role='presentation'] > li {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-left: 20px;
+        border: 2px solid transparent;
+        margin: 10px;
+    }
 }
 
 /* 标签统一宽度 */
@@ -220,15 +223,13 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
 }
 
 /* TINY深色模式 */
-@media screen and (prefers-color-scheme: dark) {
-    .tox.tox-tinymce {
-        -webkit-filter: invert(100%) hue-rotate(180deg);
-        filter: invert(100%) hue-rotate(180deg);
-    }
-    .tox.tox-tinymce svg {
-        -webkit-filter: invert(100%) hue-rotate(180deg);
-        filter: invert(100%) hue-rotate(180deg);
-    }
+.pku-art-dark .tox.tox-tinymce {
+    -webkit-filter: invert(100%) hue-rotate(180deg);
+    filter: invert(100%) hue-rotate(180deg);
+}
+.pku-art-dark .tox.tox-tinymce svg {
+    -webkit-filter: invert(100%) hue-rotate(180deg);
+    filter: invert(100%) hue-rotate(180deg);
 }
 
 /* 作业复查界面 */
@@ -359,4 +360,10 @@ form[name='uploadAssignmentForm'] .defaultSkin .mceMenu {
 
 #inlineGrader div.contentDetailsHeader {
     margin-top: 15px;
+}
+
+@media only screen and (min-width: 0) and (max-width: 736px) {
+    .stepcontent ol li div.label {
+        border-bottom: none;
+    }
 }

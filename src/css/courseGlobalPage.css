@@ -4,6 +4,7 @@
  * Github: https://github.com/zhuozhiyongde
  * Blog: https://arthals.ink
  */
+/*@import './components/courseHeader.css';*/
 
 body {
     position: relative;
@@ -17,43 +18,6 @@ body {
 #global-toggle-img {
     display: none;
     /* visibility: hidden; */
-}
-
-/* 个人界面面板 */
-#global-nav-link > * {
-    display: none;
-}
-
-#global-nav-link,
-#global-nav-link:hover,
-#global-nav-link:focus {
-    color: transparent;
-    overflow: hidden;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    background: transparent;
-    background-image: var(--i-remind) !important;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    border: none;
-    outline: none;
-}
-
-/* 退出按键 */
-.global-nav-bar a.logout-link,
-.global-nav-bar a.logout-link:hover,
-.global-nav-bar a.logout-link:focus {
-    color: transparent;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    background: transparent;
-    background-image: var(--i-exit) !important;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center center;
 }
 
 /* 替换背景 */
@@ -105,43 +69,6 @@ body {
 .tabWrapper-right,
 .bouncer[role='presentation'] {
     width: fit-content;
-}
-
-.global-nav-bar-wrap {
-    position: fixed;
-    z-index: 30;
-    /* left: 90vw; */
-    right: 50px;
-    display: flex;
-    /* height: fit-content; */
-    justify-content: flex-end;
-    flex-direction: row-reverse;
-    background-color: var(--c-navbar);
-    width: 100px;
-    height: 60px;
-    box-sizing: border-box;
-    /* margin-right: 10px; */
-    /* transform: translateX(calc(90vw - 120px)); */
-    margin: 0;
-    padding: 0;
-    border-bottom: 1px solid var(--c-border);
-}
-
-.global-nav-bar {
-    /* margin: 30px 5px; */
-    margin: 0;
-    float: none;
-    height: 60px;
-    display: flex;
-    /* display: inline-block; */
-    /* background-color: var(--c-navbar); */
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: center;
-}
-
-.global-nav-bar:not(:first-child) {
-    margin: 0 5px;
 }
 
 /* .nav-link {

@@ -5,6 +5,41 @@
  * Blog: https://arthals.ink
  */
 
+
+
+@media (max-width: 800px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .stream_pages {
+        flex-direction: column;
+    }
+
+    #outer_left_stream_mygrades.stream_page_left {
+        width: 100% !important;
+        flex-basis: auto;
+    }
+
+    .stream_left {
+        height: auto !important;
+        display: inline-grid;
+        grid-auto-flow: column;
+        grid-template-rows: repeat(2, 1fr);
+        grid-auto-rows: min-content;
+    }
+
+    #left_stream_mygrades .stream_item {
+        width: 275px;
+        height: min-content;
+    }
+
+    iframe#right_stream_mygrades.stream_right {
+        width: 100% !important;
+        flex-basis: auto;
+    }
+}
+
 .stream_pages {
     display: flex;
     justify-content: space-between;

@@ -4,6 +4,7 @@
  * Github: https://github.com/zhuozhiyongde
  * Blog: https://arthals.ink
  */
+/*@import './components/courseHeader.css';*/
 
 .brandingImgWrap,
 #appTabList > tbody > tr,
@@ -13,43 +14,6 @@
 #global-toggle-img {
     display: none;
     /* visibility: hidden; */
-}
-
-/* 个人界面面板 */
-#global-nav-link > * {
-    display: none;
-}
-
-#global-nav-link,
-#global-nav-link:hover,
-#global-nav-link:focus {
-    color: transparent;
-    overflow: hidden;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    background: transparent;
-    background-image: var(--i-remind) !important;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    border: none;
-    outline: none;
-}
-
-/* 退出按键 */
-.global-nav-bar a.logout-link,
-.global-nav-bar a.logout-link:hover,
-.global-nav-bar a.logout-link:focus {
-    color: transparent;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    background: transparent;
-    background-image: var(--i-exit) !important;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center center;
 }
 
 /* 替换背景 */
@@ -97,42 +61,6 @@
 .tabWrapper-right,
 .bouncer[role='presentation'] {
     width: fit-content;
-}
-
-.global-nav-bar-wrap {
-    position: absolute;
-    /* left: 90vw; */
-    right: 50px;
-    display: flex;
-    /* height: fit-content; */
-    justify-content: flex-end;
-    flex-direction: row-reverse;
-    background-color: var(--c-navbar);
-    width: 100px;
-    height: 60px;
-    box-sizing: border-box;
-    /* margin-right: 10px; */
-    /* transform: translateX(calc(90vw - 120px)); */
-    margin: 0;
-    padding: 0;
-    border-bottom: 1px solid var(--c-border);
-}
-
-.global-nav-bar {
-    /* margin: 30px 5px; */
-    margin: 0;
-    float: none;
-    height: 60px;
-    display: flex;
-    /* display: inline-block; */
-    /* background-color: var(--c-navbar); */
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: center;
-}
-
-.global-nav-bar:not(:first-child) {
-    margin: 0 5px;
 }
 
 /* .nav-link {
@@ -192,6 +120,75 @@ nav.navigationPane {
     visibility: visible !important;
 }
 
+@media (max-width: 1037px) {
+    .locationPane {
+        margin-top: 60px;
+    }
+
+    .side-nav#side_nav {
+        width: 100% !important;
+        max-height: 80px;
+        background: linear-gradient(to bottom, var(--c-navbar), var(--c-background));
+    }
+
+    .side-nav#side_nav::before {
+        position: absolute;
+        visibility: hidden;
+    }
+
+    .side-nav#side_nav:after {
+        position: fixed;
+        bottom: 10px;
+    }
+
+    .side-nav#side_nav #mybbListTools {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #side_nav #mybbListTools li {
+        margin: auto 20px;
+        padding: 0 10px;
+    }
+
+    .side-nav#side_nav #mybbListTools:before {
+        visibility: hidden;
+        width: 0;
+    }
+
+    .side-nav#side_nav #mybbListTools li.active {
+        border-left: none;
+        border-bottom: 6px solid var(--c-accent);
+    }
+
+    .iframe-wrap#iframe_wrap {
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 480px) {
+    #side_nav.side-nav {
+        padding: 0;
+    }
+
+    #side_nav #mybbListTools li[id*='MyGrades'] span.menu-icon {
+        position: relative;
+    }
+
+    #side_nav #mybbListTools li span.menu-icon:after {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+
+    #side_nav #mybbListTools li {
+        padding-bottom: 20px;
+    }
+}
+
 /* 面板内容样式 */
 .locationPane {
     background-color: var(--c-background);
@@ -205,10 +202,10 @@ nav.navigationPane {
     margin: 0 !important;
 }
 
-#contentPanel {
+/* #contentPanel { */
     /* -webkit-animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
     animation: fadeInUpStablePixel 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards; */
-}
+/*}*/
 
 /* 个人导航面板 */
 #vertical_container,

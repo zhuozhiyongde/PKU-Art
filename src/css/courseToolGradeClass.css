@@ -36,38 +36,6 @@ html,
 }
 
 /*筛选栏*/
-.filterBarHorizontal {
-    background: var(--c-card);
-    border-bottom: 1px solid var(--c-border);
-}
-
-#filterby {
-    display: inline-flex;
-    height: 100%;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-#filterby > li {
-    height: 100%;
-    position: relative;
-}
-
-#filterby a {
-    box-sizing: border-box;
-    height: 100%;
-    display: flex;
-    padding: 10px 15px;
-    box-shadow: none !important;
-    font-size: 11pt;
-    font-weight: bold;
-    /*border:none;*/
-    color: var(--c-text);
-    border-radius: 5px 5px 0 0;
-    border: none;
-    border-bottom: 2px solid transparent;
-}
-
 #filterby a:hover {
     background: var(--c-hover) !important;
     border-bottom: 2px solid var(--c-secondary);
@@ -83,20 +51,33 @@ html,
 /* TODO: 最后一栏状态栏是啥需要确认 */
 
 .filterBarHorizontal select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: var(--c-card);
-    color: var(--c-text);
-    border: 1px solid var(--c-border);
     border-radius: 5px;
-    outline: none;
     padding: 3px 10px;
 }
 
-.filterBarHorizontal select:hover {
-    background: var(--c-hover) !important;
-    color: var(--c-title) !important;
+@media (max-width: 480px) {
+    .gradeTableNew {
+        margin-top: 0;
+    }
+
+    .gradeTableNew .grades_header {
+        visibility: hidden;
+        height: 0;
+    }
+
+    .gradeTableNew .cell.gradable:first-of-type {
+        border-bottom: none;
+    }
+
+    .filterBarHorizontal .sorter {
+        top: 55px;
+    }
+}
+
+@media (max-width: 667px) {
+    body #streamDetail {
+        border-top: none;
+    }
 }
 
 /* 表头 */
@@ -302,4 +283,31 @@ body div.lb-wrapper div.lb-content {
 body div.lb-wrapper div.lb-content .container {
     color: var(--c-text);
     border: none;
+}
+
+@media (max-width: 480px) {
+    #grades_wrapper > div {
+        height: auto;
+    }
+    
+    .gradeTableNew .row.expanded {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gradeTableNew .cell.grade {
+        width: 100%;
+        grid-column: 2;
+    }
+
+    .gradeTableNew .cell.gradeStatus {
+        width: 100%;
+        grid-row: 2;
+        text-align: right;
+    }
+
+    .submitted_item_row.row {
+        border-right: none !important;
+        border-left: 2px solid var(--cyan-7) !important;
+    }
 }
