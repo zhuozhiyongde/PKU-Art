@@ -14,28 +14,6 @@ body {
     min-height: 100%;
 }
 
-.brandingImgWrap,
-#appTabList > tbody > tr,
-.hideoff,
-#quick_links_wrap,
-#global-avatar,
-#global-toggle-img {
-    display: none !important;
-    /* visibility: hidden; */
-}
-
-
-/* 替换背景 */
-/* .tabWrapper-right,
-#globalNavPageNavArea,
-#topTabs, */
-.container,
-.locationPane,
-.contentPane,
-.contentBox {
-    background-color: var(--c-background);
-}
-
 /* 移除边框 */
 #containerdiv {
     border: none;
@@ -46,32 +24,6 @@ body {
 /*	border-radius: 5px!important;*/
 /*	border:1px solid var(--c-border)!important;*/
 /*}*/
-
-/* 重置导航栏布局 */
-.tabWrapper-right,
-#globalNavPageNavArea,
-#topTabs {
-    /* position: absolute; */
-    /* width: fit-content; */
-    background-color: var(--c-navbar) !important;
-}
-
-#globalNavPageNavArea {
-    padding: 1em 0;
-    height: 60px;
-    box-sizing: border-box;
-    /* vertical-align: middle; */
-    display: flex;
-    text-align: right;
-    justify-content: flex-end;
-    flex-direction: row;
-    padding-right: 140px;
-    background: var(--c-navbar) var(--i-logo) no-repeat 2em center / auto 30px !important;
-    border-bottom: 1px solid var(--c-border);
-    position: fixed;
-    width: 100%;
-    z-index: 30;
-}
 
 .tabWrapper-right,
 .bouncer[role='presentation'] {
@@ -94,11 +46,6 @@ table.bouncer,
     padding: 0;
 }
 
-#globalNavPageNavArea a,
-#globalNavPageNavArea td {
-    padding: 0 !important;
-}
-
 /* 课程标题栏 */
 #breadcrumbs {
     /* display: inline-block; */
@@ -117,7 +64,7 @@ table.bouncer,
     border: none;
 }
 
-@media (min-width: 1037px) { 
+@media (min-width: 1038px) { 
     #breadcrumbs {
         width: calc(100% - min(25%, 300px));
         padding: 1.2em 1em 1em 1em;
@@ -153,7 +100,7 @@ table.bouncer,
     background-size: 100%;
 }
 
-@media (max-width: 1036px) { 
+@media (max-width: 1037px) { 
     .breadcrumbs {
         position: relative;
         top: 0;
@@ -249,7 +196,7 @@ div.container {
     height: fit-content !important;
     min-height: 100vh;
 } */
-@media (min-width: 1037px) {
+@media (min-width: 1038px) {
 nav.navigationPane {
     height: 100%;
     transition: none !important;
@@ -290,7 +237,7 @@ nav.navigationPane:after {
     border-right: 1px solid var(--c-border);
 }
 
-@media (min-width: 1037px) { 
+@media (min-width: 1038px) { 
     .locationPane nav {
         width: min(25%, 300px) !important;
     }
@@ -324,7 +271,7 @@ nav.navigationPane:after {
     border-top: none;
 }
 
-@media (max-width: 1036px) { 
+@media (max-width: 1037px) { 
     #menuWrap > #puller {
         -webkit-tap-highlight-color: transparent;
         background: var(--gray-5);
@@ -502,7 +449,7 @@ li.divider,
     margin: 0 !important;
 }
 
-@media (min-width: 1037px) { 
+@media (min-width: 1038px) { 
     #contentPanel {
         z-index: 10;
         margin-top: 60px;
@@ -554,100 +501,6 @@ li.divider,
 
 #pageTitleText {
     font-weight: bold;
-}
-
-/* 个人导航面板 */
-#vertical_container,
-#bottomButtons {
-    display: none;
-}
-
-#global-nav-tools {
-    z-index: 9999;
-    height: inherit !important;
-}
-
-#global-nav-tools {
-    background-color: transparent;
-}
-
-#global-list-tools {
-    margin: 0 !important;
-    box-shadow: var(--c-box-shadow);
-    border: 1px solid var(--c-border);
-    padding: 5px;
-    border-radius: 5px;
-    background-color: var(--c-card);
-    /*border:1px solid #EEE;*/
-}
-
-#global-list-tools > .overview,
-#global-list-tools > .stream,
-#global-list-tools > .risktracker {
-    display: none;
-}
-
-#global-list-tools > .alerts,
-#global-list-tools > .grade,
-#global-list-tools > .calendar {
-    background-color: var(--c-card);
-}
-
-#global-list-tools > .alerts > a:hover,
-#global-list-tools > .grades > a:hover,
-#global-list-tools > .calendar > a:hover {
-    background-color: var(--c-hover);
-}
-
-#global-list-tools > .alerts > a {
-    border-radius: 5px;
-    background: var(--i-alarm);
-    /* background-color: var(--c-card) !important; */
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    margin: 0 auto;
-    /* transition: 350ms opacity; */
-}
-
-#global-list-tools > .grades > a {
-    border-radius: 5px;
-    background: var(--i-idcard);
-    /* background-color: var(--c-card) !important; */
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    margin: 0 auto;
-    /* transition: 350ms opacity; */
-}
-
-#global-list-tools > .calendar > a {
-    border-radius: 5px;
-    background: var(--i-calendar-tab);
-    /* background-color: var(--c-card) !important; */
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    margin: 0 auto;
-    /* transition: 350ms opacity; */
-}
-
-#global-list-tools > .more-link > a {
-    border-radius: 5px;
-    background: var(--i-idcard);
-    /* background-color: var(--c-card) !important; */
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-#global-more-tools {
-    display: none !important;
-}
-
-.mybb-tools li a {
-    opacity: 1;
-    background-color: var(--c-card);
 }
 
 .mybb-tools li a:focus,

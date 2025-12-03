@@ -10,61 +10,11 @@ body {
     position: relative;
 }
 
-.brandingImgWrap,
-#appTabList > tbody > tr,
-.hideoff,
-#quick_links_wrap,
-#global-avatar,
-#global-toggle-img {
-    display: none;
-    /* visibility: hidden; */
-}
-
-/* 替换背景 */
-/* .tabWrapper-right,
-#globalNavPageNavArea,
-#topTabs, */
-.container,
-.locationPane,
-.contentPane {
-    background-color: var(--c-background);
-}
-
 /* 全局Container */
 /*#containerdiv{*/
 /*	border-radius: 5px!important;*/
 /*	border:1px solid var(--c-border)!important;*/
 /*}*/
-
-/* 重置导航栏布局 */
-.tabWrapper-right,
-#globalNavPageNavArea,
-#topTabs {
-    /* position: absolute; */
-    /* width: fit-content; */
-    background-color: var(--c-navbar);
-}
-
-#globalNavPageNavArea {
-    padding: 1em 0;
-    height: 60px;
-    top: 0px !important;
-    box-sizing: border-box;
-    /* vertical-align: middle; */
-    display: flex;
-    text-align: right;
-    justify-content: flex-end;
-    flex-direction: row;
-    padding-right: 140px;
-    background-image: var(--i-logo);
-    background-repeat: no-repeat;
-    background-size: auto 30px;
-    background-position: 2em center;
-    border-bottom: 1px solid var(--c-border);
-    position: fixed;
-    width: 100%;
-    z-index: 20;
-}
 
 .tabWrapper-right,
 .bouncer[role='presentation'] {
@@ -85,11 +35,6 @@ table.bouncer,
 .topTabs .tabWrapper-right {
     height: fit-content;
     padding: 0;
-}
-
-#globalNavPageNavArea a,
-#globalNavPageNavArea td {
-    padding: 0 !important;
 }
 
 /* 课程标题栏 */
@@ -184,100 +129,6 @@ div.container {
 
 #pageTitleText {
     font-weight: bold;
-}
-
-/* 个人导航面板 */
-#vertical_container,
-#bottomButtons {
-    display: none;
-}
-
-#global-nav-tools {
-    z-index: 9999;
-    height: inherit !important;
-}
-
-#global-nav-tools {
-    background-color: transparent;
-}
-
-#global-list-tools {
-    margin: 0;
-    box-shadow: var(--c-box-shadow);
-    border: 1px solid var(--c-border);
-    padding: 5px;
-    border-radius: 5px;
-    background-color: var(--c-card);
-    /*border:1px solid #EEE;*/
-}
-
-#global-list-tools > .overview,
-#global-list-tools > .stream,
-#global-list-tools > .risktracker {
-    display: none;
-}
-
-#global-list-tools > .alerts,
-#global-list-tools > .grade,
-#global-list-tools > .calendar {
-    background-color: var(--c-card);
-}
-
-#global-list-tools > .alerts > a:hover,
-#global-list-tools > .grades > a:hover,
-#global-list-tools > .calendar > a:hover {
-    background-color: var(--c-hover);
-}
-
-#global-list-tools > .alerts > a {
-    border-radius: 5px;
-    background: var(--i-alarm);
-    /* background-color: var(--c-card) !important; */
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    margin: 0 auto;
-    /* transition: 350ms opacity; */
-}
-
-#global-list-tools > .grades > a {
-    border-radius: 5px;
-    background: var(--i-idcard);
-    /* background-color: var(--c-card) !important; */
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    margin: 0 auto;
-    /* transition: 350ms opacity; */
-}
-
-#global-list-tools > .calendar > a {
-    border-radius: 5px;
-    background: var(--i-calendar-tab);
-    /* background-color: var(--c-card) !important; */
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    margin: 0 auto;
-    /* transition: 350ms opacity; */
-}
-
-#global-list-tools > .more-link > a {
-    border-radius: 5px;
-    background: var(--i-idcard);
-    /* background-color: var(--c-card) !important; */
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-#global-more-tools {
-    display: none !important;
-}
-
-.mybb-tools li a {
-    opacity: 1;
-    background-color: var(--c-card);
 }
 
 .mybb-tools li a:focus,

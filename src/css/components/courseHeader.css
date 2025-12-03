@@ -1,3 +1,62 @@
+/* 隐藏不需要的模块 */
+.brandingImgWrap,
+#appTabList > tbody > tr,
+.hideoff,
+#quick_links_wrap,
+#global-avatar,
+#global-toggle-img {
+    display: none;
+    /* visibility: hidden; */
+}
+
+/* 个人导航面板 */
+#vertical_container,
+#bottomButtons {
+    display: none;
+}
+
+/* 替换背景 */
+/* .tabWrapper-right,
+#globalNavPageNavArea,
+#topTabs, */
+.container,
+.locationPane,
+.contentPane,
+.contentBox {
+    background-color: var(--c-background);
+}
+
+#globalNavPageNavArea {
+    padding: 1em 0;
+    height: 60px;
+    box-sizing: border-box;
+    /* vertical-align: middle; */
+    display: flex;
+    text-align: right;
+    justify-content: flex-end;
+    flex-direction: row;
+    padding-right: 140px;
+    background: var(--c-navbar) var(--i-logo) no-repeat 2em center / auto 30px !important;
+    border-bottom: 1px solid var(--c-border);
+    position: fixed;
+    width: 100%;
+    z-index: 30;
+}
+
+#globalNavPageNavArea a,
+#globalNavPageNavArea td {
+    padding: 0 !important;
+}
+
+/* 重置导航栏布局 */
+.tabWrapper-right,
+#globalNavPageNavArea,
+#topTabs {
+    /* position: absolute; */
+    /* width: fit-content; */
+    background-color: var(--c-navbar) !important;
+}
+
 /* 个人界面面板 */
 #global-nav-link > * {
     display: none;
@@ -87,6 +146,95 @@ body .global-nav-bar-wrap {
 
 .global-nav-bar:not(:first-child) {
     margin: 0 5px;
+}
+
+#global-nav-tools {
+    z-index: 9999;
+    height: inherit !important;
+}
+
+#global-nav-tools {
+    background-color: transparent;
+}
+
+#global-list-tools {
+    margin: 0;
+    box-shadow: var(--c-box-shadow);
+    border: 1px solid var(--c-border);
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--c-card);
+    /*border:1px solid #EEE;*/
+}
+
+#global-list-tools > .overview,
+#global-list-tools > .stream,
+#global-list-tools > .risktracker {
+    display: none;
+}
+
+#global-list-tools > .alerts,
+#global-list-tools > .grade,
+#global-list-tools > .calendar {
+    background-color: var(--c-card);
+}
+
+#global-list-tools > .alerts > a:hover,
+#global-list-tools > .grades > a:hover,
+#global-list-tools > .calendar > a:hover,
+#global-list-tools > .more-link a:hover {
+    background-color: var(--c-hover);
+}
+
+#global-list-tools > .alerts > a {
+    border-radius: 5px;
+    background: var(--i-alarm);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0 auto;
+    /* transition: 350ms opacity; */
+}
+
+#global-list-tools > .grades > a {
+    border-radius: 5px;
+    background: var(--i-idcard);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0 auto;
+    /* transition: 350ms opacity; */
+}
+
+#global-list-tools > .calendar > a {
+    border-radius: 5px;
+    background: var(--i-calendar-tab);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0 auto;
+    /* transition: 350ms opacity; */
+}
+
+#global-list-tools > .more-link > a {
+    border-radius: 5px;
+    background: var(--i-idcard);
+    /* background-color: var(--c-card) !important; */
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#global-more-tools {
+    display: none !important;
+}
+
+.mybb-tools li a {
+    opacity: 1;
+    background-color: var(--c-card);
 }
 
 @media (max-width: 1037px) {
