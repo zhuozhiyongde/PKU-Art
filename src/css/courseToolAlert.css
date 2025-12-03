@@ -222,3 +222,32 @@ span.open_stream_settings {
 .streamError {
     display: none;
 }
+
+@media (max-width: 667px) {
+    #streamHeader_alerts {
+        visibility: hidden;
+    }
+
+    .vertical_filter .stream_header {
+        z-index: auto;
+    }
+
+    #left_stream_alerts .stream_item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #outer_left_stream_alerts .stream_item .stream_datestamp {
+        bottom: 15px;
+        right: 20px;
+    }
+
+    #outer_left_stream_alerts .stream_context {
+        margin-bottom: 10px;
+    }
+
+    .stream_context_bottom {
+        margin: 0;
+        margin-right: 60px;
+    }
+}

@@ -197,16 +197,6 @@ div.container {
     height: inherit !important;
 }
 
-#global-nav-flyout {
-    box-shadow: none;
-    border-radius: 5px;
-    width: 40px !important;
-    height: 150px !important;
-    transform: translateY(34px);
-    background-color: transparent;
-    /*background-color: #000;*/
-}
-
 #global-nav-tools {
     background-color: transparent;
 }

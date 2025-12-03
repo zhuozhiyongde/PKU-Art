@@ -68,13 +68,13 @@ html,
     .gradeTableNew .cell.gradable:first-of-type {
         border-bottom: none;
     }
-
-    .filterBarHorizontal .sorter {
-        top: 55px;
-    }
 }
 
 @media (max-width: 667px) {
+    body#learn-oe-body {
+        overflow: hidden !important;
+    }
+
     body #streamDetail {
         border-top: none;
     }

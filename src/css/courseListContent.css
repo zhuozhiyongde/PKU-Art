@@ -132,3 +132,8 @@
     text-decoration: none;
 }
 
+@media (min-width: 421px) and (max-width: 500px) {
+    .contentList {
+        width: auto;
+    }
+}

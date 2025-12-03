@@ -443,6 +443,9 @@ function initializeThemeToggleButton() {
         if (/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
             const navBarItem = remindLink.closest('.global-nav-bar');
             wrapper.classList.add('global-nav-bar');
+            if (navBarItem.parentElement.className !== 'global-nav-bar-wrap') {
+                navWrap.appendChild(navBarItem);
+            }
 
             if (navBarItem && navBarItem.parentElement) {
                 navBarItem.parentElement.insertBefore(wrapper, navBarItem.nextSibling);

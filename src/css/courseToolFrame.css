@@ -165,6 +165,10 @@ nav.navigationPane {
     .iframe-wrap#iframe_wrap {
         margin-left: 0px;
     }
+
+    #iframe_wrap.iframe-wrap {
+        width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -186,6 +190,12 @@ nav.navigationPane {
 
     #side_nav #mybbListTools li {
         padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 667px) {
+    body.mybb-shell {
+        overflow: hidden !important;
     }
 }
 
@@ -218,15 +228,6 @@ nav.navigationPane {
     height: inherit !important;
 }
 
-#global-nav-flyout {
-    box-shadow: none;
-    border-radius: 5px;
-    width: 40px !important;
-    height: 150px !important;
-    transform: translateY(34px);
-    background-color: transparent;
-    /*background-color: #000;*/
-}
 
 #global-nav-tools {
     background-color: transparent;

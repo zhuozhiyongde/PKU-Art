@@ -251,6 +251,10 @@ body div.lb-wrapper div.lb-content .container {
         height: auto;
     }
     
+    .gradeTableNew {
+        margin-top: 90px;
+    }
+
     .gradeTableNew .row.expanded {
         display: grid;
         grid-template-columns: 1fr 1fr;

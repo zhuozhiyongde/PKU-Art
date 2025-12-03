@@ -283,6 +283,7 @@ nav.navigationPane:after {
 .locationPane nav {
     position: fixed;
     margin-top: 60px;
+    z-index: 20;
 }
 
 #menuWrap {
@@ -290,20 +291,29 @@ nav.navigationPane:after {
 }
 
 @media (min-width: 1037px) { 
-.locationPane nav {
-    width: min(25%, 300px) !important;
+    .locationPane nav {
+        width: min(25%, 300px) !important;
+    }
+    #menuWrap > #puller {
+        display: none;
+    }
+    /* 禁止左侧边栏收缩 */
+    .navcollapsed {
+        margin-left: 0;
+    }
 }
-#menuWrap > #puller {
-    display: none;
+
+.navcollapsed .menuWrap .menuWrap-inner {
+    opacity: 1;
 }
-/* 禁止左侧边栏收缩 */
-.navcollapsed {
-    margin-left: 0;
-}
-}
+
 /* 侧栏背景 */
+.locationPane nav,
 #menuWrap,
+.menuWrap-inner,
 .navPaletteContent,
+#courseMenuPalette,
+#courseMenuPalette ul,
 #courseMenuPalette_contents li,
 #courseMenuPalette div.navPaletteContent {
     background-color: var(--c-sidebar) !important;
@@ -316,15 +326,50 @@ nav.navigationPane:after {
 
 @media (max-width: 1036px) { 
     #menuWrap > #puller {
-        background: var(--gray-2);
+        -webkit-tap-highlight-color: transparent;
+        background: var(--gray-5);
         border: 1px solid var(--c-border);
-        opacity: 0.8;
         backdrop-filter: blur(8px) saturate(120%);
+    }
+
+    #puller.pullcollapsed {
+        opacity: 0.6;
+        height: 40px;
+        width: 40px;
+        top: 80px;
+        left: -20px;
+    }
+
+    #puller.pullcollapsed a:after {
+        top: -3px;
+        left: 20px !important;
+        color: var(--c-navbar);
+    }
+
+    #puller:not(.pullcollapsed) {
+        opacity: 0.5;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+        z-index: -1;
+    }
+
+    #puller:not(.pullcollapsed) a {
+        height: 100%;
+        width: 100%;
     }
 
     .menuWrap {
         box-shadow: none;
     }
+
+    #contentPanel {
+        position: relative;
+        z-index: 0;
+    }
+
     #courseMenuPalette span,
     #courseMenuPalette a {
         top: unset;
@@ -520,16 +565,6 @@ li.divider,
 #global-nav-tools {
     z-index: 9999;
     height: inherit !important;
-}
-
-#global-nav-flyout {
-    box-shadow: none;
-    border-radius: 5px;
-    width: 40px !important;
-    height: 150px !important;
-    transform: translateY(34px);
-    background-color: transparent;
-    /*background-color: #000;*/
 }
 
 #global-nav-tools {
