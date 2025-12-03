@@ -30,6 +30,7 @@
     padding: 1em 0;
     height: 60px;
     box-sizing: border-box;
+    top: 0;
     /* vertical-align: middle; */
     display: flex;
     text-align: right;

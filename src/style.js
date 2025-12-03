@@ -121,7 +121,10 @@ const styleRules = [
         fileName: 'courseTeachingStaffList.css',
     },
     {
-        patterns: [/^https:\/\/course\.pku\.edu\.cn\/webapps\S*classinCourseClass\S*$/],
+        patterns: [
+            /^https:\/\/course\.pku\.edu\.cn\/webapps\S*classinCourseClass\S*$/,
+            /^https:\/\/course\.pku\.edu\.cn\/webapps\S*bb-ClassIn-BBLEARN\S*$/,
+        ],
         excludePatterns: [],
         styleContent: [courseClassinStyles, courseListStyles, courseTabsStyles],
         fileName: 'courseClassin.css',

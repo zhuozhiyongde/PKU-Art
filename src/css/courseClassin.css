@@ -64,4 +64,10 @@ input:disabled {
 
 input {
     background: var(--c-card);
+    border: 1px solid var(--c-border) !important;
+    border-radius: 5px;
+}
+
+input[type="button"]:hover {
+    background: var(--c-hover);
 }

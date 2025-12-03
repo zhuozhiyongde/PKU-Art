@@ -294,7 +294,7 @@ nav.navigationPane:after {
     }
 
     #puller:not(.pullcollapsed) {
-        opacity: 0.5;
+        opacity: 0.2;
         top: 0px;
         left: 0px;
         height: 100%;

@@ -12,6 +12,10 @@
 /*	border:1px solid var(--c-border)!important;*/
 /*}*/
 
+#globalNavPageContentArea {
+    margin-top: 60px;
+}
+
 .tabWrapper-right,
 .bouncer[role='presentation'] {
     width: fit-content;
