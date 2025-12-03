@@ -5,6 +5,89 @@
  * Blog: https://arthals.ink
  */
 
+
+
+@media (max-width: 800px) {
+    .stream_pages {
+        flex-direction: column;
+    }
+
+    #streamHeader_mygrades {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .title-text {
+        position: static;
+        font-size: 24px;
+    }
+
+    .left_stream_wrapper {
+        overflow-x: auto;
+    }
+
+    .stream_left > div.stream_item:last-child {
+        margin-bottom: 0;
+    }
+
+    .stream_left > div.stream_item .grade-value-wrapper {
+        width: auto !important;
+    }
+
+    #outer_left_stream_mygrades .stream_context {
+        float: none;
+        margin-bottom: 0;
+    }
+
+    #outer_left_stream_mygrades .stream_item .stream_datestamp {
+        margin-bottom: 0;
+        float: right;
+        bottom: unset;
+        right: 7px;
+    }
+
+    .stream_context_bottom {
+        margin-bottom: 0;
+    }
+
+    #outer_left_stream_mygrades.stream_page_left {
+        width: 100% !important;
+        flex-basis: auto;
+    }
+
+    .stream_left {
+        height: auto !important;
+        display: inline-grid;
+        grid-auto-flow: column;
+        grid-template-rows: repeat(2, 1fr);
+        grid-auto-rows: min-content;
+    }
+
+    #left_stream_mygrades .stream_item {
+        width: 275px;
+        height: min-content;
+    }
+
+    iframe#right_stream_mygrades.stream_right {
+        width: 100% !important;
+        flex-basis: auto;
+    }
+
+    .show_close_stream_button:after {
+        visibility: hidden;
+    }
+
+    body {
+        overflow: auto;
+    }
+
+    iframe.stream_right {
+        position: static;
+        top: unset;
+        min-height: 2000px;
+    }
+}
+
 .stream_pages {
     display: flex;
     justify-content: space-between;
