@@ -44,7 +44,7 @@ body,
 .course-info__wrapper .course-info__footer {
     display: grid;
     width: fit-content;
-    grid-template-columns: repeat(4, 180px);
+    grid-template-columns: repeat(3, 250px);
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -52,7 +52,7 @@ body,
 }
 
 .course-info__wrapper .course-info__footer.rename-unsupported {
-    grid-template-columns: repeat(3, 200px);
+    grid-template-columns: repeat(2, 250px);
 }
 
 .course-info__wrapper .course-info__footer button {
@@ -100,7 +100,7 @@ body,
     box-sizing: border-box;
     border: none;
     font-weight: bold;
-    grid-column: span 3;
+    grid-column: span 2;
 }
 
 #injectDownloadRenameUnsupported .i-warning {
@@ -183,7 +183,7 @@ label[for='injectDownloadSwitch']:before {
     font-weight: bold;
     transition: 0.1s;
     line-height: 1.5rem;
-    grid-column: 1 / 5;
+    grid-column: 1 / 4;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -193,7 +193,7 @@ label[for='injectDownloadSwitch']:before {
 }
 
 .rename-unsupported #injectDownloadTip {
-    grid-column: 1 / 4;
+    grid-column: 1 / 3;
 }
 
 #injectDownloadTipText {

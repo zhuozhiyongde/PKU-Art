@@ -339,7 +339,6 @@ async function initializeDirectDownload() {
 
     const downloadButton = createFooterButton('injectDownloadButton', '下载视频', downloadIcon);
     const copyDownloadUrlButton = createFooterButton('injectCopyDownloadUrlButton', '复制链接地址', linkIcon);
-    const magicLink = createFooterButton('injectMagicLink', '妙妙小工具', sparkIcon);
 
     const downloadSwitchArea = document.createElement('div');
     downloadSwitchArea.id = 'injectDownloadSwitchArea';
@@ -363,24 +362,6 @@ async function initializeDirectDownload() {
     downloadAreaFooter.appendChild(downloadButton);
     downloadAreaFooter.appendChild(copyDownloadUrlButton);
     downloadAreaFooter.appendChild(downloadSwitchArea);
-    downloadAreaFooter.appendChild(magicLink);
-
-    magicLink.addEventListener('click', async () => {
-        // alert(JWT);
-        try {
-            if (typeof GM_setClipboard === 'function') {
-                GM_setClipboard(JWT);
-            } else if (navigator.clipboard && navigator.clipboard.writeText) {
-                await navigator.clipboard.writeText(JWT);
-            } else {
-                throw new Error('clipboard unsupported');
-            }
-        } catch (error) {
-            console.warn('[PKU Art] 复制 JWT 失败，仅在控制台输出', error);
-            console.log('[PKU Art] JWT:', JWT);
-        }
-        window.open('https://course.huh.moe', '_blank');
-    });
 
     const switchInput = downloadSwitchArea.querySelector('#injectDownloadSwitch');
     const isSafari = navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome');
@@ -587,34 +568,6 @@ async function initializeDirectDownload() {
             }
         }
     });
-}
-
-async function initializeSparkDownloadRename() {
-    if (!/^https:\/\/course\.huh\.moe\/course\/\d+$/.test(window.location.href)) {
-        return;
-    }
-
-    const updateDownloadLinks = () => {
-        // 找到所有带有 download 属性且 href 以 http://resourcese.pku.edu.cn 开头的 a 标签
-        const downloadLinks = document.querySelectorAll('a[download][href^="http://resourcese.pku.edu.cn"]');
-        downloadLinks.forEach((link) => {
-            const href = link.getAttribute('href');
-            const downloadUrl = href.replace('http://resourcese.pku.edu.cn', 'https://resourcese.pku.edu.cn');
-            const fileName = link.getAttribute('data-filename');
-            link.setAttribute('href', downloadUrl);
-            link.addEventListener('click', (event) => {
-                event.preventDefault();
-                alert('即将下载文件：' + fileName);
-                GM_download({
-                    url: downloadUrl,
-                    name: fileName,
-                    saveAs: true,
-                });
-            });
-        });
-    };
-    updateDownloadLinks();
-    document.addEventListener('DOMContentLoaded', updateDownloadLinks);
 }
 
 function redirectGlobalMoreLink() {
@@ -1068,7 +1021,6 @@ export {
     overrideSiteIcons,
     removeCourseSerialNumbers,
     initializeDirectDownload,
-    initializeSparkDownloadRename,
     redirectGlobalMoreLink,
     enableDirectOpenLinks,
     restoreCourseQueryValues,

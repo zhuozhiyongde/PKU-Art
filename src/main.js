@@ -6,7 +6,6 @@ import {
     overrideSiteIcons,
     removeCourseSerialNumbers,
     initializeDirectDownload,
-    initializeSparkDownloadRename,
     redirectGlobalMoreLink,
     enableDirectOpenLinks,
     restoreCourseQueryValues,
@@ -25,7 +24,6 @@ ensureSidebarVisible();
 overrideSiteIcons();
 removeCourseSerialNumbers();
 initializeDirectDownload();
-initializeSparkDownloadRename();
 redirectGlobalMoreLink();
 enableDirectOpenLinks();
 restoreCourseQueryValues();
