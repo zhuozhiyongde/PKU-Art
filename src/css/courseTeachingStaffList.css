@@ -4,31 +4,16 @@
  * Github: https://github.com/zhuozhiyongde
  * Blog: https://arthals.ink
  */
-
+/*
+@import './components/courseList.css';
+@import './components/courseTabs.css';
+*/
 #pageTitleDiv > *:not([id='pageTitleBar']) {
     display: none;
 }
 
 #pageTitleDiv {
     color: transparent;
-}
-
-#actionbar {
-    border: none;
-    border-bottom: 1px solid var(--c-border);
-}
-
-#actionbar .mainButton > a,
-#actionbar .secondaryButton > a {
-    color: var(--c-text);
-    border-radius: 5px 5px 0 0;
-    border-bottom: 2px solid transparent !important;
-}
-
-#actionbar .mainButton > a:hover,
-#actionbar .secondaryButton > a:hover {
-    background: var(--c-hover);
-    border-bottom: 2px solid var(--c-accent) !important;
 }
 
 #searchForm {
@@ -56,4 +41,36 @@
 
 .container .backLink a:hover {
     background-color: var(--c-hover);
+/*container向上*/
+}
+.container {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* 调整按钮样式 */
+#nav {
+    display: flex;
+}
+
+#actionbar {
+    border-top: none;
+    padding-left: 30px;
+}
+
+.mainButton > a {
+    border-radius: 5px;
+    background: var(--gray-1);
+    color: var(--c-text);
+}
+
+.pagingprefs > a {
+    background: var(--gray-1);
+    color: var(--c-text);
+    box-shadow: none;
+    border-radius: 5px;
+}
+
+.inventory>tbody .gray td,.inventory>tbody .gray th {
+    background: var(--c-hover);
 }

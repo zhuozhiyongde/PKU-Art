@@ -4,7 +4,8 @@
  * Github: https://github.com/zhuozhiyongde
  * Blog: https://arthals.ink
  */
-@import 'arco-palette.css';
+/* arco-palette.css是全局注入的这里重复导入了 */
+ /* @import 'arco-palette.css'; */
 
 :root {
     /* 不需要根据黑暗模式改编的变量 */
