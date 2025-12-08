@@ -242,6 +242,8 @@ async function initializeDirectDownload() {
 
                 if (JWT) {
                     console.log('[PKU Art] 成功捕获到 JWT:\n', JWT);
+                    sessionStorage.setItem('PKU_ART_DIRECT_DOWNLOAD_JWT', JWT);
+                    console.log('[PKU Art] JWT 已保存到 sessionStorage');
                 } else {
                     console.log('[PKU Art] 未在此请求中找到 JWT。');
                 }

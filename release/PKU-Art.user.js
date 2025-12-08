@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.6.18
+// @version      2.6.19
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -944,6 +944,8 @@
           }
           if (JWT) {
             console.log("[PKU Art] 成功捕获到 JWT:\n", JWT);
+            sessionStorage.setItem("PKU_ART_DIRECT_DOWNLOAD_JWT", JWT);
+            console.log("[PKU Art] JWT 已保存到 sessionStorage");
           } else {
             console.log("[PKU Art] 未在此请求中找到 JWT。");
           }
