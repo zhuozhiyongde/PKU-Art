@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.6.19
+// @version      2.6.20
 // @author       Arthals
 // @description  给你一个足够好看的教学网。
 // @license      GPL-3.0 license
@@ -10,19 +10,21 @@
 // @downloadURL  https://cdn.arthals.ink/release/PKU-Art.user.js
 // @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
 // @match        *://*.pku.edu.cn/*
+// @require      https://registry.npmmirror.com/jszip/3.10.1/files/dist/jszip.min.js
 // @connect      pku.edu.cn
 // @grant        GM_addValueChangeListener
 // @grant        GM_download
 // @grant        GM_getValue
 // @grant        GM_setClipboard
 // @grant        GM_setValue
+// @grant        GM_xmlhttpRequest
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2025/12/08
+// @date         2026/01/14
 // ==/UserScript==
 
-(function () {
+(function (JSZip) {
   'use strict';
 
   const mainStyles = ":root,:root.pku-art-light{--red-1: #ffece8;--red-2: #fdcdc5;--red-3: #fbaca3;--red-4: #f98981;--red-5: #f76560;--red-6: #f53f3f;--red-7: #cb272d;--red-8: #a1151e;--red-9: #770813;--red-10: #4d000a;--orangered-1: #fff3e8;--orangered-2: #fdddc3;--orangered-3: #fcc59f;--orangered-4: #faac7b;--orangered-5: #f99057;--orangered-6: #f77234;--orangered-7: #cc5120;--orangered-8: #a23511;--orangered-9: #771f06;--orangered-10: #4d0e00;--orange-1: #fff7e8;--orange-2: #ffe4ba;--orange-3: #ffcf8b;--orange-4: #ffb65d;--orange-5: #ff9a2e;--orange-6: #ff7d00;--orange-7: #d25f00;--orange-8: #a64500;--orange-9: #792e00;--orange-10: #4d1b00;--gold-1: #fffce8;--gold-2: #fdf4bf;--gold-3: #fce996;--gold-4: #fadc6d;--gold-5: #f9cc45;--gold-6: #f7ba1e;--gold-7: #cc9213;--gold-8: #a26d0a;--gold-9: #774b04;--gold-10: #4d2d00;--yellow-1: #feffe8;--yellow-2: #fefebe;--yellow-3: #fdfa94;--yellow-4: #fcf26b;--yellow-5: #fbe842;--yellow-6: #fadc19;--yellow-7: #cfaf0f;--yellow-8: #a38408;--yellow-9: #785d03;--yellow-10: #4d3800;--lime-1: #fcffe8;--lime-2: #edf8bb;--lime-3: #dcf190;--lime-4: #c9e968;--lime-5: #b5e241;--lime-6: #9fdb1d;--lime-7: #7eb712;--lime-8: #5f940a;--lime-9: #437004;--lime-10: #2a4d00;--green-1: #e8ffea;--green-2: #aff0b5;--green-3: #7be188;--green-4: #4cd263;--green-5: #23c343;--green-6: #00b42a;--green-7: #009a29;--green-8: #008026;--green-9: #006622;--green-10: #004d1c;--cyan-1: #e8fffb;--cyan-2: #b7f4ec;--cyan-3: #89e9e0;--cyan-4: #5edfd6;--cyan-5: #37d4cf;--cyan-6: #14c9c9;--cyan-7: #0da5aa;--cyan-8: #07828b;--cyan-9: #03616c;--cyan-10: #00424d;--blue-1: #e8f7ff;--blue-2: #c3e7fe;--blue-3: #9fd4fd;--blue-4: #7bc0fc;--blue-5: #57a9fb;--blue-6: #3491fa;--blue-7: #206ccf;--blue-8: #114ba3;--blue-9: #063078;--blue-10: #001a4d;--arcoblue-1: #e8f3ff;--arcoblue-2: #bedaff;--arcoblue-3: #94bfff;--arcoblue-4: #6aa1ff;--arcoblue-5: #4080ff;--arcoblue-6: #165dff;--arcoblue-7: #0e42d2;--arcoblue-8: #072ca6;--arcoblue-9: #031a79;--arcoblue-10: #000d4d;--purple-1: #f5e8ff;--purple-2: #ddbef6;--purple-3: #c396ed;--purple-4: #a871e3;--purple-5: #8d4eda;--purple-6: #722ed1;--purple-7: #551db0;--purple-8: #3c108f;--purple-9: #27066e;--purple-10: #16004d;--pinkpurple-1: #ffe8fb;--pinkpurple-2: #f7baef;--pinkpurple-3: #f08ee6;--pinkpurple-4: #e865df;--pinkpurple-5: #e13edb;--pinkpurple-6: #d91ad9;--pinkpurple-7: #b010b6;--pinkpurple-8: #8a0993;--pinkpurple-9: #650370;--pinkpurple-10: #42004d;--magenta-1: #ffe8f1;--magenta-2: #fdc2db;--magenta-3: #fb9dc7;--magenta-4: #f979b7;--magenta-5: #f754a8;--magenta-6: #f5319d;--magenta-7: #cb1e83;--magenta-8: #a11069;--magenta-9: #77064f;--magenta-10: #4d0034;--gray-1: #f7f8fa;--gray-2: #f2f3f5;--gray-3: #e5e6eb;--gray-4: #c9cdd4;--gray-5: #a9aeb8;--gray-6: #86909c;--gray-7: #6b7785;--gray-8: #4e5969;--gray-9: #272e3b;--gray-10: #1d2129}:root.pku-art-dark{--red-1: #4d000a;--red-2: #770611;--red-3: #a1161f;--red-4: #cb2e34;--red-5: #f54e4e;--red-6: #f76965;--red-7: #f98d86;--red-8: #fbb0a7;--red-9: #fdd1ca;--red-10: #fff0ec;--orangered-1: #4d0e00;--orangered-2: #771e05;--orangered-3: #a23714;--orangered-4: #cc5729;--orangered-5: #f77e45;--orangered-6: #f9925a;--orangered-7: #faad7d;--orangered-8: #fcc6a1;--orangered-9: #fddec5;--orangered-10: #fff4eb;--orange-1: #4d1b00;--orange-2: #793004;--orange-3: #a64b0a;--orange-4: #d26913;--orange-5: #ff8d1f;--orange-6: #ff9626;--orange-7: #ffb357;--orange-8: #ffcd87;--orange-9: #ffe3b8;--orange-10: #fff7e8;--gold-1: #4d2d00;--gold-2: #774b04;--gold-3: #a26f0f;--gold-4: #cc961f;--gold-5: #f7c034;--gold-6: #f9cc44;--gold-7: #fadc6c;--gold-8: #fce995;--gold-9: #fdf4be;--gold-10: #fffce8;--yellow-1: #4d3800;--yellow-2: #785e07;--yellow-3: #a38614;--yellow-4: #cfb325;--yellow-5: #fae13c;--yellow-6: #fbe94b;--yellow-7: #fcf374;--yellow-8: #fdfa9d;--yellow-9: #fefec6;--yellow-10: #fefff0;--lime-1: #2a4d00;--lime-2: #447006;--lime-3: #629412;--lime-4: #84b723;--lime-5: #a8db39;--lime-6: #b8e24b;--lime-7: #cbe970;--lime-8: #def198;--lime-9: #eef8c2;--lime-10: #fdffee;--green-1: #004d1c;--green-2: #046625;--green-3: #0a802d;--green-4: #129a37;--green-5: #1db440;--green-6: #27c346;--green-7: #50d266;--green-8: #7ee18b;--green-9: #b2f0b7;--green-10: #ebffec;--cyan-1: #00424d;--cyan-2: #06616c;--cyan-3: #11838b;--cyan-4: #1fa6aa;--cyan-5: #30c9c9;--cyan-6: #3fd4cf;--cyan-7: #66dfd7;--cyan-8: #90e9e1;--cyan-9: #bef4ed;--cyan-10: #f0fffc;--blue-1: #001a4d;--blue-2: #052f78;--blue-3: #134ca3;--blue-4: #2971cf;--blue-5: #469afa;--blue-6: #5aaafb;--blue-7: #7dc1fc;--blue-8: #a1d5fd;--blue-9: #c6e8fe;--blue-10: #eaf8ff;--arcoblue-1: #000d4d;--arcoblue-2: #041b79;--arcoblue-3: #0e32a6;--arcoblue-4: #1d4dd2;--arcoblue-5: #306fff;--arcoblue-6: #3c7eff;--arcoblue-7: #689fff;--arcoblue-8: #93beff;--arcoblue-9: #bedaff;--arcoblue-10: #eaf4ff;--purple-1: #16004d;--purple-2: #27066e;--purple-3: #3e138f;--purple-4: #5a25b0;--purple-5: #7b3dd1;--purple-6: #8e51da;--purple-7: #a974e3;--purple-8: #c59aed;--purple-9: #dfc2f6;--purple-10: #f7edff;--pinkpurple-1: #42004d;--pinkpurple-2: #650370;--pinkpurple-3: #8a0d93;--pinkpurple-4: #b01bb6;--pinkpurple-5: #d92ed9;--pinkpurple-6: #e13ddb;--pinkpurple-7: #e866df;--pinkpurple-8: #f092e6;--pinkpurple-9: #f7c1f0;--pinkpurple-10: #fff2fd;--magenta-1: #4d0034;--magenta-2: #770850;--magenta-3: #a1176c;--magenta-4: #cb2b88;--magenta-5: #f545a6;--magenta-6: #f756a9;--magenta-7: #f97ab8;--magenta-8: #fb9ec8;--magenta-9: #fdc3db;--magenta-10: #ffe8f1;--gray-10: #f7f8fa;--gray-9: #f2f3f5;--gray-8: #e5e6eb;--gray-7: #c9cdd4;--gray-6: #a9aeb8;--gray-5: #86909c;--gray-4: #6b7785;--gray-3: #4e5969;--gray-2: #272e3b;--gray-1: #1d2129}:root{--c-pku: #9b0000;--i-alarm: url(https://cdn.arthals.ink/css/src/alarm-clock.svg);--i-idcard: url(https://cdn.arthals.ink/css/src/id-card-v.svg);--i-tip: url(https://cdn.arthals.ink/css/src/tip.svg);--i-comment: url(https://cdn.arthals.ink/css/src/comment.svg);--i-clover: url(https://cdn.arthals.ink/css/src/clover.svg);--i-sandclock: url(https://cdn.arthals.ink/css/src/sandclock.svg);--i-calendar: url(https://cdn.arthals.ink/css/src/calendar.svg);--i-calendar-tab: url(https://cdn.arthals.ink/css/src/calendar-tab.svg);--i-verified: url(https://cdn.arthals.ink/css/src/verified.svg)}:root,:root.pku-art-light{--c-title: #212121;--c-text: #666;--c-border: #d0d7de;--c-background: #f6f8fa;--c-input-bg: #f6f8fa;--c-card: #fff;--c-hover: rgba(230, 230, 230, .5);--c-focus: #fff;--c-box-shadow: rgba(0, 0, 0, .1) 0px 10px 50px;--c-accent: #9b0000;--c-navbar: #fff;--c-sidebar: #fff;--c-subtitle: #82a3ac;--c-label: #f6f8fa;--c-link: #fcc59f;--c-primary: #165dff;--c-primary-light: #e8f3ff;--c-secondary: #89a2ac;--c-button: #f7f8fa;--c-card-hover: #66ecf331;--c-scrollbar: #c1c1c1;--c-tip: #e5e7eb;--c-title-icon: #333;--c-button-hover: #ffece8;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start.svg);--i-file: url(https://cdn.arthals.ink/css/src/file.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder.svg);--i-link: url(https://cdn.arthals.ink/css/src/link.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting.svg);--i-check: url(https://cdn.arthals.ink/css/src/check.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple.svg);--i-download: url(https://cdn.arthals.ink/css/src/download.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning.svg);--i-student: url(https://cdn.arthals.ink/css/src/student.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh.svg);--i-search: url(https://cdn.arthals.ink/css/src/search.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow.svg);--i-calendar-day: url(https://cdn.arthals.ink/css/src/calendar-day.svg);--i-calendar-week: url(https://cdn.arthals.ink/css/src/calendar-week.svg);--i-calendar-month: url(https://cdn.arthals.ink/css/src/calendar-month.svg);--i-add: url(https://cdn.arthals.ink/css/src/add.svg);--i-resize: url(https://cdn.arthals.ink/css/src/resize.svg)}:root.pku-art-dark{--c-title: #e2e2e2;--c-text: #bababa;--c-border: #30363d;--c-background: #020409;--c-input-bg: #020409;--c-hover: rgba(29, 33, 41, .5);--c-card: #0e1017;--c-focus: #010409;--c-box-shadow: none;--c-accent: #e44c47;--c-navbar: #171a22;--c-sidebar: #0e1017;--c-subtitle: #86909c;--c-label: #22252d;--c-link: #f9925a;--c-primary: #7dc1fc;--c-primary-light: #262947;--c-secondary: #00879d;--c-button: #22262d;--c-card-hover: rgba(23, 231, 242, .23);--c-scrollbar: #6b6b6b;--c-tip: #22262d;--c-title-icon: #e2e2e2;--c-button-hover: #54121c;--i-logo: url(https://cdn.arthals.ink/css/src/PKU_Logo_Dark.svg);--i-remind: url(https://cdn.arthals.ink/css/src/remind_dark.svg);--i-exit: url(https://cdn.arthals.ink/css/src/exit_dark.svg);--i-watch: url(https://cdn.arthals.ink/css/src/stopwatch-start_dark.svg);--i-file: url(https://cdn.arthals.ink/css/src/file_dark.svg);--i-folder: url(https://cdn.arthals.ink/css/src/folder_dark.svg);--i-link: url(https://cdn.arthals.ink/css/src/link_dark.svg);--i-setting: url(https://cdn.arthals.ink/css/src/setting_dark.svg);--i-check: url(https://cdn.arthals.ink/css/src/check_dark.svg);--i-check-simple: url(https://cdn.arthals.ink/css/src/check-simple_dark.svg);--i-download: url(https://cdn.arthals.ink/css/src/download_dark.svg);--i-warning: url(https://cdn.arthals.ink/css/src/warning_dark.svg);--i-student: url(https://cdn.arthals.ink/css/src/student_dark.svg);--i-refresh: url(https://cdn.arthals.ink/css/src/refresh_dark.svg);--i-search: url(https://cdn.arthals.ink/css/src/search_dark.svg);--i-arrow: url(https://cdn.arthals.ink/css/src/arrow_dark.svg);--i-calendar-day: url(https://cdn.arthals.ink/css/src/calendar-day_dark.svg);--i-calendar-week: url(https://cdn.arthals.ink/css/src/calendar-week_dark.svg);--i-calendar-month: url(https://cdn.arthals.ink/css/src/calendar-month_dark.svg);--i-add: url(https://cdn.arthals.ink/css/src/add_dark.svg);--i-resize: url(https://cdn.arthals.ink/css/src/resize_dark.svg)}body,html{background:var(--c-background)!important}*{outline:none!important}@keyframes fadeInUpTransition{0%{opacity:0;-webkit-transform:translateY(100px);transform:translateY(100px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixel{0%{opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInUpStablePixelForContentBox{0%{margin-left:min(25%,300px);opacity:0;-webkit-transform:translateY(200px);transform:translateY(200px)}to{margin-left:min(25%,300px);opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInLeftStablePixel{0%{color:#fff;transform:translate(-72px);-webkit-transform:translateX(-72px)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}to{opacity:1}}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-track{background-color:transparent}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background-color:var(--c-scrollbar);border-radius:9999px}.pku-art-theme-toggle-bar{display:flex;align-items:center;justify-content:center}.pku-art-theme-toggle{width:32px;height:32px;padding:0;margin:0;border:none;border-radius:8px;background-color:transparent;cursor:pointer;line-height:0;-webkit-appearance:none;-moz-appearance:none;appearance:none;transition:background-color .2s ease,box-shadow .2s ease,color .2s ease;position:relative;touch-action:manipulation;display:flex;align-items:center;justify-content:center;color:var(--c-title-icon)}.pku-art-theme-toggle:hover,.pku-art-theme-toggle:focus-visible{background-color:var(--c-hover)}.pku-art-theme-toggle svg{width:28px;height:28px;display:block}.pku-art-theme-toggle[data-mode=light]:hover{color:#fdb022}.pku-art-theme-toggle[data-mode=dark]:hover{color:#7dc1fc}.pku-art-theme-toggle[data-mode=auto]:hover{color:var(--gray-5)}";
@@ -38,7 +40,7 @@
   const courseVideolistStyles = ".container{margin-top:0;padding-top:0}.searchbar{display:none}#listContainer{border:1px solid var(--c-border);background:var(--c-card);border-radius:5px;padding:5px 0}#listContainer_datatable{padding:0 10px;background:var(--c-card)}#listContainer_datatable .inventoryListHead *{color:var(--c-title);font-weight:700;padding-left:12px}#listContainer_datatable>.inventoryListHead *{border-bottom:1px solid var(--c-border)!important}#listContainer_databody{border-bottom:none}#listContainer_databody>tr{background:var(--c-card)}#listContainer_databody>tr:nth-child(2n){background:var(--gray-1)}#containerdiv{width:inherit}#listContainer_databody>tr>*:first-child{border-radius:5px 0 0 5px}#listContainer_databody>tr>*:last-child{border-radius:0 5px 5px 0;border-bottom:none!important}#listContainer_databody>tr:last-child>*{border-bottom:none!important}#listContainer_databody>tr>*{line-height:24px;margin-top:5px;border:none}#listContainer_databody>tr *{color:var(--c-text)}#listContainer_databody>tr .table-data-cell-value>a{color:var(--cyan-7);border-radius:3px;padding:0 1em}#listContainer_databody>tr .table-data-cell-value>a:hover{text-decoration:none;background:var(--cyan-2)}#listContainer>.rumble_top{display:none}#listContainer_nav_batch_bot{display:flex;justify-content:center;padding:10px 0 0}#listContainer_nav_batch_bot>.inventory_paging{margin:0;padding:0}#listContainer_navpaging_bot .jumpToLinkContainer,#listContainer_navpaging_bot .jumpToLinkContainer *{background:var(--c-primary-light);color:var(--c-primary);border:none;box-shadow:none}#listContainer_navpaging_bot .jumpToLinkContainer{border-radius:5px;padding:5px 8px;display:inline-flex;justify-content:center}#listContainer_navpaging_bot>a{background-color:transparent;border:none;box-shadow:none}#listContainer_pagingcontrols{display:flex;justify-content:center;width:100%;margin-bottom:5px}#listContainer_pagingcontrols #listContainer_itemcount>span{border:none;padding:0;margin:0;color:var(--c-text)}#listContainer_pagingcontrols #listContainer_itemcount>span>strong{color:var(--c-title);display:inline;padding:0 5px}#listContainer_pagingcontrols #listContainer_itemcount>span>strong:last-child{padding-right:0}";
   const courseOtherStyles = "#pageTitleDiv>*:not([id=pageTitleBar]){display:none}#pageTitleDiv{color:transparent}#actionbar{border:none;border-bottom:1px solid var(--c-border)}#actionbar .mainButton>a,#actionbar .secondaryButton>a{color:var(--c-text);background:var(--c-background);outline:none;border-radius:5px 5px 0 0;border-bottom:2px solid transparent!important}#actionbar .mainButton>a:hover,#actionbar .secondaryButton>a:hover{background:var(--c-hover);border-bottom:2px solid var(--c-accent)!important}#actionbar .secondaryButton>a.liveAreaTab{border-bottom:2px solid var(--c-accent)!important}#actionbar+.containerOptions{padding-right:30px;padding-left:30px}#actionbar+.containerOptions .liveArea{border-radius:0 0 5px 5px;border:1px solid var(--c-border);border-top:none}#searchForm{display:none}.container{border:1px solid var(--c-border);background:var(--c-card);border-radius:5px}.container *{font-family:inherit!important;color:var(--c-text)!important;text-decoration:none!important;font-style:normal!important;font-size:14px;line-height:1.6}.container .backLink a{background:var(--c-card)}.container .backLink a:hover{background-color:var(--c-hover)}";
   const courseClassGradeStyles = '#containerdiv{border:none;background:var(--c-background)}.filterBarHorizontal{background:var(--c-background);border-bottom:1px solid var(--c-border)}#filterby{display:inline-flex;height:100%;padding-top:0;padding-bottom:0}#filterby>li{height:100%;position:relative}#filterby a{box-sizing:border-box;height:100%;display:flex;padding:10px 15px;box-shadow:none!important;font-size:11pt;font-weight:700;color:var(--c-text);border-radius:5px 5px 0 0;border:none;border-bottom:2px solid transparent}#filterby a:hover{background:var(--c-hover);border-bottom:2px solid var(--c-accent)}#filterby a.active{color:var(--c-accent);background:var(--c-background);border-bottom:2px solid var(--c-accent)}.filterBarHorizontal select{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:var(--c-card);color:var(--c-text);border:1px solid var(--c-border);border-radius:3px;outline:none}.filterBarHorizontal select:hover{background:var(--c-hover);color:var(--c-title)}.gradeTableNew{display:flex;flex-direction:column;margin-top:50px}.gradeTableNew .grades_header{position:relative;width:100%;left:0;right:0;top:0;margin-top:1em;border:1px solid var(--c-border);border-bottom:none;border-radius:5px 5px 0 0;background:var(--c-card);display:flex;padding:0 10px;height:fit-content;box-sizing:border-box}.gradeTableNew .grades_header>div{color:var(--c-title);font-weight:700;font-size:11pt!important;margin-top:10px;border-bottom:1px solid var(--c-border);padding-bottom:10px!important;margin-bottom:4px;height:fit-content!important}.gradeTableNew>#grades_wrapper{width:100%;display:block;margin-top:0;border:1px solid var(--c-border);border-top:none;border-radius:0 0 5px 5px;background:var(--c-card);padding:0 10px 10px;box-sizing:border-box}#grades_wrapper>div{border-radius:5px;padding:5px 0;border:none;box-sizing:border-box;height:65px}#grades_wrapper>div:not(.calculatedRow):nth-child(2n){background:var(--gray-1)}#grades_wrapper>div:not(.calculatedRow):hover{background:var(--c-hover)}#grades_wrapper .calculatedRow{box-shadow:none;border:none;box-sizing:border-box;border-left:6px solid var(--gray-4);border-radius:0 5px 5px 0;background:var(--gray-2);background:linear-gradient(90deg,var(--gray-2) 10%,var(--c-card) 90%);margin-bottom:10px}#grades_wrapper .calculatedRow input{box-shadow:none;text-decoration:none!important;border:none;color:var(--c-text)}#grades_wrapper>div>div.gradable{height:100%}#grades_wrapper>div>div.gradable,#grades_wrapper>div>div.gradable>a{color:var(--gray-7);font-weight:700;font-size:14px}#grades_wrapper>div>div.gradable>a{width:fit-content;display:block;color:var(--blue-6);overflow:visible;margin-bottom:8px}#grades_wrapper>div>div.gradable>div{font-size:12px;display:inline;color:var(--c-text)}#grades_wrapper>div>div.gradable>div:first-child:before{display:block;margin-bottom:8px;content:""}#grades_wrapper>div>div.gradable>a+div:before{display:none}#grades_wrapper>div>div.gradable>div{margin-right:8px}#grades_wrapper>div>div.activity span{color:var(--c-text)}#grades_wrapper>div>div.grade span.grade{color:var(--cyan-7)}#grades_wrapper>div>div.grade span.pointsPossible{color:var(--c-text)}#grades_wrapper>div>div img.tooltip-icon{width:18px;content:var(--i-tip)}#grades_wrapper>div>div i.icon-comment:before{width:18px;background:var(--i-comment);background-size:contain!important;background-repeat:no-repeat;background-position:center center;content:".";color:transparent}#grades_wrapper>div>div .tooltip{background:var(--c-card);border:1px solid var(--c-border);box-shadow:none!important;color:var(--c-title);text-shadow:none}#grades_wrapper>div>div .tooltipContainer-left .tooltip:after{text-shadow:none}#submissionReceipts{background:var(--c-card);color:var(--c-text);font-family:sans-serif}#grades_wrapper>div{position:relative}#grades_wrapper .itemStats{position:absolute;top:0;right:0;padding:5px}div.lb-overlay{z-index:2000}body div.lb-wrapper{background-color:var(--c-card)!important}body div.lb-wrapper div.lb-header{color:var(--c-text);background:transparent}body div.lb-wrapper div.lb-content{background:transparent}body div.lb-wrapper div.lb-content .container{color:var(--c-text);border:none}';
-  const courseListContentStyles = '#content_listContainer>li{background:var(--c-card);border:1px solid var(--c-border);border-radius:5px;margin-bottom:16px;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;align-content:center;height:fit-content}#content_listContainer>li:after{display:none}#content_listContainer>li>img{position:relative;top:0;left:0;padding:5px;border-radius:5px;height:32px;width:32px;box-sizing:border-box;margin-right:10px}#content_listContainer>li>img[src*=document],#content_listContainer>li>img[src*=file],#content_listContainer>li>img{content:var(--i-file);background:var(--red-3)}#content_listContainer>li>img[src*=folder]{content:var(--i-folder);background:var(--orange-3)}#content_listContainer>li>img[src*=link]{content:var(--i-link);background:var(--yellow-3)}#content_listContainer>li>div img[alt=链接的项目]{display:none}#content_listContainer>li>div.item{display:inline;flex-basis:calc(100% - 42px);padding:0}#content_listContainer>li>div.item *{text-decoration:none;color:var(--c-title)!important}#content_listContainer>li>div.details{padding-left:0;flex-basis:100%}#content_listContainer>li>div.details>*:not(.alignPanel):first-child{margin-top:10px!important;border-top:1px solid var(--c-border);padding-top:5px!important}#content_listContainer>li>div.details *{background:var(--c-card);border:none;color:var(--c-text)!important;line-height:1.6!important;font-family:inherit!important;font-size:14px!important;text-decoration:none!important;font-style:normal!important}#content_listContainer>li>div.details img{border-radius:5px}#content_listContainer>li>div.details img[alt=文件]{display:none}#content_listContainer>li>div.details *[style*=background]{background:none!important}#content_listContainer>li>div.details span[style*=text-decoration],#content_listContainer>li>div.details span[style*=color],#content_listContainer>li>div.details span[style*=background]{color:var(--c-text)!important;background:linear-gradient(180deg,transparent 90%,var(--red-2) 90%)!important}#content_listContainer>li>div.details a,#content_listContainer>li>div.details span[style*="color: #0000ff"]{color:var(--blue-5)!important;text-decoration:none}';
+  const courseListContentStyles = '#content_listContainer>li{background:var(--c-card);border:1px solid var(--c-border);border-radius:5px;margin-bottom:16px;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;align-content:center;height:fit-content}#content_listContainer>li:after{display:none}#content_listContainer>li>img{position:relative;top:0;left:0;padding:5px;border-radius:5px;height:32px;width:32px;box-sizing:border-box;margin-right:10px}#content_listContainer>li>img[src*=document],#content_listContainer>li>img[src*=file],#content_listContainer>li>img{content:var(--i-file);background:var(--red-3)}#content_listContainer>li>img[src*=folder]{content:var(--i-folder);background:var(--orange-3)}#content_listContainer>li>img[src*=link]{content:var(--i-link);background:var(--yellow-3)}#content_listContainer>li>div img[alt=链接的项目]{display:none}#content_listContainer>li>div.item{display:inline;flex-basis:calc(100% - 42px);padding:0}#content_listContainer>li>div.item h3 *{text-decoration:none;color:var(--c-title)!important}#content_listContainer>li>div.details{padding-left:0;flex-basis:100%}#content_listContainer>li>div.details>*:not(.alignPanel):first-child{margin-top:10px!important;border-top:1px solid var(--c-border);padding-top:5px!important}#content_listContainer>li>div.details *{background:var(--c-card);border:none;color:var(--c-text)!important;line-height:1.6!important;font-family:inherit!important;font-size:14px!important;text-decoration:none!important;font-style:normal!important}#content_listContainer>li>div.details img{border-radius:5px}#content_listContainer>li>div.details img[alt=文件]{display:none}#content_listContainer>li>div.details *[style*=background]{background:none!important}#content_listContainer>li>div.details span[style*=text-decoration],#content_listContainer>li>div.details span[style*=color],#content_listContainer>li>div.details span[style*=background]{color:var(--c-text)!important;background:linear-gradient(180deg,transparent 90%,var(--red-2) 90%)!important}#content_listContainer>li>div.details a,#content_listContainer>li>div.details span[style*="color: #0000ff"]{color:var(--blue-5)!important;text-decoration:none}.pku-art-batch-download-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--c-border);border-radius:5px;background:var(--c-card);color:var(--c-text);font-size:13px;cursor:pointer;transition:all .2s ease;white-space:nowrap;flex-shrink:0}.pku-art-batch-download-btn:hover{background:var(--blue-2);border-color:var(--blue-4);color:var(--blue-6)}.pku-art-batch-download-btn svg{width:16px;height:16px;flex-shrink:0;fill:currentColor}.pku-art-download-all-btn{background:var(--c-button)}#pageTitleDiv{display:flex!important;align-items:center}#pageTitleDiv>.pku-art-download-all-btn{margin-left:auto}#content_listContainer>li>div.item{display:flex!important;align-items:center;justify-content:space-between}#content_listContainer>li>div.item h3{flex:1;margin:0}';
   const courseViewAttemptStyles = "#containerdiv{border-radius:5px;background:var(--c-card);padding:16px;border:1px solid var(--c-border)}#containerdiv h3{padding:0;background:none;margin:0 0 10px;font-size:16px;top:0;color:var(--c-title)}#containerdiv>.stepcontent{background:var(--gray-1);box-sizing:border-box;border-radius:5px;margin-bottom:16px}#containerdiv>.stepcontent .label{color:var(--c-text);border-left:3px solid var(--c-accent);padding-left:6px}#containerdiv>.stepcontent .field{color:var(--c-title)}#containerdiv>.stepcontent li:last-child{padding-bottom:0;margin-bottom:0}#containerdiv>.columnStep>div{background:var(--gray-1);padding:5px;box-sizing:border-box;border-radius:5px;margin-bottom:16px}#containerdiv>.columnStep .attachments tr:first-child{border:none}#containerdiv>.columnStep .attachments tr:first-child *{color:var(--c-title);font-weight:700}#containerdiv>.columnStep .attachments tr:not(:first-child){border-top:1px solid var(--c-border)}#containerdiv>.columnStep .attachments tr:not(:first-child) *{padding-top:5px;padding-bottom:5px;color:var(--c-text)}#containerdiv>.iconlegend a{background:var(--c-label);border:1px solid var(--c-border);border-radius:5px;color:var(--c-text);box-shadow:none}#containerdiv>.backLink a{border-radius:5px 0;background:var(--c-card);box-shadow:none;color:var(--c-text)}#containerdiv>.backLink a:hover{background:var(--c-hover);color:var(--c-primary)}";
   const courseToolFrameStyles = '.brandingImgWrap,#appTabList>tbody>tr,.hideoff,#quick_links_wrap,#global-avatar,#global-toggle-img{display:none}#global-nav-link>*{display:none}#global-nav-link,#global-nav-link:hover,#global-nav-link:focus{color:transparent;overflow:hidden;width:32px;height:32px;padding:0;background:transparent;background-image:var(--i-remind)!important;background-size:80%;background-repeat:no-repeat;background-position:center center;border:none;outline:none}.global-nav-bar a.logout-link,.global-nav-bar a.logout-link:hover,.global-nav-bar a.logout-link:focus{color:transparent;width:32px;height:32px;padding:0;background:transparent;background-image:var(--i-exit)!important;background-size:80%;background-repeat:no-repeat;background-position:center center}.container,.locationPane,.contentPane{background-color:var(--c-background)}.tabWrapper-right,#globalNavPageNavArea,#topTabs{background-color:var(--c-navbar)}#globalNavPageNavArea{padding:1em 140px 1em 0;height:60px;box-sizing:border-box;display:flex;text-align:right;justify-content:flex-end;flex-direction:row;background-image:var(--i-logo);background-repeat:no-repeat;background-size:auto 30px;background-position:2em center;border-bottom:1px solid var(--c-border)}.tabWrapper-right,.bouncer[role=presentation]{width:fit-content}.global-nav-bar-wrap{position:absolute;right:50px;display:flex;justify-content:flex-end;flex-direction:row-reverse;background-color:var(--c-navbar);width:100px;height:60px;box-sizing:border-box;margin:0;padding:0;border-bottom:1px solid var(--c-border)}.global-nav-bar{margin:0;float:none;height:60px;display:flex;flex-direction:row-reverse;justify-content:center;align-items:center}.global-nav-bar:not(:first-child){margin:0 5px}table.bouncer,.appTabs td.active,.appTabs a:hover span,.appTabs a:focus span{border:none}.topTabs .tabWrapper-right{height:fit-content;padding:0}#globalNavPageNavArea a,#globalNavPageNavArea td{padding:0!important}#globalNavPageContentArea,#globalNavPageContentArea .locationPane,#contentPanel,#content,#containerdiv,#containerdiv>div,#iframe_wrap{height:fit-content!important}#globalNavPageContentArea{height:calc(100vh - 60px)!important;top:0}nav.navigationPane{height:100%}#side_nav:after{content:"PKU Art @ Arthals";display:block;background-color:var(--c-sidebar);position:absolute;bottom:20px;left:50%;transform:translate(-50%);color:var(--c-text);height:20px;z-index:99999;opacity:.3;visibility:visible!important}.locationPane{background-color:var(--c-background)}.contentPane .shadow{border:none}#pageTitleDiv{margin:0!important}#vertical_container,#bottomButtons{display:none}#global-nav-tools{z-index:9999;height:inherit!important}#global-nav-flyout{box-shadow:none;border-radius:5px;width:40px!important;height:150px!important;transform:translateY(34px);background-color:transparent}#global-nav-tools{background-color:transparent}#global-list-tools{margin:0;box-shadow:var(--c-box-shadow);border:1px solid var(--c-border);padding:5px;border-radius:5px;background-color:var(--c-card)}#global-list-tools>.overview,#global-list-tools>.stream,#global-list-tools>.risktracker{display:none}#global-list-tools>.alerts,#global-list-tools>.grade,#global-list-tools>.calendar{background-color:var(--c-card)}#global-list-tools>.alerts>a:hover,#global-list-tools>.grades>a:hover,#global-list-tools>.calendar>a:hover{background-color:var(--c-hover)}#global-list-tools>.alerts>a{border-radius:5px;background:var(--i-alarm);background-size:60%;background-repeat:no-repeat;background-position:center center;margin:0 auto}#global-list-tools>.grades>a{border-radius:5px;background:var(--i-idcard);background-size:60%;background-repeat:no-repeat;background-position:center center;margin:0 auto}#global-list-tools>.calendar>a{border-radius:5px;background:var(--i-calendar-tab);background-size:60%;background-repeat:no-repeat;background-position:center center;margin:0 auto}#global-list-tools>.more-link>a{border-radius:5px;background:var(--i-idcard);background-size:60%;background-repeat:no-repeat;background-position:center center}#global-more-tools{display:none!important}.mybb-tools li a{opacity:1;background-color:var(--c-card)}.mybb-tools li a:focus,.mybb-tools li a:focus img{outline:none}#globalNavPageNavArea .bouncer *{vertical-align:middle;font-weight:700!important;overflow:visible;border:none}#globalNavPageNavArea a{margin:0}#globalNavPageContentArea,#globalNavPageContentArea .locationPane,#contentPanel,#content{background:var(--c-background)}#side_nav{background:var(--c-sidebar);border-right:1px solid var(--c-border);width:min(25%,300px)!important;padding:1em}#side_nav:before{content:"工具";display:block;width:100%;font-size:19px;text-align:left;color:var(--c-title);font-weight:700;padding:7px 18px 0}#side_nav #mybbListTools{display:flex;flex-direction:column;box-sizing:border-box;width:100%;padding:0 18px;margin-top:0}#side_nav #mybbListTools:before{z-index:1;content:"";color:transparent;visibility:visible;display:block;height:10px;position:relative;top:5px;width:60px;border-radius:50px;box-sizing:border-box;background-color:var(--c-accent);margin-bottom:21px}#side_nav #mybbListTools li{display:none;border:none;border-left:6px solid transparent}#side_nav #mybbListTools li[id*=Alerts],#side_nav #mybbListTools li[id*=MyGrades],#side_nav #mybbListTools li[id*=calendar]{display:block}#side_nav #mybbListTools li *{background-color:transparent;box-shadow:none;outline:none;text-decoration:none}#side_nav #mybbListTools li.active{border-left:6px solid var(--c-accent)}#side_nav #mybbListTools li span.menu-icon{padding-left:50px;border-radius:5px;display:flex;justify-content:left;flex-direction:row;justify-items:flex-start;align-items:center;text-decoration:none!important}#side_nav #mybbListTools li.active span.menu-icon{border-radius:0 5px 5px 0}#side_nav #mybbListTools li[id*=Alerts] span.menu-icon{background:var(--i-sandclock);background-repeat:no-repeat;background-size:25px 25px;background-position:10px;transition:all ease-in-out .15s}#side_nav #mybbListTools li[id*=Alerts] span.menu-icon:after{content:"禁止摸鱼";color:var(--c-text);display:block;font-size:16px}#side_nav #mybbListTools li[id*=MyGrades] span.menu-icon{background:var(--i-clover);background-repeat:no-repeat;background-size:25px 25px;background-position:10px;transition:all ease-in-out .15s}#side_nav #mybbListTools li[id*=MyGrades] span.menu-icon:after{content:"绩点高高";color:var(--c-text);display:block;font-size:16px}#side_nav #mybbListTools li[id*=calendar] span.menu-icon{background:var(--i-calendar);background-repeat:no-repeat;background-size:25px 25px;background-position:10px;transition:all ease-in-out .15s}#side_nav #mybbListTools li[id*=calendar] span.menu-icon:after{content:"晨钟暮鼓";color:var(--c-text);display:block;font-size:16px}#side_nav #mybbListTools li span.menu-icon:hover:after{color:var(--c-accent)}#side_nav #mybbListTools li span.menu-icon:hover{background-color:var(--c-hover)!important}#side_nav #mybbListTools li[id*=Alerts] img{display:none}#iframe_wrap{margin-left:min(25%,300px);position:relative;left:0;box-shadow:none;border:none;display:flex;align-items:center;justify-content:center;height:100%;padding-top:calc(10vh - 30px)}#iframe_wrap iframe{width:min(100%,1200px);height:80vh!important;border-radius:5px;border:1px solid var(--c-border);padding:5px;background:var(--c-card)}';
   const courseToolAlertStyles = 'html,#outer_left_stream_alerts{background:var(--c-card)}*{box-shadow:none!important}html,.locationPane,#contentPanel{padding:0;height:fit-content}#streamHeader_alerts,#streamHeader_alerts *{background:var(--c-card);text-shadow:none}#settingsContainer_alerts,#outer_left_stream_alerts{border:none}#settingsContainer_alerts{background:var(--c-card);border:1px solid var(--c-border);margin:10px}#settingsContainer_alerts *{color:var(--c-text)}#settingsContainer_alerts .streamSettingHelpLinks{border-top:1px solid var(--c-border)}#streamSettingButtons a{color:var(--cyan-5);border:none;border-radius:3px;font-size:12px;background:var(--c-label)}#streamSettingButtons a:hover{background:var(--cyan-2);color:var(--cyan-7)}#streamHeader_alerts{padding-bottom:0;height:100%;border:none}#streamHeader_alerts span.current-page,#streamHeader_alerts span.icon{display:none}#filter_by_alerts button{color:var(--c-text);border:1px solid var(--c-border);border-radius:.2rem}#filter_by_alerts button:hover{background:var(--c-hover);color:var(--c-accent)}#streamHeader_alerts .title-text{color:var(--c-title);font-weight:700;text-shadow:none;padding-left:12px}#streamHeader_alerts li{padding:0}#streamHeader_alerts a[id*=filter_type_all]{background:var(--c-label);border:1px solid var(--c-border)}#streamHeader_alerts h5{color:var(--c-title);font-weight:700}#streamHeader_alerts a{color:var(--c-text);line-height:1.6;text-decoration:none;border-radius:0;border:none;border-left:4px solid transparent}#streamHeader_alerts a.active{box-shadow:none;border-left:4px solid var(--c-accent)}#streamHeader_alerts a:hover{color:var(--red-5);background:var(--c-hover)}#stream_alerts #stream_currentFilterText_alerts,#stream_alerts .left_stream_wrapper{box-shadow:none;background:var(--c-card);border:none}#stream_currentFilterText_alerts{color:var(--c-text);font-weight:700;text-shadow:none}#left_stream_alerts>div,#left_stream_alerts>div *{color:var(--c-text);font-style:normal;font-family:sans-serif!important;border-radius:5px;border:none}#left_stream_alerts>div.stream_new_entry{background:inherit}#left_stream_alerts>div.stream_new_entry .stream_context:before{content:"New";color:var(--c-accent);font-size:12px;font-weight:700;padding:0 5px;background:var(--c-label);border-radius:5px;margin-right:5px}#left_stream_alerts>div:nth-child(2n){background:var(--gray-1)}#left_stream_alerts>div:hover{background:var(--c-card-hover)!important;transition:all ease-in .2s}#left_stream_alerts>div span.stream_area_name{color:var(--c-secondary)}#left_stream_alerts>div span.inlineContextMenu>a{color:var(--cyan-5);border:none;border-radius:3px;font-size:12px}#left_stream_alerts>div span.inlineContextMenu>a:hover{background:var(--cyan-2);color:var(--cyan-7)}#left_stream_alerts>div div.stream_details *{font-size:14px;line-height:1em;max-width:100%}span.open_stream_settings{background:var(--i-setting)!important;background-repeat:no-repeat;background-position:center center}.streamError{display:none}';
@@ -371,11 +373,13 @@
   const linkIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="PKU-Art i-link" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from MingCute Icon by MingCute Design - https://github.com/Richard9394/MingCute/blob/main/LICENSE --><g fill="none" fill-rule="evenodd"><path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M1 10a5 5 0 0 1 5-5h6a5 5 0 0 1 0 10a1 1 0 1 1 0-2a3 3 0 1 0 0-6H6a3 3 0 0 0-.75 5.906a1 1 0 0 1-.5 1.936A5 5 0 0 1 1 10m11 1a3 3 0 1 0 0 6h6a3 3 0 0 0 .75-5.905a1 1 0 0 1 .5-1.937A5.002 5.002 0 0 1 18 19h-6a5 5 0 0 1 0-10a1 1 0 1 1 0 2"/></g></svg>`;
   const refreshIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from MingCute Icon by MingCute Design - https://github.com/Richard9394/MingCute/blob/main/LICENSE --><g fill="none"><path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M20 9a1 1 0 0 1 1 1v1a8 8 0 0 1-8 8H9.414l.793.793a1 1 0 0 1-1.414 1.414l-2.496-2.496a1 1 0 0 1-.287-.567L6 17.991a1 1 0 0 1 .237-.638l.056-.06l2.5-2.5a1 1 0 0 1 1.414 1.414L9.414 17H13a6 6 0 0 0 6-6v-1a1 1 0 0 1 1-1m-4.793-6.207l2.5 2.5a1 1 0 0 1 0 1.414l-2.5 2.5a1 1 0 1 1-1.414-1.414L14.586 7H11a6 6 0 0 0-6 6v1a1 1 0 1 1-2 0v-1a8 8 0 0 1 8-8h3.586l-.793-.793a1 1 0 0 1 1.414-1.414"/></g></svg>`;
   const closeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from MingCute Icon by MingCute Design - https://github.com/Richard9394/MingCute/blob/main/LICENSE --><g fill="none" fill-rule="evenodd"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="m12 13.414l5.657 5.657a1 1 0 0 0 1.414-1.414L13.414 12l5.657-5.657a1 1 0 0 0-1.414-1.414L12 10.586L6.343 4.929A1 1 0 0 0 4.93 6.343L10.586 12l-5.657 5.657a1 1 0 1 0 1.414 1.414z"/></g></svg>`;
+  const zipIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from MingCute Icon by MingCute Design - https://github.com/Richard9394/MingCute/blob/main/LICENSE --><g fill="none" fill-rule="evenodd"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M13.586 2a2 2 0 0 1 1.284.467l.13.119L19.414 7a2 2 0 0 1 .578 1.238l.008.176V20a2 2 0 0 1-1.85 1.995L18 22H6a2 2 0 0 1-1.995-1.85L4 20V4a2 2 0 0 1 1.85-1.995L6 2zm0 2H6v16h3v-2.5a1.5 1.5 0 0 1 1.356-1.493L10.5 16h3a1.5 1.5 0 0 1 1.493 1.356L15 17.5V20h3V8.414zM13 18h-2v2h2zm-2-5a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2zm3-2a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2zm-3-2a1 1 0 0 1 .117 1.993L11 11h-1a1 1 0 0 1-.117-1.993L10 9zm3-2a1 1 0 0 1 .117 1.993L14 9h-1a1 1 0 0 1-.117-1.993L13 7z"/></g></svg>`;
   var _GM_addValueChangeListener = /* @__PURE__ */ (() => typeof GM_addValueChangeListener != "undefined" ? GM_addValueChangeListener : void 0)();
   var _GM_download = /* @__PURE__ */ (() => typeof GM_download != "undefined" ? GM_download : void 0)();
   var _GM_getValue = /* @__PURE__ */ (() => typeof GM_getValue != "undefined" ? GM_getValue : void 0)();
   var _GM_setClipboard = /* @__PURE__ */ (() => typeof GM_setClipboard != "undefined" ? GM_setClipboard : void 0)();
   var _GM_setValue = /* @__PURE__ */ (() => typeof GM_setValue != "undefined" ? GM_setValue : void 0)();
+  var _GM_xmlhttpRequest = /* @__PURE__ */ (() => typeof GM_xmlhttpRequest != "undefined" ? GM_xmlhttpRequest : void 0)();
   class ThemeManager {
     constructor() {
       this.themeModes = {
@@ -1568,6 +1572,237 @@ ${downloadUrl}`);
     };
     document.addEventListener("click", closeContextMenu);
   }
+  function initializeBatchDownload() {
+    const url = window.location.href;
+    if (!/^https:\/\/course\.pku\.edu\.cn\/webapps\/blackboard\/content\/listContent\.jsp/.test(url)) {
+      return;
+    }
+    console.log("[PKU Art] initializeBatchDownload() initialized at " + (/* @__PURE__ */ new Date()).toLocaleString());
+    function extractFileLinks(container) {
+      const links = [];
+      const anchors = container.querySelectorAll("a[href]");
+      anchors.forEach((anchor) => {
+        const href = anchor.getAttribute("href");
+        if (href && href.includes("/bbcswebdav/")) {
+          let fileName = decodeURIComponent(href.split("/").pop());
+          if (fileName.includes("?")) {
+            fileName = fileName.split("?")[0];
+          }
+          const linkText = anchor.textContent.trim();
+          if (linkText && !linkText.includes("http") && linkText.length < 100) {
+            const extMatch = fileName.match(/\.[a-zA-Z0-9]+$/);
+            if (extMatch && !linkText.match(/\.[a-zA-Z0-9]+$/)) {
+              fileName = linkText + extMatch[0];
+            } else if (linkText.match(/\.[a-zA-Z0-9]+$/)) {
+              fileName = linkText;
+            }
+          }
+          links.push({
+            url: href.startsWith("http") ? href : `https://course.pku.edu.cn${href}`,
+            name: fileName
+          });
+        }
+      });
+      return links;
+    }
+    function downloadFile(url2) {
+      return new Promise((resolve, reject) => {
+        if (typeof _GM_xmlhttpRequest !== "undefined") {
+          _GM_xmlhttpRequest({
+            method: "GET",
+            url: url2,
+            responseType: "arraybuffer",
+            onload: function(response) {
+              if (response.status === 200) {
+                resolve(response.response);
+              } else {
+                reject(new Error(`HTTP ${response.status}`));
+              }
+            },
+            onerror: function(error) {
+              reject(error);
+            }
+          });
+        } else {
+          fetch(url2, { credentials: "include" }).then((response) => {
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return response.arrayBuffer();
+          }).then(resolve).catch(reject);
+        }
+      });
+    }
+    async function downloadAsZip(files, zipName, statusElement) {
+      if (files.length === 0) {
+        alert("没有找到可下载的文件");
+        return;
+      }
+      if (typeof JSZip === "undefined") {
+        alert("JSZip 库未加载，无法使用打包下载功能");
+        return;
+      }
+      const zip = new JSZip();
+      let completed = 0;
+      const total = files.length;
+      const errors = [];
+      const fileNameCount = {};
+      statusElement.textContent = `正在下载: 0/${total}`;
+      for (const file of files) {
+        try {
+          const data = await downloadFile(file.url);
+          let fileName = file.name;
+          if (fileNameCount[fileName]) {
+            const ext = fileName.lastIndexOf(".");
+            if (ext > 0) {
+              fileName = `${fileName.substring(0, ext)}_${fileNameCount[fileName]}${fileName.substring(ext)}`;
+            } else {
+              fileName = `${fileName}_${fileNameCount[fileName]}`;
+            }
+            fileNameCount[file.name]++;
+          } else {
+            fileNameCount[file.name] = 1;
+          }
+          zip.file(fileName, data);
+          completed++;
+          statusElement.textContent = `正在下载: ${completed}/${total}`;
+        } catch (error) {
+          console.error(`[PKU Art] 下载文件失败: ${file.name}`, error);
+          errors.push(file.name);
+          completed++;
+          statusElement.textContent = `正在下载: ${completed}/${total}`;
+        }
+      }
+      if (Object.keys(zip.files).length === 0) {
+        statusElement.textContent = "下载失败";
+        alert("所有文件下载失败");
+        return;
+      }
+      statusElement.textContent = "正在打包...";
+      try {
+        const content = await zip.generateAsync({ type: "blob" });
+        const downloadUrl = URL.createObjectURL(content);
+        const link = document.createElement("a");
+        link.href = downloadUrl;
+        link.download = `${zipName}.zip`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(downloadUrl);
+        if (errors.length > 0) {
+          statusElement.textContent = `完成 (${errors.length}个文件失败)`;
+        } else {
+          statusElement.textContent = "下载完成";
+        }
+        setTimeout(() => {
+          statusElement.textContent = "打包下载";
+        }, 3e3);
+      } catch (error) {
+        console.error("[PKU Art] 打包失败:", error);
+        statusElement.textContent = "打包失败";
+        alert("打包失败: " + error.message);
+      }
+    }
+    function createDownloadButton(text, onClick) {
+      const button = document.createElement("button");
+      button.className = "PKU-Art pku-art-batch-download-btn";
+      button.innerHTML = `${zipIcon}<span class="pku-art-batch-download-text">${text}</span>`;
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const textSpan = button.querySelector(".pku-art-batch-download-text");
+        if (textSpan.textContent !== "打包下载" && textSpan.textContent !== text) {
+          return;
+        }
+        onClick(textSpan);
+      });
+      return button;
+    }
+    function initButtons() {
+      var _a, _b;
+      const contentItems = document.querySelectorAll("#content_listContainer > li");
+      contentItems.forEach((item, index) => {
+        if (item.querySelector(".pku-art-batch-download-btn")) {
+          return;
+        }
+        const files = extractFileLinks(item);
+        if (files.length === 0) {
+          return;
+        }
+        let sectionName = "";
+        const spanInLink = item.querySelector(".item h3 a span");
+        if (spanInLink && spanInLink.textContent.trim()) {
+          sectionName = spanInLink.textContent.trim();
+        }
+        if (!sectionName) {
+          const directSpans = item.querySelectorAll(".item h3 > span:not(.reorder):not(.hideme)");
+          for (const span of directSpans) {
+            const text = span.textContent.trim();
+            if (text && text.length > 0) {
+              sectionName = text;
+              break;
+            }
+          }
+        }
+        if (!sectionName) {
+          const linkInH3 = item.querySelector(".item h3 a");
+          if (linkInH3 && linkInH3.textContent.trim()) {
+            sectionName = linkInH3.textContent.trim();
+          }
+        }
+        if (!sectionName) {
+          const h3 = item.querySelector(".item h3");
+          if (h3) {
+            const clone = h3.cloneNode(true);
+            const hiddenElements = clone.querySelectorAll(".reorder, .hideme, .editmode");
+            hiddenElements.forEach((el) => el.remove());
+            sectionName = clone.textContent.trim();
+          }
+        }
+        if (!sectionName) {
+          sectionName = `第${index + 1}项`;
+        }
+        sectionName = sectionName.replace(/[<>:"/\\|?*]/g, "_");
+        const btn = createDownloadButton("打包下载", (statusEl) => {
+          downloadAsZip(files, sectionName, statusEl);
+        });
+        const itemDiv = item.querySelector(".item");
+        if (itemDiv) {
+          itemDiv.appendChild(btn);
+        }
+      });
+      const pageTitleDiv = document.querySelector("#pageTitleDiv");
+      if (pageTitleDiv && !pageTitleDiv.querySelector(".pku-art-batch-download-btn")) {
+        const allFiles = extractFileLinks(document.querySelector("#content_listContainer") || document.body);
+        if (allFiles.length > 0) {
+          const courseTitle = ((_b = (_a = document.querySelector("#breadcrumbs span")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) || "教学内容";
+          const cleanCourseTitle = courseTitle.replace(/[<>:"/\\|?*]/g, "_");
+          const btn = createDownloadButton("下载全部", (statusEl) => {
+            downloadAsZip(allFiles, cleanCourseTitle, statusEl);
+          });
+          btn.classList.add("pku-art-download-all-btn");
+          pageTitleDiv.appendChild(btn);
+        }
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initButtons);
+    } else {
+      initButtons();
+    }
+    const observer = new MutationObserver(() => {
+      initButtons();
+    });
+    const startObserver = () => {
+      const contentList = document.querySelector("#content_listContainer");
+      if (contentList) {
+        observer.observe(contentList, { childList: true, subtree: true });
+      }
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", startObserver);
+    } else {
+      startObserver();
+    }
+  }
   applyStylesForCurrentPage();
   initializeThemeManager();
   initializeThemeToggleButton();
@@ -1583,5 +1818,6 @@ ${downloadUrl}`);
   formValueStorage();
   removeEmptyTableRows();
   customizeIaaaRememberCheckbox();
+  initializeBatchDownload();
 
-})();
+})(JSZip);

@@ -1,4 +1,4 @@
-import { downloadIcon, linkIcon, sparkIcon, refreshIcon, closeIcon } from './icon.js';
+import { downloadIcon, linkIcon, refreshIcon, closeIcon } from './icon.js';
 // Other utilities
 function initializeLogoNavigation() {
     if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
@@ -169,7 +169,7 @@ function removeCourseSerialNumbers() {
                     if (emptyMenu) {
                         contextMenuOpenLink.savedDiv.removeChild(emptyMenu)
                         console.log("[PKU Art] Removed empty context menu")
-                    } 
+                    }
                 }
             }, 100)
         }
@@ -184,7 +184,7 @@ function removeCourseSerialNumbers() {
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', removeContextMenuSerials);
     }
-    else { 
+    else {
         removeContextMenuSerials();
     }
 }
@@ -1017,6 +1017,254 @@ function registerCloseContextMenuOnPage() {
     document.addEventListener("click", closeContextMenu);
 }
 
+/**
+ * 批量下载功能 - 在 listContent 页面添加批量下载按钮
+ * 使用 GM_download 逐个下载文件，不依赖 JSZip
+ */
+function initializeBatchDownload() {
+    const url = window.location.href;
+
+    // 只在 listContent 页面运行
+    if (!/^https:\/\/course\.pku\.edu\.cn\/webapps\/blackboard\/content\/listContent\.jsp/.test(url)) {
+        return;
+    }
+
+    console.log('[PKU Art] initializeBatchDownload() initialized at ' + new Date().toLocaleString());
+
+    /**
+     * 从一个容器中提取所有文件链接
+     * @param {HTMLElement} container - 要搜索的容器元素
+     * @returns {Array<{url: string, name: string}>} - 文件信息数组
+     */
+    function extractFileLinks(container) {
+        const links = [];
+        const anchors = container.querySelectorAll('a[href]');
+
+        anchors.forEach((anchor) => {
+            const href = anchor.getAttribute('href');
+            // 匹配 bbcswebdav 文件链接
+            if (href && href.includes('/bbcswebdav/')) {
+                // 从 URL 中提取文件名
+                let fileName = decodeURIComponent(href.split('/').pop());
+                // 清理文件名中的查询参数
+                if (fileName.includes('?')) {
+                    fileName = fileName.split('?')[0];
+                }
+                // 如果链接文本更有意义，优先使用
+                const linkText = anchor.textContent.trim();
+                if (linkText && !linkText.includes('http') && linkText.length < 100) {
+                    // 检查链接文本是否包含文件扩展名
+                    const extMatch = fileName.match(/\.[a-zA-Z0-9]+$/);
+                    if (extMatch && !linkText.match(/\.[a-zA-Z0-9]+$/)) {
+                        fileName = linkText + extMatch[0];
+                    } else if (linkText.match(/\.[a-zA-Z0-9]+$/)) {
+                        fileName = linkText;
+                    }
+                }
+                links.push({
+                    url: href.startsWith('http') ? href : `https://course.pku.edu.cn${href}`,
+                    name: fileName,
+                });
+            }
+        });
+
+        return links;
+    }
+
+    /**
+     * 使用 GM_download 下载单个文件
+     * @param {string} fileUrl - 文件 URL
+     * @param {string} fileName - 文件名
+     * @returns {Promise<void>}
+     */
+    function downloadSingleFile(fileUrl, fileName) {
+        return new Promise((resolve, reject) => {
+            if (typeof GM_download === 'function') {
+                GM_download({
+                    url: fileUrl,
+                    name: fileName,
+                    onerror: (err) => {
+                        console.error(`[PKU Art] GM_download 失败: ${fileName}`, err);
+                        reject(err);
+                    },
+                    onload: () => {
+                        resolve();
+                    },
+                    ontimeout: () => {
+                        reject(new Error('下载超时'));
+                    },
+                });
+            } else {
+                // 回退：使用 a 标签下载
+                const link = document.createElement('a');
+                link.href = fileUrl;
+                link.download = fileName;
+                link.target = '_blank';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                // 无法确定下载是否成功，直接 resolve
+                resolve();
+            }
+        });
+    }
+
+    /**
+     * 批量下载文件
+     * @param {Array<{url: string, name: string}>} files - 文件信息数组
+     * @param {HTMLElement} statusElement - 状态显示元素
+     */
+    async function downloadFiles(files, statusElement) {
+        if (files.length === 0) {
+            alert('没有找到可下载的文件');
+            return;
+        }
+
+        const total = files.length;
+        let completed = 0;
+        let errors = 0;
+
+        // 用于处理重名文件
+        const fileNameCount = {};
+
+        statusElement.textContent = `下载中: 0/${total}`;
+
+        for (const file of files) {
+            // 处理重名文件
+            let fileName = file.name;
+            if (fileNameCount[fileName]) {
+                const ext = fileName.lastIndexOf('.');
+                if (ext > 0) {
+                    fileName = `${fileName.substring(0, ext)}_${fileNameCount[fileName]}${fileName.substring(ext)}`;
+                } else {
+                    fileName = `${fileName}_${fileNameCount[fileName]}`;
+                }
+                fileNameCount[file.name]++;
+            } else {
+                fileNameCount[file.name] = 1;
+            }
+
+            try {
+                await downloadSingleFile(file.url, fileName);
+                completed++;
+            } catch (error) {
+                console.error(`[PKU Art] 下载失败: ${fileName}`, error);
+                errors++;
+                completed++;
+            }
+
+            statusElement.textContent = `下载中: ${completed}/${total}`;
+
+            // 添加小延迟，避免浏览器阻止批量下载
+            if (completed < total) {
+                await new Promise((r) => setTimeout(r, 300));
+            }
+        }
+
+        if (errors > 0) {
+            statusElement.textContent = `完成 (${errors}个失败)`;
+        } else {
+            statusElement.textContent = '下载完成';
+        }
+
+        // 3秒后恢复按钮状态
+        setTimeout(() => {
+            statusElement.textContent = '批量下载';
+        }, 3000);
+    }
+
+    /**
+     * 创建下载按钮
+     * @param {string} text - 按钮文字
+     * @param {Function} onClick - 点击回调
+     * @returns {HTMLElement} - 按钮元素
+     */
+    function createDownloadButton(text, onClick) {
+        const button = document.createElement('button');
+        button.className = 'PKU-Art pku-art-batch-download-btn';
+        button.innerHTML = `${downloadIcon}<span class="pku-art-batch-download-text">${text}</span>`;
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const textSpan = button.querySelector('.pku-art-batch-download-text');
+            // 检查是否正在下载中
+            if (textSpan.textContent.includes('下载中') || textSpan.textContent === '下载完成') {
+                return;
+            }
+            onClick(textSpan);
+        });
+        return button;
+    }
+
+    /**
+     * 初始化下载按钮
+     */
+    function initButtons() {
+        // 为每个内容项添加下载按钮
+        const contentItems = document.querySelectorAll('#content_listContainer > li');
+        contentItems.forEach((item) => {
+            // 检查是否已经添加过按钮
+            if (item.querySelector('.pku-art-batch-download-btn')) {
+                return;
+            }
+
+            const files = extractFileLinks(item);
+            if (files.length === 0) {
+                return; // 没有文件，不添加按钮
+            }
+
+            const btn = createDownloadButton('批量下载', (statusEl) => {
+                downloadFiles(files, statusEl);
+            });
+
+            // 将按钮添加到标题行（flex布局样式已在 courseListContent.css 中定义）
+            const itemDiv = item.querySelector('.item');
+            if (itemDiv) {
+                itemDiv.appendChild(btn);
+            }
+        });
+
+        // 为页面标题添加"下载全部"按钮（添加到 #pageTitleDiv，与标题栏同级）
+        const pageTitleDiv = document.querySelector('#pageTitleDiv');
+        if (pageTitleDiv && !pageTitleDiv.querySelector('.pku-art-batch-download-btn')) {
+            const allFiles = extractFileLinks(document.querySelector('#content_listContainer') || document.body);
+            if (allFiles.length > 0) {
+                const btn = createDownloadButton('下载全部', (statusEl) => {
+                    downloadFiles(allFiles, statusEl);
+                });
+                btn.classList.add('pku-art-download-all-btn');
+                // flex布局样式已在 courseListContent.css 中定义
+                pageTitleDiv.appendChild(btn);
+            }
+        }
+    }
+
+    // 等待 DOM 加载完成后初始化
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initButtons);
+    } else {
+        initButtons();
+    }
+
+    // 监听动态加载的内容
+    const observer = new MutationObserver(() => {
+        initButtons();
+    });
+
+    const startObserver = () => {
+        const contentList = document.querySelector('#content_listContainer');
+        if (contentList) {
+            observer.observe(contentList, { childList: true, subtree: true });
+        }
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startObserver);
+    } else {
+        startObserver();
+    }
+}
+
 export {
     initializeLogoNavigation,
     ensureSidebarVisible,
@@ -1031,4 +1279,5 @@ export {
     insertHTMLForDebug,
     removeEmptyTableRows,
     customizeIaaaRememberCheckbox,
+    initializeBatchDownload,
 };

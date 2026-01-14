@@ -27,7 +27,7 @@ export default defineConfig({
                 icon: 'http://cdn.arthals.ink/Arthals-mcskin.png',
                 namespace: 'arthals/pku-art',
                 name: 'PKU-Art',
-                description: '给你一个足够好看的教学网。',
+                description: '给你一个足够好看的北大网站。',
                 match: ['*://*.pku.edu.cn/*'],
                 // local development
                 // match: ['*://*.pku.edu.cn/*', 'http://localhost:8000/*'],
