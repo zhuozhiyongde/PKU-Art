@@ -1,5 +1,9 @@
 # ChangeLog
 
+**2026.01.14 - v2.6.20**
+
+> Merged #30，thx [@StatInfer](https://github.com/Chen571428)，添加了批量下载功能。
+
 **2025.12.08 - v2.6.19**
 
 > 将 JWT 保存到 sessionStorage 中，方便使用。
