@@ -1,5 +1,9 @@
 import { downloadIcon, linkIcon, refreshIcon, closeIcon } from './icon.js';
-// Other utilities
+
+/**
+ * Logo 导航功能 - 点击导航区域左侧 150px 以内时跳转到首页
+ * 仅在 course.pku.edu.cn 域名下生效
+ */
 function initializeLogoNavigation() {
     if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
         return;
@@ -25,6 +29,10 @@ function initializeLogoNavigation() {
     document.addEventListener('DOMContentLoaded', bindLogoNavigation);
 }
 
+/**
+ * 确保侧边栏可见 - 如果侧边栏处于折叠状态则自动展开
+ * 仅在 course.pku.edu.cn 域名下生效
+ */
 function ensureSidebarVisible() {
     if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
         return;
@@ -45,6 +53,10 @@ function ensureSidebarVisible() {
     window.addEventListener('resize', resetNavigationPane);
 }
 
+/**
+ * 替换网站图标 - 将默认图标替换为自定义 PKU 图标
+ * 支持 course/autolab/disk/elective.pku.edu.cn 域名
+ */
 function overrideSiteIcons() {
     if (!/^https:\/\/(course|autolab|disk|elective)\.pku\.edu\.cn\//.test(window.location.href)) {
         return;
@@ -109,6 +121,10 @@ function overrideSiteIcons() {
     document.addEventListener('DOMContentLoaded', observeHead);
 }
 
+/**
+ * 移除课程序号 - 清理课程列表中的课程编号和学期信息
+ * 包括门户页面、通知流页面和右键菜单中的课程名称
+ */
 function removeCourseSerialNumbers() {
     const url = window.location.href;
 
@@ -189,6 +205,11 @@ function removeCourseSerialNumbers() {
     }
 }
 
+/**
+ * 直接下载功能 - 在录播播放页面注入下载按钮和复制链接功能
+ * 通过拦截 XHR 请求获取视频下载地址，支持 m3u8 格式转换
+ * 仅在 onlineroomse.pku.edu.cn/player 页面生效
+ */
 async function initializeDirectDownload() {
     const url = window.location.href;
 
@@ -572,6 +593,10 @@ async function initializeDirectDownload() {
     });
 }
 
+/**
+ * 重定向全局更多链接 - 将导航栏"更多"链接指向成绩页面
+ * 仅在 course.pku.edu.cn 域名下生效
+ */
 function redirectGlobalMoreLink() {
     if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
         return;
@@ -595,6 +620,10 @@ function redirectGlobalMoreLink() {
     document.addEventListener('DOMContentLoaded', updateMoreLink);
 }
 
+/**
+ * 启用直接打开链接 - 移除外链的 onclick 拦截，允许直接跳转
+ * 仅在 course.pku.edu.cn 域名下生效
+ */
 function enableDirectOpenLinks() {
     if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
         return;
@@ -644,6 +673,10 @@ function enableDirectOpenLinks() {
     document.addEventListener('DOMContentLoaded', stripOnclickHandlers);
 }
 
+/**
+ * 恢复选课查询值 - 切换课程分类时保留已输入的课程号和课程名
+ * 仅在 elective.pku.edu.cn 选课查询页面生效
+ */
 function restoreCourseQueryValues() {
     // https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/courseQuery/getCurriculmByForm.do
     if (
@@ -692,6 +725,10 @@ function restoreCourseQueryValues() {
     observer.observe(courseName, { attributes: true, attributeFilter: ['value'] });
 }
 
+/**
+ * 重构选课查询分页 - 将分页导航从表格单元格移到表格外部
+ * 仅在 elective.pku.edu.cn 选课查询结果页面生效
+ */
 function refactorCourseQueryPagination() {
     if (
         !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/courseQuery\/(getCurriculmByForm\.do|queryCurriculum\.jsp)/.test(
@@ -721,6 +758,10 @@ function refactorCourseQueryPagination() {
     document.addEventListener('DOMContentLoaded', refactor);
 }
 
+/**
+ * 表单值存储 - 自动保存和恢复选课查询表单的输入值到 localStorage
+ * 仅在 elective.pku.edu.cn 选课查询页面生效
+ */
 function formValueStorage() {
     // 检查URL是否匹配
     if (
@@ -827,6 +868,10 @@ function formValueStorage() {
     }
 }
 
+/**
+ * 移除空表格行 - 清理 FAQ 页面中只包含空白的表格行
+ * 仅在 elective.pku.edu.cn FAQ 页面生效
+ */
 function removeEmptyTableRows() {
     if (
         !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/help\/faqForUnderGrad\.jsp\S*$/.test(
@@ -852,6 +897,10 @@ function removeEmptyTableRows() {
     document.addEventListener('DOMContentLoaded', removeFunc);
 }
 
+/**
+ * 调试用 HTML 注入 - 在选课页面插入成功提示信息用于样式调试
+ * 仅在开发调试时使用
+ */
 function insertHTMLForDebug() {
     const html_str = `<tr><td colspan="0"><table width="100%"><tbody><tr><td width="52px" valign="middle" class="message_success"><img src="/elective2008/resources/images/success.gif"></td><td width="100%" valign="middle">添加操作成功,请查看选课计划确认,之后请继续选课或者补选。</td></tr></tbody></table></td></tr>`;
     const url = `https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/courseQuery/CourseQueryController.jpf`;
@@ -873,6 +922,11 @@ function insertHTMLForDebug() {
     document.addEventListener('DOMContentLoaded', debugFunc);
 }
 
+/**
+ * 自定义 IAAA 记住我复选框 - 美化登录页面的"记住我"复选框样式
+ * 支持键盘操作和无障碍访问
+ * 仅在 iaaa.pku.edu.cn OAuth 页面生效
+ */
 function customizeIaaaRememberCheckbox() {
     if (!/^https:\/\/iaaa\.pku\.edu\.cn\/iaaa\/oauth\.jsp/.test(window.location.href)) {
         return;
@@ -1009,6 +1063,9 @@ function customizeIaaaRememberCheckbox() {
     }
 }
 
+/**
+ * 注册页面点击关闭右键菜单 - 点击页面任意位置时关闭已打开的上下文菜单
+ */
 function registerCloseContextMenuOnPage() {
     const closeContextMenu = () => {
         page.ContextMenu.closeAllContextMenus()
