@@ -56,6 +56,7 @@
     content: var(--i-link);
     background: var(--yellow-3);
 }
+
 #content_listContainer > li > div img[alt='链接的项目'] {
     display: none;
 }
@@ -69,7 +70,7 @@
 }
 
 /* 标题样式 */
-#content_listContainer > li > div.item * {
+#content_listContainer > li > div.item h3 * {
     text-decoration: none;
     color: var(--c-title) !important;
 }
@@ -130,4 +131,61 @@
 #content_listContainer > li > div.details span[style*='color: #0000ff'] {
     color: var(--blue-5) !important;
     text-decoration: none;
+}
+
+/* 批量下载按钮样式 */
+.pku-art-batch-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--c-border);
+    border-radius: 5px;
+    background: var(--c-card);
+    color: var(--c-text);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.pku-art-batch-download-btn:hover {
+    background: var(--blue-2);
+    border-color: var(--blue-4);
+    color: var(--blue-6);
+}
+
+.pku-art-batch-download-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    fill: currentColor;
+}
+
+/* 下载全部按钮特殊样式 */
+.pku-art-download-all-btn {
+    background: var(--c-button);
+}
+
+/* 页面标题区flex布局 - 用于放置下载全部按钮 */
+#pageTitleDiv {
+    display: flex !important;
+    align-items: center;
+}
+
+#pageTitleDiv > .pku-art-download-all-btn {
+    margin-left: auto;
+}
+
+/* 标题行flex布局调整 */
+#content_listContainer > li > div.item {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#content_listContainer > li > div.item h3 {
+    flex: 1;
+    margin: 0;
 }

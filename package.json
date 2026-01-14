@@ -14,9 +14,10 @@
         "unplugin-auto-import": "^0.17.5",
         "vite": "^6.2.1",
         "vite-plugin-mkcert": "^1.17.6",
-        "vite-plugin-monkey": "^5.0.8"
+        "vite-plugin-monkey": "^7.1.8"
     },
     "dependencies": {
+        "jszip": "^3.10.1",
         "monkey": "^0.9.0"
     }
 }
