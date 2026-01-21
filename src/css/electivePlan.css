@@ -86,7 +86,11 @@ td:has(img[src='/elective2008/resources/images/attention.jpg'])
     display: none !important;
 }
 
-td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child {
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child{
+    padding: 2px 1px !important;
+}
+
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child a{
     float: none !important;
     width: auto !important;
     display: inline-flex !important;
@@ -102,7 +106,7 @@ td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child {
     font-weight: 500;
 }
 
-td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child::before {
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child a::before {
     content: '';
     display: block;
     width: 16px;
@@ -115,7 +119,7 @@ td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child::
     background: var(--blue-6);
 }
 
-td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child:hover {
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child a:hover {
     background: var(--blue-2);
     border: 1px solid var(--blue-5);
     color: var(--blue-7);
@@ -220,3 +224,17 @@ table.datagrid > tbody > tr:last-of-type td {
 table.datagrid > tbody > tr a {
     color: var(--blue-5);
 }
+
+table.datagrid > tbody td.pku-art-pnp-valid,
+table.datagrid > tbody td.pku-art-pnp-invalid {
+    text-align: center;
+    vertical-align: middle;
+}
+
+table.datagrid > tbody td.pku-art-pnp-valid svg,
+table.datagrid > tbody td.pku-art-pnp-invalid svg {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+

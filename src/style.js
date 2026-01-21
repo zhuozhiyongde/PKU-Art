@@ -38,6 +38,7 @@ import electiveHelpStyles from './css/electiveHelp.css?inline';
 import electiveDetailStyles from './css/electiveDetail.css?inline';
 import electiveCourseQueryStyles from './css/electiveCourseQuery.css?inline';
 import electiveFaqStyles from './css/electiveFaq.css?inline';
+import electiveWorkStyles from './css/electiveWork.css?inline';
 
 function injectStyles(styleString, cssFileName) {
     const styleElement = document.createElement('style');
@@ -329,6 +330,15 @@ const styleRules = [
         excludePatterns: [],
         styleContent: electiveFaqStyles,
         fileName: 'electiveFaq.css',
+    },
+    {
+        // https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/electiveWork/ElectiveWorkController.jpf
+        patterns: [
+            /^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/electiveWork\/(ElectiveWorkController\.jpf|election\.jsp)\S*$/,
+        ],
+        excludePatterns: [],
+        styleContent: electiveWorkStyles,
+        fileName: 'electiveWork.css',
     },
 ];
 

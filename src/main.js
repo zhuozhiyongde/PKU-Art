@@ -8,13 +8,14 @@ import {
     initializeDirectDownload,
     redirectGlobalMoreLink,
     enableDirectOpenLinks,
-    restoreCourseQueryValues,
-    refactorCourseQueryPagination,
-    formValueStorage,
-    removeEmptyTableRows,
+    manageElectiveCourseQueryForm,
     insertHTMLForDebug,
-    customizeIaaaRememberCheckbox,
     initializeBatchDownload,
+    refactorIaaaPage,
+    refactorElectiveFaqPage,
+    refactorElectivePlanPage,
+    refactorElectiveWorkPage,
+    refactorElectiveCourseQueryPage,
 } from './utils.js';
 
 applyStylesForCurrentPage();
@@ -27,10 +28,11 @@ removeCourseSerialNumbers();
 initializeDirectDownload();
 redirectGlobalMoreLink();
 enableDirectOpenLinks();
-restoreCourseQueryValues();
-refactorCourseQueryPagination();
-formValueStorage();
-removeEmptyTableRows();
-customizeIaaaRememberCheckbox();
+manageElectiveCourseQueryForm();
 initializeBatchDownload();
+refactorIaaaPage();
+refactorElectiveFaqPage();
+refactorElectivePlanPage();
+refactorElectiveWorkPage();
+refactorElectiveCourseQueryPage();
 // insertHTMLForDebug();

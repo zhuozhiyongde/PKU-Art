@@ -1,0 +1,612 @@
+/*
+ * Author: Arthals
+ * Email: zhuozhiyongde@126.com
+ * Github: https://github.com/zhuozhiyongde
+ * Blog: https://arthals.ink
+ */
+
+body {
+    background: var(--c-background) !important;
+    color: var(--c-text);
+    font-size: 14px;
+    line-height: 1.6;
+    padding-bottom: 48px;
+}
+
+*,
+*::before,
+*::after {
+    text-shadow: none !important;
+    box-shadow: none !important;
+    line-height: 1.5;
+}
+body {
+    position: relative;
+}
+/* 标题 */
+body > #scopeOneSpan > table:first-of-type {
+    margin: 0 !important;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    height: 60px !important;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+body > #scopeOneSpan > table:first-of-type td {
+    position: relative;
+    background-image: var(--i-logo) !important;
+    background-size: auto 30px !important;
+    background-repeat: no-repeat !important;
+    background-position: 2em center !important;
+    background-color: var(--c-card) !important;
+    border-bottom: 1px solid var(--c-border);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 1em 2em;
+    height: 100% !important;
+    box-sizing: border-box;
+}
+
+body > #scopeOneSpan > table:first-of-type td img {
+    display: none;
+}
+
+#menu {
+    margin: 0;
+    padding: 0 90px 0 0 !important;
+    list-style: none;
+    display: flex !important;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    gap: 28px;
+    justify-content: flex-start;
+    float: right;
+    width: fit-content !important;
+    position: relative;
+}
+
+#menu li:first-of-type {
+    position: absolute;
+    right: 0px !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+    height: fit-content;
+    width: fit-content;
+}
+
+#menu li:first-of-type a {
+    color: transparent;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    background-image: var(--i-exit);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: none;
+    display: block;
+}
+
+.pku-art-theme-toggle-bar {
+    position: absolute;
+    right: 42px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#menu li a {
+    padding: 5px 2px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    color: var(--c-text);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: none;
+    float: none;
+    position: relative;
+}
+
+#menu li:not(:first-child) a:hover {
+    background: transparent;
+    color: var(--c-accent);
+    transition: all 0.3s ease-in-out;
+}
+
+#menu li:not(:first-child) a:after {
+    content: '';
+    color: transparent;
+    visibility: visible !important;
+    position: absolute;
+    border-bottom: 2px solid var(--red-5);
+    border-radius: 2px;
+    bottom: -2px;
+    /*向左偏移隐藏*/
+    left: 100%;
+    width: 0;
+    -webkit-transition: width 350ms, left 350ms;
+    -moz-transition: width 350ms, left 350ms;
+    transition: width 350ms, left 350ms;
+}
+
+#menu li:not(:first-child) a:hover:after {
+    visibility: visible !important;
+    left: 0;
+    width: 100%;
+    -webkit-transition: width 350ms;
+    -moz-transition: width 350ms;
+    transition: width 350ms;
+}
+
+/* 错误页面 */
+body div[style*='pku_view.jpg'] {
+    background: transparent !important;
+}
+
+td[background*='/elective2008/resources/images/11-1.png'] {
+    /* display: none; */
+    background: var(--c-card) !important;
+    border: 1px solid var(--c-border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 28px;
+    position: relative;
+}
+
+td[background*='/elective2008/resources/images/11-1.png']:before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    mask-image: var(--i-warning);
+    -webkit-mask-image: var(--i-warning);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: var(--red-6);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 50px;
+}
+
+td[background*='/elective2008/resources/images/11-1.png'] * {
+    color: var(--c-text);
+}
+
+.errmsg {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px !important;
+    border-radius: 999px;
+    border: 1px solid var(--red-4);
+    background: var(--red-1);
+    color: var(--red-6) !important;
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+/* 版权标识 */
+body > #scopeOneSpan > table:last-of-type {
+    margin: 10px auto !important;
+}
+
+body > #scopeOneSpan > table:last-of-type td {
+    background: transparent;
+    color: var(--c-text) !important;
+}
+
+body > #scopeOneSpan > table:last-of-type td:after {
+    content: 'PKU Art @ Arthals';
+    display: block;
+    color: var(--c-text);
+    padding-top: 5px;
+    height: 20px;
+}
+
+body > #scopeOneSpan > table:not(:first-of-type),
+body > #scopeOneSpan > table:last-of-type {
+    width: min(1180px, calc(100vw - 64px)) !important;
+    margin: 0 auto;
+    border-spacing: 0;
+}
+
+body:not(:has(*[background='/elective2008/resources/images/11-1.png'])) > #scopeOneSpan > table:nth-of-type(2) {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 28px;
+}
+
+body:not(:has(*[background='/elective2008/resources/images/11-1.png'])) > #scopeOneSpan > table:nth-of-type(2):before {
+    content: '预选';
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--c-title);
+    margin: 12px 0 24px 0;
+}
+
+body > #scopeOneSpan > table:nth-of-type(2) td {
+    padding: 0;
+    border: none;
+}
+
+/* 网上选课 >> 预选 */
+
+/* 移除非 errmsg 外的所有内容 */
+p.pkuportal-remark {
+    font-size: 0;
+}
+
+/* 通知消息 */
+td.message_success {
+    display: none;
+}
+
+td.pku-art-elective-notice {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    margin: 0 auto;
+}
+
+td.pku-art-elective-notice > span:first-child {
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--c-title);
+}
+
+span.errmsg {
+    width: fit-content;
+}
+
+/* 提示：选课计划 */
+
+td:has(img[src='/elective2008/resources/images/attention.jpg'])
+    img[src='/elective2008/resources/images/attention.jpg'] {
+    display: none !important;
+}
+
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child{
+    padding: 2px 1px !important;
+}
+
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child a{
+    float: none !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px !important;
+    margin: 0;
+    border-radius: 999px;
+    background: var(--blue-1);
+    border: 1px solid var(--blue-4);
+    color: var(--blue-6);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child a::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    mask-image: var(--i-tip);
+    -webkit-mask-image: var(--i-tip);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: var(--blue-6);
+}
+
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child a:hover {
+    background: var(--blue-2);
+    border: 1px solid var(--blue-5);
+    color: var(--blue-7);
+    transition: all 0.3s ease-in-out;
+}
+
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+img[src*='arrow_red'] {
+    display: none !important;
+}
+
+.subTitle {
+    display: none;
+}
+
+.errmsg {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px !important;
+    border-radius: 999px;
+    border: 1px solid var(--red-4);
+    background: var(--red-1);
+    color: var(--red-6);
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.errmsg::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    mask-image: var(--i-warning);
+    -webkit-mask-image: var(--i-warning);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: var(--red-6);
+}
+
+table.datagrid {
+    border: none;
+    border-collapse: collapse;
+    margin-top: 10px;
+    color: var(--c-text);
+}
+
+table.datagrid tr.datagrid-header {
+    color: var(--c-title);
+    font-weight: bold;
+    padding-left: 12px;
+    background: transparent;
+    border: none;
+}
+
+table.datagrid tr.datagrid-header th.datagrid {
+    border-width: 2px 0px 1px 0px;
+    border-style: solid;
+    border-color: var(--c-border);
+    background: transparent !important;
+    padding: 12px 8px !important;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/*斑马纹表格*/
+table.datagrid > tbody > tr.datagrid-even,
+table.datagrid > tbody > tr.datagrid-even:hover,
+table.datagrid > tbody > tr:nth-child(2n):not(.datagrid-header):not(:last-of-type) {
+    background: var(--c-card) !important;
+}
+
+table.datagrid > tbody > tr.datagrid-odd,
+table.datagrid > tbody > tr.datagrid-odd:hover,
+table.datagrid > tbody > tr:nth-child(2n + 1):not(.datagrid-header):not(:last-of-type) {
+    background: var(--gray-1) !important;
+}
+
+table.datagrid > tbody td.datagrid {
+    padding: 5px !important;
+    line-height: 1.6 !important;
+}
+
+table.datagrid > tbody > tr.datagrid-footer {
+    /* display: none; */
+    border: 1px solid var(--c-border);
+    height: 1px;
+}
+
+table.datagrid > tbody > tr:last-of-type td {
+    padding-top: 10px !important;
+}
+
+/* 当新导航区域存在时，隐藏表格内的原始分页 */
+body:has(.pku-art-navigation-area) table.datagrid > tbody > tr:last-of-type td[align="right"] {
+    display: none !important;
+}
+
+table.datagrid > tbody > tr a {
+    color: var(--blue-5);
+}
+
+table.datagrid > tbody td.pku-art-pnp-valid,
+table.datagrid > tbody td.pku-art-pnp-invalid {
+    text-align: center;
+    vertical-align: middle;
+}
+
+table.datagrid > tbody td.pku-art-pnp-valid svg,
+table.datagrid > tbody td.pku-art-pnp-invalid svg {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+
+/* 注：上课时间标注红色，表明所有选课（主辅修）上课时间或考试时间有冲突。 */
+
+span.pkuportal-remark:not(:has(span)){
+    float: none !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px !important;
+    margin: 10px 0 0 0;
+    border-radius: 999px;
+    background: var(--blue-1);
+    border: 1px solid var(--blue-4);
+    color: var(--blue-6);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+span.pkuportal-remark:not(:has(span))::before{
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    mask-image: var(--i-tip);
+    -webkit-mask-image: var(--i-tip);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: var(--blue-6);
+}
+
+font.pkuportal-remark:not(:has(span)){
+    display: inline-flex !important;
+    color: var(--blue-6);
+    padding: 0px 12px !important;
+    font-size: 12px !important;
+    font-weight: 500;
+}
+
+/* ==================== 分页器美化 ==================== */
+
+/* 分页器容器 */
+.pku-art-navigation-area {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    background: var(--c-card) !important;
+    border-radius: 12px !important;
+    margin-top: 16px;
+    justify-content: flex-end;
+    width: 100% !important;
+    font-size: 0 !important;
+}
+
+/* 分页信息容器 */
+.pku-art-navigation-area > *:not(form) {
+    font-size: 14px !important;
+    color: var(--c-text) !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 分页链接样式 */
+.pku-art-navigation-area a,
+.pku-art-navigation-area span:not(:has(select)) {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 6px;
+    font-size: 14px !important;
+    font-weight: 500;
+    text-decoration: none !important;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+/* 可点击的链接 */
+.pku-art-navigation-area a {
+    background: var(--c-button) !important;
+    color: var(--c-text) !important;
+    border: 1px solid var(--c-border);
+}
+
+.pku-art-navigation-area a:hover {
+    background: var(--red-1) !important;
+    color: var(--red-5) !important;
+    border-color: var(--red-4);
+}
+
+/* 不可点击的文本（当前页、禁用状态） */
+.pku-art-navigation-area span:not(:has(select)) {
+    background: transparent !important;
+    color: var(--c-subtitle) !important;
+    cursor: default;
+    border: 1px solid transparent;
+}
+
+/* 表单容器 */
+.pku-art-navigation-area form[name='pageForm'] {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* "跳转到:" 文字 */
+.pku-art-navigation-area form::before {
+    content: '跳转到:';
+    color: var(--c-text);
+    font-size: 14px !important;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* 隐藏原始文字节点 */
+.pku-art-navigation-area form {
+    font-size: 0 !important;
+}
+
+.pku-art-navigation-area script {
+    display: none !important;
+}
+
+/* 页码选择下拉框 */
+.pku-art-navigation-area select[name='netui_row'] {
+    appearance: none;
+    -webkit-appearance: none;
+    min-width: 80px;
+    height: 32px;
+    padding: 0 32px 0 12px;
+    border: 1px solid var(--c-border);
+    border-radius: 6px;
+    background: var(--c-input-bg);
+    color: var(--c-title);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    background-image: var(--i-arrow) !important;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+}
+
+.pku-art-navigation-area select[name='netui_row']:hover {
+    border-color: var(--red-4) !important;
+    background-color: var(--c-focus) !important;
+}
+
+.pku-art-navigation-area select[name='netui_row']:focus {
+    border-color: var(--red-5) !important;
+    box-shadow: 0 0 0 3px var(--red-1) !important;
+    background-color: var(--c-focus) !important;
+}
+
+/* 下拉选项 */
+.pku-art-navigation-area select[name='netui_row'] option {
+    padding: 8px 12px;
+    background: var(--c-card);
+    color: var(--c-title);
+    font-size: 14px;
+}
+
+.pku-art-navigation-area select[name='netui_row'] option:hover,
+.pku-art-navigation-area select[name='netui_row'] option:checked {
+    background: var(--red-1);
+    color: var(--red-5);
+}

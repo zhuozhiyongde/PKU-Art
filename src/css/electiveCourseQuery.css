@@ -274,7 +274,11 @@ td:has(img[src='/elective2008/resources/images/attention.jpg'])
     display: none !important;
 }
 
-td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child {
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child{
+    padding: 2px 1px !important;
+}
+
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child a{
     float: none !important;
     display: inline-flex !important;
     align-items: center;
@@ -289,7 +293,7 @@ td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child {
     font-weight: 500;
 }
 
-td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child::before {
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child a::before {
     content: '';
     display: block;
     width: 16px;
@@ -302,7 +306,7 @@ td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child::
     background: var(--blue-6);
 }
 
-td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child:hover {
+td:has(img[src='/elective2008/resources/images/attention.jpg']) div:last-child a:hover {
     background: var(--blue-2);
     border: 1px solid var(--blue-5);
     color: var(--blue-7);
@@ -817,36 +821,6 @@ tr[valign='left'] input[type='button']#b_cancel:active {
     background: var(--c-button);
 }
 
-/* ==================== 响应式布局 ==================== */
-/* 
-@media (max-width: 1200px) {
-    tr[valign='left'] {
-        gap: 12px;
-        padding: 16px;
-    }
-
-    tr[valign='left'] > td {
-        min-width: calc(50% - 6px);
-    }
-}
-
-@media (max-width: 768px) {
-    tr[valign='left'] {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    tr[valign='left'] > td {
-        width: 100% !important;
-        min-width: 100%;
-    }
-
-    tr[valign='left'] .selectize-control,
-    tr[valign='left'] input[type='text'].selectize-input {
-        width: 100% !important;
-    }
-} */
-
 /* ==================== 隐藏的辅助输入框 ==================== */
 
 tr[valign='left'] input[type='hidden'] {
@@ -871,7 +845,7 @@ tr[valign='left'] .selectize-input.disabled {
 /* ==================== 分页器美化 ==================== */
 
 /* 分页器容器 */
-.navigation-area {
+.pku-art-navigation-area {
     display: flex !important;
     align-items: center;
     gap: 12px;
@@ -885,7 +859,7 @@ tr[valign='left'] .selectize-input.disabled {
 }
 
 /* 分页信息容器 */
-.navigation-area > *:not(form) {
+.pku-art-navigation-area > *:not(form) {
     font-size: 14px !important;
     color: var(--c-text) !important;
     display: inline-flex !important;
@@ -894,8 +868,8 @@ tr[valign='left'] .selectize-input.disabled {
 }
 
 /* 分页链接样式 */
-.navigation-area a,
-.navigation-area span:not(:has(select)) {
+.pku-art-navigation-area a,
+.pku-art-navigation-area span:not(:has(select)) {
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
@@ -913,20 +887,20 @@ tr[valign='left'] .selectize-input.disabled {
 }
 
 /* 可点击的链接 */
-.navigation-area a {
+.pku-art-navigation-area a {
     background: var(--c-button) !important;
     color: var(--c-text) !important;
     border: 1px solid var(--c-border);
 }
 
-.navigation-area a:hover {
+.pku-art-navigation-area a:hover {
     background: var(--red-1) !important;
     color: var(--red-5) !important;
     border-color: var(--red-4);
 }
 
 /* 不可点击的文本（当前页、禁用状态） */
-.navigation-area span:not(:has(select)) {
+.pku-art-navigation-area span:not(:has(select)) {
     background: transparent !important;
     color: var(--c-subtitle) !important;
     cursor: default;
@@ -934,7 +908,7 @@ tr[valign='left'] .selectize-input.disabled {
 }
 
 /* 分隔符 */
-.navigation-area::after {
+.pku-art-navigation-area::after {
     content: '';
     width: 1px;
     height: 20px;
@@ -943,7 +917,7 @@ tr[valign='left'] .selectize-input.disabled {
 }
 
 /* 表单容器 */
-.navigation-area form[name='pageForm'] {
+.pku-art-navigation-area form[name='pageForm'] {
     display: inline-flex !important;
     align-items: center;
     gap: 8px;
@@ -952,7 +926,7 @@ tr[valign='left'] .selectize-input.disabled {
 }
 
 /* "跳转到:" 文字 */
-.navigation-area form::before {
+.pku-art-navigation-area form::before {
     content: '跳转到:';
     color: var(--c-text);
     font-size: 14px !important;
@@ -961,16 +935,16 @@ tr[valign='left'] .selectize-input.disabled {
 }
 
 /* 隐藏原始文字节点 */
-.navigation-area form {
+.pku-art-navigation-area form {
     font-size: 0 !important;
 }
 
-.navigation-area script {
+.pku-art-navigation-area script {
     display: none !important;
 }
 
 /* 页码选择下拉框 */
-.navigation-area select[name='netui_row'] {
+.pku-art-navigation-area select[name='netui_row'] {
     appearance: none;
     -webkit-appearance: none;
     min-width: 80px;
@@ -990,31 +964,44 @@ tr[valign='left'] .selectize-input.disabled {
     background-size: 16px;
 }
 
-.navigation-area select[name='netui_row']:hover {
+.pku-art-navigation-area select[name='netui_row']:hover {
     border-color: var(--red-4) !important;
     background-color: var(--c-focus) !important;
 }
 
-.navigation-area select[name='netui_row']:focus {
+.pku-art-navigation-area select[name='netui_row']:focus {
     border-color: var(--red-5) !important;
     box-shadow: 0 0 0 3px var(--red-1) !important;
     background-color: var(--c-focus) !important;
 }
 
 /* 下拉选项 */
-.navigation-area select[name='netui_row'] option {
+.pku-art-navigation-area select[name='netui_row'] option {
     padding: 8px 12px;
     background: var(--c-card);
     color: var(--c-title);
     font-size: 14px;
 }
 
-.navigation-area select[name='netui_row'] option:hover,
-.navigation-area select[name='netui_row'] option:checked {
+.pku-art-navigation-area select[name='netui_row'] option:hover,
+.pku-art-navigation-area select[name='netui_row'] option:checked {
     background: var(--red-1);
     color: var(--red-5);
 }
 
-.navigation-area::after {
+.pku-art-navigation-area::after {
     content: none;
+}
+
+table.datagrid > tbody td.pku-art-pnp-valid,
+table.datagrid > tbody td.pku-art-pnp-invalid {
+    text-align: center;
+    vertical-align: middle;
+}
+
+table.datagrid > tbody td.pku-art-pnp-valid svg,
+table.datagrid > tbody td.pku-art-pnp-invalid svg {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
 }

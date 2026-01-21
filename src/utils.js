@@ -1,4 +1,4 @@
-import { downloadIcon, linkIcon, refreshIcon, closeIcon } from './icon.js';
+import { downloadIcon, linkIcon, refreshIcon, closeIcon, validIcon, invalidIcon } from './icon.js';
 
 /**
  * Logo 导航功能 - 点击导航区域左侧 150px 以内时跳转到首页
@@ -674,11 +674,10 @@ function enableDirectOpenLinks() {
 }
 
 /**
- * 恢复选课查询值 - 切换课程分类时保留已输入的课程号和课程名
+ * 管理选课查询表单 - 自动保存/恢复表单值到 localStorage，并在切换课程分类时保留输入值
  * 仅在 elective.pku.edu.cn 选课查询页面生效
  */
-function restoreCourseQueryValues() {
-    // https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/courseQuery/getCurriculmByForm.do
+function manageElectiveCourseQueryForm() {
     if (
         !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/courseQuery\/\S*$/.test(
             window.location.href
@@ -687,101 +686,16 @@ function restoreCourseQueryValues() {
         return;
     }
 
-    console.log('[PKU Art] restoreCourseQueryValues() has been used at ' + new Date().toLocaleString());
-
-    const courseID = document.querySelector('#courseID');
-    const courseName = document.querySelector('#courseName');
-
-    if (!courseID || !courseName) return;
-
-    let savedID = courseID.value;
-    let savedName = courseName.value;
-
-    // 监听 #kcfl 的点击事件来更新保存的值
-    document.querySelector('#kcfl')?.addEventListener(
-        'click',
-        function (e) {
-            if (e.target.matches('input[type=radio]')) {
-                savedID = courseID.value;
-                savedName = courseName.value;
-
-                // 立即恢复
-                requestAnimationFrame(() => {
-                    if (courseID.value === '') courseID.value = savedID;
-                    if (courseName.value === '') courseName.value = savedName;
-                });
-            }
-        },
-        true
-    );
-
-    // 使用 MutationObserver 作为双重保险
-    const observer = new MutationObserver(() => {
-        if (courseID.value === '' && savedID) courseID.value = savedID;
-        if (courseName.value === '' && savedName) courseName.value = savedName;
-    });
-
-    observer.observe(courseID, { attributes: true, attributeFilter: ['value'] });
-    observer.observe(courseName, { attributes: true, attributeFilter: ['value'] });
-}
-
-/**
- * 重构选课查询分页 - 将分页导航从表格单元格移到表格外部
- * 仅在 elective.pku.edu.cn 选课查询结果页面生效
- */
-function refactorCourseQueryPagination() {
-    if (
-        !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/courseQuery\/(getCurriculmByForm\.do|queryCurriculum\.jsp)/.test(
-            window.location.href
-        )
-    ) {
-        return;
-    }
-    const refactor = () => {
-        const lastTd = [...document.querySelectorAll('td[align="right"]')].pop();
-        console.log('[PKU Art] refactorCourseQueryPagination() has been used at ' + new Date().toLocaleString());
-        // console.log('[PKU Art] lastTd:', lastTd);
-
-        if (lastTd && !document.querySelector('.navigation-area')) {
-            const table = lastTd.closest('table');
-            if (table) {
-                const div = document.createElement('div');
-                div.innerHTML = lastTd.innerHTML;
-                div.style.textAlign = 'right';
-                table.insertAdjacentElement('afterend', div);
-                div.classList.add('navigation-area');
-                lastTd.remove();
-            }
-        }
-    };
-    refactor();
-    document.addEventListener('DOMContentLoaded', refactor);
-}
-
-/**
- * 表单值存储 - 自动保存和恢复选课查询表单的输入值到 localStorage
- * 仅在 elective.pku.edu.cn 选课查询页面生效
- */
-function formValueStorage() {
-    // 检查URL是否匹配
-    if (
-        !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/courseQuery\/\S*$/.test(
-            window.location.href
-        )
-    ) {
-        return;
-    }
+    console.log('[PKU Art] manageElectiveCourseQueryForm() has been used at ' + new Date().toLocaleString());
 
     const STORAGE_KEY = 'pku_elective_form_values';
     const form = document.getElementById('qyForm');
 
-    if (!form) {
-        console.warn('未找到 id="qyForm" 的表单');
-        return;
-    }
+    // ========== 辅助函数 ==========
 
     // 获取所有需要监听的 input 元素
     function getTargetInputs() {
+        if (!form) return [];
         const allInputs = form.querySelectorAll('input');
         return Array.from(allInputs).filter((input) => input.id !== 'b_cancel' && input.id !== 'b_query');
     }
@@ -838,41 +752,273 @@ function formValueStorage() {
         localStorage.removeItem(STORAGE_KEY);
     }
 
-    // 页面加载时还原表单值
-    restoreFormValues();
+    // ========== Radio 切换时保留课程号/课程名 ==========
+    function setupRadioSwitchPreservation() {
+        const courseID = document.querySelector('#courseID');
+        const courseName = document.querySelector('#courseName');
 
-    // 监听所有目标 input 的变化
-    const inputs = getTargetInputs();
-    inputs.forEach((input) => {
-        // 监听 input 事件（实时输入）
-        input.addEventListener('input', saveFormValues);
-        // 监听 change 事件（checkbox、radio、select 等）
-        input.addEventListener('change', saveFormValues);
-    });
+        if (!courseID || !courseName) return;
 
-    // 监听取消按钮
-    const cancelBtn = document.getElementById('b_cancel');
-    if (cancelBtn) {
-        cancelBtn.addEventListener('click', function () {
-            clearFormValues();
-            // 可选：同时清空表单
-            const inputs = getTargetInputs();
-            inputs.forEach((input) => {
-                if (input.type === 'checkbox' || input.type === 'radio') {
-                    input.checked = false;
-                } else {
-                    input.value = '';
+        let savedID = courseID.value;
+        let savedName = courseName.value;
+
+        // 监听 #kcfl 的点击事件来更新保存的值
+        document.querySelector('#kcfl')?.addEventListener(
+            'click',
+            function (e) {
+                if (e.target.matches('input[type=radio]')) {
+                    savedID = courseID.value;
+                    savedName = courseName.value;
+
+                    // 立即恢复
+                    requestAnimationFrame(() => {
+                        if (courseID.value === '') courseID.value = savedID;
+                        if (courseName.value === '') courseName.value = savedName;
+                    });
                 }
-            });
+            },
+            true
+        );
+
+        // 使用 MutationObserver 作为双重保险
+        const observer = new MutationObserver(() => {
+            if (courseID.value === '' && savedID) courseID.value = savedID;
+            if (courseName.value === '' && savedName) courseName.value = savedName;
         });
+
+        observer.observe(courseID, { attributes: true, attributeFilter: ['value'] });
+        observer.observe(courseName, { attributes: true, attributeFilter: ['value'] });
     }
+
+    // ========== localStorage 存储功能 ==========
+    function setupLocalStoragePersistence() {
+        if (!form) {
+            console.warn('未找到 id="qyForm" 的表单，localStorage 存储功能不可用');
+            return;
+        }
+
+        // 页面加载时还原表单值
+        restoreFormValues();
+
+        // 监听所有目标 input 的变化
+        const inputs = getTargetInputs();
+        inputs.forEach((input) => {
+            input.addEventListener('input', saveFormValues);
+            input.addEventListener('change', saveFormValues);
+        });
+
+        // 监听取消按钮
+        const cancelBtn = document.getElementById('b_cancel');
+        if (cancelBtn) {
+            cancelBtn.addEventListener('click', function () {
+                clearFormValues();
+                const inputs = getTargetInputs();
+                inputs.forEach((input) => {
+                    if (input.type === 'checkbox' || input.type === 'radio') {
+                        input.checked = false;
+                    } else {
+                        input.value = '';
+                    }
+                });
+            });
+        }
+    }
+
+    // ========== 初始化 ==========
+    setupRadioSwitchPreservation();
+    setupLocalStoragePersistence();
 }
+
+/**
+ * 重构 datagrid 表格 - 通用函数，处理表格列和分页导航
+ * 包含：自选P/NP 图标替换、限数/已选 颜色标记、分页导航提取
+ */
+function refactorElectiveDatagrid() {
+    // 重构分页导航 - 将分页内容从表格移到外部
+    const refactorPagination = () => {
+        // 处理所有 table.datagrid 中的分页行
+        const tables = document.querySelectorAll('table.datagrid');
+
+        tables.forEach((table) => {
+            // 检查该表格是否已经处理过
+            if (table.dataset.pkuArtPaginationRefactored) {
+                return;
+            }
+
+            // 查找包含 pageForm 的分页行，或最后一行包含 "Page X of Y" 文本的行
+            let paginationRow = table.querySelector('tr:has(> td > form[name="pageForm"])');
+            if (!paginationRow) {
+                // 尝试查找最后一行中包含 "Page" 文本的行
+                const lastRow = table.querySelector('tbody > tr:last-child, tr:last-child');
+                if (lastRow) {
+                    const hasPagination = [...lastRow.querySelectorAll('td')].some((td) =>
+                        /Page\s+\d+\s+of\s+\d+/.test(td.textContent)
+                    );
+                    if (hasPagination) {
+                        paginationRow = lastRow;
+                    }
+                }
+            }
+
+            if (!paginationRow) {
+                return;
+            }
+
+            // 获取该行中除了 align="left" 以外的所有 td（分页内容）
+            const paginationTds = [...paginationRow.querySelectorAll('td:not([align="left"])')];
+            if (paginationTds.length === 0) {
+                return;
+            }
+
+            // 检查是否只有一页（Page 1 of 1）
+            const isSinglePage = paginationTds.some((td) => td.textContent.trim().startsWith('Page 1 of 1'));
+
+            if (isSinglePage) {
+                // 只有一页时，直接删除分页相关的 td
+                console.log('[PKU Art] refactorPagination() removing single page navigation at ' + new Date().toLocaleString());
+                paginationTds.forEach((td) => td.remove());
+                table.dataset.pkuArtPaginationRefactored = 'true';
+                return;
+            }
+
+            console.log('[PKU Art] refactorPagination() has been used at ' + new Date().toLocaleString());
+
+            // 创建导航容器
+            const navDiv = document.createElement('div');
+            navDiv.classList.add('PKU-Art', 'pku-art-navigation-area');
+
+            // 将分页 td 内容移入
+            paginationTds.forEach((td) => {
+                navDiv.innerHTML += td.innerHTML;
+                td.remove();
+            });
+
+            // 插入到表格后面
+            table.insertAdjacentElement('afterend', navDiv);
+            table.dataset.pkuArtPaginationRefactored = 'true';
+        });
+    };
+
+    // 重构表格列（自选P/NP 和 限数/已选）
+    const refactorTableColumns = () => {
+        const headerRow = document.querySelector('tr.datagrid-header');
+        if (!headerRow) {
+            return;
+        }
+
+        const headers = headerRow.querySelectorAll('th.datagrid');
+        let pnpColumnIndex = -1;
+        let limitColumnIndex = -1;
+
+        // 找到 "自选P/NP" 和 "限数/已选" 列的索引
+        headers.forEach((th, index) => {
+            const text = th.textContent.trim();
+            if (text === '自选P/NP') {
+                pnpColumnIndex = index;
+            } else if (text === '限数/已选') {
+                limitColumnIndex = index;
+            }
+        });
+
+        if (pnpColumnIndex === -1 && limitColumnIndex === -1) {
+            return;
+        }
+
+        console.log(
+            '[PKU Art] refactorTableColumns() found columns: P/NP=' + pnpColumnIndex + ', limit=' + limitColumnIndex
+        );
+
+        // 获取所有数据行
+        const dataRows = document.querySelectorAll(
+            'table.datagrid tr:not(.datagrid-header):not(.datagrid-footer)'
+        );
+
+        dataRows.forEach((row) => {
+            if (row.dataset.pkuArtTableRefactored) {
+                return;
+            }
+
+            const cells = row.querySelectorAll('td.datagrid');
+
+            // 处理 自选P/NP 列
+            if (pnpColumnIndex !== -1 && cells[pnpColumnIndex]) {
+                const cell = cells[pnpColumnIndex];
+                const text = cell.textContent.trim();
+                if (text === '可申请') {
+                    cell.innerHTML = validIcon;
+                    cell.classList.add('PKU-Art', 'pku-art-pnp-valid');
+                } else if (text === '不可申请') {
+                    cell.innerHTML = invalidIcon;
+                    cell.classList.add('PKU-Art', 'pku-art-pnp-invalid');
+                }
+            }
+
+            // 处理 限数/已选 列
+            if (limitColumnIndex !== -1 && cells[limitColumnIndex]) {
+                const cell = cells[limitColumnIndex];
+                const text = cell.textContent.trim();
+                // 匹配 "数字 / 数字" 格式
+                const match = text.match(/(\d+)\s*\/\s*(\d+)/);
+                if (match) {
+                    const limit = parseInt(match[1], 10);
+                    const selected = parseInt(match[2], 10);
+                    if (selected >= limit) {
+                        cell.style.color = 'var(--red-6)';
+                    } else {
+                        cell.style.color = 'var(--blue-6)';
+                    }
+                    cell.classList.add('PKU-Art', 'pku-art-limit-cell');
+                }
+            }
+
+            row.dataset.pkuArtTableRefactored = 'true';
+        });
+    };
+
+    refactorPagination();
+    refactorTableColumns();
+}
+
+/**
+ * 重构选课查询页面
+ * 仅在 elective.pku.edu.cn 选课查询结果页面生效
+ */
+function refactorElectiveCourseQueryPage() {
+    if (
+        !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/courseQuery\/(getCurriculmByForm\.do|queryCurriculum\.jsp)/.test(
+            window.location.href
+        )
+    ) {
+        return;
+    }
+
+    refactorElectiveDatagrid();
+    document.addEventListener('DOMContentLoaded', refactorElectiveDatagrid);
+}
+
+/**
+ * 重构选课计划列表页面
+ * 仅在 elective.pku.edu.cn 选课计划列表页面生效
+ */
+function refactorElectivePlanPage() {
+    if (
+        !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/electivePlan\/ElectivePlanController\.jpf/.test(
+            window.location.href
+        )
+    ) {
+        return;
+    }
+
+    refactorElectiveDatagrid();
+    document.addEventListener('DOMContentLoaded', refactorElectiveDatagrid);
+}
+
 
 /**
  * 移除空表格行 - 清理 FAQ 页面中只包含空白的表格行
  * 仅在 elective.pku.edu.cn FAQ 页面生效
  */
-function removeEmptyTableRows() {
+function refactorElectiveFaqPage() {
     if (
         !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/help\/faqForUnderGrad\.jsp\S*$/.test(
             window.location.href
@@ -903,14 +1049,14 @@ function removeEmptyTableRows() {
  */
 function insertHTMLForDebug() {
     const html_str = `<tr><td colspan="0"><table width="100%"><tbody><tr><td width="52px" valign="middle" class="message_success"><img src="/elective2008/resources/images/success.gif"></td><td width="100%" valign="middle">添加操作成功,请查看选课计划确认,之后请继续选课或者补选。</td></tr></tbody></table></td></tr>`;
-    const url = `https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/courseQuery/CourseQueryController.jpf`;
+    const url = `https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/electiveWork/ElectiveWorkController.jpf`;
 
     if (!window.location.href.startsWith(url)) {
         return;
     }
 
     const debugFunc = () => {
-        const target = document.querySelector('body > table:nth-child(3) > tbody');
+        const target = document.querySelector('#scopeOneSpan > table:nth-child(3) > tbody > tr:nth-child(2) > td > table > tbody > tr > td:nth-child(2)');
         if (target) {
             // 在最开始插入 html
             target.insertAdjacentHTML('afterbegin', html_str);
@@ -927,7 +1073,7 @@ function insertHTMLForDebug() {
  * 支持键盘操作和无障碍访问
  * 仅在 iaaa.pku.edu.cn OAuth 页面生效
  */
-function customizeIaaaRememberCheckbox() {
+function refactorIaaaPage() {
     if (!/^https:\/\/iaaa\.pku\.edu\.cn\/iaaa\/oauth\.jsp/.test(window.location.href)) {
         return;
     }
@@ -1061,6 +1207,93 @@ function customizeIaaaRememberCheckbox() {
             startObserver();
         }
     }
+}
+
+/**
+ * 重构预选页面 - 包含通知区域重构
+ * 仅在 elective.pku.edu.cn 选课操作页面生效
+ */
+function refactorElectiveWorkPage() {
+    if (
+        !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/electiveWork\/(ElectiveWorkController\.jpf|election\.jsp)/.test(
+            window.location.href
+        )
+    ) {
+        return;
+    }
+
+    // 重构通知区域
+    const refactorNotice = () => {
+        // 只选择 span.errmsg 是 td 直接子元素的情况
+        const allTargetTds = document.querySelectorAll('td:has(> span.errmsg)');
+
+        allTargetTds.forEach((targetTd) => {
+            if (targetTd.dataset.pkuArtRefactored) {
+                return;
+            }
+
+            // 检查 td 是否有直接的文本节点（裸文本）
+            const hasDirectTextNode = Array.from(targetTd.childNodes).some(
+                (node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0
+            );
+            if (!hasDirectTextNode) {
+                return;
+            }
+
+            // 保存原有的 errmsg span（直接子元素）
+            const errmsgSpan = targetTd.querySelector(':scope > span.errmsg');
+            if (!errmsgSpan) {
+                return;
+            }
+
+            console.log('[PKU Art] refactorNotice() processing td at ' + new Date().toLocaleString());
+
+            // 获取 td 的文本内容（不包括 errmsg span 的内容）
+            const errmsgText = errmsgSpan.textContent.trim();
+            errmsgSpan.remove();
+            const rawText = targetTd.textContent.trim();
+
+            // 按照 （数字） 模式分割文本，并对每个部分做 trim
+            const parts = rawText
+                .split(/(?=（\d+）)/)
+                .map((p) => p.trim())
+                .filter(Boolean);
+
+            // 清空 td 内容
+            targetTd.innerHTML = '';
+
+            // 为每个部分创建 span
+            parts.forEach((part) => {
+                const trimmedPart = part.trim();
+                if (!trimmedPart) {
+                    return;
+                }
+
+                const span = document.createElement('span');
+                span.className = 'PKU-Art pku-art-elective-notice-item';
+                // 移除末尾的标点符号（，。）
+                span.textContent = trimmedPart.replace(/[，。]+$/, '');
+                targetTd.appendChild(span);
+            });
+
+            // 将原有的 errmsg span 追加到最后
+            // 同样移除末尾标点
+            errmsgSpan.textContent = errmsgText.replace(/[，。]+$/, '');
+            targetTd.appendChild(errmsgSpan);
+
+            // 标记已处理
+            targetTd.dataset.pkuArtRefactored = 'true';
+            targetTd.classList.add('PKU-Art', 'pku-art-elective-notice');
+        });
+    };
+
+    const refactor = () => {
+        refactorNotice();
+        refactorElectiveDatagrid();
+    };
+
+    refactor();
+    document.addEventListener('DOMContentLoaded', refactor);
 }
 
 /**
@@ -1330,11 +1563,12 @@ export {
     initializeDirectDownload,
     redirectGlobalMoreLink,
     enableDirectOpenLinks,
-    restoreCourseQueryValues,
-    refactorCourseQueryPagination,
-    formValueStorage,
+    manageElectiveCourseQueryForm,
     insertHTMLForDebug,
-    removeEmptyTableRows,
-    customizeIaaaRememberCheckbox,
     initializeBatchDownload,
+    refactorIaaaPage,
+    refactorElectiveFaqPage,
+    refactorElectivePlanPage,
+    refactorElectiveWorkPage,
+    refactorElectiveCourseQueryPage,
 };
