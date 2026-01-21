@@ -175,7 +175,7 @@ Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/user
 
 ## 📝 更新日志
 
-参见 [ChangeLog.md](https://github.com/zhuozhiyongde/PKU-Art/blob/main/ChangeLog.md) 或 [GitHub Release](https://github.com/zhuozhiyongde/PKU-Art/releases)。
+参见 [CHANGELOG.md](https://github.com/zhuozhiyongde/PKU-Art/blob/main/CHANGELOG.md) 或 [GitHub Release](https://github.com/zhuozhiyongde/PKU-Art/releases)。
 
 <div align="center">
   <div>

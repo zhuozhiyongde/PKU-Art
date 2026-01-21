@@ -1,4 +1,4 @@
-# ChangeLog
+# CHANGELOG
 
 **2026.01.22 - v2.6.21**
 
