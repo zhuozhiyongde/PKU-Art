@@ -333,8 +333,10 @@ const styleRules = [
     },
     {
         // https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/electiveWork/ElectiveWorkController.jpf
+        // https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/electiveWork/electCourse.do
+        // https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/electiveWork/cancelCourse.do
         patterns: [
-            /^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/electiveWork\/(ElectiveWorkController\.jpf|election\.jsp)\S*$/,
+            /^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/electiveWork\/(ElectiveWorkController\.jpf|election\.jsp|electCourse\.do|cancelCourse\.do)\S*$/,
         ],
         excludePatterns: [],
         styleContent: electiveWorkStyles,

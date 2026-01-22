@@ -1215,7 +1215,7 @@ function refactorIaaaPage() {
  */
 function refactorElectiveWorkPage() {
     if (
-        !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/electiveWork\/(ElectiveWorkController\.jpf|election\.jsp)/.test(
+        !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/electiveWork\/(ElectiveWorkController\.jpf|election\.jsp|electCourse\.do|cancelCourse\.do)\S*$/.test(
             window.location.href
         )
     ) {
