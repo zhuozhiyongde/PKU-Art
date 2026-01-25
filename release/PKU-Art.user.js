@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.6.22
+// @version      2.6.23
 // @author       Arthals
 // @description  给你一个足够好看的北大网站。
 // @license      GPL-3.0 license
@@ -19,7 +19,7 @@
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2026/01/22
+// @date         2026/01/26
 // ==/UserScript==
 
 (function () {
@@ -79,7 +79,7 @@
     /^https:\/\/iaaa\.pku\.edu\.cn\/\S*$/,
     /^https:\/\/course\.pku\.edu\.cn\/\S*$/,
     /^https:\/\/onlineroomse\.pku\.edu\.cn\/\S*$/,
-/^https:\/\/elective\.pku\.edu\.cn\/\S*$/
+    /^https:\/\/elective\.pku\.edu\.cn\/\S*$/
 
 ];
   const styleRules = [
@@ -754,21 +754,43 @@ patterns: [
   window.PKUArtThemeManager = new ThemeManager();
   const themeManager = window.PKUArtThemeManager;
   function initializeLogoNavigation() {
-    if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
+    if (!/^https:\/\/course\.pku\.edu\.cn\/|^https:\/\/elective\.pku\.edu\.cn\//.test(window.location.href)) {
       return;
     }
+    const isElectivePage = /^https:\/\/elective\.pku\.edu\.cn\//.test(window.location.href);
+    const isGoNestedPage = /goNested\.do/.test(window.location.href);
+    const isWorkPage = /(ElectiveWorkController\.jpf|election\.jsp|electCourse\.do|cancelCourse\.do)/.test(
+      window.location.href
+    );
+    const homeURL = isElectivePage ? "https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/help/HelpController.jpf" : "https://course.pku.edu.cn";
+    const getElement = () => {
+      if (isGoNestedPage) {
+        return document.body;
+      }
+      if (isWorkPage) {
+        return document.querySelector("body > #scopeOneSpan > table:first-of-type td");
+      }
+      if (isElectivePage) {
+        return document.querySelector("body > table:first-of-type td");
+      }
+      return document.getElementById("globalNavPageNavArea");
+    };
+    console.log(
+      "[PKU Art] initializeLogoNavigation() has been used at " + ( new Date()).toLocaleString() + ", isElectivePage: " + isElectivePage + ", isGoNestedPage: " + isGoNestedPage + ", isWorkPage: " + isWorkPage
+    );
     const handleLogoClick = (event) => {
       const navArea = event.currentTarget;
       const clickOffsetX = event.clientX - navArea.getBoundingClientRect().left;
-      if (clickOffsetX <= 150) {
-        window.location.href = "https://course.pku.edu.cn";
+      const clickOffsetY = event.clientY - navArea.getBoundingClientRect().top;
+      if (clickOffsetX <= 150 && clickOffsetY <= 60) {
+        window.location.href = homeURL;
       }
     };
     const bindLogoNavigation = () => {
-      const navArea = document.getElementById("globalNavPageNavArea");
-      if (navArea && !navArea.dataset.pkuArtLogoBound) {
-        navArea.addEventListener("click", handleLogoClick);
-        navArea.dataset.pkuArtLogoBound = "true";
+      const element = getElement();
+      if (element && !element.dataset.pkuArtLogoBound) {
+        element.addEventListener("click", handleLogoClick);
+        element.dataset.pkuArtLogoBound = "true";
       }
     };
     bindLogoNavigation();
@@ -890,8 +912,13 @@ patterns: [
           console.log("[PKU Art] Waiting for context menu ready...");
           if (contextMenuOpenLink.savedDiv.querySelector('li[id^="最近访问"]')) {
             clearInterval(waitForContextMenuReadyInterval);
-            contextMenuOpenLink.savedDiv.innerHTML = contextMenuOpenLink.savedDiv.innerHTML.replace(/\(\d+-\d+学年第\d学期\)/g, "");
-            const emptyMenu = contextMenuOpenLink.savedDiv.querySelector('ul[role="presentation"]:has(.contextmenu_empty)');
+            contextMenuOpenLink.savedDiv.innerHTML = contextMenuOpenLink.savedDiv.innerHTML.replace(
+              /\(\d+-\d+学年第\d学期\)/g,
+              ""
+            );
+            const emptyMenu = contextMenuOpenLink.savedDiv.querySelector(
+              'ul[role="presentation"]:has(.contextmenu_empty)'
+            );
             if (emptyMenu) {
               contextMenuOpenLink.savedDiv.removeChild(emptyMenu);
               console.log("[PKU Art] Removed empty context menu");
@@ -1434,7 +1461,9 @@ ${downloadUrl}`);
         }
         const isSinglePage = paginationTds.some((td) => td.textContent.trim().startsWith("Page 1 of 1"));
         if (isSinglePage) {
-          console.log("[PKU Art] refactorPagination() removing single page navigation at " + ( new Date()).toLocaleString());
+          console.log(
+            "[PKU Art] refactorPagination() removing single page navigation at " + ( new Date()).toLocaleString()
+          );
           paginationTds.forEach((td) => td.remove());
           table.dataset.pkuArtPaginationRefactored = "true";
           return;
@@ -1472,9 +1501,7 @@ ${downloadUrl}`);
       console.log(
         "[PKU Art] refactorTableColumns() found columns: P/NP=" + pnpColumnIndex + ", limit=" + limitColumnIndex
       );
-      const dataRows = document.querySelectorAll(
-        "table.datagrid tr:not(.datagrid-header):not(.datagrid-footer)"
-      );
+      const dataRows = document.querySelectorAll("table.datagrid tr:not(.datagrid-header):not(.datagrid-footer)");
       dataRows.forEach((row) => {
         if (row.dataset.pkuArtTableRefactored) {
           return;

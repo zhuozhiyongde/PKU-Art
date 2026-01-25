@@ -56,7 +56,6 @@ const globalStyleScopes = [
     /^https:\/\/iaaa\.pku\.edu\.cn\/\S*$/,
     /^https:\/\/course\.pku\.edu\.cn\/\S*$/,
     /^https:\/\/onlineroomse\.pku\.edu\.cn\/\S*$/,
-    // 选课网，已完成，待选课时进行验证
     /^https:\/\/elective\.pku\.edu\.cn\/\S*$/,
     // local development
     // /^file:\/\/\S*$/,

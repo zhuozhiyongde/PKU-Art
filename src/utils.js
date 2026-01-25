@@ -1,27 +1,61 @@
 import { downloadIcon, linkIcon, refreshIcon, closeIcon, validIcon, invalidIcon } from './icon.js';
 
 /**
- * Logo 导航功能 - 点击导航区域左侧 150px 以内时跳转到首页
- * 仅在 course.pku.edu.cn 域名下生效
+ * Logo 导航功能 - 点击导航区域左侧 150px 以内，且在导航区域顶部 60px 以内（Logo）时跳转到首页
+ * 仅在 course.pku.edu.cn/elective.pku.edu.cn 域名下生效
  */
 function initializeLogoNavigation() {
-    if (!/^https:\/\/course\.pku\.edu\.cn\//.test(window.location.href)) {
+    if (!/^https:\/\/course\.pku\.edu\.cn\/|^https:\/\/elective\.pku\.edu\.cn\//.test(window.location.href)) {
         return;
     }
+
+    const isElectivePage = /^https:\/\/elective\.pku\.edu\.cn\//.test(window.location.href);
+    const isGoNestedPage = /goNested\.do/.test(window.location.href);
+    const isWorkPage = /(ElectiveWorkController\.jpf|election\.jsp|electCourse\.do|cancelCourse\.do)/.test(
+        window.location.href,
+    );
+    const homeURL = isElectivePage
+        ? 'https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/help/HelpController.jpf'
+        : 'https://course.pku.edu.cn';
+
+    const getElement = () => {
+        if (isGoNestedPage) {
+            return document.body;
+        }
+        if (isWorkPage) {
+            return document.querySelector('body > #scopeOneSpan > table:first-of-type td');
+        }
+        if (isElectivePage) {
+            return document.querySelector('body > table:first-of-type td');
+        }
+        return document.getElementById('globalNavPageNavArea');
+    };
+
+    console.log(
+        '[PKU Art] initializeLogoNavigation() has been used at ' +
+            new Date().toLocaleString() +
+            ', isElectivePage: ' +
+            isElectivePage +
+            ', isGoNestedPage: ' +
+            isGoNestedPage +
+            ', isWorkPage: ' +
+            isWorkPage,
+    );
 
     const handleLogoClick = (event) => {
         const navArea = event.currentTarget;
         const clickOffsetX = event.clientX - navArea.getBoundingClientRect().left;
-        if (clickOffsetX <= 150) {
-            window.location.href = 'https://course.pku.edu.cn';
+        const clickOffsetY = event.clientY - navArea.getBoundingClientRect().top;
+        if (clickOffsetX <= 150 && clickOffsetY <= 60) {
+            window.location.href = homeURL;
         }
     };
 
     const bindLogoNavigation = () => {
-        const navArea = document.getElementById('globalNavPageNavArea');
-        if (navArea && !navArea.dataset.pkuArtLogoBound) {
-            navArea.addEventListener('click', handleLogoClick);
-            navArea.dataset.pkuArtLogoBound = 'true';
+        const element = getElement();
+        if (element && !element.dataset.pkuArtLogoBound) {
+            element.addEventListener('click', handleLogoClick);
+            element.dataset.pkuArtLogoBound = 'true';
         }
     };
 
@@ -67,7 +101,7 @@ function overrideSiteIcons() {
     const replaceIcons = () => {
         const all_icons = document.querySelectorAll('link[rel="icon" i], link[rel="shortcut icon" i]');
         const not_custom_icons = document.querySelectorAll(
-            'link[rel="icon" i]:not([href^="https://cdn.arthals.ink/"]), link[rel="shortcut icon" i]:not([href^="https://cdn.arthals.ink/"])'
+            'link[rel="icon" i]:not([href^="https://cdn.arthals.ink/"]), link[rel="shortcut icon" i]:not([href^="https://cdn.arthals.ink/"])',
         );
         if (all_icons.length == 0 || not_custom_icons.length > 0) {
             not_custom_icons.forEach((icon) => {
@@ -136,7 +170,7 @@ function removeCourseSerialNumbers() {
     if (isPortalPage) {
         const stripPortalSerials = () => {
             const courseLinks = document.querySelectorAll(
-                '.containerPortal > div:not(:first-child) .portlet .portletList-img > li > a'
+                '.containerPortal > div:not(:first-child) .portlet .portletList-img > li > a',
             );
             courseLinks.forEach((courseLink) => {
                 courseLink.innerHTML = courseLink.innerHTML
@@ -172,35 +206,39 @@ function removeCourseSerialNumbers() {
     }
 
     const removeContextMenuSerials = () => {
-        const contextMenuOpenLink = document.querySelector("#breadcrumbs .coursePath .courseArrow a")
+        const contextMenuOpenLink = document.querySelector('#breadcrumbs .coursePath .courseArrow a');
         const doRemoveContextMenuSerials = () => {
-            contextMenuOpenLink.removeEventListener('mouseover', doRemoveContextMenuSerials)
-            contextMenuOpenLink.removeEventListener('click', doRemoveContextMenuSerials)
+            contextMenuOpenLink.removeEventListener('mouseover', doRemoveContextMenuSerials);
+            contextMenuOpenLink.removeEventListener('click', doRemoveContextMenuSerials);
             const waitForContextMenuReadyInterval = setInterval(() => {
-                console.log("[PKU Art] Waiting for context menu ready...")
+                console.log('[PKU Art] Waiting for context menu ready...');
                 if (contextMenuOpenLink.savedDiv.querySelector('li[id^="最近访问"]')) {
-                    clearInterval(waitForContextMenuReadyInterval)
-                    contextMenuOpenLink.savedDiv.innerHTML = contextMenuOpenLink.savedDiv.innerHTML.replace(/\(\d+-\d+学年第\d学期\)/g, '')
-                    const emptyMenu = contextMenuOpenLink.savedDiv.querySelector('ul[role="presentation"]:has(.contextmenu_empty)')
+                    clearInterval(waitForContextMenuReadyInterval);
+                    contextMenuOpenLink.savedDiv.innerHTML = contextMenuOpenLink.savedDiv.innerHTML.replace(
+                        /\(\d+-\d+学年第\d学期\)/g,
+                        '',
+                    );
+                    const emptyMenu = contextMenuOpenLink.savedDiv.querySelector(
+                        'ul[role="presentation"]:has(.contextmenu_empty)',
+                    );
                     if (emptyMenu) {
-                        contextMenuOpenLink.savedDiv.removeChild(emptyMenu)
-                        console.log("[PKU Art] Removed empty context menu")
+                        contextMenuOpenLink.savedDiv.removeChild(emptyMenu);
+                        console.log('[PKU Art] Removed empty context menu');
                     }
                 }
-            }, 100)
-        }
+            }, 100);
+        };
         if (contextMenuOpenLink) {
-            contextMenuOpenLink.addEventListener('mouseover', doRemoveContextMenuSerials)
+            contextMenuOpenLink.addEventListener('mouseover', doRemoveContextMenuSerials);
             // if somehow the user clicks before mouseover :(
-            contextMenuOpenLink.addEventListener('click', doRemoveContextMenuSerials)
-            contextMenuOpenLink.addEventListener('click', registerCloseContextMenuOnPage)
+            contextMenuOpenLink.addEventListener('click', doRemoveContextMenuSerials);
+            contextMenuOpenLink.addEventListener('click', registerCloseContextMenuOnPage);
         }
-    }
+    };
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', removeContextMenuSerials);
-    }
-    else {
+    } else {
         removeContextMenuSerials();
     }
 }
@@ -491,7 +529,7 @@ async function initializeDirectDownload() {
                         currentDownload.abort();
                     }
                 },
-                { once: true }
+                { once: true },
             );
         } catch (error) {
             console.warn('[PKU Art] GM_download 调用失败，回退到新窗口下载', error);
@@ -680,7 +718,7 @@ function enableDirectOpenLinks() {
 function manageElectiveCourseQueryForm() {
     if (
         !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/courseQuery\/\S*$/.test(
-            window.location.href
+            window.location.href,
         )
     ) {
         return;
@@ -777,7 +815,7 @@ function manageElectiveCourseQueryForm() {
                     });
                 }
             },
-            true
+            true,
         );
 
         // 使用 MutationObserver 作为双重保险
@@ -852,7 +890,7 @@ function refactorElectiveDatagrid() {
                 const lastRow = table.querySelector('tbody > tr:last-child, tr:last-child');
                 if (lastRow) {
                     const hasPagination = [...lastRow.querySelectorAll('td')].some((td) =>
-                        /Page\s+\d+\s+of\s+\d+/.test(td.textContent)
+                        /Page\s+\d+\s+of\s+\d+/.test(td.textContent),
                     );
                     if (hasPagination) {
                         paginationRow = lastRow;
@@ -875,7 +913,9 @@ function refactorElectiveDatagrid() {
 
             if (isSinglePage) {
                 // 只有一页时，直接删除分页相关的 td
-                console.log('[PKU Art] refactorPagination() removing single page navigation at ' + new Date().toLocaleString());
+                console.log(
+                    '[PKU Art] refactorPagination() removing single page navigation at ' + new Date().toLocaleString(),
+                );
                 paginationTds.forEach((td) => td.remove());
                 table.dataset.pkuArtPaginationRefactored = 'true';
                 return;
@@ -925,13 +965,11 @@ function refactorElectiveDatagrid() {
         }
 
         console.log(
-            '[PKU Art] refactorTableColumns() found columns: P/NP=' + pnpColumnIndex + ', limit=' + limitColumnIndex
+            '[PKU Art] refactorTableColumns() found columns: P/NP=' + pnpColumnIndex + ', limit=' + limitColumnIndex,
         );
 
         // 获取所有数据行
-        const dataRows = document.querySelectorAll(
-            'table.datagrid tr:not(.datagrid-header):not(.datagrid-footer)'
-        );
+        const dataRows = document.querySelectorAll('table.datagrid tr:not(.datagrid-header):not(.datagrid-footer)');
 
         dataRows.forEach((row) => {
             if (row.dataset.pkuArtTableRefactored) {
@@ -986,7 +1024,7 @@ function refactorElectiveDatagrid() {
 function refactorElectiveCourseQueryPage() {
     if (
         !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/courseQuery\/(getCurriculmByForm\.do|queryCurriculum\.jsp)/.test(
-            window.location.href
+            window.location.href,
         )
     ) {
         return;
@@ -1003,7 +1041,7 @@ function refactorElectiveCourseQueryPage() {
 function refactorElectivePlanPage() {
     if (
         !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/electivePlan\/ElectivePlanController\.jpf/.test(
-            window.location.href
+            window.location.href,
         )
     ) {
         return;
@@ -1013,7 +1051,6 @@ function refactorElectivePlanPage() {
     document.addEventListener('DOMContentLoaded', refactorElectiveDatagrid);
 }
 
-
 /**
  * 移除空表格行 - 清理 FAQ 页面中只包含空白的表格行
  * 仅在 elective.pku.edu.cn FAQ 页面生效
@@ -1021,7 +1058,7 @@ function refactorElectivePlanPage() {
 function refactorElectiveFaqPage() {
     if (
         !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/help\/faqForUnderGrad\.jsp\S*$/.test(
-            window.location.href
+            window.location.href,
         )
     ) {
         return;
@@ -1056,7 +1093,9 @@ function insertHTMLForDebug() {
     }
 
     const debugFunc = () => {
-        const target = document.querySelector('#scopeOneSpan > table:nth-child(3) > tbody > tr:nth-child(2) > td > table > tbody > tr > td:nth-child(2)');
+        const target = document.querySelector(
+            '#scopeOneSpan > table:nth-child(3) > tbody > tr:nth-child(2) > td > table > tbody > tr > td:nth-child(2)',
+        );
         if (target) {
             // 在最开始插入 html
             target.insertAdjacentHTML('afterbegin', html_str);
@@ -1216,7 +1255,7 @@ function refactorIaaaPage() {
 function refactorElectiveWorkPage() {
     if (
         !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/electiveWork\/(ElectiveWorkController\.jpf|election\.jsp|electCourse\.do|cancelCourse\.do)\S*$/.test(
-            window.location.href
+            window.location.href,
         )
     ) {
         return;
@@ -1234,7 +1273,7 @@ function refactorElectiveWorkPage() {
 
             // 检查 td 是否有直接的文本节点（裸文本）
             const hasDirectTextNode = Array.from(targetTd.childNodes).some(
-                (node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0
+                (node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0,
             );
             if (!hasDirectTextNode) {
                 return;
@@ -1301,10 +1340,10 @@ function refactorElectiveWorkPage() {
  */
 function registerCloseContextMenuOnPage() {
     const closeContextMenu = () => {
-        page.ContextMenu.closeAllContextMenus()
-        document.removeEventListener("click", closeContextMenu)
-    }
-    document.addEventListener("click", closeContextMenu);
+        page.ContextMenu.closeAllContextMenus();
+        document.removeEventListener('click', closeContextMenu);
+    };
+    document.addEventListener('click', closeContextMenu);
 }
 
 /**
