@@ -7,8 +7,9 @@
 
 /* 背景着色，移除box-shadow,text-shadow*/
 html,
-#outer_left_stream_calendar {
-    background: var(--c-card);
+#outer_left_stream_calendar,
+body {
+    background: var(--c-card) !important;
 }
 
 * {

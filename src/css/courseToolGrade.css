@@ -21,7 +21,8 @@
 
 .stream_page_left,
 .stream_right,
-html {
+html,
+body {
     border: none !important;
     background: var(--c-card) !important;
 }
