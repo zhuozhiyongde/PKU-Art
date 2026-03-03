@@ -1080,6 +1080,18 @@ function refactorElectiveFaqPage() {
     document.addEventListener('DOMContentLoaded', removeFunc);
 }
 
+function refactorElectiveSupplementPage() {
+    if (
+        !/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/supplement\/\S*$/.test(
+            window.location.href,
+        )
+    ) {
+        return;
+    }
+    refactorElectiveDatagrid();
+    document.addEventListener('DOMContentLoaded', refactorElectiveDatagrid);
+}
+
 /**
  * 调试用 HTML 注入 - 在选课页面插入成功提示信息用于样式调试
  * 仅在开发调试时使用
@@ -1610,4 +1622,5 @@ export {
     refactorElectivePlanPage,
     refactorElectiveWorkPage,
     refactorElectiveCourseQueryPage,
+    refactorElectiveSupplementPage,
 };

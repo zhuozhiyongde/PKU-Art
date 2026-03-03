@@ -16,6 +16,7 @@ import {
     refactorElectivePlanPage,
     refactorElectiveWorkPage,
     refactorElectiveCourseQueryPage,
+    refactorElectiveSupplementPage,
 } from './utils.js';
 
 applyStylesForCurrentPage();
@@ -35,4 +36,5 @@ refactorElectiveFaqPage();
 refactorElectivePlanPage();
 refactorElectiveWorkPage();
 refactorElectiveCourseQueryPage();
+refactorElectiveSupplementPage();
 // insertHTMLForDebug();
