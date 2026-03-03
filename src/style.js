@@ -346,7 +346,7 @@ const styleRules = [
         patterns: [
             /^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/supplement\/\S*$/,
         ],
-        excludePatterns: [],
+        excludePatterns: [/^\S*goNested\.do\S*$/, /^\S*courseQuery\S*$/, /^\S*getCourseDetail\.do\S*$/],
         styleContent: electiveSupplementStyles,
         fileName: 'electiveSupplement.css',
     },
