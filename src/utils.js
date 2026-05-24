@@ -1360,7 +1360,7 @@ function registerCloseContextMenuOnPage() {
 
 /**
  * 批量下载功能 - 在 listContent 页面添加批量下载按钮
- * 使用 GM_download 逐个下载文件，不依赖 JSZip
+ * 单条批量下载直接下载文件，下载全部打包为课程名 zip
  */
 function initializeBatchDownload() {
     const url = window.location.href;
@@ -1372,10 +1372,217 @@ function initializeBatchDownload() {
 
     console.log('[PKU Art] initializeBatchDownload() initialized at ' + new Date().toLocaleString());
 
+    function sanitizeDownloadSegment(value, fallback = '未命名') {
+        const normalizedValue = (value || '').replace(/\(\d+-\d+学年第\d学期\)/g, '');
+        const sanitizedValue = normalizedValue
+            .replace(/[<>:"/\\|?*\x00-\x1f]/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .replace(/[. ]+$/g, '');
+        return sanitizedValue || fallback;
+    }
+
+    function createCrc32Table() {
+        const crcTable = new Uint32Array(256);
+        for (let i = 0; i < 256; i++) {
+            let current = i;
+            for (let bit = 0; bit < 8; bit++) {
+                current = (current & 1) ? (current >>> 1) ^ 0xEDB88320 : current >>> 1;
+            }
+            crcTable[i] = current >>> 0;
+        }
+        return crcTable;
+    }
+
+    const crc32Table = createCrc32Table();
+
+    function crc32(data) {
+        let crc = 0xFFFFFFFF;
+        for (let i = 0; i < data.length; i++) {
+            crc = (crc >>> 8) ^ crc32Table[(crc ^ data[i]) & 0xFF];
+        }
+        return (~crc) >>> 0;
+    }
+
+    function getDosDateTime(date = new Date()) {
+        const year = Math.max(1980, date.getFullYear());
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = Math.floor(date.getSeconds() / 2);
+        const dosTime = (hours << 11) | (minutes << 5) | seconds;
+        const dosDate = ((year - 1980) << 9) | (month << 5) | day;
+        return { dosTime, dosDate };
+    }
+
+    function writeUint16(view, offset, value) {
+        view.setUint16(offset, value, true);
+    }
+
+    function writeUint32(view, offset, value) {
+        view.setUint32(offset, value >>> 0, true);
+    }
+
+    function buildStoredZip(entries) {
+        const encoder = new TextEncoder();
+        const { dosTime, dosDate } = getDosDateTime();
+        const localParts = [];
+        const centralParts = [];
+        let localSize = 0;
+        let centralSize = 0;
+        let offset = 0;
+
+        entries.forEach((entry) => {
+            const fileNameBytes = encoder.encode(entry.name);
+            const fileData = entry.data;
+            const fileCrc32 = crc32(fileData);
+
+            const localHeader = new Uint8Array(30 + fileNameBytes.length);
+            const localHeaderView = new DataView(localHeader.buffer);
+            writeUint32(localHeaderView, 0, 0x04034B50);
+            writeUint16(localHeaderView, 4, 20);
+            writeUint16(localHeaderView, 6, 0x0800);
+            writeUint16(localHeaderView, 8, 0);
+            writeUint16(localHeaderView, 10, dosTime);
+            writeUint16(localHeaderView, 12, dosDate);
+            writeUint32(localHeaderView, 14, fileCrc32);
+            writeUint32(localHeaderView, 18, fileData.length);
+            writeUint32(localHeaderView, 22, fileData.length);
+            writeUint16(localHeaderView, 26, fileNameBytes.length);
+            writeUint16(localHeaderView, 28, 0);
+            localHeader.set(fileNameBytes, 30);
+            localParts.push(localHeader, fileData);
+            localSize += localHeader.length + fileData.length;
+
+            const centralHeader = new Uint8Array(46 + fileNameBytes.length);
+            const centralHeaderView = new DataView(centralHeader.buffer);
+            writeUint32(centralHeaderView, 0, 0x02014B50);
+            writeUint16(centralHeaderView, 4, 20);
+            writeUint16(centralHeaderView, 6, 20);
+            writeUint16(centralHeaderView, 8, 0x0800);
+            writeUint16(centralHeaderView, 10, 0);
+            writeUint16(centralHeaderView, 12, dosTime);
+            writeUint16(centralHeaderView, 14, dosDate);
+            writeUint32(centralHeaderView, 16, fileCrc32);
+            writeUint32(centralHeaderView, 20, fileData.length);
+            writeUint32(centralHeaderView, 24, fileData.length);
+            writeUint16(centralHeaderView, 28, fileNameBytes.length);
+            writeUint16(centralHeaderView, 30, 0);
+            writeUint16(centralHeaderView, 32, 0);
+            writeUint16(centralHeaderView, 34, 0);
+            writeUint16(centralHeaderView, 36, 0);
+            writeUint32(centralHeaderView, 38, 0);
+            writeUint32(centralHeaderView, 42, offset);
+            centralHeader.set(fileNameBytes, 46);
+            centralParts.push(centralHeader);
+            centralSize += centralHeader.length;
+
+            offset += localHeader.length + fileData.length;
+        });
+
+        const endOfCentralDirectory = new Uint8Array(22);
+        const eocdView = new DataView(endOfCentralDirectory.buffer);
+        writeUint32(eocdView, 0, 0x06054B50);
+        writeUint16(eocdView, 4, 0);
+        writeUint16(eocdView, 6, 0);
+        writeUint16(eocdView, 8, entries.length);
+        writeUint16(eocdView, 10, entries.length);
+        writeUint32(eocdView, 12, centralSize);
+        writeUint32(eocdView, 16, localSize);
+        writeUint16(eocdView, 20, 0);
+
+        const zipData = new Uint8Array(localSize + centralSize + endOfCentralDirectory.length);
+        let cursor = 0;
+        [...localParts, ...centralParts, endOfCentralDirectory].forEach((part) => {
+            zipData.set(part, cursor);
+            cursor += part.length;
+        });
+        return zipData;
+    }
+
+    function getCourseFolderName() {
+        const selectors = ['#breadcrumbs .coursePath a', '#crumb_1 a', '#breadcrumbs li a', '#courseMenu_link', '#pageTitleText'];
+        for (const selector of selectors) {
+            const candidateElements = document.querySelectorAll(selector);
+            for (const candidateElement of candidateElements) {
+                const candidateText = sanitizeDownloadSegment(candidateElement.textContent, '');
+                if (candidateText && candidateText !== '首页') {
+                    return candidateText;
+                }
+            }
+        }
+        return '课程资料';
+    }
+
+    async function resolveDownloadFileName(file) {
+        const preferredName = sanitizeDownloadSegment(file.displayName || file.name);
+        if (preferredName.match(/\.[a-zA-Z0-9]+$/)) {
+            return preferredName;
+        }
+        const fallbackName = sanitizeDownloadSegment(file.fallbackName || file.name);
+        const fallbackExtMatch = fallbackName.match(/\.[a-zA-Z0-9]+$/);
+        try {
+            const response = await fetch(file.url, {
+                method: 'HEAD',
+                credentials: 'include',
+                redirect: 'follow',
+            });
+            const resolvedUrl = response.url || file.url;
+            const resolvedPath = new URL(resolvedUrl, window.location.origin).pathname;
+            const resolvedName = decodeURIComponent(resolvedPath.split('/').pop() || '').trim();
+            const resolvedExtMatch = resolvedName.match(/\.[a-zA-Z0-9]+$/);
+            if (resolvedExtMatch && !/^xid-\d+(_\d+)?$/i.test(resolvedName)) {
+                return sanitizeDownloadSegment(`${preferredName}${resolvedExtMatch[0]}`, preferredName);
+            }
+        } catch (error) {
+            console.warn(`[PKU Art] 解析原始文件名失败: ${file.url}`, error);
+        }
+        if (fallbackExtMatch) {
+            return sanitizeDownloadSegment(`${preferredName}${fallbackExtMatch[0]}`, preferredName);
+        }
+        return preferredName || fallbackName;
+    }
+
+    async function fetchFileData(file) {
+        const response = await fetch(file.url, {
+            method: 'GET',
+            credentials: 'include',
+            redirect: 'follow',
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+        return new Uint8Array(await response.arrayBuffer());
+    }
+
+    function getUniqueFileName(fileName, fileNameCount) {
+        let uniqueFileName = fileName;
+        if (fileNameCount[uniqueFileName]) {
+            const ext = uniqueFileName.lastIndexOf('.');
+            if (ext > 0) {
+                uniqueFileName = `${uniqueFileName.substring(0, ext)}_${fileNameCount[uniqueFileName]}${uniqueFileName.substring(ext)}`;
+            } else {
+                uniqueFileName = `${uniqueFileName}_${fileNameCount[uniqueFileName]}`;
+            }
+            fileNameCount[fileName]++;
+        } else {
+            fileNameCount[fileName] = 1;
+        }
+        return uniqueFileName;
+    }
+
+    function finalizeButtonStatus(statusElement, completedLabel) {
+        statusElement.textContent = completedLabel;
+        window.setTimeout(() => {
+            statusElement.textContent = statusElement.dataset.defaultLabel || completedLabel;
+        }, 3000);
+    }
+
     /**
      * 从一个容器中提取所有文件链接
      * @param {HTMLElement} container - 要搜索的容器元素
-     * @returns {Array<{url: string, name: string}>} - 文件信息数组
+     * @returns {Array<{url: string, name: string, displayName: string, fallbackName: string}>} - 文件信息数组
      */
     function extractFileLinks(container) {
         const links = [];
@@ -1385,26 +1592,17 @@ function initializeBatchDownload() {
             const href = anchor.getAttribute('href');
             // 匹配 bbcswebdav 文件链接
             if (href && href.includes('/bbcswebdav/')) {
-                // 从 URL 中提取文件名
-                let fileName = decodeURIComponent(href.split('/').pop());
-                // 清理文件名中的查询参数
-                if (fileName.includes('?')) {
-                    fileName = fileName.split('?')[0];
+                let fallbackName = decodeURIComponent(href.split('/').pop());
+                if (fallbackName.includes('?')) {
+                    fallbackName = fallbackName.split('?')[0];
                 }
-                // 如果链接文本更有意义，优先使用
                 const linkText = anchor.textContent.trim();
-                if (linkText && !linkText.includes('http') && linkText.length < 100) {
-                    // 检查链接文本是否包含文件扩展名
-                    const extMatch = fileName.match(/\.[a-zA-Z0-9]+$/);
-                    if (extMatch && !linkText.match(/\.[a-zA-Z0-9]+$/)) {
-                        fileName = linkText + extMatch[0];
-                    } else if (linkText.match(/\.[a-zA-Z0-9]+$/)) {
-                        fileName = linkText;
-                    }
-                }
+                const displayName = linkText && !linkText.includes('http') && linkText.length < 100 ? linkText : fallbackName;
                 links.push({
                     url: href.startsWith('http') ? href : `https://course.pku.edu.cn${href}`,
-                    name: fileName,
+                    name: sanitizeDownloadSegment(displayName),
+                    displayName: sanitizeDownloadSegment(displayName),
+                    fallbackName: sanitizeDownloadSegment(fallbackName),
                 });
             }
         });
@@ -1450,6 +1648,67 @@ function initializeBatchDownload() {
         });
     }
 
+    async function downloadAllFilesAsZip(files, statusElement) {
+        if (files.length === 0) {
+            alert('没有找到可下载的文件');
+            return;
+        }
+
+        const total = files.length;
+        let completed = 0;
+        let errors = 0;
+        const fileNameCount = {};
+        const courseFolderName = getCourseFolderName();
+        const zipEntries = [];
+
+        try {
+            statusElement.textContent = `打包中: 0/${total}`;
+            for (const file of files) {
+                let fileName = await resolveDownloadFileName(file);
+                fileName = getUniqueFileName(fileName, fileNameCount);
+                try {
+                    statusElement.textContent = `打包中: ${completed}/${total} · ${fileName}`;
+                    const fileData = await fetchFileData(file);
+                    zipEntries.push({ name: fileName, data: fileData });
+                } catch (error) {
+                    console.error(`[PKU Art] 文件打包失败: ${fileName}`, error);
+                    errors++;
+                }
+                completed++;
+                statusElement.textContent = `打包中: ${completed}/${total}`;
+                if (completed < total) {
+                    await new Promise((r) => setTimeout(r, 150));
+                }
+            }
+
+            if (completed === 0 || completed === errors) {
+                finalizeButtonStatus(statusElement, `失败 (${errors}个失败)`);
+                return;
+            }
+
+            statusElement.textContent = '正在生成压缩包';
+            const zipData = buildStoredZip(zipEntries);
+            const zipName = `${sanitizeDownloadSegment(courseFolderName, '课程资料')}.zip`;
+            const zipBlob = new Blob([zipData], { type: 'application/zip' });
+            const zipUrl = URL.createObjectURL(zipBlob);
+            const link = document.createElement('a');
+            link.href = zipUrl;
+            link.download = zipName;
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.setTimeout(() => {
+                URL.revokeObjectURL(zipUrl);
+            }, 60000);
+
+            finalizeButtonStatus(statusElement, errors > 0 ? `完成 (${errors}个失败)` : '下载完成');
+        } catch (error) {
+            console.error('[PKU Art] 生成压缩包失败', error);
+            finalizeButtonStatus(statusElement, '打包失败');
+        }
+    }
+
     /**
      * 批量下载文件
      * @param {Array<{url: string, name: string}>} files - 文件信息数组
@@ -1471,19 +1730,8 @@ function initializeBatchDownload() {
         statusElement.textContent = `下载中: 0/${total}`;
 
         for (const file of files) {
-            // 处理重名文件
-            let fileName = file.name;
-            if (fileNameCount[fileName]) {
-                const ext = fileName.lastIndexOf('.');
-                if (ext > 0) {
-                    fileName = `${fileName.substring(0, ext)}_${fileNameCount[fileName]}${fileName.substring(ext)}`;
-                } else {
-                    fileName = `${fileName}_${fileNameCount[fileName]}`;
-                }
-                fileNameCount[file.name]++;
-            } else {
-                fileNameCount[file.name] = 1;
-            }
+            let fileName = await resolveDownloadFileName(file);
+            fileName = getUniqueFileName(fileName, fileNameCount);
 
             try {
                 await downloadSingleFile(file.url, fileName);
@@ -1503,15 +1751,10 @@ function initializeBatchDownload() {
         }
 
         if (errors > 0) {
-            statusElement.textContent = `完成 (${errors}个失败)`;
+            finalizeButtonStatus(statusElement, `完成 (${errors}个失败)`);
         } else {
-            statusElement.textContent = '下载完成';
+            finalizeButtonStatus(statusElement, '下载完成');
         }
-
-        // 3秒后恢复按钮状态
-        setTimeout(() => {
-            statusElement.textContent = '批量下载';
-        }, 3000);
     }
 
     /**
@@ -1528,8 +1771,8 @@ function initializeBatchDownload() {
             e.preventDefault();
             e.stopPropagation();
             const textSpan = button.querySelector('.pku-art-batch-download-text');
-            // 检查是否正在下载中
-            if (textSpan.textContent.includes('下载中') || textSpan.textContent === '下载完成') {
+            textSpan.dataset.defaultLabel = text;
+            if (textSpan.textContent !== (textSpan.dataset.defaultLabel || text)) {
                 return;
             }
             onClick(textSpan);
@@ -1571,7 +1814,7 @@ function initializeBatchDownload() {
             const allFiles = extractFileLinks(document.querySelector('#content_listContainer') || document.body);
             if (allFiles.length > 0) {
                 const btn = createDownloadButton('下载全部', (statusEl) => {
-                    downloadFiles(allFiles, statusEl);
+                    downloadAllFilesAsZip(allFiles, statusEl);
                 });
                 btn.classList.add('pku-art-download-all-btn');
                 // flex布局样式已在 courseListContent.css 中定义
