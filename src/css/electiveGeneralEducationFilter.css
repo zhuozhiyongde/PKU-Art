@@ -1,0 +1,92 @@
+/*
+ * General-education filtering logic is adapted from the MIT-licensed
+ * pku-elective-general-edu-course-sorter by meravChen (Copyright 2026).
+ */
+
+.pku-art-general-education-filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+    width: min(1200px, calc(100% - 32px));
+    padding: 12px 16px;
+    margin: 16px auto;
+    color: var(--c-text);
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 10px;
+}
+
+.pku-art-general-education-filter__title {
+    color: var(--c-title);
+    white-space: nowrap;
+}
+
+.pku-art-general-education-filter__controls {
+    display: flex;
+    flex: 1 1 420px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pku-art-general-education-filter__button {
+    padding: 5px 10px;
+    color: var(--c-accent);
+    font: inherit;
+    line-height: 1.25;
+    background: transparent;
+    border: 1px solid var(--c-accent);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.pku-art-general-education-filter__button:hover,
+.pku-art-general-education-filter__button:focus-visible {
+    color: var(--c-card);
+    background: var(--c-accent);
+}
+
+.pku-art-general-education-filter__button:focus-visible {
+    outline: 2px solid var(--c-primary) !important;
+    outline-offset: 2px;
+}
+
+.pku-art-general-education-filter__button.is-active {
+    color: var(--c-card);
+    background: var(--c-accent);
+}
+
+.pku-art-general-education-filter__button.is-empty {
+    opacity: 0.5;
+}
+
+.pku-art-general-education-filter.is-muted {
+    opacity: 0.65;
+}
+
+.pku-art-general-education-filter__button:disabled {
+    cursor: not-allowed;
+}
+
+.pku-art-general-education-filter__button:disabled:hover,
+.pku-art-general-education-filter__button:disabled:focus-visible {
+    color: var(--c-accent);
+    background: transparent;
+    outline: none !important;
+}
+
+.pku-art-general-education-filter__description {
+    flex: 1 1 100%;
+    color: var(--c-secondary);
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    .pku-art-general-education-filter {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin: 10px auto;
+    }
+}

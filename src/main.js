@@ -17,6 +17,7 @@ import {
     refactorElectiveWorkPage,
     refactorElectiveCourseQueryPage,
     refactorElectiveSupplementPage,
+    initializeGeneralEducationCourseFilter,
 } from './utils.js';
 
 applyStylesForCurrentPage();
@@ -37,4 +38,5 @@ refactorElectivePlanPage();
 refactorElectiveWorkPage();
 refactorElectiveCourseQueryPage();
 refactorElectiveSupplementPage();
+initializeGeneralEducationCourseFilter();
 // insertHTMLForDebug();

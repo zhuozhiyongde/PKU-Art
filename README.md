@@ -56,6 +56,12 @@ PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新
 
 </details>
 
+### `3` 通识课类别筛选
+
+在选课网的课程查询结果中，选择“通识课”类别后，可按“课程类别”列快速筛选通识课、一至四系列或未区分通识课。按钮数量会汇总本次查询的全部分页；筛选仅在本地隐藏当前页不匹配的课程行，不会发起选课、退课或其他请求；翻页后会保留当前选择。其他课程类别下，筛选栏会禁用。
+
+通识系列以页面中的 `通识核心课I–IV` 与 `通选课I–IV` 文字为准。若选课网没有“课程类别”列，筛选栏不会显示。
+
 ## 📦 安装
 
 > [!WARNING]
@@ -255,5 +261,7 @@ Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/user
 于是，我终于相信，这一版的 PKU Art v2，足够让我、让大家满意。
 
 ## 📋 LICENSE
+
+通识课筛选功能参考并改写自 [meravChen/pku-elective-general-edu-course-sorter](https://github.com/meravChen/pku-elective-general-edu-course-sorter)，其相关实现遵循 MIT License，Copyright (c) 2026 meravChen；完整声明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 GPL-3.0 license

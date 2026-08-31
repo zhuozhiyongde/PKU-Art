@@ -37,6 +37,7 @@ import electiveResultsStyles from './css/electiveResults.css?inline';
 import electiveHelpStyles from './css/electiveHelp.css?inline';
 import electiveDetailStyles from './css/electiveDetail.css?inline';
 import electiveCourseQueryStyles from './css/electiveCourseQuery.css?inline';
+import electiveGeneralEducationFilterStyles from './css/electiveGeneralEducationFilter.css?inline';
 import electiveFaqStyles from './css/electiveFaq.css?inline';
 import electiveWorkStyles from './css/electiveWork.css?inline';
 import electiveSupplementStyles from './css/electiveSupplement.css?inline';
@@ -86,6 +87,12 @@ const styleRules = [
         excludePatterns: [],
         styleContent: courseLoginPageStyles,
         fileName: 'courseLoginPage.css',
+    },
+    {
+        patterns: [/^https:\/\/elective\.pku\.edu\.cn\/elective2008\/edu\/pku\/stu\/elective\/controller\/\S*$/],
+        excludePatterns: [],
+        styleContent: electiveGeneralEducationFilterStyles,
+        fileName: 'electiveGeneralEducationFilter.css',
     },
     {
         patterns: [

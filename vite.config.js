@@ -13,6 +13,7 @@ const date = new Date().toLocaleDateString('zh-CN', {
 
 // 读取并解析 version.env 文件
 const envConfig = dotenv.parse(fs.readFileSync('.env'));
+const userscriptUrl = process.env.PKU_ART_USERSCRIPT_URL || 'https://cdn.arthals.ink/release/PKU-Art.user.js';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -34,8 +35,10 @@ export default defineConfig({
                 'run-at': 'document-start',
                 'inject-into': 'page',
                 version: envConfig.VERSION,
-                updateURL: 'https://cdn.arthals.ink/release/PKU-Art.user.js',
-                downloadURL: 'https://cdn.arthals.ink/release/PKU-Art.user.js',
+                // A PR test build may override this with its immutable test artifact.
+                // The official release keeps the upstream CDN URL above as the default.
+                updateURL: userscriptUrl,
+                downloadURL: userscriptUrl,
                 supportURL: 'https://github.com/zhuozhiyongde/PKU-Art/issues',
                 connect: ['pku.edu.cn'],
                 license: 'GPL-3.0 license',
