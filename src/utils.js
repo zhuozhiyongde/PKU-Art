@@ -84,6 +84,7 @@ function ensureSidebarVisible() {
     };
 
     resetNavigationPane();
+    document.addEventListener('DOMContentLoaded', resetNavigationPane);
     window.addEventListener('resize', resetNavigationPane);
 }
 
@@ -99,6 +100,10 @@ function overrideSiteIcons() {
     console.log('[PKU Art] overrideSiteIcons() has been used at ' + new Date().toLocaleString());
 
     const replaceIcons = () => {
+        if (!document.head) {
+            return;
+        }
+
         const all_icons = document.querySelectorAll('link[rel="icon" i], link[rel="shortcut icon" i]');
         const not_custom_icons = document.querySelectorAll(
             'link[rel="icon" i]:not([href^="https://cdn.arthals.ink/"]), link[rel="shortcut icon" i]:not([href^="https://cdn.arthals.ink/"])',
@@ -212,7 +217,7 @@ function removeCourseSerialNumbers() {
             contextMenuOpenLink.removeEventListener('click', doRemoveContextMenuSerials);
             const waitForContextMenuReadyInterval = setInterval(() => {
                 console.log('[PKU Art] Waiting for context menu ready...');
-                if (contextMenuOpenLink.savedDiv.querySelector('li[id^="最近访问"]')) {
+                if (contextMenuOpenLink.savedDiv?.querySelector('li[id^="最近访问"]')) {
                     clearInterval(waitForContextMenuReadyInterval);
                     contextMenuOpenLink.savedDiv.innerHTML = contextMenuOpenLink.savedDiv.innerHTML.replace(
                         /\(\d+-\d+学年第\d学期\)/g,
@@ -727,7 +732,7 @@ function manageElectiveCourseQueryForm() {
     console.log('[PKU Art] manageElectiveCourseQueryForm() has been used at ' + new Date().toLocaleString());
 
     const STORAGE_KEY = 'pku_elective_form_values';
-    const form = document.getElementById('qyForm');
+    let form;
 
     // ========== 辅助函数 ==========
 
@@ -863,8 +868,17 @@ function manageElectiveCourseQueryForm() {
     }
 
     // ========== 初始化 ==========
-    setupRadioSwitchPreservation();
-    setupLocalStoragePersistence();
+    const initializeForm = () => {
+        form = document.getElementById('qyForm');
+        setupRadioSwitchPreservation();
+        setupLocalStoragePersistence();
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeForm);
+    } else {
+        initializeForm();
+    }
 }
 
 /**
