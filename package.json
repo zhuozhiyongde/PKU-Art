@@ -5,9 +5,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "uv run update-cdn.py build",
-        "preview": "vite preview",
-        "release": "uv run update-cdn.py update"
+        "build": "vite build",
+        "preview": "vite preview"
     },
     "devDependencies": {
         "dotenv": "^16.4.5",
