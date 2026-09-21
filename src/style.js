@@ -357,6 +357,11 @@ function matchesAnyPattern(patterns, url) {
 }
 
 function applyStylesForCurrentPage(url = currentUrl) {
+    if (!document.head) {
+        requestAnimationFrame(() => applyStylesForCurrentPage(url));
+        return;
+    }
+
     styleRules.forEach(({ patterns, excludePatterns, styleContent, fileName }) => {
         if (matchesAnyPattern(patterns, url) && !matchesAnyPattern(excludePatterns, url)) {
             injectStyles(styleContent, fileName);
