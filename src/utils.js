@@ -1,4 +1,5 @@
 import { downloadIcon, linkIcon, refreshIcon, closeIcon, validIcon, invalidIcon } from './icon.js';
+import { createMp4Writer } from './hls-mp4.js';
 
 /**
  * Logo 导航功能 - 点击导航区域左侧 150px 以内，且在导航区域顶部 60px 以内（Logo）时跳转到首页
@@ -407,6 +408,8 @@ async function resolveHlsMediaPlaylist(playlistUrl, signal, depth = 0) {
             }
         } else if (line.startsWith('#EXTINF:')) {
             pendingDuration = Number.parseFloat(line.slice('#EXTINF:'.length)) || 0;
+        } else if (line === '#EXT-X-DISCONTINUITY') {
+            throw new Error('暂不支持含时间轴中断的 HLS 录播导出 MP4');
         } else if (line.startsWith('#EXT-X-BYTERANGE:') || line.startsWith('#EXT-X-MAP:')) {
             throw new Error('暂不支持 Byte Range 或 fMP4 格式的 HLS 录播');
         } else if (!line.startsWith('#')) {
@@ -448,22 +451,31 @@ async function cleanStaleHlsFiles(root) {
 
 async function createHlsOutput(fileName) {
     if (window.top === window.self && typeof window.showSaveFilePicker === 'function') {
-        const fileHandle = await window.showSaveFilePicker({
-            suggestedName: fileName,
-            types: [
-                {
-                    description: 'MPEG-TS 视频',
-                    accept: { 'video/mp2t': ['.ts'] },
-                },
-            ],
-        });
-        const writable = await fileHandle.createWritable();
-        return {
-            type: 'file-picker',
-            write: (chunk) => writable.write(chunk),
-            close: () => writable.close(),
-            abort: () => writable.abort(),
-        };
+        let fileHandle;
+        try {
+            fileHandle = await window.showSaveFilePicker({
+                suggestedName: fileName,
+                types: [
+                    {
+                        description: 'MP4 视频',
+                        accept: { 'video/mp4': ['.mp4'] },
+                    },
+                ],
+            });
+        } catch (error) {
+            // Some userscript sandboxes expose the picker with an incompatible Window
+            // receiver. Fall back to OPFS, but preserve user cancellation and other errors.
+            if (error?.name !== 'TypeError' || !/Illegal invocation/i.test(error.message)) throw error;
+        }
+        if (fileHandle) {
+            const writable = await fileHandle.createWritable();
+            return {
+                type: 'file-picker',
+                write: (chunk) => writable.write(chunk),
+                close: () => writable.close(),
+                abort: () => writable.abort(),
+            };
+        }
     }
 
     if (!navigator.storage?.getDirectory) {
@@ -472,7 +484,7 @@ async function createHlsOutput(fileName) {
 
     const root = await navigator.storage.getDirectory();
     void cleanStaleHlsFiles(root);
-    const tempName = `${HLS_TEMP_FILE_PREFIX}${Date.now()}-${crypto.randomUUID?.() || Math.random()}.ts`;
+    const tempName = `${HLS_TEMP_FILE_PREFIX}${Date.now()}-${crypto.randomUUID?.() || Math.random()}.mp4`;
     const fileHandle = await root.getFileHandle(tempName, { create: true });
     const writable = await fileHandle.createWritable();
     let isClosed = false;
@@ -516,6 +528,7 @@ async function createHlsOutput(fileName) {
 
 async function downloadHlsVideo({ playlistUrl, fileName, signal, onProgress }) {
     const output = await createHlsOutput(fileName);
+    let mp4Writer;
     let outputClosed = false;
     const requestController = new AbortController();
     const forwardAbort = () => requestController.abort(signal.reason);
@@ -527,6 +540,7 @@ async function downloadHlsVideo({ playlistUrl, fileName, signal, onProgress }) {
     const requestSignal = requestController.signal;
 
     try {
+        mp4Writer = createMp4Writer(output);
         onProgress({ stage: '正在读取视频信息…' });
         const { segments } = await resolveHlsMediaPlaylist(playlistUrl, requestSignal);
         const keyPromises = new Map();
@@ -637,14 +651,15 @@ async function downloadHlsVideo({ playlistUrl, fileName, signal, onProgress }) {
             }
             segmentDownloads[index] = null;
 
-            await output.write(chunk);
+            await mp4Writer.write(chunk);
             downloadedBytes += chunk.byteLength;
             completedSegments += 1;
 
-            reportProgress('正在下载视频分片…');
+            reportProgress('正在下载并封装 MP4…');
         }
 
-        onProgress({ stage: '正在保存 TS 文件…' });
+        if (signal.aborted) throw new DOMException('下载已取消', 'AbortError');
+        onProgress({ stage: '正在保存 MP4 文件…' });
         await output.close();
         outputClosed = true;
         return { outputType: output.type, downloadedBytes, segmentCount: segments.length };
@@ -655,13 +670,14 @@ async function downloadHlsVideo({ playlistUrl, fileName, signal, onProgress }) {
         }
         throw error;
     } finally {
+        mp4Writer?.dispose();
         signal.removeEventListener('abort', forwardAbort);
     }
 }
 
 /**
  * 直接下载功能 - 在录播播放页面注入下载按钮和复制链接功能
- * MP4 仍使用 GM_download；HLS 录播按网页播放链路拉取、解密并流式合并为 MPEG-TS。
+ * MP4 仍使用 GM_download；HLS 录播按网页播放链路拉取、解密并流式封装为 MP4。
  * 仅在 onlineroomse.pku.edu.cn/player 页面生效
  */
 async function initializeDirectDownload() {
@@ -749,7 +765,7 @@ async function initializeDirectDownload() {
                     }
                     isHls = playback?.is_m3u8 === 'yes' || /\.m3u8(?:$|\?)/i.test(downloadUrl);
                     fileName = sanitizeFileName(
-                        `${courseName} - ${subTitle} - ${lecturerName}.${isHls ? 'ts' : 'mp4'}`,
+                        `${courseName} - ${subTitle} - ${lecturerName}.mp4`,
                     );
                     console.log('[PKU Art] 下载链接解析成功：\n', downloadUrl);
                 } catch (error) {
@@ -950,7 +966,7 @@ async function initializeDirectDownload() {
                   .join('')}</div>`
             : '';
         const noticeMarkup = isHls
-            ? '<div class="PKU-Art inject-download-notice">自 2026 年 09 月开始，教学网对视频进行了加密，下载速度和稳定性可能有所下降，且只能下载 .ts 格式（需要使用 IINA 或 VLC 等播放器播放）。</div>'
+            ? '<div class="PKU-Art inject-download-notice">加密录播将边下载边无损封装为 MP4，下载过程中请保持本页面打开。</div>'
             : '';
         downloadTipText.innerHTML = `
 <div class="PKU-Art inject-download-status-title">${escapeHtml(title)}</div>
@@ -990,7 +1006,7 @@ ${noticeMarkup}`;
         restartBtn.disabled = true;
         renderDownloadStatus({
             title: '正在准备下载…',
-            detail: isHls ? '将保存为 TS 文件；下载过程中请保持本页面打开。' : '下载过程中请保持本页面打开。',
+            detail: isHls ? '将保存为 MP4 文件；下载过程中请保持本页面打开。' : '下载过程中请保持本页面打开。',
             renameEnabled,
         });
 

@@ -54,7 +54,9 @@ PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新
 
 ![7](https://cdn.arthals.ink/bed/2025/11/7-04e26f6488aa1ea63f5929ccc5654e93.jpg)
 
-2026 年 09 月后，新版录播采用 AES-128 加密的 HLS 分片，后端不再提供可直接下载的单个 MP4。PKU Art 会按网页播放器使用的登录态逐段下载、解密，并以流式方式写入本地，最终保存为 `.ts` 文件；下载过程中请勿关闭录播页面。TS 文件可直接使用 VLC、IINA 等播放器播放，也可以无损封装为 MP4：
+2026 年 09 月后，新版录播采用 AES-128 加密的 HLS 分片，后端不再提供可直接下载的单个 MP4。PKU Art 会逐段下载、解密，再通过内置的 mux.js 无损封装为 `.mp4` 文件（fragmented MP4）。不重新编码，不需要安装 FFmpeg；下载过程中请勿关闭录播页面。分片依次封装并写入磁盘，不在内存中保存整段课程。
+
+支持 H.264/AAC 的 MPEG-TS 分片；暂不支持时间轴中断、编码参数变化、Byte Range 或 fMP4 输入。旧的 TS 文件仍可使用本机 FFmpeg 无损封装：
 
 ```bash
 ffmpeg -i input.ts -c copy output.mp4
@@ -112,7 +114,7 @@ PKU Art 目前只支持 JavaScript 安装方式，兼容 Safari 与 Chrome（Edg
 
 > [!IMPORTANT]
 >
-> Safari 下推荐使用 TamperMonkey 插件，因为 UserScripts 插件在 Safari 下存在一些已知问题（插件功能支持有限，为了规避 CSP 限制启用了 `@inject-into page`，导致 GM API 完全不可用，且即使可用也未提供 `GM_download` API），导致不能实现普通 MP4 录播的自动重命名、复制视频下载链接等；HLS 录播仍可逐段下载并保存为 TS 文件。
+> Safari 下推荐使用 TamperMonkey 插件，因为 UserScripts 插件在 Safari 下存在一些已知问题（插件功能支持有限，为了规避 CSP 限制启用了 `@inject-into page`，导致 GM API 完全不可用，且即使可用也未提供 `GM_download` API），导致不能实现普通 MP4 录播的自动重命名、复制视频下载链接等；HLS 录播仍可逐段下载并封装为 MP4 文件。
 >
 > **注意，无论你选择 UserScripts 还是 TamperMonkey，请都在设置里对扩展的「编辑网站」打开「在每个网站上始终允许」，从而确保一定能对页面完成修改。**
 >
