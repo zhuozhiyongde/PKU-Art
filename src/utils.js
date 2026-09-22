@@ -311,10 +311,15 @@ async function fetchHlsResource(url, signal, responseType = 'arrayBuffer', optio
         const attemptController = new AbortController();
         const forwardAbort = () => attemptController.abort(signal.reason);
         signal?.addEventListener('abort', forwardAbort, { once: true });
-        const timeout = setTimeout(
-            () => attemptController.abort(new DOMException('HLS 请求超时', 'TimeoutError')),
-            requestTimeout,
-        );
+        let timeout;
+        const resetTimeout = () => {
+            clearTimeout(timeout);
+            timeout = setTimeout(
+                () => attemptController.abort(new DOMException('HLS 请求超时', 'TimeoutError')),
+                requestTimeout,
+            );
+        };
+        resetTimeout();
         try {
             // 播放列表和分片本身不需要登录态。首次请求仍复用快速的粘滞节点；
             // 一旦失败，后续请求不携带 HttpOnly INGRESSCOOKIE，避免一直命中故障节点。
@@ -328,7 +333,28 @@ async function fetchHlsResource(url, signal, responseType = 'arrayBuffer', optio
                 error.httpStatus = response.status;
                 throw error;
             }
-            return responseType === 'text' ? await response.text() : await response.arrayBuffer();
+            if (responseType === 'text') return await response.text();
+
+            // requestTimeout 表示等待响应或连续无数据的时间，而不是整个下载的总时长。
+            // 资源服务器繁忙时，分片传输可能超过 30 秒；只要仍在收到数据就不应中断重试。
+            const reader = response.body?.getReader();
+            if (!reader) return await response.arrayBuffer();
+            const chunks = [];
+            let totalBytes = 0;
+            while (true) {
+                resetTimeout();
+                const { done, value } = await reader.read();
+                if (done) break;
+                chunks.push(value);
+                totalBytes += value.byteLength;
+            }
+            const result = new Uint8Array(totalBytes);
+            let offset = 0;
+            for (const chunk of chunks) {
+                result.set(chunk, offset);
+                offset += chunk.byteLength;
+            }
+            return result.buffer;
         } catch (error) {
             if (error.name === 'AbortError' || signal?.aborted) {
                 throw error;
@@ -547,7 +573,8 @@ async function downloadHlsVideo({ playlistUrl, fileName, signal, onProgress }) {
         let downloadedBytes = 0;
         let completedSegments = 0;
         const startedAt = Date.now();
-        const concurrency = 8;
+        // 实测资源服务器在 8 路请求下首字节延迟明显升高；4 路吞吐更高且不易触发排队。
+        const concurrency = 4;
         const prefetchWindow = concurrency * 3;
 
         const reportProgress = (stage, status = 'active') => {
@@ -587,7 +614,7 @@ async function downloadHlsVideo({ playlistUrl, fileName, signal, onProgress }) {
             const encrypted = await fetchHlsResource(segment.url, requestSignal, 'arrayBuffer', {
                 maxAttempts: Number.POSITIVE_INFINITY,
                 omitCredentialsAfterFailure: true,
-                requestTimeout: 30_000,
+                requestTimeout: 90_000,
                 onRetry({ attempt, retryDelay }) {
                     reportProgress(
                         `分片 ${index + 1} 响应较慢，${Math.ceil(retryDelay / 1000)} 秒后切换节点（第 ${attempt} 次重试）…`,
@@ -595,15 +622,19 @@ async function downloadHlsVideo({ playlistUrl, fileName, signal, onProgress }) {
                     );
                 },
             });
-            if (!segment.key) {
-                return encrypted;
+            let chunk = encrypted;
+            if (segment.key) {
+                const key = await getCryptoKey(segment.key.url);
+                const iv = segment.key.iv || createHlsSequenceIv(segment.sequence);
+                chunk = await crypto.subtle.decrypt({ name: 'AES-CBC', iv }, key, encrypted);
             }
-            const key = await getCryptoKey(segment.key.url);
-            const iv = segment.key.iv || createHlsSequenceIv(segment.sequence);
-            return crypto.subtle.decrypt({ name: 'AES-CBC', iv }, key, encrypted);
+            downloadedBytes += encrypted.byteLength;
+            completedSegments += 1;
+            reportProgress('正在下载并封装 MP4…');
+            return chunk;
         };
 
-        // 8 路并发 + 24 个分片的有界预取窗口：慢分片不会立即让其他连接空闲，
+        // 4 路并发 + 12 个分片的有界预取窗口：慢分片不会立即让其他连接空闲，
         // 同时不会像一次性拉取全部分片那样无界占用内存。
         const waitingTasks = [];
         let activeTasks = 0;
@@ -652,10 +683,6 @@ async function downloadHlsVideo({ playlistUrl, fileName, signal, onProgress }) {
             segmentDownloads[index] = null;
 
             await mp4Writer.write(chunk);
-            downloadedBytes += chunk.byteLength;
-            completedSegments += 1;
-
-            reportProgress('正在下载并封装 MP4…');
         }
 
         if (signal.aborted) throw new DOMException('下载已取消', 'AbortError');
