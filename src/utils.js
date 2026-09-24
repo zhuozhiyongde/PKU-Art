@@ -1,4 +1,5 @@
 import { downloadIcon, linkIcon, refreshIcon, closeIcon, validIcon, invalidIcon } from './icon.js';
+import { exportVideoTask, rememberVideoTask } from './videoText.js';
 
 /**
  * Logo 导航功能 - 点击导航区域左侧 150px 以内，且在导航区域顶部 60px 以内（Logo）时跳转到首页
@@ -751,6 +752,7 @@ async function initializeDirectDownload() {
                     fileName = sanitizeFileName(
                         `${courseName} - ${subTitle} - ${lecturerName}.${isHls ? 'ts' : 'mp4'}`,
                     );
+                    rememberVideoTask(downloadUrl, fileName.replace(/\.(?:ts|mp4)$/i, ''));
                     console.log('[PKU Art] 下载链接解析成功：\n', downloadUrl);
                 } catch (error) {
                     console.error('[PKU Art] 录播资源地址解析失败', error);
@@ -861,6 +863,18 @@ async function initializeDirectDownload() {
     }
 
     downloadAreaFooter.appendChild(downloadButton);
+    const textButton = createFooterButton('injectTextTaskButton', '提取完整课程文字', downloadIcon);
+    textButton.onclick = async () => {
+        textButton.disabled = true;
+        try {
+            await exportVideoTask(downloadUrl, fileName);
+        } catch (error) {
+            alert(error.message);
+        } finally {
+            textButton.disabled = false;
+        }
+    };
+    downloadAreaFooter.appendChild(textButton);
     if (copyDownloadUrlButton) {
         downloadAreaFooter.appendChild(copyDownloadUrlButton);
     }

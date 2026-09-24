@@ -48,7 +48,11 @@ function injectStyles(styleString, cssFileName) {
     styleElement.dataset.author = 'Arthals';
     styleElement.className = 'PKU-Art';
 
-    document.documentElement.appendChild(styleElement);
+    if (document.documentElement) {
+        document.documentElement.appendChild(styleElement);
+    } else {
+        document.addEventListener('DOMContentLoaded', () => document.documentElement.appendChild(styleElement), { once: true });
+    }
 }
 
 const currentUrl = window.location.href;

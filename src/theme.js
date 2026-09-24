@@ -130,6 +130,10 @@ class ThemeManager {
 
     applyTheme(isDark, broadcast = true) {
         const root = document.documentElement;
+        if (!root) {
+            document.addEventListener('DOMContentLoaded', () => this.applyTheme(this.isDark), { once: true });
+            return;
+        }
 
         if (isDark) {
             root.classList.add('pku-art-dark');

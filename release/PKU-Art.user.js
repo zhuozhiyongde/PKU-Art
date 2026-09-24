@@ -1,25 +1,26 @@
 // ==UserScript==
 // @name         PKU-Art
 // @namespace    arthals/pku-art
-// @version      2.6.27
+// @version      2.6.27.1
 // @author       Arthals
 // @description  给你一个足够好看的北大网站。
 // @license      GPL-3.0 license
 // @icon         http://cdn.arthals.ink/Arthals-mcskin.png
-// @supportURL   https://github.com/zhuozhiyongde/PKU-Art/issues
-// @downloadURL  https://cdn.arthals.ink/release/PKU-Art.user.js
-// @updateURL    https://cdn.arthals.ink/release/PKU-Art.user.js
+// @supportURL   https://github.com/qingshungLI/PKU-Art/issues
+// @downloadURL  https://raw.githubusercontent.com/qingshungLI/PKU-Art/main/release/PKU-Art.user.js
+// @updateURL    https://raw.githubusercontent.com/qingshungLI/PKU-Art/main/release/PKU-Art.user.js
 // @match        *://*.pku.edu.cn/*
 // @connect      pku.edu.cn
+// @connect      127.0.0.1
 // @grant        GM_addValueChangeListener
 // @grant        GM_download
 // @grant        GM_getValue
 // @grant        GM_setClipboard
 // @grant        GM_setValue
+// @grant        GM_xmlhttpRequest
 // @inject-into  page
 // @run-at       document-start
 // @author-blog  https://arthals.ink
-// @date         2026/09/21
 // ==/UserScript==
 
 (function () {
@@ -50,7 +51,7 @@
   const courseGlobalPageStyles = "body{position:relative}.brandingImgWrap,#appTabList>tbody>tr,.hideoff,#quick_links_wrap,#global-avatar,#global-toggle-img{display:none}#global-nav-link>*{display:none}#global-nav-link,#global-nav-link:hover,#global-nav-link:focus{color:transparent;overflow:hidden;width:32px;height:32px;padding:0;background:transparent;background-image:var(--i-remind)!important;background-size:80%;background-repeat:no-repeat;background-position:center center;border:none;outline:none}.global-nav-bar a.logout-link,.global-nav-bar a.logout-link:hover,.global-nav-bar a.logout-link:focus{color:transparent;width:32px;height:32px;padding:0;background:transparent;background-image:var(--i-exit)!important;background-size:80%;background-repeat:no-repeat;background-position:center center}.container,.locationPane,.contentPane{background-color:var(--c-background)}.tabWrapper-right,#globalNavPageNavArea,#topTabs{background-color:var(--c-navbar)}#globalNavPageNavArea{padding:1em 140px 1em 0;height:60px;top:0!important;box-sizing:border-box;display:flex;text-align:right;justify-content:flex-end;flex-direction:row;background-image:var(--i-logo);background-repeat:no-repeat;background-size:auto 30px;background-position:2em center;border-bottom:1px solid var(--c-border);position:fixed;width:100%;z-index:20}.tabWrapper-right,.bouncer[role=presentation]{width:fit-content}.global-nav-bar-wrap{position:fixed;z-index:30;right:50px;display:flex;justify-content:flex-end;flex-direction:row-reverse;background-color:var(--c-navbar);width:100px;height:60px;box-sizing:border-box;margin:0;padding:0;border-bottom:1px solid var(--c-border)}.global-nav-bar{margin:0;float:none;height:60px;display:flex;flex-direction:row-reverse;justify-content:center;align-items:center}.global-nav-bar:not(:first-child){margin:0 5px}table.bouncer,.appTabs td.active,.appTabs a:hover span,.appTabs a:focus span{border:none}.topTabs .tabWrapper-right{height:fit-content;padding:0}#globalNavPageNavArea a,#globalNavPageNavArea td{padding:0!important}#breadcrumbs{padding:1.2em 1em 1em;box-sizing:border-box;height:80px;margin-bottom:1em;margin-top:60px;z-index:10;color:var(--c-title);background-color:var(--c-background);display:flex;text-align:center;justify-content:center;border:none}#breadcrumbs .coursePath{padding:0;margin:0}#breadcrumbs span{font-size:18pt;color:var(--c-title);-webkit-animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1) both;animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1) both}#globalNavPageContentArea{margin-top:60px}#globalNavPageContentArea,#globalNavPageContentArea .locationPane,#contentPanel,div#content,div.container{height:fit-content!important}.locationPane{background-color:var(--c-background)}.contentPane .shadow{border:none}#pageTitleDiv{margin:0!important}#content{width:min(100%,1200px);margin:0 auto}#contentPanel{-webkit-animation:fadeInUpStablePixel .7s cubic-bezier(.215,.61,.355,1) both;animation-delay:.5s;animation:fadeInUpStablePixel .7s cubic-bezier(.215,.61,.355,1) both}.localViewToggle{display:none}#pageTitleHeader{color:var(--blue-7)!important;background-color:var(--blue-2);padding:.3em 1em;border-radius:5px;font-size:20px!important}#pageTitleHeader *{color:var(--blue-7)!important}#pageTitleText{font-weight:700}#vertical_container,#bottomButtons{display:none}#global-nav-tools{z-index:9999;height:inherit!important}#global-nav-flyout{box-shadow:none;border-radius:5px;width:40px!important;height:150px!important;transform:translateY(34px);background-color:transparent}#global-nav-tools{background-color:transparent}#global-list-tools{margin:0;box-shadow:var(--c-box-shadow);border:1px solid var(--c-border);padding:5px;border-radius:5px;background-color:var(--c-card)}#global-list-tools>.overview,#global-list-tools>.stream,#global-list-tools>.risktracker{display:none}#global-list-tools>.alerts,#global-list-tools>.grade,#global-list-tools>.calendar{background-color:var(--c-card)}#global-list-tools>.alerts>a:hover,#global-list-tools>.grades>a:hover,#global-list-tools>.calendar>a:hover{background-color:var(--c-hover)}#global-list-tools>.alerts>a{border-radius:5px;background:var(--i-alarm);background-size:60%;background-repeat:no-repeat;background-position:center center;margin:0 auto}#global-list-tools>.grades>a{border-radius:5px;background:var(--i-idcard);background-size:60%;background-repeat:no-repeat;background-position:center center;margin:0 auto}#global-list-tools>.calendar>a{border-radius:5px;background:var(--i-calendar-tab);background-size:60%;background-repeat:no-repeat;background-position:center center;margin:0 auto}#global-list-tools>.more-link>a{border-radius:5px;background:var(--i-idcard);background-size:60%;background-repeat:no-repeat;background-position:center center}#global-more-tools{display:none!important}.mybb-tools li a{opacity:1;background-color:var(--c-card)}.mybb-tools li a:focus,.mybb-tools li a:focus img{outline:none}";
   const courseGlobalAnnouncementStyles = ".announcementFilter,.announcementList{margin:0}#containerdiv{margin-top:0;padding-top:0}.announcementFilter{display:flex;align-items:center;justify-content:center;border-bottom:none;margin-bottom:10px}.announcementFilter select#searchSelectId{-webkit-appearance:none;-moz-appearance:none;appearance:none;background:var(--c-card);color:var(--c-text);border:1px solid var(--c-border);border-right:none;border-radius:5px 0 0 5px;outline:none;padding:3px 10px;box-sizing:border-box;height:30px;margin:0}.announcementFilter a.genericButton{background:var(--c-button);color:var(--c-title);border:1px solid var(--c-border);border-left:none;border-radius:0 5px 5px 0;outline:none;padding:3px 10px;box-sizing:border-box;height:30px;box-shadow:none}.announcementFilter a.genericButton:hover{background:var(--cyan-2);color:var(--cyan-6)}";
   const courseVideoPlayStyles = "#content,.container{border:none;width:auto!important}iframe{min-height:100vh;height:fit-content}";
-  const courseVideoPlayFrameStyles = 'body{position:relative}html,body,#app{background:var(--c-background)!important}.course-info__wrapper{margin-bottom:0}.course-info__header{display:flex;justify-content:center!important;align-items:center}.course-info__header span{font-weight:700;font-size:18pt;color:var(--c-title);-webkit-animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1) both;animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1) both}.course-info__wrapper .course-info__main{background:var(--c-card);padding:5px;border-radius:5px;border:1px solid var(--c-border)}.course-info__wrapper .course-info__footer{display:grid;width:min(100%,960px);grid-template-columns:repeat(3,minmax(0,1fr));justify-content:center;align-items:center;gap:10px;margin:10px auto;box-sizing:border-box}.course-info__wrapper .course-info__footer.rename-unsupported{grid-template-columns:repeat(2,minmax(0,1fr))}.course-info__wrapper .course-info__footer.hls-download{grid-template-columns:minmax(0,1fr)}.course-info__wrapper .course-info__footer.hls-download:has(#injectMagicLink){grid-template-columns:repeat(2,minmax(0,1fr))}.course-info__wrapper .course-info__footer.hls-download:not(:has(#injectMagicLink))>#injectDownloadButton{width:min(100%,360px);justify-self:center}.course-info__wrapper .course-info__footer button{background:var(--c-tip);border:none;color:var(--c-text);margin-left:0;height:35px;cursor:pointer}#injectDownloadSwitchArea{background:var(--c-tip);color:var(--c-text);padding:8px 16px;border-radius:4px;display:inline-flex;flex-direction:row;justify-content:center;align-items:center;gap:.65rem;line-height:14px;font-size:14px;box-sizing:border-box;border:none;font-weight:700;border-image-width:0;transition:.1s;height:35px!important}#injectDownloadRenameUnsupported{background:var(--c-tip);color:var(--c-text);padding:10px 20px;border-radius:4px;display:inline-flex;flex-direction:row;justify-content:center;align-items:center;gap:.5rem;height:35px;line-height:14px;font-size:14px;box-sizing:border-box;border:none;font-weight:700;grid-column:span 2}#injectDownloadRenameUnsupported .i-warning{display:inline-block;width:16px;height:16px;background-image:var(--i-warning);background-size:100% 100%;background-position:center;background-repeat:no-repeat}#injectDownloadSwitch{display:none}#injectDownloadSwitch:checked+label{background-color:var(--c-text);mask-image:var(--i-check-simple);-webkit-mask-image:var(--i-check-simple);mask-size:80% 80%;-webkit-mask-size:80% 80%;mask-position:center;-webkit-mask-position:center;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat}label[for=injectDownloadSwitch]{display:inline-block;width:16px;height:16px;background:var(--c-tip);border:1px solid var(--c-border);border-radius:4px}label[for=injectDownloadSwitch]:before{content:"";transition:.1s}#injectDownloadButton,#injectCopyDownloadUrlButton,#injectMagicLink{background:var(--c-tip);border:none;color:var(--c-text);margin-left:0;height:35px;font-size:14px;font-weight:700;border-radius:4px;display:flex;align-items:center;justify-content:center;gap:10px;width:100%}#injectDownloadButton .i-download,#injectCopyDownloadUrlButton .i-link,#injectMagicLink .i-magic{width:16px;height:16px;background-size:100% 100%;background-position:center;background-repeat:no-repeat;color:var(--c-text)}#injectDownloadTip{--download-status-color: var(--cyan-6);background:var(--c-card);border:1px solid var(--c-border);color:var(--c-text);padding:14px 16px;border-radius:6px;font-size:14px;box-sizing:border-box;transition:.1s;line-height:1.5;grid-column:1 / -1;width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;column-gap:16px;row-gap:0}#injectDownloadTip[data-state=success]{--download-status-color: var(--green-6)}#injectDownloadTip[data-state=warning]{--download-status-color: var(--orange-6)}#injectDownloadTip[data-state=error]{--download-status-color: var(--red-6)}#injectDownloadTip[data-state=neutral]{--download-status-color: var(--c-border)}#injectDownloadTipText{display:contents;min-width:0;-webkit-user-select:text;user-select:text}.inject-download-status-title{display:flex;align-items:center;gap:9px;color:var(--c-title);font-size:14px;font-weight:700;grid-column:1;grid-row:1}.inject-download-status-title:before{width:8px;height:8px;border-radius:50%;background:var(--download-status-color);content:"";flex:0 0 auto}#injectDownloadTip[data-state=active] .inject-download-status-title:before{animation:pku-art-download-pulse 1.5s ease-in-out infinite}.inject-download-status-detail{margin-top:2px;opacity:.78;overflow-wrap:anywhere;grid-column:1;grid-row:2}.inject-download-progress{width:100%;height:6px;margin-top:12px;overflow:hidden;border-radius:999px;background:var(--c-tip);grid-column:1 / -1}.inject-download-progress>span{display:block;height:100%;border-radius:inherit;background:var(--download-status-color);transition:width .2s ease}.inject-download-metrics{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:7px;font-size:12px;font-variant-numeric:tabular-nums;opacity:.82;grid-column:1 / -1}.inject-download-info{display:grid;gap:2px;margin-top:10px;padding-top:8px;border-top:1px solid var(--c-border);font-size:12px;font-weight:400;grid-column:1 / -1}.inject-download-info-row{display:grid;grid-template-columns:42px minmax(0,1fr);gap:8px;align-items:baseline}.inject-download-info-label{opacity:.62}.inject-download-file-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.inject-download-notice{margin-top:10px;padding:8px 10px;border-radius:4px;background:var(--c-tip);font-size:12px;font-weight:400;line-height:1.5;opacity:.88;grid-column:1 / -1}#injectDownloadTip a{color:var(--c-accent);text-decoration:underline}#injectDownloadTipActions{display:flex;flex-direction:row;gap:10px;flex-shrink:0;align-self:start;grid-column:2;grid-row:1 / span 2;justify-self:end}#injectDownloadTipActions button{background:var(--c-card);border:1px solid var(--c-border);color:var(--c-text);height:32px;padding:0 12px;border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;transition:.1s;white-space:nowrap;display:flex;align-items:center;gap:6px}#injectDownloadTipActions button svg{width:14px;height:14px;flex-shrink:0}#injectDownloadTipActions button:hover{background:var(--cyan-2);color:var(--cyan-6);border-color:var(--cyan-6)}#injectDownloadTipActions button:disabled{opacity:.5;cursor:not-allowed}#injectDownloadTipActions button:disabled:hover{background:var(--c-card);color:var(--c-text);border-color:var(--c-border)}#injectDownloadButton:hover,#injectCopyDownloadUrlButton:hover,#injectMagicLink:hover,#injectDownloadSwitchArea:hover{background:var(--cyan-2);color:var(--cyan-6);cursor:pointer}#injectMagicLink:hover *,#injectDownloadButton:hover *,#injectCopyDownloadUrlButton:hover *,#injectDownloadSwitchArea:hover *{background:var(--cyan-2);color:var(--cyan-6);font-weight:700;transition:.1s}#injectDownloadSwitchArea:has(#injectDownloadSwitch:checked):hover label[for=injectDownloadSwitch]{background-color:var(--cyan-6)}#injectDownloadSwitchArea:hover label[for=injectDownloadSwitch]{border-color:var(--cyan-6)}#injectDownloadUrlInput:hover::placeholder,#injectMagicLink:hover::placeholder{color:var(--cyan-6);transition:.1s}@media(max-width:680px){.course-info__wrapper .course-info__footer,.course-info__wrapper .course-info__footer.rename-unsupported{grid-template-columns:minmax(0,1fr)}.course-info__wrapper .course-info__footer.hls-download:has(#injectMagicLink){grid-template-columns:repeat(2,minmax(0,1fr))}#injectDownloadRenameUnsupported,#injectDownloadTip{grid-column:1 / -1}#injectDownloadTip{grid-template-columns:minmax(0,1fr)}#injectDownloadTipActions{grid-column:1;grid-row:3;justify-content:flex-end;justify-self:end;margin-top:10px}}@keyframes pku-art-download-pulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.82)}}';
+  const courseVideoPlayFrameStyles = 'body{position:relative}html,body,#app{background:var(--c-background)!important}.course-info__wrapper{margin-bottom:0}.course-info__header{display:flex;justify-content:center!important;align-items:center}.course-info__header span{font-weight:700;font-size:18pt;color:var(--c-title);-webkit-animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1) both;animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1) both}.course-info__wrapper .course-info__main{background:var(--c-card);padding:5px;border-radius:5px;border:1px solid var(--c-border)}.course-info__wrapper .course-info__footer{display:grid;width:min(100%,960px);grid-template-columns:repeat(3,minmax(0,1fr));justify-content:center;align-items:center;gap:10px;margin:10px auto;box-sizing:border-box}.course-info__wrapper .course-info__footer.rename-unsupported{grid-template-columns:repeat(2,minmax(0,1fr))}.course-info__wrapper .course-info__footer.hls-download{grid-template-columns:minmax(0,1fr)}.course-info__wrapper .course-info__footer.hls-download:has(#injectMagicLink){grid-template-columns:repeat(2,minmax(0,1fr))}.course-info__wrapper .course-info__footer.hls-download:not(:has(#injectMagicLink))>#injectDownloadButton{width:min(100%,360px);justify-self:center}.course-info__wrapper .course-info__footer button{background:var(--c-tip);border:none;color:var(--c-text);margin-left:0;height:35px;cursor:pointer}#injectDownloadSwitchArea{background:var(--c-tip);color:var(--c-text);padding:8px 16px;border-radius:4px;display:inline-flex;flex-direction:row;justify-content:center;align-items:center;gap:.65rem;line-height:14px;font-size:14px;box-sizing:border-box;border:none;font-weight:700;border-image-width:0;transition:.1s;height:35px!important}#injectDownloadRenameUnsupported{background:var(--c-tip);color:var(--c-text);padding:10px 20px;border-radius:4px;display:inline-flex;flex-direction:row;justify-content:center;align-items:center;gap:.5rem;height:35px;line-height:14px;font-size:14px;box-sizing:border-box;border:none;font-weight:700;grid-column:span 2}#injectDownloadRenameUnsupported .i-warning{display:inline-block;width:16px;height:16px;background-image:var(--i-warning);background-size:100% 100%;background-position:center;background-repeat:no-repeat}#injectDownloadSwitch{display:none}#injectDownloadSwitch:checked+label{background-color:var(--c-text);mask-image:var(--i-check-simple);-webkit-mask-image:var(--i-check-simple);mask-size:80% 80%;-webkit-mask-size:80% 80%;mask-position:center;-webkit-mask-position:center;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat}label[for=injectDownloadSwitch]{display:inline-block;width:16px;height:16px;background:var(--c-tip);border:1px solid var(--c-border);border-radius:4px}label[for=injectDownloadSwitch]:before{content:"";transition:.1s}#injectDownloadButton,#injectTextTaskButton,#injectCopyDownloadUrlButton,#injectMagicLink{background:var(--c-tip);border:none;color:var(--c-text);margin-left:0;height:35px;font-size:14px;font-weight:700;border-radius:4px;display:flex;align-items:center;justify-content:center;gap:10px;width:100%}#injectDownloadButton .i-download,#injectTextTaskButton .i-download,#injectCopyDownloadUrlButton .i-link,#injectMagicLink .i-magic{width:16px;height:16px;background-size:100% 100%;background-position:center;background-repeat:no-repeat;color:var(--c-text)}#injectDownloadTip{--download-status-color: var(--cyan-6);background:var(--c-card);border:1px solid var(--c-border);color:var(--c-text);padding:14px 16px;border-radius:6px;font-size:14px;box-sizing:border-box;transition:.1s;line-height:1.5;grid-column:1 / -1;width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;column-gap:16px;row-gap:0}#injectDownloadTip[data-state=success]{--download-status-color: var(--green-6)}#injectDownloadTip[data-state=warning]{--download-status-color: var(--orange-6)}#injectDownloadTip[data-state=error]{--download-status-color: var(--red-6)}#injectDownloadTip[data-state=neutral]{--download-status-color: var(--c-border)}#injectDownloadTipText{display:contents;min-width:0;-webkit-user-select:text;user-select:text}.inject-download-status-title{display:flex;align-items:center;gap:9px;color:var(--c-title);font-size:14px;font-weight:700;grid-column:1;grid-row:1}.inject-download-status-title:before{width:8px;height:8px;border-radius:50%;background:var(--download-status-color);content:"";flex:0 0 auto}#injectDownloadTip[data-state=active] .inject-download-status-title:before{animation:pku-art-download-pulse 1.5s ease-in-out infinite}.inject-download-status-detail{margin-top:2px;opacity:.78;overflow-wrap:anywhere;grid-column:1;grid-row:2}.inject-download-progress{width:100%;height:6px;margin-top:12px;overflow:hidden;border-radius:999px;background:var(--c-tip);grid-column:1 / -1}.inject-download-progress>span{display:block;height:100%;border-radius:inherit;background:var(--download-status-color);transition:width .2s ease}.inject-download-metrics{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:7px;font-size:12px;font-variant-numeric:tabular-nums;opacity:.82;grid-column:1 / -1}.inject-download-info{display:grid;gap:2px;margin-top:10px;padding-top:8px;border-top:1px solid var(--c-border);font-size:12px;font-weight:400;grid-column:1 / -1}.inject-download-info-row{display:grid;grid-template-columns:42px minmax(0,1fr);gap:8px;align-items:baseline}.inject-download-info-label{opacity:.62}.inject-download-file-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.inject-download-notice{margin-top:10px;padding:8px 10px;border-radius:4px;background:var(--c-tip);font-size:12px;font-weight:400;line-height:1.5;opacity:.88;grid-column:1 / -1}#injectDownloadTip a{color:var(--c-accent);text-decoration:underline}#injectDownloadTipActions{display:flex;flex-direction:row;gap:10px;flex-shrink:0;align-self:start;grid-column:2;grid-row:1 / span 2;justify-self:end}#injectDownloadTipActions button{background:var(--c-card);border:1px solid var(--c-border);color:var(--c-text);height:32px;padding:0 12px;border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;transition:.1s;white-space:nowrap;display:flex;align-items:center;gap:6px}#injectDownloadTipActions button svg{width:14px;height:14px;flex-shrink:0}#injectDownloadTipActions button:hover{background:var(--cyan-2);color:var(--cyan-6);border-color:var(--cyan-6)}#injectDownloadTipActions button:disabled{opacity:.5;cursor:not-allowed}#injectDownloadTipActions button:disabled:hover{background:var(--c-card);color:var(--c-text);border-color:var(--c-border)}#injectDownloadButton:hover,#injectTextTaskButton:hover,#injectCopyDownloadUrlButton:hover,#injectMagicLink:hover,#injectDownloadSwitchArea:hover{background:var(--cyan-2);color:var(--cyan-6);cursor:pointer}#injectMagicLink:hover *,#injectDownloadButton:hover *,#injectTextTaskButton:hover *,#injectCopyDownloadUrlButton:hover *,#injectDownloadSwitchArea:hover *{background:var(--cyan-2);color:var(--cyan-6);font-weight:700;transition:.1s}#injectDownloadSwitchArea:has(#injectDownloadSwitch:checked):hover label[for=injectDownloadSwitch]{background-color:var(--cyan-6)}#injectDownloadSwitchArea:hover label[for=injectDownloadSwitch]{border-color:var(--cyan-6)}#injectDownloadUrlInput:hover::placeholder,#injectMagicLink:hover::placeholder{color:var(--cyan-6);transition:.1s}@media(max-width:680px){.course-info__wrapper .course-info__footer,.course-info__wrapper .course-info__footer.rename-unsupported{grid-template-columns:minmax(0,1fr)}.course-info__wrapper .course-info__footer.hls-download:has(#injectMagicLink){grid-template-columns:repeat(2,minmax(0,1fr))}#injectDownloadRenameUnsupported,#injectDownloadTip{grid-column:1 / -1}#injectDownloadTip{grid-template-columns:minmax(0,1fr)}#injectDownloadTipActions{grid-column:1;grid-row:3;justify-content:flex-end;justify-self:end;margin-top:10px}}@keyframes pku-art-download-pulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.82)}}';
   const courseTaskStyles = "";
   const courseDiscussionStyles = `*[var=nameFormatEnum] #breadcrumbs{margin-top:0}#containerdiv form table.inventory{background-color:var(--c-card)}#conferenceFormId th,#conferenceFormId td{vertical-align:middle!important}#conferenceFormId th{background-color:var(--c-card)}.inventory>tbody tr{background:var(--c-card)!important}.inventory>tbody tr td,.inventory>tbody tr th,.inventory>thead tr th,.splashTable thead tr th{border-color:var(--c-border)!important}table.inventory>tbody tr:last-child td,table.inventory>tbody tr:last-child th{border-bottom:1px solid var(--c-border)!important}.inventory>tbody .gray td,.inventory>tbody .gray th{background-color:var(--c-hover)!important}table.inventory a.cmimg{display:none}table.inventory .vtbegenerated tbody tr td,table.inventory .vtbegenerated tbody tr th,table.reorderable .vtbegenerated tbody tr td,table.reorderable .vtbegenerated tbody tr th,table.inventory .vtbegenerated tbody tr:hover td,table.inventory .vtbegenerated tbody tr:hover th,table.reorderable .vtbegenerated tbody tr:hover td,table.reorderable .vtbegenerated tbody tr:hover th,table.reorderable .vtbegenerated tbody tr:hover{background:transparent!important}table.inventory .gray .vtbegenerated tbody tr td,table.inventory .gray .vtbegenerated tbody tr th,table.reorderable .gray .vtbegenerated tbody tr td,table.reorderable .gray .vtbegenerated tbody tr th,table.inventory .gray .vtbegenerated tbody tr:hover td,table.inventory .gray .vtbegenerated tbody tr:hover th,table.reorderable .gray .vtbegenerated tbody tr:hover td,table.reorderable .gray .vtbegenerated tbody tr:hover th,table.reorderable .gray .vtbegenerated tbody tr:hover{background-color:var(--c-hover)!important}table.inventory .vtbegenerated tbody tr:last-child td{border-bottom:none!important}table.inventory .unread-count:not(.none){color:#fff!important;background:#e44c47!important}table.inventory .unread-count.none{background:transparent!important;color:var(--c-text)!important}#containerdiv.container{border:1px solid var(--c-border)!important;background-color:var(--c-card)}.inventory>thead tr th.sorted,th.sorted,.splashTable thead tr th.sorted{background-color:var(--c-card)!important;color:var(--c-text)!important}.inventory>thead tr th.sorted a{color:var(--c-text)!important}.genericButton,.genericButtonImg,input[type=submit].genericButton,.browse,.browseIcon,.rumble h3+ul>li>a,.rumble_top h3+ul>li>a,.paging a,.itemHeaderControl>a,.actionMenuButton,.button-3,.button-3-img,.button-4,.button-4-img,#toolsSearchBox+.button-4,.treeContainer .tree li a.button-4-img,.rumble a,.rumble_top a,.rumble .abutton,.rumble_top .abutton{background:var(--c-button)!important;box-shadow:none!important}.nav .sub ul,.nav.gb_currView .sub>ul,.menumini ul,.quickAddPal,.keyboardAccess,span.currentTags,.liveArea,.liveArea-slim,.previewArea,.jumptopage,.panelTabs li.active a.edit,.panelTabs li.active a.edit:hover,.panelTabs li.active a.edit:focus,.flyout,.bcContent .flyout,ul.tree li a+img+a:focus,ul.tree li img+img+a:focus,div.treeContainer ul.tree li a.itemActive,#learningUnitToc ul.tree li a.itemActive,ul.tree li a.itemActive,#loginLang ul,.unread-posts,.need-moderation,.unread-replies-to-me-posts{background:var(--c-button)!important;border:1px solid var(--c-border)!important;border-radius:5px}.thread-detail-page .contentBox{background:var(--c-background)}.db-message-wrapper{box-shadow:none;background:var(--c-card);border:1px solid var(--c-border)!important;border-radius:5px}.reply-lvl-0 .message-wrapper-inner,.db-head-message .message-wrapper-inner{background:var(--c-card);border:none!important;box-shadow:none}.db-reply-block,.reply-lvl-0 .messageTemplate{border:none;box-shadow:none;background:var(--c-card)}.db-collapse-control{display:none}.reply-lvl-0 .threadButtons .browse,.threadButtons .browse,.threadButtons .reply{background:var(--c-button)!important;border:1px solid var(--c-border)!important;border-radius:5px!important;width:fit-content;height:100%;display:block;margin:0}.threadButtons{display:flex!important;flex-direction:row;width:fit-content;gap:5px}.db-message .profileCardAvatarThumb img{height:64px;width:64px;border:1px solid var(--c-border)!important;display:inline-block;padding:1px;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:10px;box-shadow:none;background:transparent}.db-message-wrapper .profileCardAvatarThumb{color:var(--c-title)!important}.profileCardAvatarThumb img{box-shadow:none;background:transparent;border:1px solid var(--c-border)!important}img[src="/images/ci/ng/default_profile_avatar.svg"]{content:var(--i-student)!important}.msg-fringe.db-message-fringe-show{display:none}#inlinePost{margin-top:30px}.steptitle,div[id*=step],div[id*=Step],#dataCollectionContainer,.container{background:var(--c-card)}div[id*=stepcontent]{background:var(--c-card)!important}input[type=text],input[type=password],select{border:1px solid var(--c-border)!important;background:var(--c-card)!important}@media screen and (prefers-color-scheme:dark){.tox.tox-tinymce{-webkit-filter:invert(100%) hue-rotate(180deg);filter:invert(100%) hue-rotate(180deg)}.tox.tox-tinymce svg{-webkit-filter:invert(100%) hue-rotate(180deg);filter:invert(100%) hue-rotate(180deg)}}.taskbuttondiv_wrapper{background:var(--c-card)}#bottom_submitButtonRow{display:flex;gap:10px}form[id=inlineMessageForm] a#submissionLink,form[id=inlineMessageForm] input[type=file],form[id=inlineMessageForm] input[type=button]{border-radius:5px;background:var(--c-button);box-shadow:none;color:var(--c-text);font-size:12px}form[id=inlineMessageForm] a#submissionLink:hover,form[id=inlineMessageForm] input[type=file]:hover,form[id=inlineMessageForm] input[type=button]:hover{background:var(--gray-2);color:var(--c-title);font-weight:700}form[id=inlineMessageForm] input[type=submit].submit{border-radius:5px;background:var(--c-primary-light);box-shadow:none;color:var(--c-primary);font-size:12px}form[id=inlineMessageForm] input[type=submit].submit:hover{background:var(--blue-2);color:var(--blue-7);font-weight:700}.nav .sub ul li a,.cmdiv a,.menumini a,#loginLang ul li a{color:var(--c-text)}div[id*=step],.submittitle,#infoStep,#taskStatusStep,#linkedContentStep,div[id*=stepcontent]{border:none!important}h3.steptitle,span.reqfield{display:none!important}.submitStepTop:has(span.reqfield:only-child){height:20px!important}input[type=text][name=title]{width:100%}input[type=checkbox]{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:16px;height:16px;background-color:var(--c-card);border:1px solid var(--c-border);border-radius:3px}input[type=checkbox]:checked{background-color:var(--c-accent);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");background-size:80%;background-position:center;background-repeat:no-repeat}.vtbegenerated::-webkit-scrollbar{width:10px;height:10px}.vtbegenerated::-webkit-scrollbar-track{background-color:transparent}.vtbegenerated::-webkit-scrollbar{height:5px}.vtbegenerated::-webkit-scrollbar-thumb{background-color:var(--c-scrollbar);border-radius:9999px}.author_props .highlight-pop{background:var(--i-verified);background-repeat:no-repeat;background-position:center;background-size:100% 100%;width:20px;height:20px}img[src="../images/paperclip.png"]{display:none}img[src="/images/ci/ng/cal_year_event.gif"]{content:var(--i-file)}.dbAttachment{border:1px solid var(--c-border);border-radius:5px;width:fit-content;padding:3px 5px}.dbAttachment img{width:20px;height:20px}.dbAttachment:hover{background-color:var(--c-hover)}.navigationBar div>button{border:1px solid var(--c-border);display:inline-block;box-shadow:none;background:var(--c-button);border-radius:3px;color:var(--c-text);text-shadow:none;margin:0;padding:0}a.reply-count-link{bottom:3px;position:absolute;background:transparent;display:block;border-radius:3px!important;border:1px solid var(--c-border)!important}.db_msg_metadata,.reply-lvl-0 .db_msg_metadata{border:1px solid var(--c-border)!important;box-shadow:none;background:var(--c-card);border-radius:0 0 0 2px;line-height:1.5;top:3px;right:3px;min-width:140px;text-align:right}#actionbar{position:relative;padding-right:60px;box-shadow:none;opacity:1!important;background:transparent!important;border-bottom:none!important}.collapsedMessage .db-message .profileCardAvatarThumb:after{display:none}.thread-detail-page #actionbar .mainButton>a,.thread-detail-page #actionbar .secondaryButton>a{color:var(--c-text)!important}.thread-detail-page #actionbar .mainButton>a:hover,.thread-detail-page #actionbar .secondaryButton>a:hover{background:var(--c-hover)!important}.thread-detail-page #navsecondary a#refreshTreeActionButtonId:before{content:"";display:inline-block;height:20px;width:20px;background-image:var(--i-refresh);background-size:contain;background-repeat:no-repeat;background-position:center}.thread-detail-page #navsecondary #searchActionButtonId a:before{content:"";display:inline-block;height:20px;width:20px;background-image:var(--i-search);background-size:contain;background-repeat:no-repeat;background-position:center}img[src="/images/ci/actionbar/flag.gif"]{display:none}img[src="/images/ci/ng/sort_on2.gif"]{content:var(--i-arrow);width:16px;height:16px}img[src="/images/ci/ng/sort_on_up2.gif"]{content:var(--i-arrow);transform:rotate(180deg);width:16px;height:16px}`;
   const courseExternalLinkStyles = "body{height:auto}.locationPane{background-color:var(--c-background)}#pageTitleDiv,#pageTitleDiv *{color:var(--c-title)}#containerdiv{border:1px solid var(--c-border);background-color:var(--c-card);border-radius:5px;padding:20px}#containerdiv *{color:var(--c-text);font-size:14px;line-height:1.6}#containerdiv a{color:var(--blue-5)!important;text-decoration:none}";
@@ -73,7 +74,11 @@
     styleElement.dataset.cssFileName = cssFileName;
     styleElement.dataset.author = "Arthals";
     styleElement.className = "PKU-Art";
-    document.documentElement.appendChild(styleElement);
+    if (document.documentElement) {
+      document.documentElement.appendChild(styleElement);
+    } else {
+      document.addEventListener("DOMContentLoaded", () => document.documentElement.appendChild(styleElement), { once: true });
+    }
   }
   const currentUrl = window.location.href;
   const globalStyleScopes = [
@@ -393,6 +398,507 @@ patterns: [
   var _GM_getValue = (() => typeof GM_getValue != "undefined" ? GM_getValue : void 0)();
   var _GM_setClipboard = (() => typeof GM_setClipboard != "undefined" ? GM_setClipboard : void 0)();
   var _GM_setValue = (() => typeof GM_setValue != "undefined" ? GM_setValue : void 0)();
+  var _GM_xmlhttpRequest = (() => typeof GM_xmlhttpRequest != "undefined" ? GM_xmlhttpRequest : void 0)();
+  const transcriptStyles = `
+:host{--gap:12px;display:block!important;height:auto!important;min-height:0!important;grid-column:1/-1;flex:0 0 auto;margin:12px 0;color:var(--c-text,#222);font:14px/1.5 system-ui,sans-serif}
+:host(.batch-column){margin:0 10px 20px!important;color:var(--c-text,#222)}
+*{box-sizing:border-box}.panel{padding:12px;border:1px solid var(--c-border,#ccc);border-radius:6px;background:var(--c-background,#fff)}
+.batch-column-panel{padding:0;border:0;background:transparent}.batch-column-panel>summary{font-size:18px;font-weight:600}
+.batch-column-panel[open]{position:fixed;z-index:10001;top:72px;left:12px;width:min(420px,calc(100vw - 24px));max-height:calc(100vh - 84px);overflow:auto;padding:16px;border:1px solid var(--c-border,#ccc);border-radius:8px;background:var(--c-background,#fff);box-shadow:0 12px 32px rgb(0 0 0 / 24%)}
+.batch-column-panel[open]>summary{position:sticky;z-index:1;top:-16px;margin:-16px -16px 0;padding:16px;background:var(--c-background,#fff)}
+.batch-column-panel .row{align-items:stretch}.batch-column-panel .row button{flex:1 1 100%;width:100%}
+.row{display:flex;align-items:center;gap:var(--gap);flex-wrap:wrap}.status{flex:1 1 200px;overflow-wrap:anywhere}
+progress{width:100%;height:12px;accent-color:var(--cyan-6,#079a93)}button{min-height:36px;border:1px solid var(--c-border,#ccc);border-radius:6px;background:var(--c-tip,#eee);color:inherit;padding:6px 12px;cursor:pointer;font:inherit}
+button:disabled{opacity:.6;cursor:default}[hidden]{display:none!important}.courses{display:grid;gap:6px;margin:12px 0;max-height:260px;overflow:auto}
+label{display:flex;gap:6px;align-items:baseline;overflow-wrap:anywhere}input{accent-color:var(--cyan-6,#079a93)}ul{padding-left:20px;max-height:240px;overflow:auto}li{margin:6px 0;overflow-wrap:anywhere}summary{cursor:pointer}
+`;
+  const SERVICE = "http://127.0.0.1:8878";
+  const COURSE_ORIGIN = "https://course.pku.edu.cn";
+  const VIDEO_LIST = "/webapps/bb-streammedia-hqy-BBLEARN/videoList.action";
+  const COURSE_FLAG = "PKU_ART_BATCH_TRANSCRIPTION_ENABLED";
+  const transcriptStore = `PKU_ART_TRANSCRIPT:${location.pathname}${location.search}`;
+  let transcriptionActive = false;
+  function serviceRequest(path, method = "GET", body, plain = false, binary = false) {
+    return new Promise((resolve, reject) => _GM_xmlhttpRequest({
+      method,
+      url: SERVICE + path,
+      timeout: 15e3,
+      headers: { "Content-Type": "application/json", "X-PKU-Art": "1" },
+      responseType: binary ? "blob" : "text",
+      data: body ? JSON.stringify(body) : void 0,
+      async onload(response) {
+        try {
+          if (response.status < 200 || response.status >= 300) {
+            const text = binary ? await response.response.text() : response.responseText;
+            let message = `本地服务请求失败（${response.status}）`;
+            try {
+              message = JSON.parse(text).error || message;
+            } catch {
+            }
+            throw new Error(message);
+          }
+          resolve(binary ? response.response : plain ? response.responseText : JSON.parse(response.responseText));
+        } catch (error) {
+          reject(error);
+        }
+      },
+      onerror: () => reject(new Error("本地转写服务未连接，请启动 video-text/service.py")),
+      ontimeout: () => reject(new Error("连接本地服务超时"))
+    }));
+  }
+  function downloadBlob(blob, name) {
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = name;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1e3);
+  }
+  function transcriptPanel(anchor) {
+    let host = document.getElementById("pku-art-transcript-status");
+    if (host) return host.shadowRoot;
+    host = document.createElement("div");
+    host.id = "pku-art-transcript-status";
+    const root = host.attachShadow({ mode: "open" });
+    root.innerHTML = `<style>${transcriptStyles}</style><div class="row"><span class="status" role="status">正在连接本地服务</span><span class="percent"></span><button class="download" hidden>${downloadIcon}下载 TXT</button></div><progress max="100" aria-label="课程文字提取进度"></progress>`;
+    anchor.parentElement.appendChild(host);
+    return root;
+  }
+  async function runTranscription(prepare, anchor) {
+    if (transcriptionActive) return;
+    transcriptionActive = true;
+    anchor.disabled = true;
+    const root = transcriptPanel(anchor);
+    const status = root.querySelector(".status");
+    const bar = root.querySelector("progress");
+    const percent = root.querySelector(".percent");
+    const download = root.querySelector(".download");
+    download.hidden = true;
+    bar.removeAttribute("value");
+    percent.textContent = "";
+    try {
+      await serviceRequest("/health");
+      let job;
+      const saved = sessionStorage.getItem(transcriptStore);
+      if (saved) try {
+        job = await serviceRequest(`/jobs/${saved}`);
+      } catch {
+        sessionStorage.removeItem(transcriptStore);
+      }
+      if (!job || job.status === "error") {
+        status.textContent = "正在读取播放鉴权";
+        job = await serviceRequest("/jobs", "POST", await prepare());
+        sessionStorage.setItem(transcriptStore, job.id);
+      }
+      while (job.status !== "complete") {
+        status.textContent = job.stage;
+        bar.value = job.progress;
+        percent.textContent = `${Math.round(job.progress)}%`;
+        if (job.status === "error") throw new Error(job.stage);
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+        job = await serviceRequest(`/jobs/${job.id}`);
+      }
+      status.textContent = job.stage;
+      bar.value = 100;
+      percent.textContent = "100%";
+      download.hidden = false;
+      download.onclick = async () => {
+        download.disabled = true;
+        try {
+          const text = await serviceRequest(`/jobs/${job.id}/text`, "GET", void 0, true);
+          downloadBlob(new Blob([text], { type: "text/plain;charset=utf-8" }), `${job.title.replace(/[\\/:*?"<>|]/g, "_")}-全文.txt`);
+        } catch (error) {
+          status.textContent = error.message;
+        } finally {
+          download.disabled = false;
+        }
+      };
+    } catch (error) {
+      status.textContent = error.message;
+      bar.removeAttribute("value");
+      percent.textContent = "未完成";
+    } finally {
+      anchor.disabled = false;
+      transcriptionActive = false;
+    }
+  }
+  let playerTask;
+  function rememberVideoTask(url, title) {
+    if (mediaUrl(url)) playerTask = { url, title };
+  }
+  function mediaUrl(value) {
+    try {
+      const url = new URL(value);
+      return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+    } catch {
+      return "";
+    }
+  }
+  function createVideoTask(fallbackUrl, title) {
+    var _a, _b;
+    const sources = [...document.querySelectorAll("video, audio, video source, audio source")].map((node) => node.currentSrc || node.src);
+    const resources = performance.getEntriesByType("resource").map((entry) => entry.name).filter((url2) => /\.(m3u8|mp4|m4a|mp3|aac)(?:[?#]|$)/i.test(url2));
+    const url = [fallbackUrl, playerTask == null ? void 0 : playerTask.url, ...sources, ...resources.reverse()].map(mediaUrl).find(Boolean);
+    if (!url) throw new Error("未获取到视频地址，请在正在播放的录像页面重试。");
+    const heading = (_b = (_a = document.querySelector(".course-info__header")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim();
+    const name = (title == null ? void 0 : title.replace(/\.mp4$/i, "").trim()) || (playerTask == null ? void 0 : playerTask.title) || heading || document.title || "课程";
+    const task = { version: 1, url, title: name, referer: location.origin + location.pathname };
+    return task;
+  }
+  async function exportVideoTask(url, title) {
+    return runTranscription(() => prepareAudioTask(createVideoTask(url, title)), document.getElementById("injectTextTaskButton"));
+  }
+  async function prepareAudioTask(task) {
+    if (!new URL(task.url).pathname.endsWith(".m3u8")) return task;
+    const response = await fetch(task.url, { credentials: "include", signal: AbortSignal.timeout(3e4) });
+    if (!response.ok) throw new Error(`播放清单读取失败：${response.status}`);
+    const playlist = await response.text();
+    if (!playlist.startsWith("#EXTM3U")) throw new Error("当前资源不是 HLS 播放清单");
+    if (playlist.includes("#EXT-X-STREAM-INF:")) throw new Error("当前录像使用多码率主清单，暂不支持");
+    const keys = {};
+    for (const match of playlist.matchAll(/#EXT-X-KEY:.*?URI="([^"]+)"/g)) {
+      const keyUrl = new URL(match[1], task.url).href;
+      if (new URL(keyUrl).origin !== new URL(task.url).origin) throw new Error("不支持跨域密钥");
+      if (keys[keyUrl]) continue;
+      const keyResponse = await fetch(keyUrl, { credentials: "include", signal: AbortSignal.timeout(3e4) });
+      if (!keyResponse.ok) throw new Error(`播放鉴权失败：${keyResponse.status}`);
+      const bytes = new Uint8Array(await keyResponse.arrayBuffer());
+      if (bytes.length !== 16) throw new Error("不支持的播放密钥格式");
+      keys[keyUrl] = btoa(String.fromCharCode(...bytes));
+    }
+    return { ...task, playlist, keys };
+  }
+  function initializeVideoTextBridge() {
+    let pending;
+    if (location.hostname === "course.pku.edu.cn" && location.pathname.includes("playVideo.action")) {
+      window.addEventListener("message", (event) => {
+        var _a, _b, _c, _d;
+        if (window.parent !== window && event.source === window.parent && event.origin === location.origin && ((_a = event.data) == null ? void 0 : _a.pkuArtPrepareAudio) === true) {
+          for (const frame of document.querySelectorAll("iframe")) {
+            frame.contentWindow.postMessage({ pkuArtPrepareAudio: true }, "https://onlineroomse.pku.edu.cn");
+          }
+          return;
+        }
+        if (event.origin !== "https://onlineroomse.pku.edu.cn") return;
+        if (![...document.querySelectorAll("iframe")].some((frame) => frame.contentWindow === event.source)) return;
+        if ((_b = event.data) == null ? void 0 : _b.pkuArtAudioReady) {
+          pending == null ? void 0 : pending.resolve(event.data.pkuArtAudioReady);
+          pending = void 0;
+          if (window.parent !== window) window.parent.postMessage({ pkuArtAudioReady: event.data.pkuArtAudioReady }, location.origin);
+          return;
+        }
+        if ((_c = event.data) == null ? void 0 : _c.pkuArtAudioError) {
+          pending == null ? void 0 : pending.reject(new Error(event.data.pkuArtAudioError));
+          pending = void 0;
+          if (window.parent !== window) window.parent.postMessage({ pkuArtAudioError: event.data.pkuArtAudioError }, location.origin);
+          return;
+        }
+        const task = (_d = event.data) == null ? void 0 : _d.pkuArtVideoTask;
+        if (!task || !mediaUrl(task.url) || typeof task.title !== "string") return;
+        if (window.parent !== window) window.parent.postMessage({ pkuArtVideoTask: task }, location.origin);
+        let button = document.getElementById("pku-art-frame-transcript");
+        if (!button) {
+          button = document.createElement("button");
+          button.id = "pku-art-frame-transcript";
+          button.type = "button";
+          button.textContent = "提取完整课程文字";
+          document.body.prepend(button);
+        }
+        button.dataset.task = JSON.stringify(task);
+        button.onclick = () => {
+          runTranscription(() => new Promise((resolve, reject) => {
+            const timer = setTimeout(() => {
+              pending = void 0;
+              reject(new Error("播放鉴权超时，请重试"));
+            }, 6e4);
+            pending = { resolve: (value) => {
+              clearTimeout(timer);
+              resolve(value);
+            }, reject: (error) => {
+              clearTimeout(timer);
+              reject(error);
+            } };
+            event.source.postMessage({ pkuArtPrepareAudio: true }, event.origin);
+          }), button);
+        };
+      });
+    }
+    if (location.hostname !== "onlineroomse.pku.edu.cn") return;
+    const publish = () => {
+      try {
+        const task = createVideoTask("", "");
+        if (window.parent !== window) {
+          window.parent.postMessage({ pkuArtVideoTask: task }, "https://course.pku.edu.cn");
+        }
+      } catch {
+      }
+    };
+    setInterval(publish, 2e3);
+    window.addEventListener("message", async (event) => {
+      var _a;
+      if (event.origin !== "https://course.pku.edu.cn" || event.source !== window.parent || ((_a = event.data) == null ? void 0 : _a.pkuArtPrepareAudio) !== true) return;
+      try {
+        const task = createVideoTask("", "");
+        window.parent.postMessage({ pkuArtAudioReady: await prepareAudioTask(task) }, event.origin);
+      } catch (error) {
+        window.parent.postMessage({ pkuArtAudioError: error.message }, event.origin);
+      }
+    });
+  }
+  function courseId() {
+    return new URLSearchParams(location.search).get("course_id") || "";
+  }
+  function discoverCourses() {
+    var _a, _b;
+    const courses = new Map();
+    for (const link of document.querySelectorAll("a[href]")) {
+      let url;
+      try {
+        url = new URL(link.getAttribute("href"), location.href);
+      } catch {
+        continue;
+      }
+      if (url.origin !== COURSE_ORIGIN) continue;
+      const id = url.searchParams.get("course_id") || (/launcher$/.test(url.pathname) ? (_b = (_a = url.searchParams.get("id")) == null ? void 0 : _a.match(/_[0-9]+_1/)) == null ? void 0 : _b[0] : "");
+      const title = link.textContent.replace(/\s+/g, " ").trim();
+      if (/^_[0-9]+_1$/.test(id || "") && title && !courses.has(id)) courses.set(id, { id, title });
+    }
+    return [...courses.values()];
+  }
+  async function collectRecordings(course, signal) {
+    const first = new URL(VIDEO_LIST, COURSE_ORIGIN);
+    first.search = new URLSearchParams({ course_id: course.id, mode: "view", numResults: "1000", editPaging: "true" });
+    const pending = [first.href];
+    const visited = new Set();
+    const recordings = new Map();
+    let expected = 0;
+    while (pending.length) {
+      signal.throwIfAborted();
+      const url = pending.shift();
+      if (visited.has(url)) continue;
+      if (visited.size >= 100) throw new Error("录像分页过多，请在课程内分批处理");
+      visited.add(url);
+      const response = await fetch(url, { credentials: "include", signal });
+      if (!response.ok || new URL(response.url).origin !== COURSE_ORIGIN || !new URL(response.url).pathname.endsWith("videoList.action")) throw new Error("录像列表读取失败，请确认已登录教学网");
+      const doc = new DOMParser().parseFromString(await response.text(), "text/html");
+      const links = [...doc.querySelectorAll('a[href*="playVideo.action"]')].map((link) => {
+        var _a, _b;
+        return {
+          url: new URL(link.getAttribute("href"), response.url).href,
+          title: ((_b = (_a = link.closest("tr")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.replace(/\s+/g, " ").trim()) || "课堂回放"
+        };
+      }).filter((item) => new URL(item.url).origin === COURSE_ORIGIN);
+      const counts = [...doc.querySelectorAll('[id$="_itemcount"] strong')].map((node) => Number(node.textContent));
+      if (counts.length) expected = Math.max(expected, ...counts.filter(Number.isFinite));
+      if (!links.length && !doc.querySelector('[id$="_pagingcontrols"],#listContainer,#listContainer_databody')) {
+        throw new Error("未找到录像列表，请确认本课程已开通课堂实录");
+      }
+      for (const item of links) recordings.set(item.url, item);
+      for (const link of doc.querySelectorAll('.paging a[href],[id$="_pagingcontrols"] a[href]')) {
+        const next = new URL(link.getAttribute("href"), response.url);
+        if (next.origin === COURSE_ORIGIN && next.pathname === VIDEO_LIST && next.searchParams.get("course_id") === course.id && !link.id.endsWith("_gopaging")) pending.push(next.href);
+      }
+    }
+    if (expected > recordings.size) throw new Error(`录像列表不完整（${recordings.size}/${expected}）`);
+    return [...recordings.values()];
+  }
+  function authenticatedFrameTask(url, signal) {
+    return new Promise((resolve, reject) => {
+      const frame = document.createElement("iframe");
+      frame.hidden = true;
+      frame.src = url;
+      let requested = false;
+      const finish = (error, task) => {
+        clearTimeout(timer);
+        window.removeEventListener("message", receive);
+        signal.removeEventListener("abort", abort);
+        frame.remove();
+        if (error) reject(error);
+        else resolve(task);
+      };
+      const abort = () => finish(new Error("已停止读取回放"));
+      const timer = setTimeout(() => finish(new Error("回放认证超时，请打开该录像确认能播放")), 9e4);
+      function receive(event) {
+        var _a, _b, _c;
+        if (event.source !== frame.contentWindow || event.origin !== COURSE_ORIGIN) return;
+        if (((_a = event.data) == null ? void 0 : _a.pkuArtVideoTask) && !requested) {
+          requested = true;
+          frame.contentWindow.postMessage({ pkuArtPrepareAudio: true }, COURSE_ORIGIN);
+        }
+        if (requested && ((_b = event.data) == null ? void 0 : _b.pkuArtAudioReady)) finish(null, event.data.pkuArtAudioReady);
+        if ((_c = event.data) == null ? void 0 : _c.pkuArtAudioError) finish(new Error(event.data.pkuArtAudioError));
+      }
+      window.addEventListener("message", receive);
+      signal.addEventListener("abort", abort, { once: true });
+      if (signal.aborted) abort();
+      else document.body.appendChild(frame);
+    });
+  }
+  function createBatchPanel(inToolColumn = false) {
+    const host = document.createElement("div");
+    host.id = "pku-art-batch-panel";
+    if (inToolColumn) host.className = "portlet clearfix batch-column";
+    const root = host.attachShadow({ mode: "open" });
+    root.innerHTML = `<style>${transcriptStyles}</style><details class="panel${inToolColumn ? " batch-column-panel" : ""}"><summary>课堂回放文字 · 批量转写</summary>
+    <p>选择课程后，将未完成回放加入本机队列。提交后保持本地服务运行。</p><div class="courses"></div>
+    <div class="row"><button class="start">识别所选课程</button><button class="stop" hidden>停止读取</button><button class="refresh">刷新进度</button><button class="download" disabled>下载已完成 TXT（ZIP）</button></div>
+    <p class="status" role="status">请先选择课程。</p><progress max="100" hidden></progress><p class="queue"></p><ul class="jobs"></ul></details>`;
+    const target = inToolColumn ? document.querySelector("#column0") : document.querySelector("#contentPanel,#content,.container");
+    if (inToolColumn) target.appendChild(host);
+    else (target || document.body).prepend(host);
+    const status = root.querySelector(".status");
+    const queue = root.querySelector(".queue");
+    const start = root.querySelector(".start");
+    const stop = root.querySelector(".stop");
+    const download = root.querySelector(".download");
+    const bar = root.querySelector("progress");
+    let jobs = [];
+    let controller;
+    let timer;
+    let refreshing = false;
+    const selected = () => [...root.querySelectorAll(".courses input:checked")].map((input) => ({ id: input.value, title: input.dataset.title }));
+    const visibleJobs = () => {
+      const ids = new Set(selected().map((course) => course.id));
+      return jobs.filter((job) => ids.has(job.course_id));
+    };
+    const render = () => {
+      const visible = visibleJobs();
+      const complete = visible.filter((job) => job.status === "complete");
+      download.disabled = !complete.length;
+      queue.textContent = `${complete.length} 已完成，${visible.filter((job) => ["queued", "running"].includes(job.status)).length} 处理中，${visible.filter((job) => job.status === "error").length} 失败`;
+      root.querySelector(".jobs").replaceChildren(...visible.map((job) => Object.assign(document.createElement("li"), { textContent: `${job.title} · ${job.stage}（${Math.round(job.progress)}%）` })));
+    };
+    const refresh = async () => {
+      if (refreshing) return;
+      refreshing = true;
+      clearTimeout(timer);
+      try {
+        jobs = (await serviceRequest("/jobs")).jobs;
+        render();
+        if (root.querySelector("details").open && jobs.some((job) => ["queued", "running"].includes(job.status))) timer = setTimeout(refresh, 5e3);
+      } catch (error) {
+        queue.textContent = error.message;
+      } finally {
+        refreshing = false;
+      }
+    };
+    root.querySelector("details").ontoggle = (event) => {
+      if (inToolColumn) (event.target.open ? document.body : target).appendChild(host);
+      if (event.target.open) refresh();
+      else clearTimeout(timer);
+    };
+    root.querySelector(".refresh").onclick = refresh;
+    stop.onclick = () => controller == null ? void 0 : controller.abort();
+    start.onclick = async () => {
+      const courses = selected();
+      if (!courses.length) {
+        status.textContent = "请至少选择一门课程";
+        return;
+      }
+      controller = new AbortController();
+      start.disabled = true;
+      stop.hidden = false;
+      bar.hidden = false;
+      bar.value = 0;
+      root.querySelectorAll(".courses input").forEach((input) => {
+        input.disabled = true;
+      });
+      let submitted = 0;
+      let cached = 0;
+      const errors = [];
+      try {
+        if ((await serviceRequest("/health")).api_version !== 2) throw new Error("请更新并重启本地转写服务");
+        for (let courseIndex = 0; courseIndex < courses.length; courseIndex += 1) {
+          const course = courses[courseIndex];
+          if (controller.signal.aborted) break;
+          try {
+            status.textContent = `正在读取 ${course.title}`;
+            const recordings = await collectRecordings(course, controller.signal);
+            for (let index = 0; index < recordings.length; index += 1) {
+              const item = recordings[index];
+              if (controller.signal.aborted) break;
+              status.textContent = `${course.title} · ${index + 1}/${recordings.length}`;
+              try {
+                const task = await authenticatedFrameTask(item.url, controller.signal);
+                const job = await serviceRequest("/jobs", "POST", { ...task, course_id: course.id });
+                if (job.status === "complete") cached += 1;
+                else submitted += 1;
+              } catch (error) {
+                if (!controller.signal.aborted) errors.push(`${item.title}：${error.message}`);
+              }
+              bar.value = (courseIndex + (index + 1) / recordings.length) / courses.length * 100;
+            }
+          } catch (error) {
+            if (!controller.signal.aborted) errors.push(`${course.title}：${error.message}`);
+          }
+        }
+        status.textContent = `${controller.signal.aborted ? "已停止；" : ""}${submitted} 节已加入队列，${cached} 节已有文字${errors.length ? `，失败：${errors.join("；")}` : ""}`;
+      } catch (error) {
+        status.textContent = error.message;
+      } finally {
+        start.disabled = false;
+        stop.hidden = true;
+        controller = void 0;
+        root.querySelectorAll(".courses input").forEach((input) => {
+          input.disabled = false;
+        });
+        await refresh();
+      }
+    };
+    download.onclick = async () => {
+      download.disabled = true;
+      try {
+        const ids = visibleJobs().filter((job) => job.status === "complete").map((job) => job.id);
+        downloadBlob(await serviceRequest("/bundle", "POST", { ids }, false, true), "课程回放文字.zip");
+      } catch (error) {
+        status.textContent = error.message;
+      } finally {
+        render();
+      }
+    };
+    const known = new Set();
+    if (inToolColumn) queueMicrotask(refresh);
+    return (courses) => courses.forEach((course) => {
+      if (known.has(course.id)) return;
+      known.add(course.id);
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.value = course.id;
+      input.dataset.title = course.title;
+      input.checked = localStorage.getItem(`${COURSE_FLAG}:${course.id}`) === "1";
+      input.onchange = () => {
+        localStorage.setItem(`${COURSE_FLAG}:${course.id}`, input.checked ? "1" : "0");
+        render();
+      };
+      const label = document.createElement("label");
+      label.append(input, document.createTextNode(course.title));
+      root.querySelector(".courses").appendChild(label);
+    });
+  }
+  function initializeBatchTranscript() {
+    if (location.hostname !== "course.pku.edu.cn" || window.parent !== window) return;
+    if (document.readyState === "loading") return document.addEventListener("DOMContentLoaded", initializeBatchTranscript, { once: true });
+    if (document.getElementById("pku-art-batch-panel")) return;
+    const home = /\/webapps\/portal\//.test(location.pathname);
+    if (!home && !(/videoList\.action|courseMain/.test(location.pathname) && /^_[0-9]+_1$/.test(courseId()))) return;
+    let update;
+    let timer;
+    const scan = () => {
+      var _a;
+      const courses = discoverCourses();
+      const shown = home ? courses : [{ id: courseId(), title: ((_a = courses.find((item) => item.id === courseId())) == null ? void 0 : _a.title) || document.title }];
+      if (!shown.length) return;
+      if (!update) update = createBatchPanel(home && Boolean(document.querySelector("#column0")));
+      update(shown);
+    };
+    scan();
+    new MutationObserver(() => {
+      clearTimeout(timer);
+      timer = setTimeout(scan, 250);
+    }).observe(document.body, { childList: true, subtree: true });
+  }
   class ThemeManager {
     constructor() {
       this.themeModes = {
@@ -490,6 +996,10 @@ patterns: [
     }
     applyTheme(isDark, broadcast = true) {
       const root = document.documentElement;
+      if (!root) {
+        document.addEventListener("DOMContentLoaded", () => this.applyTheme(this.isDark), { once: true });
+        return;
+      }
       if (isDark) {
         root.classList.add("pku-art-dark");
         root.classList.remove("pku-art-light");
@@ -1390,6 +1900,7 @@ ${(lastError == null ? void 0 : lastError.message) || lastError}`);
             fileName = sanitizeFileName(
               `${courseName} - ${subTitle} - ${lecturerName}.${isHls ? "ts" : "mp4"}`
             );
+            rememberVideoTask(downloadUrl, fileName.replace(/\.(?:ts|mp4)$/i, ""));
             console.log("[PKU Art] 下载链接解析成功：\n", downloadUrl);
           } catch (error) {
             console.error("[PKU Art] 录播资源地址解析失败", error);
@@ -1484,6 +1995,18 @@ ${(lastError == null ? void 0 : lastError.message) || lastError}`);
       switchInput = downloadSwitchArea.querySelector("#injectDownloadSwitch");
     }
     downloadAreaFooter.appendChild(downloadButton);
+    const textButton = createFooterButton("injectTextTaskButton", "提取完整课程文字", downloadIcon);
+    textButton.onclick = async () => {
+      textButton.disabled = true;
+      try {
+        await exportVideoTask(downloadUrl, fileName);
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        textButton.disabled = false;
+      }
+    };
+    downloadAreaFooter.appendChild(textButton);
     if (copyDownloadUrlButton) {
       downloadAreaFooter.appendChild(copyDownloadUrlButton);
     }
@@ -2507,23 +3030,32 @@ ${downloadUrl}`);
       startObserver();
     }
   }
+  initializeVideoTextBridge();
+  initializeBatchTranscript();
   applyStylesForCurrentPage();
-  initializeThemeManager();
-  initializeThemeToggleButton();
-  initializeLogoNavigation();
-  ensureSidebarVisible();
-  overrideSiteIcons();
-  removeCourseSerialNumbers();
   initializeDirectDownload();
-  redirectGlobalMoreLink();
-  enableDirectOpenLinks();
-  manageElectiveCourseQueryForm();
-  initializeBatchDownload();
-  refactorIaaaPage();
-  refactorElectiveFaqPage();
-  refactorElectivePlanPage();
-  refactorElectiveWorkPage();
-  refactorElectiveCourseQueryPage();
-  refactorElectiveSupplementPage();
+  function initializePage() {
+    initializeThemeManager();
+    initializeThemeToggleButton();
+    initializeLogoNavigation();
+    ensureSidebarVisible();
+    overrideSiteIcons();
+    removeCourseSerialNumbers();
+    redirectGlobalMoreLink();
+    enableDirectOpenLinks();
+    manageElectiveCourseQueryForm();
+    initializeBatchDownload();
+    refactorIaaaPage();
+    refactorElectiveFaqPage();
+    refactorElectivePlanPage();
+    refactorElectiveWorkPage();
+    refactorElectiveCourseQueryPage();
+    refactorElectiveSupplementPage();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializePage, { once: true });
+  } else {
+    initializePage();
+  }
 
 })();

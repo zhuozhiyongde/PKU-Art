@@ -158,6 +158,7 @@ label[for='injectDownloadSwitch']:before {
 }
 
 #injectDownloadButton,
+#injectTextTaskButton,
 #injectCopyDownloadUrlButton,
 #injectMagicLink {
     background: var(--c-tip);
@@ -176,6 +177,7 @@ label[for='injectDownloadSwitch']:before {
 }
 
 #injectDownloadButton .i-download,
+#injectTextTaskButton .i-download,
 #injectCopyDownloadUrlButton .i-link,
 #injectMagicLink .i-magic {
     width: 16px;
@@ -386,6 +388,7 @@ label[for='injectDownloadSwitch']:before {
 }
 
 #injectDownloadButton:hover,
+#injectTextTaskButton:hover,
 #injectCopyDownloadUrlButton:hover,
 #injectMagicLink:hover,
 #injectDownloadSwitchArea:hover {
@@ -396,6 +399,7 @@ label[for='injectDownloadSwitch']:before {
 
 #injectMagicLink:hover *,
 #injectDownloadButton:hover *,
+#injectTextTaskButton:hover *,
 #injectCopyDownloadUrlButton:hover *,
 #injectDownloadSwitchArea:hover * {
     background: var(--cyan-2);

@@ -1,9 +1,12 @@
 {
     "name": "pku-art",
     "private": true,
-    "version": "0.0.0",
+    "version": "2.6.27.1",
     "type": "module",
     "scripts": {
+        "build:local": "vite build --mode local-build",
+        "build:fork": "vite build --mode fork",
+        "build:check": "vite build",
         "dev": "vite",
         "build": "uv run update-cdn.py build",
         "preview": "vite preview",

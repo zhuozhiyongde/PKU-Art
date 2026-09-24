@@ -11,6 +11,10 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+video-text/outputs/
+*.pku-video.json
+__pycache__/
+video-text/.venv/
 dist
 dist-ssr
 *.local

@@ -1,0 +1,3 @@
+faster-whisper>=1.2.1,<2
+m3u8>=6.0.0,<7
+opencc-python-reimplemented>=0.1.7,<1

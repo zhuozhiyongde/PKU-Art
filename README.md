@@ -10,6 +10,94 @@ PKU Art 是一款通过浏览器插件向页面附加的用户脚本（UserScrip
 
 PKU Art 第一版发布于 2021 年 11 月，相对简陋；2022 年暑假更新的第二版实现了对第一版完整重构，完美支持了暗色模式，并且增加了更多的交互动效和设计改进。
 
+> [!IMPORTANT]
+> 这是增加了**课堂回放本地转写**功能的 Fork。只想使用原版美化功能的同学可以按原方式安装；
+> 需要把课程录像转成 TXT 的同学，请按下面的快速部署步骤同时安装浏览器脚本和本地转写服务。
+
+## 🚀 转写版快速部署
+
+转写功能由两部分组成：Tampermonkey 中的 **PKU-Art 浏览器脚本**负责读取本人有权播放的录像，
+电脑上的 **本地转写服务**负责临时下载音频并运行 Whisper。两部分缺一不可。
+
+### 第一步：安装浏览器脚本
+
+1. 安装 [Tampermonkey](https://www.tampermonkey.net/)；Chrome/Edge 还需要在扩展管理页打开“允许运行用户脚本”。
+2. 点击 [安装 PKU-Art 转写版](https://raw.githubusercontent.com/qingshungLI/PKU-Art/main/release/PKU-Art.user.js)。
+3. 在 Tampermonkey 安装页确认版本来自 `qingshungLI/PKU-Art`，然后点击安装。
+
+> 普通使用者**不需要**安装 Node.js、Bun，也不需要自己构建 `.user.js`。
+
+### 第二步：下载本仓库
+
+不熟悉 Git 的同学可以点击仓库右上角 `Code → Download ZIP`，解压后在该目录打开终端。
+也可以执行：
+
+```bash
+git clone https://github.com/qingshungLI/PKU-Art.git
+cd PKU-Art
+```
+
+### 第三步：准备本地依赖
+
+需要安装 [Python 3.10 或更高版本](https://www.python.org/downloads/)和
+[FFmpeg](https://ffmpeg.org/download.html)。用下面三条命令确认安装成功：
+
+```bash
+python3 --version
+ffmpeg -version
+ffprobe -version
+```
+
+然后安装仓库声明的 Python 依赖。
+
+macOS / Linux：
+
+```bash
+python3 -m venv video-text/.venv
+video-text/.venv/bin/python -m pip install -r video-text/requirements.txt
+```
+
+Windows PowerShell：
+
+```powershell
+py -m venv video-text/.venv
+video-text\.venv\Scripts\python.exe -m pip install -r video-text\requirements.txt
+```
+
+所有 Python 包及版本范围都在 [`video-text/requirements.txt`](video-text/requirements.txt) 中，
+`pip install -r` 会自动安装，不需要逐个下载。
+
+### 第四步：启动转写服务
+
+macOS / Linux：
+
+```bash
+video-text/.venv/bin/python video-text/service.py
+```
+
+Windows PowerShell：
+
+```powershell
+video-text\.venv\Scripts\python.exe video-text\service.py
+```
+
+看到下面这行即表示启动成功。使用转写功能期间请保持这个终端窗口开启：
+
+```text
+PKU-Art transcription service: http://127.0.0.1:8878
+```
+
+首次识别会自动下载约 464 MB 的 Whisper `small` 模型，长期磁盘占用约 0.5 GB；
+课程音频和分块在转写完成后自动删除。本地服务只监听 `127.0.0.1`，不会开放到局域网或公网。
+
+### 第五步：开始使用
+
+- 单节录像：打开能够正常播放的课堂实录，点击“提取完整课程文字”。
+- 批量录像：进入教学网“我的主页”，在左侧“工具”下打开“课堂回放文字 · 批量转写”，选择课程后提交。
+- 任务进入队列后可以整晚运行；第二天可下载单个 TXT，或将已完成课程批量下载为 ZIP。
+
+更完整的参数、数据目录和故障说明见 [课堂转写详细文档](video-text/README.md)。
+
 <div align="center">
 
 [💫 碎碎念](#-%E7%A2%8E%E7%A2%8E%E5%BF%B5) · [✨ 功能](#-%E5%8A%9F%E8%83%BD) · [📦 安装](#-%E5%AE%89%E8%A3%85) · [🚨 使用须知](#-%E4%BD%BF%E7%94%A8%E9%A1%BB%E7%9F%A5) · [🧑‍💻 贡献](#-%E8%B4%A1%E7%8C%AE) · [📝 更新日志](#-%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97) · [💬 Q&A](#-qa) · [📜 后记](#-%E5%90%8E%E8%AE%B0) · [📋 LICENSE](#-license)
@@ -61,6 +149,13 @@ ffmpeg -i input.ts -c copy output.mp4
 ```
 
 </details>
+
+### `3` 课堂回放转写
+
+将本人可播放的课堂录像转成带时间戳的完整 TXT，支持单节提取、按课程批量排队、
+断点恢复和 ZIP 下载。音频只在本机临时处理，完成后自动删除；文字输出只进行繁体转简体，
+不会生成摘要。首次使用前需要启动本地识别服务，参见
+[课堂回放转写安装说明](video-text/README.md)。
 
 ## 📦 安装
 
@@ -135,6 +230,13 @@ Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/user
 -   [CDN for JavaScript](https://cdn.arthals.ink/release/PKU-Art.user.js)：源代码更新后立即更新
 -   [GreasyFork](https://greasyfork.org/zh-CN/scripts/436323-pku-art)：每天同步上述源一次
 
+### 安装带课堂转写功能的版本
+
+本仓库的转写版本不会使用上面的官方 CDN。请先安装 Tampermonkey，然后点击
+[安装 PKU-Art 转写版](https://raw.githubusercontent.com/qingshungLI/PKU-Art/main/release/PKU-Art.user.js)。
+浏览器脚本安装后，再按照[本地转写服务说明](video-text/README.md)安装 Python 依赖并启动服务。
+普通使用者不需要安装 Node.js、Bun，也不需要自行构建源码。
+
 ## 🚨 使用须知
 
 本脚本移除了一些我觉得没有用处的控件元素，如侧栏的收起框（这个太丑了），播放列表上方的导航栏（下方有一样的），这可能会导致一些特殊情况下，某些功能不可用（如助教功能）。你可以 **随时在插件内禁用本样式** ，以恢复到原有界面。
@@ -150,7 +252,7 @@ Safari 需安装浏览器插件 [UserScripts](https://apps.apple.com/cn/app/user
 1. 克隆本项目：
 
     ```bash
-    git clone https://github.com/zhuozhiyongde/PKU-Art.git
+    git clone https://github.com/qingshungLI/PKU-Art.git
     ```
 
 2. 进入工作目录，安装依赖：
